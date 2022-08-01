@@ -1,0 +1,219 @@
+<svg viewBox="0 0 320 140" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .time {
+      font-size:10px;
+    }
+    .t0 {
+      stroke: black;
+      fill: blue;
+      fill-opacity: 50%;
+    }
+    .timesub {
+      font-size:7px;
+    }
+    .dlline {
+      stroke-width: 1px;
+    }
+    .dlrect {
+      stroke: black;
+      stroke-width: 1px;
+      fill: white;
+    }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="2.5" refY="0">
+      <polygon points="0,0 5,0 2.5,5 0,0" />
+    </marker>
+    <marker id="arrowhead2" markerWidth="10" markerHeight="10" refX="0" refY="2.5">
+      <polygon points="0,0 5,2.5 0,5 0,0" />
+    </marker>
+    <marker id="arrowhead3" markerWidth="10" markerHeight="10" refX="5" refY="2.5">
+      <polygon points="0,2.5 5,0 5,5 0,2.5" />
+    </marker>
+  </defs>
+
+  <g transform="translate(5,5)">
+    <g transform="translate(0,0)">
+      <rect class="dlrect" width="30" height="30"/>
+      <text x="10" y="17" class="time">
+       <tspan>
+         t
+         <tspan dx="-1" dy="3" class="timesub">-4</tspan>
+       </tspan>
+      </text>
+    </g>
+    <g transform="translate(30,0)">
+      <rect class="dlrect" width="30" height="30"/>
+      <text x="10" y="17" class="time">
+       <tspan>
+         t
+         <tspan dx="-1" dy="3" class="timesub">-3</tspan>
+       </tspan>
+      </text>
+    </g>
+    <g transform="translate(60,0)">
+      <rect class="dlrect" width="30" height="30"/>
+      <text x="10" y="17" class="time">
+       <tspan>
+         t
+         <tspan dx="-1" dy="3" class="timesub">-2</tspan>
+       </tspan>
+      </text>
+    </g>
+    <g transform="translate(90,0)">
+      <rect class="dlrect" width="30" height="30"/>
+      <text x="10" y="17" class="time">
+       <tspan>
+         t
+         <tspan dx="-1" dy="3" class="timesub">-1</tspan>
+       </tspan>
+      </text>
+    </g>
+    <g transform="translate(120,0)">
+      <rect width="30" height="30" class="t0"/>
+      <text x="10" y="17" class="time">
+       <tspan>
+         t
+         <tspan dx="-1" dy="3" class="timesub">0</tspan>
+       </tspan>
+      </text>
+    </g>
+  </g>
+
+  <g transform="translate(35,45)">
+    <g transform="translate(0,0)">
+      <rect class="dlrect" width="30" height="30"/>
+      <text x="10" y="17" class="time">
+       <tspan>
+         t
+         <tspan dx="-1" dy="3" class="timesub">-4</tspan>
+       </tspan>
+      </text>
+    </g>
+    <g transform="translate(30,0)">
+      <rect class="dlrect" width="30" height="30"/>
+      <text x="10" y="17" class="time">
+       <tspan>
+         t
+         <tspan dx="-1" dy="3" class="timesub">-3</tspan>
+       </tspan>
+      </text>
+    </g>
+    <g transform="translate(60,0)">
+      <rect class="dlrect" width="30" height="30"/>
+      <text x="10" y="17" class="time">
+       <tspan>
+         t
+         <tspan dx="-1" dy="3" class="timesub">-2</tspan>
+       </tspan>
+      </text>
+    </g>
+    <g transform="translate(90,0)">
+      <rect class="dlrect" width="30" height="30"/>
+      <text x="10" y="17" class="time">
+       <tspan>
+         t
+         <tspan dx="-1" dy="3" class="timesub">-1</tspan>
+       </tspan>
+      </text>
+    </g>
+    <g transform="translate(120,0)">
+      <rect width="30" height="30" class="t0"/>
+      <text x="10" y="17" class="time">
+       <tspan>
+         t
+         <tspan dx="-1" dy="3" class="timesub">0</tspan>
+       </tspan>
+      </text>
+    </g>
+  </g>
+
+  <g transform="translate(65,85)">
+    <g transform="translate(0,0)">
+      <rect class="dlrect" width="30" height="30"/>
+      <text x="10" y="17" class="time">
+       <tspan>
+         t
+         <tspan dx="-1" dy="3" class="timesub">-4</tspan>
+       </tspan>
+      </text>
+    </g>
+    <g transform="translate(30,0)">
+      <rect class="dlrect" width="30" height="30"/>
+      <text x="10" y="17" class="time">
+       <tspan>
+         t
+         <tspan dx="-1" dy="3" class="timesub">-3</tspan>
+       </tspan>
+      </text>
+    </g>
+    <g transform="translate(60,0)">
+      <rect class="dlrect" width="30" height="30"/>
+      <text x="10" y="17" class="time">
+       <tspan>
+         t
+         <tspan dx="-1" dy="3" class="timesub">-2</tspan>
+       </tspan>
+      </text>
+    </g>
+    <g transform="translate(90,0)">
+      <rect class="dlrect" width="30" height="30"/>
+      <text x="10" y="17" class="time">
+       <tspan>
+         t
+         <tspan dx="-1" dy="3" class="timesub">-1</tspan>
+       </tspan>
+      </text>
+    </g>
+    <g transform="translate(120,0)">
+      <rect width="30" height="30" class="t0"/>
+      <text x="10" y="17" class="time">
+       <tspan>
+         t
+         <tspan dx="-1" dy="3" class="timesub">0</tspan>
+       </tspan>
+      </text>
+    </g>
+  </g>
+
+  <g transform="translate(5,125)">
+    <line class="dlline" x1="0" x2="280" y1="0" y2="0" stroke="black" marker-end="url(#arrowhead2)"/>
+    <text x="290" y="2" class="time">time</text>
+    <line class="dlline" x1="5" x2="25" y1="-10" y2="-10" stroke="black" marker-start="url(#arrowhead3)" marker-end="url(#arrowhead2)"/>
+    <text x="12" y="-12" class="time">T</text>
+
+    <g transform="translate(0,-5)">
+      <line class="dlline" x1="0" x2="0" y1="0" y2="10" stroke="black"/>
+    </g>
+    <g transform="translate(30,-5)">
+      <line class="dlline" x1="0" x2="0" y1="0" y2="10" stroke="black"/>
+    </g>
+    <g transform="translate(60,-5)">
+      <line class="dlline" x1="0" x2="0" y1="0" y2="10" stroke="black"/>
+    </g>
+    <g transform="translate(90,-5)">
+      <line class="dlline" x1="0" x2="0" y1="0" y2="10" stroke="black"/>
+    </g>
+    <g transform="translate(120,-5)">
+      <line class="dlline" x1="0" x2="0" y1="0" y2="10" stroke="black"/>
+    </g>
+    <g transform="translate(150,-5)">
+      <line class="dlline" x1="0" x2="0" y1="0" y2="10" stroke="black"/>
+    </g>
+    <g transform="translate(180,-5)">
+      <line class="dlline" x1="0" x2="0" y1="0" y2="10" stroke="black"/>
+    </g>
+    <g transform="translate(210,-5)">
+      <line class="dlline" x1="0" x2="0" y1="0" y2="10" stroke="black"/>
+    </g>
+    <g transform="translate(240,-5)">
+      <line class="dlline" x1="0" x2="0" y1="0" y2="10" stroke="black"/>
+    </g>
+    <g transform="translate(270,-5)">
+      <line class="dlline" x1="0" x2="0" y1="0" y2="10" stroke="black"/>
+    </g>
+  </g>
+</svg>
+
+

@@ -1,0 +1,39 @@
+<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<desc>An Accelerometer and Gyrometer on a Wheel</desc>
+<style>
+.wheel {
+  stroke: black;
+  stroke-width: 3px;
+  fill: white;
+}
+.axis-text {
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-size: 10px;
+}
+</style>
+  <defs>
+    <marker id="arrowhead_up" markerWidth="5" markerHeight="5" refX="2.5" refY="2.5">
+      <polygon points="2.5,0 0,5 5,5 2.5,0" class="trans01"/>
+    </marker>
+    <marker id="arrowhead_left" markerWidth="5" markerHeight="5" refX="2.5" refY="2.5">
+      <polygon points="0,2.5 5,5 5,0 0,2.5" class="trans01"/>
+    </marker>
+    <marker id="arrowhead_down" markerWidth="5" markerHeight="5" refX="2.5" refY="2.5">
+      <polygon points="0,0 2.5,5 5,0 0,0" class="trans01"/>
+    </marker>
+  </defs>
+
+<ellipse cx="150" cy="150" rx="100" ry="50" class="wheel"/>
+<ellipse cx="150" cy="150" rx="4" ry="2" class="wheel"/>
+<line x1="150" x2="150" y1="90" y2="210" stroke="black"/>
+<!--<line x1="150" x2="200" y1="150" y2="192" stroke="black"/>-->
+<rect x="39" y="145" width="10" height="10" rx="3" stroke="black"/>
+<line x1="39" x2="25" y1="150" y2="150" stroke="black" marker-end="url(#arrowhead_left)"/>
+<line x1="44" x2="44" y1="150" y2="130" stroke="black" marker-end="url(#arrowhead_up)"/>
+<line x1="44" x2="44" y1="150" y2="170" stroke="black" marker-end="url(#arrowhead_down)"/>
+
+<text x="33" y="125" class="axis-text">y up</text>
+<text x="-6" y="153" class="axis-text">z out</text>
+<text x="22" y="182" class="axis-text">x along</text>
+
+</svg>

@@ -1,0 +1,16 @@
+<svg viewBox="0 0 200 58" xmlns="http://www.w3.org/2000/svg">
+<desc>pbcopy and pbpaste commands</desc>
+<style>
+.commands {
+  stroke: black;
+  font-size: 16px;
+  stroke-width: 1;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+}
+</style>
+
+<text x="0" y="16" class="commands">$ echo hello | pbcopy</text>
+<text x="0" y="32" class="commands">$ pbpaste</text>
+<text x="0" y="48" class="commands">hello</text>
+
+</svg>

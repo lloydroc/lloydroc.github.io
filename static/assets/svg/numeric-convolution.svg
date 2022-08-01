@@ -1,0 +1,361 @@
+<svg viewBox="0 0 318 35" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<desc>C Code Converted disassembled to ARM Assembled live in action showing the stack frame</desc>
+<style>
+.exact {
+  font-family: Courier, serif;
+  font-size: 8px;
+}
+.matchline {
+  stroke: grey;
+  stroke-width: 0.5;
+}
+</style>
+  <defs>
+  </defs>
+
+  <g transform="translate(100,25)">
+    <text x= "-100"  y="0" class="exact">0</text>
+    <text x= "-90"  y="0" class="exact">0</text>
+    <text x= "-80"  y="0" class="exact">0</text>
+    <text x= "-70"  y="0" class="exact">0</text>
+    <text x= "-60"  y="0" class="exact">0</text>
+    <text x= "-50"  y="0" class="exact">0</text>
+    <text x= "-40"  y="0" class="exact">0</text>
+    <text x= "-30"  y="0" class="exact">0</text>
+    <text x= "-20"  y="0" class="exact">0</text>
+    <text x= "-10"  y="0" class="exact">0</text>
+    <text x= "0"  y="0" class="exact">0</text>
+    <text x="10"  y="0" class="exact">0</text>
+    <text x="20"  y="0" class="exact">1</text>
+    <text x="30"  y="0" class="exact">1</text>
+    <text x="40"  y="0" class="exact">1</text>
+    <text x="50"  y="0" class="exact">1</text>
+    <text x="60"  y="0" class="exact">1</text>
+    <text x="70"  y="0" class="exact">0</text>
+    <text x="80"  y="0" class="exact">0</text>
+    <text x="90"  y="0" class="exact">0</text>
+    <text x="100"  y="0" class="exact">0</text>
+    <text x="110"  y="0" class="exact">0</text>
+    <text x="120"  y="0" class="exact">0</text>
+    <text x="130"  y="0" class="exact">0</text>
+    <text x="140"  y="0" class="exact">0</text>
+    <text x="150"  y="0" class="exact">0</text>
+    <text x="160"  y="0" class="exact">0</text>
+    <text x="170"  y="0" class="exact">0</text>
+    <text x="180"  y="0" class="exact">0</text>
+    <text x="190"  y="0" class="exact">0</text>
+    <text x="200"  y="0" class="exact">0</text>
+    <text x="210"  y="0" class="exact">0</text>
+    <text x="220"  y="0" class="exact">0</text>
+  </g>
+
+  <g transform="translate(-170,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(-160,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(-150,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+
+  <g transform="translate(-140,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+
+  <g transform="translate(-130,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+
+  <g transform="translate(-120,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+
+  <g transform="translate(-110,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+
+  <g transform="translate(-100,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+
+  <g transform="translate(-90,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+
+  <g transform="translate(-80,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(-70,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(-60,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(-50,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+
+  <g transform="translate(-40,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(-30,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(-20,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(-10,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(0,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(10,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(20,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(30,15)">
+    <text x="0"  y="0" class="exact">1
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(40,15)">
+    <text x="0"  y="0" class="exact">1
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+
+  <g transform="translate(50,15)">
+    <text x="0"  y="0" class="exact">1
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(60,15)">
+    <text x="0"  y="0" class="exact">1
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(70,15)">
+    <text x="0"  y="0" class="exact">1
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(80,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(90,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(100,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(110,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(120,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(130,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(140,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(150,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(160,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(170,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(180,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(190,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(200,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(210,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(220,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(230,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(240,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(250,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(260,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(270,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(280,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(290,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(300,15)">
+    <text x="0"  y="0" class="exact">0
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110;120;130;140;150;160;170" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+
+  <g transform="translate(96.5,5)">
+    <line x1="20"  y1="0" x2="70" y2="0" width="10" height="20" class="matchline"/>
+    <line x1="20"  y1="25" x2="70" y2="25" width="10" height="20" class="matchline"/>
+    <line x1="20" y1="0" x2="20" y2="25" width="10" height="20" class="matchline"/>
+    <line x1="30" y1="0" x2="30" y2="25" width="10" height="20" class="matchline"/>
+    <line x1="40" y1="0" x2="40" y2="25" width="10" height="20" class="matchline"/>
+    <line x1="50" y1="0" x2="50" y2="25" width="10" height="20" class="matchline"/>
+    <line x1="60" y1="0" x2="60" y2="25" width="10" height="20" class="matchline"/>
+    <line x1="70" y1="0" x2="70" y2="25" width="10" height="20" class="matchline"/>
+  </g>
+
+</svg>

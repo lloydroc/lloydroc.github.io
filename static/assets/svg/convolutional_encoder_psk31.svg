@@ -1,0 +1,41 @@
+<svg viewBox="0 0 350 305" xmlns="http://www.w3.org/2000/svg">
+  <desc>A Convolutional Encoder for PSK31</desc>
+  <style>
+  rect, line, path, circle {
+    stroke: black;
+    fill: white;
+  }
+  </style>
+
+  <rect x="50" y="150" width="50" height="50"/>
+  <rect x="100" y="150" width="50" height="50"/>
+  <rect x="150" y="150" width="50" height="50"/>
+  <rect x="200" y="150" width="50" height="50"/>
+  <rect x="250" y="150" width="50" height="50"/>
+
+  <circle cx="175" cy="100" r="20"/>
+  <line x1="175" x2="175" y1="150" y2="120"/>
+  <line x1="125" x2="160" y1="150" y2="112"/>
+  <path d="M75 150 L 75 100 L 155 100"/>
+  <path d="M275 150 L 275 100 L 195 100"/>
+  <line x1="175" x2="175" y1="80" y2="60"/>
+
+  <text x="70" y="180">x0</text>
+  <text x="120" y="180">x1</text>
+  <text x="170" y="180">x2</text>
+  <text x="220" y="180">x3</text>
+  <text x="270" y="180">x4</text>
+  <text x="170" y="105">&#931;</text>
+  <text x="167" y="55">g0</text>
+
+  <!-- bottom sum -->
+  <circle cx="175" cy="250" r="20"/>
+  <line x1="225" x2="190" y1="200" y2="238"/>
+  <path d="M75 200 L 75 250 L 155 250"/>
+  <path d="M275 200 L 275 250 L 195 250"/>
+  <line x1="175" x2="175" y1="80" y2="60"/>
+  <line x1="175" x2="175" y1="270" y2="290"/>
+
+  <text x="170" y="255">&#931;</text>
+  <text x="167" y="300">g1</text>
+</svg>

@@ -1,0 +1,67 @@
+<svg viewBox="0 0 320 100" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .text {
+      font-size: 12px;
+    }
+    .small-client {
+      dominant-baseline: central;
+      text-anchor: middle;
+      font-size: 10px;
+      fill: white;
+    }
+    .server {
+      fill: red;
+      stroke: black;
+    }
+    .client {
+      fill: blue;
+      stroke: black;
+    }
+    .spi {
+      fill: white;
+      stroke: black;
+    }
+    line {
+    stroke: black;
+    stroke-width: 2;
+    }
+   
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="2.5" refY="0">
+      <polygon points="0,0 5,0 2.5,5 0,0" />
+    </marker>
+    <marker id="arrowhead2" markerWidth="10" markerHeight="10" refX="0" refY="2.5">
+      <polygon points="0,0 5,2.5 0,5 0,0" />
+    </marker>
+    <marker id="arrowhead3" markerWidth="10" markerHeight="10" refX="0" refY="2.5">
+      <polygon points="0,2.5 5,0 5,5 0,2.5" />
+    </marker>
+  </defs>
+
+  <g transform="translate(25,30)">
+    <text x="0" y="0" class="text">/dev/spidev0.0</text>
+    <text x="0" y="15" class="text">/dev/spidev0.1</text>
+    <line x1="75" y1="-4" x2="130" y2="-4" class=""/>
+    <line x1="75" y1="12" x2="130" y2="12" class=""/>
+    <line x1="90" y1="12" x2="90" y2="57" class=""/>
+    <line x1="110" y1="-4" x2="110" y2="45" class=""/>
+    <line x1="109" y1="45" x2="140" y2="45" class=""/>
+    <line x1="89" y1="57" x2="140" y2="57" class=""/>
+    <circle cx="90" cy="12" r="3" stroke="black"/>
+    <circle cx="110" cy="-4" r="3" stroke="black"/>
+  </g>
+  
+  <g transform="translate(150,15)">
+   <rect width="50" height="50" class="spi"/>
+   <text y="-2" class="text">SPI0</text>
+   <text x="17" y="16" class="text">SCLK</text>
+   <text x="24" y="29" class="text">SDO</text>
+   <text x="27" y="43" class="text">SDI</text>
+   <rect y="50" width="50" height="30" class="spi"/>
+   <text x="27" y="62" class="text">CE0</text>
+   <text x="27" y="76" class="text">CE1</text>
+  </g>
+
+</svg>

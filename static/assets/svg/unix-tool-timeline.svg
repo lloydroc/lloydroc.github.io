@@ -1,0 +1,89 @@
+<svg width="640" height="10000" viewBox="0 0 640 10000" xmlns="http://www.w3.org/2000/svg">
+<desc>Unix Command Line Tool Timeline</desc>
+  <style>
+    .timemonthtick {
+      stroke-width: 1px;
+      fill: grey;
+    }
+    .timeyeartick {
+      stroke-width: 3px;
+      fill: black;
+    }
+    .timeyeartext {
+      font-size:10px;
+      fill: black;
+    }
+    .ticktool {
+      font-size:10px;
+      fill: black;
+    }
+   .tickdate {
+      font-size:10px;
+      fill: black;
+    }
+    .ticktool {
+      font-size:10px;
+      fill: black;
+    }
+    .timeline {
+      stroke-width: 1px;
+      stroke: black;
+    }
+    .timetick {
+      stroke-width: 1px;
+    }
+    .timepoint {
+      fill: blue;
+    }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="2.5" refY="0">
+      <polygon points="0,0 5,0 2.5,5 0,0" />
+    </marker>
+    <marker id="arrowhead2" markerWidth="10" markerHeight="10" refX="0" refY="2.5">
+      <polygon points="0,0 5,2.5 0,5 0,0" />
+    </marker>
+    <marker id="arrowhead3" markerWidth="10" markerHeight="10" refX="5" refY="2.5">
+      <polygon points="0,2.5 5,0 5,5 0,2.5" />
+    </marker>
+    <marker id="timepoint" markerWidth="10" markerHeight="10" refX="0" refY="0">
+      <circle class="timepoint" cx="0" cy="0" r="5"/>
+    </marker>
+  </defs>
+
+  <g transform="translate(50,10)">
+    <g transform="translate(0,0)">
+      <line class="timeline" x1="0" x2="0" y1="0" y2="10000" marker-end="url(#arrowhead3)"/>
+    </g>
+
+{% for i in (1969..2024) %}
+    <g transform="translate(-5,{{ 2024 | minus: i | times: 12 | times: 15 }})">
+      <line class="timeyeartick" x1="0" x2="10" y1="0" y2="0" stroke="black"/>
+      <text class="tickyeartext" x="-40" y="5">{{ i }}</text>
+    </g>
+{% endfor %}
+
+<!-- month ticks there are (2024-1969)*12 of them each 15 pixels -->
+{% for i in (0..659) %}
+    <g transform="translate(-5,{{ i | times: 15 }})">
+      <line class="timemonthtick" x1="0" x2="10" y1="0" y2="0" stroke="black"/>
+    </g>
+{% endfor %}
+
+{% for tool in page.tools %}
+{% if tool.xind %}
+    <g transform="translate({{ tool.xind | times: 120 }},{{ 2024 | minus: tool.year | times: 12 | plus: tool.month | times: 15 }})">
+{% else %}
+    <g transform="translate(0,{{ 2024 | minus: tool.year | times: 12 | plus: tool.month | times: 15 }})">
+{% endif %}
+      <line class="timetick" x1="0" x2="90" y1="0" y2="0"/>
+      <text class="tickdate" x="10" y="-2">{{ tool.displayDate }}</text>
+      <text class="ticktool" x="95" y="3">{{ tool.name }}</text>
+    </g>
+{% endfor %}
+
+  </g>
+</svg>
+
+

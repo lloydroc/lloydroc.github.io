@@ -1,0 +1,408 @@
+---
+title: Circle of Fifths
+categories:
+  - music
+date: "2020-08-06"
+description: My attempt at explaining the Circle of Fifths in Music Theory
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Circle of Fifths</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description"
+  content="Circle of Fifths for sharps flats music scales keys tool">
+<meta name="author" content="">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+<style type="text/css">
+body {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+/* Custom container */
+.container-narrow {
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+.container-narrow>hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  margin: 60px 0;
+  text-align: center;
+}
+
+.jumbotron h1 {
+  font-size: 72px;
+  line-height: 1;
+}
+
+.jumbotron .btn {
+  font-size: 21px;
+  padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 60px 0;
+}
+
+.marketing p+h4 {
+  margin-top: 28px;
+}
+
+.iconimage {
+  background-color: #0000; /* if needed */
+  border: 1px solid #0000; /* if needed */
+  -webkit-border-radius: 60px; /* for Safari */
+  -moz-border-radius: 60px; /* for Firefox */
+}
+</style>
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="bootstrap/js/html5shiv.js"></script>
+    <![endif]-->
+
+<!-- Fav and touch icons>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../boostrap/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../boostrap/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../boostrap/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../boostrap/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../boostrap/ico/favicon.png">  -->
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+      <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+        <h1>Circle of Fifths</h1><hr/>
+      </div>
+      <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+      <div class="col-xs-7 col-sm-7 col-md-6 col-lg-6">
+        <h2>What is the Circle of Fifths and how can it be used?</h2>
+        <p>How many flat or sharp notes is there in a given musical key? What exact notes are sharp and flat?
+        How many flat and sharp chords are in a musical key? The Circle of Fifths gives answers these questions and is a tool to
+        determine the relationship between notes in a musical key. The Circle of Fifths is for any musical instrument whether it be
+        Guitar, Cello, Violin, Ukuele, Piano, Flute, Trumpet or any other instrument.
+        </p>
+
+      </div>
+      <div class="col-xs-3 col-sm-3 col-md-5 col-lg-5">
+        <img class="iconimage" src="http://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Circle_of_fifths_deluxe_4.svg/400px-Circle_of_fifths_deluxe_4.svg.png"
+          alt="Circle of Fifths" height="256" width="256"/>
+        </div>
+      <hr>
+      <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+      <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+      <h2>Examples on how to use the Circle of Fifths</h2>
+      <p>The Circle of Fifths can be used in 4 different ways. Each of these ways is used to find the sharps or flats for a Major
+      or Minor musical Key. These 4 different combinations can be enumerated as follows:</p>
+         <ol>The 4 Basic Combinations to use the Circle of Fifths</ol>
+           <li>Outer Circle going Clockwise around the circle gives Major Key Sharps</li>
+           <li>Inside Circle going Clockwise around the circle gives Minor Key Sharps</li>
+           <li>Outside Circle going Counter-Clockwise around the circle gives Major Key Flats</li>
+           <li>Inside Circle going Counter-Clockwise around the circle gives Minor Key Flats</li>
+        </ol>
+
+        <p><br/>With these 4 combinations, using the Circle of Fifths translates to this table:</p>
+
+        <table class="table table-striped table-bordered">
+          <tr>
+            <td></td>
+            <td><b>Outside Circle</b></td>
+            <td><b>Inside Circle</b></td>
+          </tr>
+          <tr>
+            <td><b>Clockwise</b></td>
+            <td>Major Key Sharps</td>
+            <td>Minor Key Sharps</td>
+          </tr>
+          <tr>
+            <td><b>Counter-Clockwise</b></td>
+            <td>Major Key Flats</td>
+            <td>Minor Key Flats</td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+    </div>
+
+
+    <div class="row">
+    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+      <hr>
+      <h4>Rules to use the Circle of Fifths</h4>
+      <table class="table table-striped table-bordered">
+              <tr>
+                <td>#</td>
+                <td>Rule</td>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td>C Major and a Minor have no sharps or flats</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>Major Scales are the Outer Notes/Chords in the Circle for the Key</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Minor Scales are the Inner Notes/Chords in the Circle for the Key</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Sharp notes are found by starting at the F note and going clockwise: F#,C#,G#,D#,A#,E#,B#</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Flat notes are found by starting at the F note and going counter-clockwise: Bb,Eb,Ab,Db,Gb,Cb,Fb</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>The number of flats or sharps in a key are written along with the Major or Minor Key</td>
+              </tr>
+      </table>
+      </div>
+      <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+      </div>
+
+      <div class="row">
+      <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+      <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+      <hr>
+      <h4>Example finding Sharp Notes/Chords for Major Keys in the Circle of Fifths - Outer Circle going Clockwise</h4>
+      <table class="table table-striped table-bordered">
+              <tr>
+                <td>Major Key - Outer Circle</td>
+                <td>Number of Sharps - Right Half of Circle</td>
+                <td>Sharp Notes</td>
+              </tr>
+              <tr>
+                <td>C Major</td>
+                <td>0</td>
+                <td>none</td>
+              </tr>
+              <tr>
+                <td>G Major</td>
+                <td>1</td>
+                <td>F#</td>
+              </tr>
+              <tr>
+                <td>D Major</td>
+                <td>2</td>
+                <td>F#,C#</td>
+              </tr>
+              <tr>
+                <td>A Major</td>
+                <td>3</td>
+                <td>F#,C#,G#</td>
+              </tr>
+              <tr>
+                <td>E Major</td>
+                <td>4</td>
+                <td>F#,C#,G#,D#</td>
+              </tr>
+              <tr>
+                <td>B Major</td>
+                <td>5</td>
+                <td>F#,C#,G#,D#,A#</td>
+              </tr>
+              <tr>
+                <td>F# Major</td>
+                <td>6</td>
+                <td>F#,C#,G#,D#,A#,E#</td>
+              </tr>
+        </table>
+        </div>
+        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+        </div>
+
+        <div class="row">
+        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+        <hr>
+        <h4>Example finding Sharps Notes/Chords for Minor Keys in the Circle of Fifths - Inner Circle going Clockwise</h4>
+        <table class="table table-striped table-bordered">
+              <tr>
+                <td>Minor Key - Inner Circle</td>
+                <td>Number of Sharps - Right Half of Circle</td>
+                <td>Sharp Notes</td>
+              </tr>
+              <tr>
+                <td>a Minor</td>
+                <td>0</td>
+                <td>none</td>
+              </tr>
+              <tr>
+                <td>e Minor</td>
+                <td>1</td>
+                <td>F#</td>
+              </tr>
+              <tr>
+                <td>b Minor</td>
+                <td>2</td>
+                <td>F#,C#</td>
+              </tr>
+              <tr>
+                <td>f# Minor</td>
+                <td>3</td>
+                <td>F#,C#,G#</td>
+              </tr>
+              <tr>
+                <td>c# Minor</td>
+                <td>4</td>
+                <td>F#,C#,G#,D#</td>
+              </tr>
+              <tr>
+                <td>g# Minor</td>
+                <td>5</td>
+                <td>F#,C#,G#,D#,A#</td>
+              </tr>
+              <tr>
+                <td>d# Minor</td>
+                <td>6</td>
+                <td>F#,C#,G#,D#,A#,E#</td>
+              </tr>
+        </table>
+        </div>
+        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+        </div>
+
+      <div class="row">
+      <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+      <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+      <hr>
+      <h4>Example finding Flat Notes/Chords for Major Keys in the Circle of Fifths - Outer Circle going Counter-Clockwise</h4>
+      <table class="table table-striped table-bordered">
+              <tr>
+                <td>Major Key - Outer Circle</td>
+                <td>Number of Flats - Left Half of Circle</td>
+                <td>Sharp Notes</td>
+              </tr>
+              <tr>
+                <td>C Major</td>
+                <td>0</td>
+                <td>none</td>
+              </tr>
+              <tr>
+                <td>F Major</td>
+                <td>1</td>
+                <td>Bb</td>
+              </tr>
+              <tr>
+                <td>Bb Major</td>
+                <td>2</td>
+                <td>Bb,Eb</td>
+              </tr>
+              <tr>
+                <td>Eb Major</td>
+                <td>3</td>
+                <td>Bb,Eb,Ab</td>
+              </tr>
+              <tr>
+                <td>Ab Major</td>
+                <td>4</td>
+                <td>Bb,Eb,Ab,Db</td>
+              </tr>
+              <tr>
+                <td>Db Major</td>
+                <td>5</td>
+                <td>Bb,Eb,Ab,Db,Gb</td>
+              </tr>
+              <tr>
+                <td>Gb Major</td>
+                <td>6</td>
+                <td>Bb,Eb,Ab,Db,Gb,Cb</td>
+              </tr>
+              <tr>
+                <td>Cb Major</td>
+                <td>7</td>
+                <td>Bb,Eb,Ab,Db,Gb,Cb,Fb</td>
+              </tr>
+        </table>
+        </div>
+        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+        </div>
+
+        <div class="row">
+        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+        <hr>
+        <h4>Example finding Flat Notes/Chords for Minor Keys in the Circle of Fifths - Inner Circle going Counter-Clockwise</h4>
+        <table class="table table-striped table-bordered">
+              <tr>
+                <td>Minor Key - Inner Circle</td>
+                <td>Number of Flats - Left Half of Circle</td>
+                <td>Sharp Notes</td>
+              </tr>
+              <tr>
+                <td>a Minor</td>
+                <td>0</td>
+                <td>none</td>
+              </tr>
+              <tr>
+                <td>d Minor</td>
+                <td>1</td>
+                <td>Bb</td>
+              </tr>
+              <tr>
+                <td>g Minor</td>
+                <td>2</td>
+                <td>Bb,Eb</td>
+              </tr>
+              <tr>
+                <td>c Minor</td>
+                <td>3</td>
+                <td>Bb,Eb,Ab</td>
+              </tr>
+              <tr>
+                <td>f Minor</td>
+                <td>4</td>
+                <td>Bb,Eb,Ab,Db</td>
+              </tr>
+              <tr>
+                <td>bb Minor</td>
+                <td>5</td>
+                <td>Bb,Eb,Ab,Db,Gb</td>
+              </tr>
+              <tr>
+                <td>eb Minor</td>
+                <td>6</td>
+                <td>Bb,Eb,Ab,Db,Gb,Cb</td>
+              </tr>
+              <tr>
+                <td>ab Minor</td>
+                <td>7</td>
+                <td>Bb,Eb,Ab,Db,Gb,Cb,Fb</td>
+              </tr>
+        </table>
+        </div>
+        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+        </div>
+
+    <hr>
+  </div> <!-- end container -->
+</body>
+</html>

@@ -1,0 +1,79 @@
+<svg viewBox="0 0 130 110" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<desc>A Trellis Diagram for a Viterbi Decoder</desc>
+<style>
+.state-text {
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-size: 10px;
+}
+.trans00 {
+  stroke: red;
+  stroke-width: 1;
+  fill: red;
+}
+.trans10 {
+  stroke: blue;
+  stroke-width: 1;
+  fill: blue;
+}
+.trans11 {
+  stroke: green;
+  stroke-width: 1;
+  fill: green;
+}
+.trans01 {
+  stroke: orange;
+  stroke-width: 1;
+  fill: orange;
+}
+</style>
+  <defs>
+    <g id="trellis-column">
+      <circle cx="0" cy="0"  r="2" class="trans00"/>
+      <circle cx="0" cy="25" r="2" class="trans10"/>
+      <circle cx="0" cy="50" r="2" class="trans11"/>
+      <circle cx="0" cy="75" r="2" class="trans01"/>
+    </g>
+
+    <marker id="arrowhead_00" markerWidth="5" markerHeight="5" refX="6.5" refY="2.5" orient="auto">
+      <polygon points="0,0 5,2.5 0,5 0,0" class="trans00"/>
+    </marker>
+    <marker id="arrowhead_10" markerWidth="5" markerHeight="5" refX="6.5" refY="2.5" orient="auto">
+      <polygon points="0,0 5,2.5 0,5 0,0" class="trans10"/>
+    </marker>
+    <marker id="arrowhead_11" markerWidth="5" markerHeight="5" refX="6.5" refY="2.5" orient="auto">
+      <polygon points="0,0 5,2.5 0,5 0,0" class="trans11"/>
+    </marker>
+    <marker id="arrowhead_01" markerWidth="5" markerHeight="5" refX="6.5" refY="2.5" orient="auto">
+      <polygon points="0,0 5,2.5 0,5 0,0" class="trans01"/>
+    </marker>
+  </defs>
+
+  <g transform="translate(21,25)">
+    <!-- arrows for 00 state transitions -->
+    <line x1=  "0" x2="100" y1=  "0" y2= "0" class="trans00" marker-end="url(#arrowhead_00)"/>
+    <line x1=  "0" x2="100" y1=  "0" y2="25" class="trans00" marker-end="url(#arrowhead_00)"/>
+
+    <!-- arrows for 10 state transitions -->
+    <line x1=  "0" x2="100" y1= "25" y2= "50" class="trans10" marker-end="url(#arrowhead_10)"/>
+    <line x1=  "0" x2="100" y1= "25" y2= "75" class="trans10" marker-end="url(#arrowhead_10)"/>
+
+    <!-- arrows for 11 state transitions -->
+    <line x1=  "0" x2="100" y1= "50" y2= "50" class="trans11" marker-end="url(#arrowhead_11)"/>
+    <line x1=  "0" x2="100" y1= "50" y2= "75" class="trans11" marker-end="url(#arrowhead_11)"/>
+
+    <!-- arrows for 01 state transitions -->
+    <line x1=  "0" x2="100" y1= "75" y2=  "0" class="trans01" marker-end="url(#arrowhead_01)"/>
+    <line x1=  "0" x2="100" y1= "75" y2= "25" class="trans01" marker-end="url(#arrowhead_01)"/>
+
+    <!-- states at the right -->
+    <text x="-16" y="3" class="state-text">00</text>
+    <text x="-16" y="28" class="state-text">10</text>
+    <text x="-16" y="53" class="state-text">11</text>
+    <text x="-16" y="78" class="state-text">01</text>
+
+    <!-- the grid of states -->
+    <use transform="translate(  0,0)" xlink:href="#trellis-column"/>
+    <use transform="translate(100,0)" xlink:href="#trellis-column"/>
+  </g>
+
+</svg>

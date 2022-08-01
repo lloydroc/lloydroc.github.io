@@ -1,0 +1,17 @@
+rect, circle {
+  stroke-width: 2;
+  stroke: black;
+  fill: white;
+}
+
+line {
+  stroke-width: 2;
+  stroke: black;
+  fill: black;
+}
+
+path {
+  stroke-width: 2;
+  stroke: black;
+  fill: none;
+}

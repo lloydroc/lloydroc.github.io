@@ -1,0 +1,171 @@
+<svg viewBox="0 0 320 120" xmlns="http://www.w3.org/2000/svg">
+<desc>C Code Converted disassembled to ARM Assembled live in action showing the stack frame</desc>
+<style>
+.ccode {
+  font-family: serif;
+  font-size: 8px;
+}
+.ccodeb {
+  font-family: serif;
+  font-size: 8px;
+  font-weight: bold;
+  fill: red;
+}
+.arm {
+  font-family: serif;
+  font-size: 8px;
+}
+.armb {
+  font-family: serif;
+  font-size: 8px;
+  font-weight: bold;
+  fill: red;
+}
+.hexval {
+  font-family: serif;
+  font-size: 8px;
+}
+.header {
+  font-family: serif;
+  font-size: 8px;
+  font-weight: bold;
+}
+.headerline {
+  stroke: black
+}
+.stackframe {
+  fill: white;
+  stroke: black;
+  stroke-width: 1;
+}
+</style>
+  <defs>
+    <marker id="arrowhead2" stroke="red" fill="red" markerWidth="10" markerHeight="10" refX="0" refY="2.5">
+      <polygon points="0,0 5,2.5 0,5 0,0" />
+    </marker>
+  </defs>
+
+  <g transform="translate(5,10)">
+    <text x="0"  y="0" class="header">C Code</text>
+    <text x="75"  y="0" class="header">Address</text>
+    <text x="170"  y="0" class="header">ARM Instruction</text>
+    <text x="250"  y="0" class="header">Stack Frame</text>
+    <line x1="0" x2="310" y1="5" y2="5" class="headerline"/>
+    <line x1="72" x2="72" y1="5" y2="110" class="headerline"/>
+    <line x1="235" x2="235" y1="5" y2="110" class="headerline"/>
+  </g>
+
+  <g transform="translate(5,30)">
+      <g transform="translate(0,0)">
+        <text x="0"  y="0" class="ccode">int add(int a, int b)
+          <animate attributeName="class" values="ccode;ccodeb;ccodeb;ccode;ccode;ccode;ccode;ccode;ccode;ccode" dur="10s" repeatCount="indefinite"/>
+        </text>
+        <text x="0"  y="10" class="ccode">{
+          <animate attributeName="class" values="ccode;ccodeb;ccodeb;ccode;ccode;ccode;ccode;ccode;ccode;ccode" dur="10s" repeatCount="indefinite"/>
+        </text>
+        <text x="5" y="20" class="ccode">int c;
+          <animate attributeName="class" values="ccode;ccode;ccode;ccodeb;ccode;ccode;ccode;ccode;ccode;ccode" dur="10s" repeatCount="indefinite"/>
+        </text>
+        <text x="5" y="30" class="ccode">c = a + b;
+          <animate attributeName="class" values="ccode;ccode;ccode;ccode;ccodeb;ccodeb;ccode;ccode;ccode;ccode" dur="10s" repeatCount="indefinite"/>
+        </text>
+        <text x="5" y="40" class="ccode">some_func(a, b);
+          <animate attributeName="class" values="ccode;ccode;ccode;ccode;ccode;ccode;ccodeb;ccode;ccode;ccode" dur="10s" repeatCount="indefinite"/>
+        </text>
+        <text x="5" y="50" class="ccode">return c;
+          <animate attributeName="class" values="ccode;ccode;ccode;ccode;ccode;ccode;ccode;ccodeb;ccodeb;ccodeb" dur="10s" repeatCount="indefinite"/>
+        </text>
+        <text x="0"  y="60" class="ccode">}
+          <animate attributeName="class" values="ccode;ccode;ccode;ccode;ccode;ccode;ccode;ccodeb;ccodeb;ccodeb" dur="10s" repeatCount="indefinite"/>
+        </text>
+      </g>
+
+      <g transform="translate(75,0)">
+        <text x="0" y="0" class="arm">0x00010414 &lt;+0&gt;:
+            <animate attributeName="class" values="arm;armb;arm;arm;arm;arm;arm;arm;arm;arm" dur="10s" repeatCount="indefinite"/>
+        </text>
+        <text x="0" y="10" class="arm">0x00010418 &lt;+4&gt;:
+            <animate attributeName="class" values="arm;arm;armb;arm;arm;arm;arm;arm;arm;arm" dur="10s" repeatCount="indefinite"/>
+        </text>
+       <text x="0" y="20" class="arm">0x0001041c &lt;+8&gt;:
+            <animate attributeName="class" values="arm;arm;arm;armb;arm;arm;arm;arm;arm;arm" dur="10s" repeatCount="indefinite"/>
+        </text>
+        <text x="0" y="30" class="arm">0x00010420 &lt;+12&gt;:
+            <animate attributeName="class" values="arm;arm;arm;arm;armb;arm;arm;arm;arm;arm" dur="10s" repeatCount="indefinite"/>
+        </text>
+        <text x="0" y="40" class="arm">0x00010424 &lt;+16&gt;:
+            <animate attributeName="class" values="arm;arm;arm;arm;arm;armb;arm;arm;arm;arm" dur="10s" repeatCount="indefinite"/>
+        </text>
+        <text x="0" y="50" class="arm">0x00010428 &lt;+20&gt;:
+            <animate attributeName="class" values="arm;arm;arm;arm;arm;arm;armb;arm;arm;arm" dur="10s" repeatCount="indefinite"/>
+        </text>
+        <text x="0" y="60" class="arm">0x0001042c &lt;+24&gt;:
+            <animate attributeName="class" values="arm;arm;arm;arm;arm;arm;arm;armb;arm;arm" dur="10s" repeatCount="indefinite"/>
+        </text>
+        <text x="0" y="70" class="arm">0x00010430 &lt;+28&gt;:
+            <animate attributeName="class" values="arm;arm;arm;arm;arm;arm;arm;arm;armb;arm" dur="10s" repeatCount="indefinite"/>
+        </text>
+        <text x="0" y="80" class="arm">0x00010434 &lt;+32&gt;:
+            <animate attributeName="class" values="arm;arm;arm;arm;arm;arm;arm;arm;arm;armb" dur="10s" repeatCount="indefinite"/>
+        </text>
+      </g>
+
+      <g transform="translate(170,0)">
+        <text x="0" y="0" class="arm">push {fp, lr}
+            <animate attributeName="class" values="arm;armb;arm;arm;arm;arm;arm;arm;arm;arm" dur="10s" repeatCount="indefinite"/>
+        </text>
+        <text x="0" y="10" class="arm">add fp, sp, #4
+            <animate attributeName="class" values="arm;arm;armb;arm;arm;arm;arm;arm;arm;arm" dur="10s" repeatCount="indefinite"/>
+        </text>
+        <text x="0" y="20" class="arm">sub sp, sp, #4
+            <animate attributeName="class" values="arm;arm;arm;armb;arm;arm;arm;arm;arm;arm" dur="10s" repeatCount="indefinite"/>
+        </text>
+        <text x="0" y="30" class="arm">add r3, r0, r1
+            <animate attributeName="class" values="arm;arm;arm;arm;armb;arm;arm;arm;arm;arm" dur="10s" repeatCount="indefinite"/>
+        </text>
+        <text x="0" y="40" class="arm">mov r3, [fp-#8]
+            <animate attributeName="class" values="arm;arm;arm;arm;arm;armb;arm;arm;arm;arm" dur="10s" repeatCount="indefinite"/>
+        </text>
+        <text x="0" y="50" class="arm">bl some_func
+            <animate attributeName="class" values="arm;arm;arm;arm;arm;arm;armb;arm;arm;arm" dur="10s" repeatCount="indefinite"/>
+        </text>
+        <text x="0" y="60" class="arm">mov r0, [fp-#8]
+            <animate attributeName="class" values="arm;arm;arm;arm;arm;arm;arm;armb;arm;arm" dur="10s" repeatCount="indefinite"/>
+        </text>
+        <text x="0" y="70" class="arm">sub sp, fp, #4
+            <animate attributeName="class" values="arm;arm;arm;arm;arm;arm;arm;arm;armb;arm" dur="10s" repeatCount="indefinite"/>
+        </text>
+        <text x="0" y="80" class="arm">pop {fp, pc}
+            <animate attributeName="class" values="arm;arm;arm;arm;arm;arm;arm;arm;arm;armb" dur="10s" repeatCount="indefinite"/>
+        </text>
+      </g>
+
+      <g transform="translate(250,-8)">
+        <rect x="0" y="0" width="60" height="0" rx="0" class="stackframe">
+            <animate attributeName="height" values="0;20;20;30;30;30;30;30;20;0" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+        </rect>
+        <line x1="0" x2="60" y1="10" y2="10" visibility="hidden" class="stackframe">
+            <animate attributeName="visibility" values="hidden;visible;visible;visible;visible;visible;visible;visible;visible;hidden" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+        </line>
+        <line x1="0" x2="60" y1="20" y2="20" visibility="hidden" class="stackframe">
+            <animate attributeName="visibility" values="hidden;hidden;visible;visible;visible;visible;visible;visible;hidden;hidden" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+        </line>
+        <text x="5" y="7" class="hexval" visibility="hidden">pushed lr
+            <animate attributeName="visibility" values="hidden;visible;visible;visible;visible;visible;visible;visible;visible;hidden" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+        </text>
+        <text x="5" y="17" class="hexval" visibility="hidden">pushed fp
+            <animate attributeName="visibility" values="hidden;visible;visible;visible;visible;visible;visible;visible;visible;hidden" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+        </text>
+        <text x="5" y="27" class="hexval" visibility="hidden">local int c=3
+            <animate attributeName="visibility" values="hidden;hidden;hidden;hidden;hidden;visible;visible;visible;hidden;hidden" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+        </text>
+        <text x="-10" y="7.5" visibility="hidden" class="armb">fp
+            <animate attributeName="visibility" values="hidden;hidden;visible;visible;visible;visible;visible;visible;visible;hidden" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+        </text>
+        <text x="-10" y="17.5" visibility="hidden" class="armb">sp
+            <animate attributeName="visibility" values="hidden;visible;visible;visible;visible;visible;visible;visible;visible;hidden" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+            <animate attributeName="y" values="17.5;17.5;17.5;27.5;27.5;27.5;27.5;27.5;17.5;17.5" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+        </text>
+      </g>
+  </g>
+</svg>

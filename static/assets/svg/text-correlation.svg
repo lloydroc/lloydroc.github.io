@@ -1,0 +1,99 @@
+<svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+<desc>C Code Converted disassembled to ARM Assembled live in action showing the stack frame</desc>
+<style>
+.exact {
+  font-family: serif;
+  font-size: 8px;
+}
+.exactcolor {
+  font-family: serif;
+  font-size: 8px;
+  fill: red;
+}
+.matchline {
+  stroke: grey;
+  stroke-width: 0.5;
+}
+</style>
+  <defs>
+    <marker id="arrowhead2" stroke="red" fill="red" markerWidth="10" markerHeight="10" refX="0" refY="2.5">
+      <polygon points="0,0 5,2.5 0,5 0,0" />
+    </marker>
+  </defs>
+
+  <g transform="translate(60,25)">
+    <text x= "0"  y="0" class="exact">c</text>
+    <text x="10"  y="0" class="exact">r</text>
+    <text x="20"  y="0" class="exact">e</text>
+    <text x="30"  y="0" class="exact">a</text>
+    <text x="40"  y="0" class="exact">t</text>
+    <text x="50"  y="0" class="exact">e</text>
+  </g>
+
+  <g transform="translate(0,15)">
+    <text x="0"  y="0" class="exact">e
+      <animate attributeName="x" values="60;70;80;90;100;110;120;130;140;150;160" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+      <animate attributeName="class" values="exact;exact;exactcolor;exact;exact;exactcolor;exact;exact;exact;exact;exact" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+    <text x="10"  y="0" class="exact">t
+      <animate attributeName="x" values="50;60;70;80;90;100;110;120;130;140;150" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+      <animate attributeName="class" values="exact;exact;exact;exact;exact;exactcolor;exact;exact;exact;exact;exact" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+    <text x="10"  y="0" class="exact">e
+      <animate attributeName="x" values="40;50;60;70;80;90;100;110;120;130;140" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+      <animate attributeName="class" values="exact;exact;exact;exact;exactcolor;exact;exact;exactcolor;exact;exact;exact" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+    <text x="10"  y="0" class="exact">a
+      <animate attributeName="x" values="30;40;50;60;70;80;90;100;110;120;130" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+      <animate attributeName="class" values="exact;exact;exact;exact;exact;exact;exactcolor;exact;exact;exact;exact" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+    <text x="10"  y="0" class="exact">r
+      <animate attributeName="x" values="20;30;40;50;60;70;80;90;100;110;120" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+      <animate attributeName="class" values="exact;exact;exact;exact;exact;exactcolor;exact;exact;exact;exact;exact" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+    <text x="10"  y="0" class="exact">c
+      <animate attributeName="x" values="10;20;30;40;50;60;70;80;90;100;110" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+      <animate attributeName="class" values="exact;exact;exact;exact;exact;exactcolor;exact;exact;exact;exact;exact" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+  </g>
+
+  <g transform="translate(56.5,5)">
+    <line x1="0"  y1="0" x2="0"  y2="25" width="10" height="20" class="matchline"/>
+    <line x1="10" y1="0" x2="10" y2="25" width="10" height="20" class="matchline"/>
+    <line x1="20" y1="0" x2="20" y2="25" width="10" height="20" class="matchline"/>
+    <line x1="30" y1="0" x2="30" y2="25" width="10" height="20" class="matchline"/>
+    <line x1="40" y1="0" x2="40" y2="25" width="10" height="20" class="matchline"/>
+    <line x1="50" y1="0" x2="50" y2="25" width="10" height="20" class="matchline"/>
+    <line x1="60" y1="0" x2="60" y2="25" width="10" height="20" class="matchline"/>
+  </g>
+
+  <g transform="translate(0,40)">
+    <text x="60"  y="0" class="exact">1
+      <animate attributeName="visibility" values="hidden;hidden;hidden;hidden;hidden;visible;hidden;hidden;hidden;hidden;hidden" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+    <text x="70"  y="0" class="exact">1
+      <animate attributeName="visibility" values="hidden;hidden;hidden;hidden;hidden;visible;hidden;hidden;hidden;hidden;hidden" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+    <text x="80"  y="0" class="exact">1
+      <animate attributeName="visibility" values="hidden;hidden;visible;hidden;visible;hidden;hidden;hidden;hidden;hidden;hidden" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+    <text x="90"  y="0" class="exact">1
+      <animate attributeName="visibility" values="hidden;hidden;hidden;hidden;hidden;hidden;visible;hidden;hidden;hidden;hidden" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+    <text x="100"  y="0" class="exact">1
+      <animate attributeName="visibility" values="hidden;hidden;hidden;hidden;hidden;visible;hidden;hidden;hidden;hidden;hidden" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+    <text x="110"  y="0" class="exact">1
+      <animate attributeName="visibility" values="hidden;hidden;hidden;hidden;hidden;visible;hidden;visible;hidden;hidden;hidden" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+
+    <text x="120"  y="0" class="exact">&#x03A3; = 1
+      <animate attributeName="visibility" values="hidden;hidden;visible;hidden;visible;hidden;visible;visible;hidden;hidden;hidden" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+    <text x="120"  y="0" class="exact">&#x03A3; = 4
+      <animate attributeName="visibility" values="hidden;hidden;hidden;hidden;hidden;visible;hidden;hidden;hidden;hidden;hidden" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+    </text>
+
+  </g>
+
+</svg>

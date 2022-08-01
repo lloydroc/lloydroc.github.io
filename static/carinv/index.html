@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cars</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.0.2/webcomponents-bundle.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/pouchdb@7.0.0/dist/pouchdb.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.0/mustache.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+  </head>
+  <body>
+
+    <div class="tabs">
+      <ul>
+        <li><a href="/todos">Todos</a></li>
+        <li><a href="/workouts">Workouts</a></li>
+        <li class="is-active"><a href="/carinv">Car</a></li>
+      </ul>
+    </div>
+
+    <div class="columns">
+      <div class="column is-2"></div>
+      <div class="column is-8">
+
+        <div class="tags has-addons">
+          <span class="tag">BMW Oil</span>
+          <span class="tag is-primary">5.1 qt. Synthetic 0W-40, 0W-30, 5W-40, 5W-30</span>
+        </div>
+        <div class="tags has-addons">
+          <span class="tag">Kia Oil</span>
+          <span class="tag is-primary">7.61 qt. Synthetic 10W-30, 5W-20, 5W-30</span>
+        </div>
+
+        <table class="table">
+          <thead>
+              <tr>
+                <th>Car</th>
+                <th>Item</th>
+                <th>Manufacturer</th>
+                <th>Model</th>
+                <th>Part #</th>
+                <th>Quantity</th>
+              </tr>
+          </thead>
+          <tbody id="inventory"></tbody>
+        </table>
+      </div>
+      <div class="column is-2"></div>
+    </div>
+  </body>
+  <script src="index.js"></script>
+</html>

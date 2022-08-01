@@ -1,0 +1,91 @@
+<svg viewBox="0 0 382 202" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<desc>A Mealy State Machine from a Simple Convolutional Code</desc>
+<style>
+.state {
+  stroke: black;
+  stroke-width: 1;
+  fill: white;
+}
+.state-text {
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-size: 20px;
+}
+.state-text {
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-size: 20px;
+}
+.mealy-text {
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-size: 12px;
+}
+.state-line {
+  stroke: black;
+  stroke-width: 1;
+  fill: none;
+}
+</style>
+  <defs>
+    <marker id="arrowhead_down" markerWidth="10" markerHeight="10" refX="5" refY="0" orient="0">
+      <polygon points="0,0 10,0 5,10 0,0" />
+    </marker>
+    <marker id="arrowhead_00" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="32">
+      <polygon points="0,10 10,10 5,0 0,10"/>
+    </marker>
+    <marker id="arrowhead_11" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="-30">
+      <polygon points="0,10 10,10 5,0 0,10"/>
+    </marker>
+    <marker id="arrowhead_up" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="0">
+      <polygon points="0,10 10,10 5,0 0,10"/>
+    </marker>
+    <marker id="arrowhead_right" markerWidth="10" markerHeight="10" refX="0" refY="5">
+      <polygon points="0,0 10,5 0,10 0,0" />
+    </marker>
+    <marker id="arrowhead_left" markerWidth="10" markerHeight="10" refX="10" refY="5">
+      <polygon points="0,5 10,0 10,10 0,5" />
+    </marker>
+  </defs>
+
+  <circle cx="70" cy="100" r="20" class="state"/>
+  <circle cx="270" cy="100" r="20" class="state"/>
+  <circle cx="170" cy="21" r="20" class="state"/>
+  <circle cx="170" cy="180" r="20" class="state"/>
+
+  <!-- transition from 00->00 -->
+  <path d="M 56,85 a 30 30 0 1 0 10,39" class="state-line" marker-end="url(#arrowhead_00)"/>
+
+  <!-- transition from 11->11 -->
+  <path d="M 284,85 a 30 30 0 1 1 -10,39" class="state-line" marker-end="url(#arrowhead_11)"/>
+
+  <!-- transition from 00->10 -->
+  <path d="M 70,120 Q 70,180 140,180" class="state-line" marker-end="url(#arrowhead_right)"/>
+
+  <!-- transition from 01->00 -->
+  <path d="M 70,70 Q 70,15 150,20" class="state-line" marker-start="url(#arrowhead_down)"/>
+
+  <!-- transition from 10->01 -->
+  <path d="M 170,160 Q 170,100 170,45" class="state-line" marker-end="url(#arrowhead_up)"/>
+
+  <!-- transition from 10->11 -->
+  <path d="M 190,180 Q 265,180 270,125" class="state-line" marker-end="url(#arrowhead_up)"/>
+
+  <!-- transition from 11->01 -->
+  <path d="M 270,80 Q 275,20 200,20" class="state-line" marker-end="url(#arrowhead_left)"/>
+
+  <!-- transition from 01->11 -->
+  <path d="M 170,40 Q 170,100 240,100" class="state-line" marker-end="url(#arrowhead_right)"/>
+
+  <!-- state text -->
+  <text x="58" y="105" class="state-text">00</text>
+  <text x="258" y="105" class="state-text">11</text>
+  <text x="158" y="185" class="state-text">10</text>
+  <text x="158" y="25" class="state-text">01</text>
+
+  <text x="12" y="115" class="mealy-text">0/00</text>
+  <text x="300" y="115" class="mealy-text">1/11</text>
+  <text x="100" y="170" class="mealy-text">1/10</text>
+  <text x="100" y="35" class="mealy-text">0/00</text>
+  <text x="210" y="170" class="mealy-text">1/11</text>
+  <text x="210" y="35" class="mealy-text">0/01</text>
+  <text x="195" y="90" class="mealy-text">1/11</text>
+  <text x="140" y="130" class="mealy-text">0/01</text>
+</svg>

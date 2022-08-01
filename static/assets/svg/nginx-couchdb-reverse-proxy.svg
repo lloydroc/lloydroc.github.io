@@ -1,0 +1,25 @@
+<svg viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg">
+  <rect x="150" y="10" width="75" height="60" style="stroke:rgb(0,0,0); fill: white;"/>
+
+  <line x1="5"   y1="40" x2="150" y2="40" style="stroke:rgb(0,0,0)"/>
+  <line x1="145" y1="45" x2="150" y2="40" style="stroke:rgb(0,0,0)"/>
+  <line x1="145" y1="35" x2="150" y2="40" style="stroke:rgb(0,0,0)"/>
+
+  <rect x="400"  y="10" width="75" height="60" style="stroke:rgb(0,0,0); fill: white;"/>
+  <line x1="225" y1="40" x2="400" y2="40" style="stroke:rgb(0,0,0)"/>
+  <line x1="395" y1="45" x2="400" y2="40" style="stroke:rgb(0,0,0)"/>
+  <line x1="395" y1="35" x2="400" y2="40" style="stroke:rgb(0,0,0)"/>
+
+  <line x1="215" y1="0" x2="215" y2="160" style="stroke:rgb(255,0,0)"/>
+
+  <text x="10"  y="35">GET /couch HTTPS</text>
+  <text x="160" y="45">NGINX</text>
+  <text x="235" y="35">http://127.0.0.1:5984</text>
+  <text x="405" y="45">CouchDB</text>
+  <text x="220" y="95" style="fill:rgb(255,0,0)">Reverse Proxy </text>
+  <text x="220" y="115" style="fill:rgb(255,0,0)">/couch/* goes to 127.0.0.1:5984</text>
+  <text x="220" y="135" style="fill:rgb(255,0,0)">Rewrite "/couch" to "/"</text>
+</svg>
+
+
+

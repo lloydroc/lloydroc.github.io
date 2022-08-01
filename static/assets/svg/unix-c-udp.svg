@@ -1,0 +1,117 @@
+<svg viewBox="0 0 320 360" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .small {
+      dominant-baseline: central;
+      text-anchor: middle;
+      font-size: 10px;
+    }
+    .small-client {
+      dominant-baseline: central;
+      text-anchor: middle;
+      font-size: 10px;
+      fill: white;
+    }
+    .server {
+      fill: red;
+      stroke: black;
+    }
+    .client {
+      fill: blue;
+      stroke: black;
+    }
+    .trans {
+      fill: white;
+      stroke: black;
+    }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="2.5" refY="0">
+      <polygon points="0,0 5,0 2.5,5 0,0" />
+    </marker>
+    <marker id="arrowhead2" markerWidth="10" markerHeight="10" refX="0" refY="2.5">
+      <polygon points="0,0 5,2.5 0,5 0,0" />
+    </marker>
+    <marker id="arrowhead3" markerWidth="10" markerHeight="10" refX="0" refY="2.5">
+      <polygon points="0,2.5 5,0 5,5 0,2.5" />
+    </marker>
+  </defs>
+
+  <g transform="translate(5,15)">
+
+    <g transform="translate(10,40)">
+      <text x="27" y="0" class="small">Server</text>
+    </g>
+
+    <g transform="translate(150,40)">
+      <text x="27" y="0" class="small">Client</text>
+    </g>
+
+    <g transform="translate(0,185)">
+      <rect width="220" height="100" class="trans"/>
+    </g>
+
+    <g transform="translate(10,50)">
+      <rect width="60" height="30" class="server"/>
+      <text x="27" y="15" class="small">socket</text>
+    </g>
+
+    <line x1="40" x2="40" y1="80" y2="95" stroke="black" marker-end="url(#arrowhead)"/>
+
+    <g transform="translate(10,100)">
+      <rect width="60" height="30" class="server"/>
+      <text x="27" y="15" class="small">bind</text>
+    </g>
+
+    <g transform="translate(10,200)">
+      <rect width="60" height="30" class="server"/>
+      <text x="27" y="15" class="small">recvfrom</text>
+    </g>
+
+    <line x1="40" x2="40" y1="130" y2="195" stroke="black" marker-end="url(#arrowhead)"/>
+    <line x1="150" x2="70" y1="215" y2="215" stroke="black" marker-end="url(#arrowhead3)"/>
+
+    <g transform="translate(10,250)">
+      <rect width="60" height="30" class="server"/>
+      <text x="27" y="15" class="small">sendto</text>
+    </g>
+
+    <line x1="40" x2="40" y1="230" y2="245" stroke="black" marker-end="url(#arrowhead)"/>
+    <line x1="70" x2="145" y1="265" y2="265" stroke="black" marker-end="url(#arrowhead2)"/>
+
+    <g transform="translate(10,300)">
+      <rect width="60" height="30" class="server"/>
+      <text x="27" y="15" class="small">close</text>
+    </g>
+
+    <line x1="40" x2="40" y1="280" y2="295" stroke="black" marker-end="url(#arrowhead)"/>
+
+    <g transform="translate(150,50)">
+      <rect width="60" height="30" class="client"/>
+      <text x="27" y="15" class="small-client">socket</text>
+    </g>
+
+    <line x1="180" x2="180" y1="80" y2="195" stroke="black" marker-end="url(#arrowhead)"/>
+
+    <g transform="translate(150,200)">
+      <rect width="60" height="30" class="client"/>
+      <text x="27" y="15" class="small-client">sendto</text>
+    </g>
+
+    <g transform="translate(150,250)">
+      <rect width="60" height="30" class="client"/>
+      <text x="27" y="15" class="small-client">recvfrom</text>
+    </g>
+
+    <line x1="180" x2="180" y1="230" y2="245" stroke="black" marker-end="url(#arrowhead)"/>
+
+    <g transform="translate(150,300)">
+      <rect width="60" height="30" class="client"/>
+      <text x="27" y="15" class="small-client">close</text>
+    </g>
+
+    <line x1="180" x2="180" y1="280" y2="295" stroke="black" marker-end="url(#arrowhead)"/>
+
+  </g>
+
+</svg>

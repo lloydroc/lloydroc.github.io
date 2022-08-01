@@ -1,0 +1,197 @@
+<svg viewBox="0 0 120 150" xmlns="http://www.w3.org/2000/svg">
+<desc>Discrete 1d Linear Convolution Animation</desc>
+<style>
+.siglabel {
+  font-family: Courier, serif;
+  font-size: 4px;
+}
+.axis {
+  stroke: black;
+  stroke-width: 0.5;
+}
+.tick {
+  stroke: grey;
+  stroke-width: 0.5;
+}
+.sigx {
+  stroke: blue;
+  stroke-width: 1;
+}
+.sigh {
+  stroke: red;
+  stroke-width: 1;
+}
+.sigy {
+  stroke: green;
+  stroke-width: 1;
+}
+</style>
+  <defs>
+    <marker id="sigxdot" stroke="none" fill="blue" markerWidth="4" markerHeight="4" refX="2" refY="2">
+      <circle cx="2" cy="2" r="1.5" />
+    </marker>
+    <marker id="sighdot" stroke="none" fill="red" markerWidth="4" markerHeight="4" refX="2" refY="2">
+      <circle cx="2" cy="2" r="1.5" />
+    </marker>
+    <marker id="sigydot" stroke="none" fill="green" markerWidth="4" markerHeight="4" refX="2" refY="2">
+      <circle cx="2" cy="2" r="1.5" />
+    </marker>
+    <marker id="arrowhead_down" markerWidth="10" markerHeight="10" refX="2.5" refY="0">
+      <polygon points="0,0 5,0 2.5,5 0,0" />
+    </marker>
+    <marker id="arrowhead_up" markerWidth="10" markerHeight="10" refX="2.5" refY="2.5">
+      <polygon points="0,5 5,5 2.5,0 0,5" />
+    </marker>
+    <marker id="arrowhead_right" markerWidth="10" markerHeight="10" refX="0" refY="2.5">
+      <polygon points="0,0 5,2.5 0,5 0,0" />
+    </marker>
+    <marker id="arrowhead_left" markerWidth="10" markerHeight="10" refX="5" refY="2.5">
+      <polygon points="0,2.5 5,0 5,5 0,2.5" />
+    </marker>
+  </defs>
+  <g transform="translate(5,5)">
+    <g transform="translate(5,40)">
+      <text x="0" y="-25" class="siglabel">x[t]</text>
+      <line x1="0" x2="100" y1="0" y2="0" stroke="black" marker-start="url(#arrowhead_left)" marker-end="url(#arrowhead_right)"/>
+      <line x1="50" x2="50" y1="5" y2="-30" stroke="black" marker-end="url(#arrowhead_up)"/>
+
+      <!-- negative ticks -->
+      <line x1="45" x2="45" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="40" x2="40" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="35" x2="35" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="30" x2="30" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="25" x2="25" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="20" x2="20" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="15" x2="15" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="10" x2="10" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="5"  x2="5"  y1="0.5" y2="3" stroke="black" class="tick"/>
+
+      <!-- positive ticks -->
+      <line x1="55" x2="55" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="60" x2="60" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="65" x2="65" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="70" x2="70" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="75" x2="75" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="80" x2="80" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="85" x2="85" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="90" x2="90" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="95" x2="95"  y1="0.5" y2="3" stroke="black" class="tick"/>
+
+      <!-- sigx -->
+      <line x1="5" x2="5" y1="-0.5" y2="-5" stroke="black" class="sigx" marker-end="url(#sigxdot)">
+            <animate attributeName="x1" values="5;10;15;20;25;30;35;40;45;50;55;60;65;70;75;" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+            <animate attributeName="x2" values="5;10;15;20;25;30;35;40;45;50;55;60;65;70;75;" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+      </line>
+
+      <line x1="10" x2="10" y1="-0.5" y2="-5" stroke="black" class="sigx" marker-end="url(#sigxdot)">
+            <animate attributeName="x1" values="10;15;20;25;30;35;40;45;50;55;60;65;70;75;80" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+            <animate attributeName="x2" values="10;15;20;25;30;35;40;45;50;55;60;65;70;75;80" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+      </line>
+      <line x1="15" x2="15" y1="-0.5" y2="-5" stroke="black" class="sigx" marker-end="url(#sigxdot)">
+            <animate attributeName="x1" values="15;20;25;30;35;40;45;50;55;60;65;70;75;80;85" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+            <animate attributeName="x2" values="15;20;25;30;35;40;45;50;55;60;65;70;75;80;85" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+      </line>
+      <line x1="20" x2="20" y1="-0.5" y2="-5" stroke="black" class="sigx" marker-end="url(#sigxdot)">
+            <animate attributeName="x1" values="20;25;30;35;40;45;50;55;60;65;70;75;80;85;90" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+            <animate attributeName="x2" values="20;25;30;35;40;45;50;55;60;65;70;75;80;85;90" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+      </line>
+      <line x1="25" x2="25" y1="-0.5" y2="-5" stroke="black" class="sigx" marker-end="url(#sigxdot)">
+            <animate attributeName="x1" values="25;30;35;40;45;50;55;60;65;70;75;80;85;90;95" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+            <animate attributeName="x2" values="25;30;35;40;45;50;55;60;65;70;75;80;85;90;95" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+      </line>
+    </g>
+
+    <g transform="translate(5,90)">
+      <text x="0" y="-25" class="siglabel">h[t]</text>
+
+      <line x1="0" x2="100" y1="0" y2="0" stroke="black" marker-start="url(#arrowhead_left)" marker-end="url(#arrowhead_right)"/>
+      <line x1="50" x2="50" y1="5" y2="-30" stroke="black" marker-end="url(#arrowhead_up)"/>
+      <!-- negative ticks -->
+      <line x1="45" x2="45" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="40" x2="40" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="35" x2="35" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="30" x2="30" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="25" x2="25" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="20" x2="20" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="15" x2="15" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="10" x2="10" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="5"  x2="5"  y1="0.5" y2="3" stroke="black" class="tick"/>
+
+      <!-- positive ticks -->
+      <line x1="55" x2="55" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="60" x2="60" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="65" x2="65" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="70" x2="70" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="75" x2="75" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="80" x2="80" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="85" x2="85" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="90" x2="90" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="95" x2="95"  y1="0.5" y2="3" stroke="black" class="tick"/>
+
+      <!-- sigh -->
+      <line x1="40" x2="40" y1="-0.5" y2="-5" stroke="black" class="sigh" marker-end="url(#sighdot)"></line>
+      <line x1="45" x2="45" y1="-0.5" y2="-5" stroke="black" class="sigh" marker-end="url(#sighdot)"></line>
+      <line x1="50" x2="50" y1="-0.5" y2="-5" stroke="black" class="sigh" marker-end="url(#sighdot)"></line>
+      <line x1="55" x2="55" y1="-0.5" y2="-5" stroke="black" class="sigh" marker-end="url(#sighdot)"></line>
+      <line x1="60" x2="60" y1="-0.5" y2="-5" stroke="black" class="sigh" marker-end="url(#sighdot)"></line>
+    </g>
+
+    <g transform="translate(5,140)">
+      <text x="0" y="-25" class="siglabel">y[t] = h[t]*x[t]</text>
+      <line x1="0" x2="100" y1="0" y2="0" stroke="black" marker-start="url(#arrowhead_left)" marker-end="url(#arrowhead_right)"/>
+      <line x1="50" x2="50" y1="5" y2="-30" stroke="black" marker-end="url(#arrowhead_up)"/>
+
+      <!-- negative ticks -->
+      <line x1="45" x2="45" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="40" x2="40" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="35" x2="35" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="30" x2="30" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="25" x2="25" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="20" x2="20" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="15" x2="15" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="10" x2="10" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="5"  x2="5"  y1="0.5" y2="3" stroke="black" class="tick"/>
+
+      <!-- positive ticks -->
+      <line x1="55" x2="55" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="60" x2="60" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="65" x2="65" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="70" x2="70" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="75" x2="75" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="80" x2="80" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="85" x2="85" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="90" x2="90" y1="0.5" y2="3" stroke="black" class="tick"/>
+      <line x1="95" x2="95"  y1="0.5" y2="3" stroke="black" class="tick"/>
+
+      <!-- sigy -->
+      <line x1="30" x2="30" y1="-0.5" y2="-5" stroke="black" class="sigy" marker-end="url(#sigydot)" visibility="hidden">
+            <animate attributeName="visibility" values="hidden;hidden;hidden;visible;visible;visible;visible;visible;visible;visible;visible;visible;visible;visible;visible;" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+      </line>
+      <line x1="35" x2="35" y1="-0.5" y2="-10" stroke="black" class="sigy" marker-end="url(#sigydot)">
+            <animate attributeName="visibility" values="hidden;hidden;hidden;hidden;visible;visible;visible;visible;visible;visible;visible;visible;visible;visible;visible;" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+      </line>
+      <line x1="40" x2="40" y1="-0.5" y2="-15" stroke="black" class="sigy" marker-end="url(#sigydot)">
+            <animate attributeName="visibility" values="hidden;hidden;hidden;hidden;hidden;visible;visible;visible;visible;visible;visible;visible;visible;visible;visible;" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+      </line>
+      <line x1="45" x2="45" y1="-0.5" y2="-20" stroke="black" class="sigy" marker-end="url(#sigydot)">
+            <animate attributeName="visibility" values="hidden;hidden;hidden;hidden;hidden;hidden;visible;visible;visible;visible;visible;visible;visible;visible;visible;" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+      </line>
+      <line x1="50" x2="50" y1="-0.5" y2="-25" stroke="black" class="sigy" marker-end="url(#sigydot)">
+            <animate attributeName="visibility" values="hidden;hidden;hidden;hidden;hidden;hidden;hidden;visible;visible;visible;visible;visible;visible;visible;visible;" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+      </line>
+      <line x1="55" x2="55" y1="-0.5" y2="-20" stroke="black" class="sigy" marker-end="url(#sigydot)">
+            <animate attributeName="visibility" values="hidden;hidden;hidden;hidden;hidden;hidden;hidden;hidden;visible;visible;visible;visible;visible;visible;visible;" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+      </line>
+      <line x1="60" x2="60" y1="-0.5" y2="-15" stroke="black" class="sigy" marker-end="url(#sigydot)">
+            <animate attributeName="visibility" values="hidden;hidden;hidden;hidden;hidden;hidden;hidden;hidden;hidden;visible;visible;visible;visible;visible;visible;" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+      </line>
+      <line x1="65" x2="65" y1="-0.5" y2="-10" stroke="black" class="sigy" marker-end="url(#sigydot)">
+            <animate attributeName="visibility" values="hidden;hidden;hidden;hidden;hidden;hidden;hidden;hidden;hidden;hidden;visible;visible;visible;visible;visible;" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+      </line>
+      <line x1="70" x2="70" y1="-0.5" y2="-5" stroke="black" class="sigy" marker-end="url(#sigydot)">
+            <animate attributeName="visibility" values="hidden;hidden;hidden;hidden;hidden;hidden;hidden;hidden;hidden;hidden;hidden;visible;visible;visible;visible;" dur="10s" repeatCount="indefinite" calcMode="discrete"/>
+      </line>
+
+    </g>
+  </g>
+</svg>
