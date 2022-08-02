@@ -4,7 +4,7 @@ date: 2022-08-01
 draft: false
 ---
 
-In this post we'll explore how to read a file into an array of strings. Doing this in C isn't as trivial as it maybe in other languages because of memory allocation and the dynamic nature of a text file. The file will be read into a jagged array. This program uses [realloc(3)](https://man7.org/linux/man-pages/man3/realloc.3p.html) to make the most efficent use of the heap possible.
+In this post we'll explore how to read a file into an array of strings. Doing this in C isn't as trivial as it maybe in other languages because of memory allocation and the dynamic nature of a text file. The file will be read into a jagged array. This program uses [realloc(3)](https://man7.org/linux/man-pages/man3/realloc.3p.html) to make the most efficient use of the heap possible.
 
 Skip the background and go directly to [the code]({{< permalink >}}#the-code).
 
@@ -80,11 +80,14 @@ Usage is as follows:
 {{< / highlight >}}
 
 I'll let the code speak for itself except for a couple of fine points:
-* We initially assume the number of lines in our file is 64 lines long. Thus, we initially allocate 64 pointers.
-* As our number of lines exceeds 64 we increase the length of the jagged array by 64 using [realloc(3)](https://man7.org/linux/man-pages/man3/realloc.3p.html)
-* After we read the file to the end we decrease the jagged array size to the exact number of lines. Plus, one line for the ending null.
+* We only read the file through once for performance.
+* We assume a large number of lines in our file by dividing the total bytes by a factor - *the guess*. This prohibits us from having to [realloc(3)](https://man7.org/linux/man-pages/man3/realloc.3p.html).
+* As our number of lines exceeds the initial guess we increase the length of the jagged array by another size using [realloc(3)](https://man7.org/linux/man-pages/man3/realloc.3p.html)
+* After we read the file to the end we decrease the jagged array size to the exact number of lines. Plus, one line for the ending null. No extra memory is allocated.
 * The lines we read from the file do not have the newline trimmed from the end.
 * We make heavy usage of (getline(3))[https://man7.org/linux/man-pages/man3/getline.3.html]. See the description for the details of memory allocation.
+
+As far as [realloc(3)](https://man7.org/linux/man-pages/man3/realloc.3p.html) goes it's typically not expensive at all. It will just expand the heap and return. However, there are cases where re-allocating memory would need to copy the entire contents of the memory to another location. In this case to copy over the contents of a large chuck of memory would be expensive.
 
 {{< highlight c >}}
 // filename file2strings.c
@@ -110,8 +113,9 @@ read_lines(FILE *file, long numbytes)
     ssize_t numchars;
     size_t maxbytes = 0;
     int numlines = 0;
-    size_t buffer_increment = 64 * sizeof(char *); // initial guess
-    numlines_allocated = buffer_increment;
+    size_t initial_guess = numbytes / 8 * sizeof(char *);
+    size_t buffer_increment = 512 * sizeof(char *);
+    numlines_allocated = initial_guess;
 
     printf("allocating %ld bytes\n", numlines_allocated);
 
@@ -230,7 +234,7 @@ main(int argc, char *argv[])
 Here is the makefile I used for the program above named `file2strings.c`.
 
 {{< highlight make >}}
-file2strings: main.c
+file2strings: file2strings.c
         gcc -g -O0 -Wall -Werror -o file2strings file2strings.c
 
 clean:

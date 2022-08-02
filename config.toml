@@ -11,8 +11,6 @@ disqusShortName = "https-lloydrochester-com"
 author = "Lloyd Rochester"
 copyright = "Copyright © 2022, Lloyd Rochester."
 
-GoogleAnalytics = "UA-125892300-1"
-
 [[menu.main]]
     url = "/about/"
     name = "About"
