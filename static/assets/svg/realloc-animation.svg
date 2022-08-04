@@ -1,0 +1,94 @@
+<svg viewBox="0 0 320 500" xmlns="http://www.w3.org/2000/svg">
+<desc>
+Animation of heap allocation in c.
+1. All invisible
+2. Allocate memblock1 of 64 bytes
+3. Allocate memblock2 of 64 bytes
+4. Reallocate memblock1 of 128 bytes moving it above memblock2
+5. Allocation memblock3 of 64 bytes placing it where memblock1 was in step 1
+</desc>
+<style>
+.text {
+  font-family: serif;
+  font-size: 12px;
+}
+.invisible {
+  font-size: 0;
+  stroke-width: 0;
+}
+.stackframe {
+  fill: white;
+  stroke: black;
+  stroke-width: 1;
+}
+.memory {
+  fill: white;
+  stroke: black;
+  stroke-width: 2;
+}
+</style>
+  <g transform="translate(90,10)">
+    <rect x="0" y="0" width="220" height="450" rx="19" class="memory"/>
+    <line x1="0" x2="220" y1="60" y2="60" class="stackframe" stroke-dasharray="5, 5"/>
+
+    <!-- memblock1 realloc'd -->
+    <line x1="0" x2="220" y1="310" y2="310" class="stackframe" stroke-dasharray="5, 5">
+      <animate attributeName="class" values="invisible;invisible;invisible;stackframe;stackframe" dur="10s" repeatCount="indefinite"/>
+    </line>
+
+    <!-- memblock2 -->
+    <line x1="0" x2="220" y1="350" y2="350" class="stackframe" stroke-dasharray="5, 5">
+      <animate attributeName="class" values="invisible;invisible;stackframe;stackframe;stackframe" dur="10s" repeatCount="indefinite"/>
+    </line>
+
+    <!-- memblock1 -->
+    <line x1="0" x2="220" y1="370" y2="370" class="stackframe" stroke-dasharray="5, 5">
+      <animate attributeName="class" values="invisible;stackframe;stackframe;stackframe;stackframe" dur="10s" repeatCount="indefinite"/>
+    </line>
+
+    <line x1="0" x2="220" y1="430" y2="430" class="stackframe"/>
+    <line x1="0" x2="220" y1="410" y2="410" class="stackframe"/>
+    <line x1="0" x2="220" y1="390" y2="390" class="stackframe"/>
+  </g>
+
+  <g transform="translate(0,0)">
+    <!--<text x="0" y="20" class="text">0x5bd1c4cbb2f0</text>-->
+    <text x="0" y="455" class="text">0x000000000000</text>
+    <text x="180" y="50" class="text">Stack</text>
+    <text x="180" y="453" class="text">Text</text>
+    <text x="180" y="433" class="text">Initialized Data</text>
+    <text x="180" y="413" class="text">Uninitialized Data</text>
+    <!-- <text x="200" y="393" class="text">Heap</text> -->
+
+    <!-- memblock1 -->
+    <text x="0" y="393" class="text">0x5bd1c4cbb2a0
+      <animate attributeName="class" values="invisible;text;text;text;text" dur="10s" repeatCount="indefinite"/>
+    </text>
+    <text x="100" y="393" class="text">memblock1
+      <animate attributeName="class" values="invisible;text;text;invisible;invisible" dur="10s" repeatCount="indefinite"/>
+    </text>
+    <text x="100" y="393" class="text">available
+      <animate attributeName="class" values="invisible;invisible;invisible;text;invisible" dur="10s" repeatCount="indefinite"/>
+    </text>
+
+    <!-- memblock2 -->
+    <text x="0" y="373" class="text">0x5bd1c4cbb2f0
+      <animate attributeName="class" values="invisible;invisible;text;text;text" dur="10s" repeatCount="indefinite"/>
+    </text>
+    <text x="100" y="373" class="text">memblock2
+          <animate attributeName="class" values="invisible;invisible;text;text;text" dur="10s" repeatCount="indefinite"/>
+    </text>
+
+    <!-- memblock1 realloc'd -->
+    <text x="0" y="343" class="text">0x5bd1c4cbb340
+      <animate attributeName="class" values="invisible;invisible;invisible;text;text" dur="10s" repeatCount="indefinite"/>
+    </text>
+    <text x="100" y="343" class="text">memblock1
+      <animate attributeName="class" values="invisible;invisible;invisible;text;text" dur="10s" repeatCount="indefinite"/>
+    </text>
+
+    <text x="100" y="393" class="text">memblock3
+      <animate attributeName="class" values="invisible;invisible;invisible;invisible;text" dur="10s" repeatCount="indefinite"/>
+    </text>
+  </g>
+</svg>

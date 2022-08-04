@@ -1,4 +1,4 @@
-baseURL = 'http://dev.lloydrochester.com/'
+baseURL = 'http://localhost:1313'
 languageCode = 'en-US'
 title = "Lloyd Rochester's Geek Blog"
 #theme = 'ananke'
@@ -6,7 +6,7 @@ theme = 'hugo-bearblog'
 #theme = 'noteworthy'
 #theme = 'hugo-notepadium'
 #theme = 'PaperMod'
-disqusShortName = "https-lloydrochester-com"
+#disqusShortName = "https-lloydrochester-com"
 
 author = "Lloyd Rochester"
 copyright = "Copyright © 2022, Lloyd Rochester."
