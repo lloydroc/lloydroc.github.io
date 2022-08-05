@@ -56,7 +56,7 @@ We have the following software:
 
 # Lidar Setup
 
-First follow the [tfmini daemon](post/hardware/tf-mini-lidar-unix-agent/) setup to get the `tfmini` wired in, software configured and installed.
+First follow the [tfmini daemon](/post/hardware/tf-mini-lidar-unix-agent/) setup to get the `tfmini` wired in, software configured and installed.
 
 Once installed, we can send Lidar frames to the NodeJS server over UDP using the following command:
 

@@ -10,7 +10,7 @@ categories:
 In the fourth post on how to create a service in `systemd` we will create a timer that will run every minute sending messages to our example `foo` service over a socket. We're essentially creating a `cron` job socket client.
 
 Previous posts:
-* [Project Creation](/post/autotools/systemd-autotools/) of an autotools project and start/stop a daemon service.
+* [Project Creation](/post/autotools/systemd-service-daemon-autotools/) of an autotools project and start/stop a daemon service.
 * [Journalling/Syslog](/post/unix/systemd_journal/) to enable logging, notify of state changes and accept reloads.
 * [Socket](/post/unix/systemd_sockets/) creation of a Unix Domain Socket for other processes to send messages to our service through remote procedure calls.
 
