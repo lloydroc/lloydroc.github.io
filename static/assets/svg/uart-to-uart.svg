@@ -1,0 +1,50 @@
+<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .small {
+      dominant-baseline: central;
+      text-anchor: middle;
+      font-size:10px;
+    }
+    .unix {
+      fill: #386cb0;
+    }
+    .bond {
+      fill: red;
+    }
+    .eth {
+      fill: #beaed4;
+    }
+    .switch {
+      fill: #f0027f;
+    }
+  </style>
+
+  <g transform="translate(5,5)">
+    <rect width="100" height="200" rx="5" class="unix"/>
+    <text x="22" y="10" class="small">Raspberry Pi 1</text>
+  </g>
+  <g transform="translate(205,5)">
+    <rect width="100" height="200" rx="5" class="unix"/>
+    <text x="22" y="10" class="small">Raspberry Pi 2</text>
+  </g>
+
+
+  <g transform="translate(5,5)">
+    <line x1="100" x2="140" y1="90" y2="90" stroke="green" />
+    <line x1="160" x2="200" y1="110" y2="110" stroke="green" />
+    <line x1="140" x2="160" y1="90" y2="110" stroke="green" />
+
+    <line x1="100" x2="140" y1="110" y2="110" stroke="red" />
+    <line x1="160" x2="200" y1="90" y2="90" stroke="red" />
+    <line x1="160" x2="140" y1="90" y2="110" stroke="red" />
+
+    <text x="20" y="90" class="small">Pin 8 - UART TX</text>
+    <text x="20" y="110" class="small">Pin 10 - UART RX</text>
+  </g>
+
+  <g transform="translate(205,5)">
+    <text x="5" y="90" class="small">Pin 8 - UART TX</text>
+    <text x="5" y="110" class="small">Pin 10 - UART RX</text>
+  </g>
+
+</svg>
