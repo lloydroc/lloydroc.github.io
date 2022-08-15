@@ -1,0 +1,16 @@
+{{ $baseurl := .Site.BaseURL }}
+{{ $codetar := .Page.Params.codetar }}
+{{ $codeurl := printf "%scode/%s" $baseurl $codetar }}
+{{ $wget := printf "wget %s" $codeurl }}
+{{ $untar := printf "tar zxf %s\ncd %s" $codetar $codetar }}
+
+Download a copy from of the source from <a href='{{ print $codeurl }}'>here</a>
+
+{{ $full := printf "%s\n%s\n./configure\nmake\nsudo make install" $wget $untar }}
+{{ transform.Highlight $full "bash" }}
+
+Uninstall:
+
+{{ $uninstall := "sudo make uninstall"}}
+{{ transform.Highlight $uninstall "bash" }}
+
