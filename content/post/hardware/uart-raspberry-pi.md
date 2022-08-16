@@ -10,7 +10,7 @@ codetar: uartd-1.0.tar.gz
 
 # {{< title >}}
 
-This post outlines how to control the UART in a Raspberry Pi in the C programming language. We will also explore how parity checks are made and bytes with parity errors occur. Parity checking was the main reason to write this post, however, if you're looking for C code to control a UART that also is asynchronous this post should address this need. This post comes with a little command line tool for the UART I wrote that simply reads from standard input and writes out the UART. It has a number of options to set the speed, tty, parity and number of stop bits.
+This post outlines how to control the UART in a Raspberry Pi in the C programming language. We will also explore how parity checking and handling or parity errors. Parity checking was the main driver for this post, however, if you're looking for C code to control a UART that also is asynchronous please keep reading. This post comes with a small command line tool for the UART that reads from standard input that transmits out the UART, while asynchronously receiving from the UART and printing to standard output. The command line tool has a number of options to set the speed, tty, parity and number of stop bits.
 
 # Table of Contents
 
@@ -20,28 +20,28 @@ This post outlines how to control the UART in a Raspberry Pi in the C programmin
 
 I'll summarize what we need to do:
 * Use `raspi-config` to enable the UART
-* Probably, edit `/boot/config.txt` to set `dtoverlay=disable-bt` on the device overlay to disable the **mini UART**. This UART has limited speeds and settings. For example it cannot check parity.
-* Find the UART you're going to use. This is typically a soft link `/dev/serial0` which links to `/dev/ttyAMA0`.
+* Probably, edit `/boot/config.txt` to set `dtoverlay=disable-bt` on the device overlay to disable the **mini UART** for bluetooth. This mini-UART has limited speeds and settings. For example it cannot check parity.
+* Find the UART you're going to use. This is typically a soft link `/dev/serial0` which links to `/dev/ttyAMA0`, however, there is usually a second UART on the Raspberry Pi.
 
 ## UARTs are Cool
 
 Why are they cool?
 
 * UARTs are quite fast. As of this writing max transfer speeds of 2,000,000 Baud are supported. A speed of 2M Baud is more than sufficient for many Raspberry Pi projects.
-* They are only need 2 wires for transmit and receive
+* UARTs only need 2 wires for transmit and receive
 * UARTs have basic error detection with parity
-* UARTs are asynchronous: meaning you can transmit and receive simultaneously and at different speeds. Most microcontrollers have code examples that are synchronous.
+* UARTs are asynchronous: meaning you can transmit and receive simultaneously and at different speeds. Most microcontrollers have code examples that are synchronous and don't take advantage of this fact.
 * To transmit and receive from the UART we can simply use the normal file I/O operations *read(2)* and *write(2)* to a file descriptor. It's the universal method for file I/O in Unix.
 
 ## Quick Background Theory
 
-The receiving and transmitting end of the UART must be set the same on both ends to have the following:
+The receiving and transmitting end of the UART must be set to the same configuration on both ends. This configuration can be summarized as follows:
 * Speed - set in units of of Baud
 * Number of data bits - 5,6,7 or 8 Bits
-* Parity Bit or not - more on this later
+* Parity bit or not - more on this later
 * One or two stop bits
 
-With these settings you can have a min of 1+5+1=7 Bits to a max of 1+8+1+2=12 Bits per frame on the wire.
+With these settings a frame can have a minimum of 1+5+1=7 bits to a maximum of 1+8+1+2=12 Bits per frame on the wire.
 
 ### UART Shorthand Notation
 
@@ -53,17 +53,17 @@ There is a shorthand notation consisting of 3 characters to describe UART settin
 | P      | N or E          | Parity - No or Error |
 | S      | 1 or 2          | Number of Stop Bits  |
 
-Examples are `8N1`, `8E1`, `7E2`. Sometimes people will throw the speed in front of the shorthand notation: `9600 8N1`.
+Examples are `8N1`, `8E1`, `7E2`. Sometimes people will throw the speed in front of the shorthand notation: `9600 8N1`. The `8N1` notation seems to be the most popular with 8 data bits, no parity checking an 1 stop bit.
 
 ## Example Data Frame
 
-Below is a diagram of an example `8E1` data frame where we have **8** data bits with value `0b00101100`, a parity bit **E**, and **1** stop bit. The line defaults to high as a start bit pulls it low to start the frame. We end with the stop bit pulling the line back to logic high.
+Below is a diagram of an example `8E1` data frame where we have **8** data bits with value `0b00101100`, a parity bit **E**, and **1** stop bit. The line defaults to high then the start bit pulls the line low to start the frame. We end with the stop bit pulling the line back to logic high. This *line* is the TX from one UART to the RX on another UART.
 
 {{< figure src="/assets/svg/uart-timing.svg" title="UART data frame timing for 8E1">}}
 
 ## Parity Settings
 
-The UART allows for an optional bit in the data frame for parity. It is not common to enable parity on UARTs. This bit is filled in by the UART on transmission and read on reception. The parity bit is added to the number of 1s in the data frame to make either even or odd parity. Thus, the number of 1s plus the parity bit will need to be even or odd. Here are some valid examples of data plus parity for valid frames:
+The UART allows for an optional bit in the data frame for parity. It is not common to enable parity on UARTs. This bit is filled in by the UART on transmission and checked for correctness on reception. The parity bit is added to the number of 1s in the data frame to make the sum either even or odd. Thus, the number of 1s plus the parity bit will need to be even or odd. If odd parity the total number of 1s plus the parity bit sums to an odd number, if even it sums to an even number. Here are some valid examples of data plus parity for valid frames:
 
 | Data  | Even Parity | Odd Parity |
 |-------|-------------|------------|
@@ -73,34 +73,37 @@ The UART allows for an optional bit in the data frame for parity. It is not comm
 | 00100 | 1           | 0          |
 | 11111 | 1           | 0          |
 
-Checking parity adds up the number of 1s in the data. We can then add a 1 or 0 to make the sum even or odd. It's a very simple way to know if we have a single bit error. However, you could have 2 bit errors and it would go undetected, or even 2*N bit errors. Or even double errors with bits and parity. These scenarios are less likely but are the reason parity checks are *simple* and not very robust.
+Parity is a very simple way to know if we have a single bit error. However, we could have combinations of 2 bit errors that go undetected, or even 2*N bit errors. We could also have a single error in the data bit and an error in the parity bit. Also, we could have problems with the start and stop bits for frame errors. I digress ... These scenarios are less likely but are the reason parity checks are *simple* and not very robust.
 
-When the UART receives a byte if the parity settings are enabled it will compute what it detects for parity and if it doesn't match it will *mark* the data it receives. Let's say we have `sdddddps` - for *s*tart, 5 *d*ata bits, 1 *p*arity bit and a *s*top bit.
+When the UART receives a byte if the parity settings are enabled it will compute what it detects for parity and if it doesn't match it will *mark* the data it receives. Let's say we have `sdddddps` - for **s**tart, 5 **d**ata bits, 1 **p**arity bit and a **s**top bit.
 
-Assuming even parity, if we transmit data of `00001` and the last bit was in error to make `00000`. The data frame would be received
+Assuming even parity, if we transmit data of `00001` and upon reception get a bit flip on the last data bit `00000`. The scenario would be the following adding stop/start and parity bits:
 {{< highlight bash >}}
 10000111 # UART transmits 00001 with even parity bit to be 1
 10000011 # a receiving UART an erroneous frame with one flipped bit
 {{< / highlight >}}
 
-The receiving UART will *mark* this data when it is read. We will get 3 bytes instead of one byte. That byte stream will be `0xff 0x00 0x00` where the first two bytes `0xff 0x00` are the *mark* and the last byte `0x00` is the byte we received in error. Unfortunately, if we truly send `0xff` then it could be misinterpreted. This is a special case that will generate the two bytes `0xff 0xff`. The [termios(3)](https://man7.org/linux/man-pages/man3/tcflush.3.html) datasheet labels these as `\377` which is in octal representing 8-bits 2 for 3, and 3 for 7 twice.
+We know there is a bit error in the received data frame because the sum of 1s and the parity bit isn't even, the sum is 1.
+
+The receiving UART will *mark* this data when it is read. We will get 3 bytes instead of one byte. That byte stream will be `0xff 0x00 0x00` where the first two bytes `0xff 0x00` are the *parity mark* and the last byte `0x00` is the byte we received in error. Unfortunately, if we truly send `0xff` then it could be misinterpreted. This is a special case that will generate the two bytes `0xff 0xff`. The [termios(3)](https://man7.org/linux/man-pages/man3/tcflush.3.html) man page labels these as `\377` which is in octal representing 8-bits: 2 bits for the 3, and 3 bits both of the 7s.
 
 Note, the fact that you expect one byte and read either 3, 2 or 1 bytes makes the programming a little more tricky ...
 
-## Example Parity Byte Stream
+## Example Byte Stream with Parity Errors
 
-For an example let's send 6 full bytes through the UART with even parity enabled and marked. On the transmitting end we'll have the parity bit fixed to 1. Thus, when the receiver computes the parity some errors will occur. Here is the bit stream with comments. Note, 255 isn't in the ASCII table but I hacked a program to make it send.
+For an example let's send 6 full bytes through the UART with even parity enabled and marked. Enabling parity and marking parity are different settings. On the transmitting end we'll have the parity bit fixed to 1. Thus, when the receiver computes the parity some errors will occur. Here is the bit stream with comments. Note, 255 isn't in the ASCII table but I hacked a program to make it send.
 
+Reception from a UART with Parity Enabled and Marked:
 {{< highlight bash >}}
-97      # ascii  a=0b01100001 needs even parity=1
-98      # ascii  b=0b01100010 needs even parity=1
-99      # ascii  c=0b01100011 needs even parity=0
-100     # ascii  d=0b01100100 needs even parity=1
-255     #      255=0b11111111 needs even parity=0
-10      # ascii \n=0b00001010 needs even parity=0
+97      # ascii  97=a=0b01100001 needs even parity=1
+98      # ascii  98=b=0b01100010 needs even parity=1
+99      # ascii  99=c=0b01100011 needs even parity=0
+100     # ascii  100=d=0b01100100 needs even parity=1
+255     #          255=0b11111111 needs even parity=0
+10      # ascii   10=\n=0b00001010 needs even parity=0
 {{< / highlight >}}
 
-We will see the following back
+What we will read back from the UART:
 {{< highlight bash >}}
 97   # valid, no mark
 98   # valid, no mark
@@ -116,11 +119,9 @@ We will see the following back
 10   # 10=\n marked invalid
 {{< / highlight >}}
 
-[termios(3)](https://man7.org/linux/man-pages/man3/tcflush.3.html)
-
 ## Code to Configure the UART
 
-Nearly all background comes from [termios(3)](https://man7.org/linux/man-pages/man3/tcflush.3.html). I will just have pieces in this post from *termios*.
+Below is some code to configure the speed, parity, number of stop bits and ability to asynchronously transmit and receive from the UART.
 
 ### Setting the Speed
 
@@ -229,7 +230,7 @@ uart_get_speed(int requested_speed)
 
 ### Configure the UART
 
-The UART configuration needs a file to open. On a Raspberry Pi it would normally be `/dev/serial0` which is a soft link to `/dev/ttyAMA0`.
+The UART configuration needs a `tty` file to open. Read more on teletypes (`tty`) if needed. On a Raspberry Pi this file would normally be `/dev/serial0` which is a soft link to the actual teletype file `/dev/ttyAMA0`.
 
 {{< highlight c >}}
 /*
@@ -318,7 +319,7 @@ uart_setup(char *filename, speed_t baud, bool parity, bool twostop)
 
 ### Reading bytes from the UART into a Buffer
 
-We can read bytes from the UART into a buffer. Once the UART is setup it's trivial to read bytes as it's a normal call to [read(2)](https://man7.org/linux/man-pages/man2/read.2.html).
+We can read bytes transmitted to the UART into a buffer. Once the UART is setup it's trivial to read bytes as it's a normal call to [read(2)](https://man7.org/linux/man-pages/man2/read.2.html).
 
 {{< highlight c >}}
 static ssize_t
@@ -347,7 +348,7 @@ uart_read(int fd_uart, char buffer[], size_t buf_len, bool verbose)
 
 ### Writing Bytes to the UART
 
-Writing is just as simple as read. Here we read from *stdin* and write it to the UART.
+Transmitting bytes is just as simple as receiving bytes. Here we read from *stdin* and write it to the UART which will transmit.
 
 {{< highlight c >}}
 static ssize_t
@@ -391,6 +392,8 @@ uart_write(int fd_uart, bool verbose)
 {{< / highlight >}}
 
 ### Asynchronously Reading and Writing from the UART
+
+Here I will use the [select(2)](https://www.man7.org/linux/man-pages/man2/select.2.html) system call. However, you can just as easily use [poll(2)](https://man7.org/linux/man-pages/man2/poll.2.html). The *select(2)* system call is how we asynchronously transmit and receive from the UART as it allows for monitoring of multiple file descriptors.
 
 {{< highlight c >}}
 int
@@ -440,7 +443,6 @@ uart_poll(int fd_uart, bool verbose)
 }
 {{< / highlight >}}
 
-
 ## Verifying the UART Configuration
 
 Here is an example configuration with 2000000 Baud, 8-Bits Data, Parity Enabled, and a single Stop Bit - `2000000 8E1`. The TTY is configured in Raw (non-canonical mode). This can be seen because the rows and columns are 0.
@@ -482,15 +484,15 @@ OPTIONS:
 
 In order to verify and test what is in this post two Raspberry Pi boards were wired together.
 
-{{< figure src="/assets/svg/uart-to-uart.svg" title="UART-to-UART communications">}}
+{{< figure src="/assets/svg/uart-to-uart.svg" title="UART-to-UART communication">}}
 
-As previously mentioned we must make sure the *mini-UART* is disabled in the device overlay. We also need the correct configuration in `raspi-config`. From there the `/dev/serial0` soft link needs to be have the correct source. For example ` /dev/serial0 -> /dev/ttyAMA0`.
+As previously mentioned we must make sure the *mini-UART* is disabled in the device overlay. We also need the correct configuration in `raspi-config`. From there the `/dev/serial0` soft link needs to be have the correct source. For example the assumed soft link: `/dev/serial0 -> /dev/ttyAMA0`.
 
 ## Test setup Code
 
-We can use a little trick to test parity. One of the Raspberry Pi boards we can enable two stop bits. On the other we can enable parity. By enabling two-stop bits we are fixing the parity bit in the UART frame to logic high. On the receiving end it will detect and mark parity. As for sending `255`. I hacked the code to send some extra data as this cannot be read from standard input.
+We can use a little trick to test parity. One of the Raspberry Pi boards we can enable two stop bits. On the other we can enable parity with only a single stop bit. By enabling two-stop bits we are fixing the parity bit in the UART frame to logic high. Thus, the transmitting end with two stop bits will always have the parity bit set to 1. On the receiving end we will detect and mark parity and expect errors about half the time. As for the special case of sending `255` which will mark two bytes mentioned above. I hacked the code to send some extra data as `255` this cannot be read from standard input since it's not in the ascii table and is 8-bits.
 
-### Raspberry Pi 1
+### Raspberry Pi 1 Configuration
 
 Use the `-2` flag to enable two stop bits.
 
@@ -498,7 +500,7 @@ Use the `-2` flag to enable two stop bits.
 $ uartd -s 2000000 -2
 {{< / highlight >}}
 
-### Raspberry Pi 2
+### Raspberry Pi 2 Configuration
 
 Use the `-p` flag to enable parity.
 
@@ -506,6 +508,9 @@ Use the `-p` flag to enable parity.
 $ uartd -s 2000000 -p
 {{< / highlight >}}
 
+Now we can type into the 1st Raspberry Pi and see the errors on the 2nd Raspberry Pi.
+
 ## References
 
 [termios(3)](https://man7.org/linux/man-pages/man3/tcflush.3.html)
+[select(2)](https://www.man7.org/linux/man-pages/man2/select.2.html)
