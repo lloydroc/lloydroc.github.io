@@ -1,6 +1,6 @@
 ---
 title: "UART Theory and Programming on the Raspberry Pi"
-date: 2022-08-10
+date: 2022-08-16
 draft: false
 categories:
 - hardware
@@ -10,7 +10,7 @@ codetar: uartd-1.0.tar.gz
 
 # {{< title >}}
 
-This post outlines how to control the UART in a Raspberry Pi in the C programming language. We will also explore how parity checking and handling or parity errors. Parity checking was the main driver for this post, however, if you're looking for C code to control a UART that also is asynchronous please keep reading. This post comes with a small command line tool for the UART that reads from standard input that transmits out the UART, while asynchronously receiving from the UART and printing to standard output. The command line tool has a number of options to set the speed, tty, parity and number of stop bits.
+This post outlines how to control the UART in a Raspberry Pi in the C programming language. We will also explore how parity checks and handling. Parity checking was the main driver for this post, however, if you're looking for C code to control a UART that is also asynchronous please keep reading. This post contains a small command line tool that can asynchronously read and write to standard input and output through two connected UARTs. The command line tool has a number of options to set the speed, tty, parity and number of stop bits.
 
 # Table of Contents
 
