@@ -10,7 +10,7 @@ codetar: uartd-1.0.tar.gz
 
 # {{< title >}}
 
-This post outlines how to control the UART in a Raspberry Pi in the C programming language. We will also explore how parity checks and handling. Parity checking was the main driver for this post, however, if you're looking for C code to control a UART that is also asynchronous please keep reading. This post contains a small command line tool that can asynchronously read and write to standard input and output through two connected UARTs. The command line tool has a number of options to set the speed, tty, parity and number of stop bits.
+This post outlines how to control the UART in a Raspberry Pi using the C programming language. We will also explore parity checks and handling. Parity checking was the main driver for this post, however, if you're looking for C code to control a UART that is also asynchronous please keep reading. This post contains a small command line tool that can asynchronously read and write to standard input and output through two connected UARTs. The command line tool has a number of options to set the speed, tty, parity and number of stop bits.
 
 # Table of Contents
 
@@ -45,7 +45,7 @@ With these settings a frame can have a minimum of 1+5+1=7 bits to a maximum of 1
 
 ### UART Shorthand Notation
 
-There is a shorthand notation consisting of 3 characters to describe UART settings for just the data, parity and number of stop bits. It is `DPS`.
+There is a shorthand notation consisting of 3 characters to describe UART settings for just the data, parity and number of stop bits. We can abbreviate it as `DPS` for data, parity and stop bits.
 
 | Symbol | Possible Values | Description          |
 |--------|-----------------|----------------------|
@@ -53,7 +53,7 @@ There is a shorthand notation consisting of 3 characters to describe UART settin
 | P      | N or E          | Parity - No or Error |
 | S      | 1 or 2          | Number of Stop Bits  |
 
-Examples are `8N1`, `8E1`, `7E2`. Sometimes people will throw the speed in front of the shorthand notation: `9600 8N1`. The `8N1` notation seems to be the most popular with 8 data bits, no parity checking an 1 stop bit.
+Examples are `8N1`, `8E1`, `7E2`. Sometimes people will throw the speed in front of the shorthand notation: `9600 8N1`. The `8N1` notation seems to be the most popular UART configuration with 8 data bits, no parity checking an 1 stop bit.
 
 ## Example Data Frame
 
@@ -230,7 +230,7 @@ uart_get_speed(int requested_speed)
 
 ### Configure the UART
 
-The UART configuration needs a `tty` file to open. Read more on teletypes (`tty`) if needed. On a Raspberry Pi this file would normally be `/dev/serial0` which is a soft link to the actual teletype file `/dev/ttyAMA0`.
+The UART configuration needs a `tty` file to open. Read more on teletypes (`tty`) if needed. On a Raspberry Pi this file would normally be `/dev/serial0` which is a soft link to the actual tty device file `/dev/ttyAMA0`.
 
 {{< highlight c >}}
 /*
