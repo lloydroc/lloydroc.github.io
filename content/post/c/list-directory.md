@@ -6,6 +6,8 @@ title: Listing files in a Directory using C
 lastmod: "2020-04-13"
 ---
 
+# {{< title >}}
+
 Use the glibc `scandir` function from `<dirent.h>` to list all the files in a directory using the C programming language. The `scandir` function allows for sorting, comparing and filtering the names of files in the directory. There are default options to list alphabetically through the `alphasort()` glibc standard function. We'll make an example in C that shows how to list all the files in a directory and give the name and type of each file in the directory.
 
 ### Running the Example
@@ -58,7 +60,7 @@ The `dirp` is the directory to list. The `namelist` will be populated from all t
 
 ## C code to List files in Directory
 
-Below is a simple example, mainly taken from `man scandir`, with the execption of adding filtering logic. The filtering logic would typically be done on the name of the file which is found in the `dirent.d_name` structure member. With filtering it allows us to easy skip over files we don't want returned. There is more on the the `dirent` structure later. If you don't want a filter instead of passing in the function you can simply set the argument to `NULL`.
+Below is a simple example, mainly taken from `man scandir`, with the exception of adding filtering logic. The filtering logic would typically be done on the name of the file which is found in the `dirent.d_name` structure member. With filtering it allows us to easy skip over files we don't want returned. There is more on the the `dirent` structure later. If you don't want a filter instead of passing in the function you can simply set the argument to `NULL`.
 
 {{< highlight c >}}
 #define _DEFAULT_SOURCE

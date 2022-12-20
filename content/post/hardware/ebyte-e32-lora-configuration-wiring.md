@@ -37,7 +37,16 @@ Using the `sudo raspi-config` command we need to configure the serial port to be
 
 ## Additional Required Serial Port Settings and Verification
 
-Once the serial port is enabled on the Raspberry Pi we need our user that will run the program be in the correct Unix groups and to modify the `/dev/ttyAMA0` file to have group read permissions.
+Typically, a soft link will be created `/dev/serial0` to the actual UART port:
+
+{{< highlight bash >}}
+$ ls -l /dev/serial0
+lrwxrwxrwx 1 root root 10 Dec  1 13:49 /dev/serial0 -> /dev/ttyAMA0
+{{< / highlight >}}
+
+Please note, that depending on the Raspberry Pi version it may not be `/dev/ttyAMA0` but maybe `/dev/ttyS0` or something else. The `e32` program will default to usign `/dev/serial0` unless specified otherwise.
+
+Check the following permissions.
 
 {{< highlight bash >}}
 $ whoami

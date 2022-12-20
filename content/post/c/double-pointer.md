@@ -1,54 +1,130 @@
 ---
 title: C Double Pointers
-categories: ["c"]
-comments: true
+categories:
+ - c
 date: "2019-06-17T16:45:00Z"
 ---
 
-# How are double pointers used in C?
-In this blog post we talk about Double Pointers in C. Also, known as a pointer to a pointer. We go over 3 use cases to fully understand the usage and go in-depth into a use case where a function can allocate memory for the caller.
+# {{< title >}}
 
 {{< figure src="/assets/svg/c-double-pointers.svg" title="double pointers in c" >}}
 
-## Double Pointer Example 1
+Updated December 19, 2022
 
-Let's look at an simple example where we define an integer, a pointer to an int and a double pointer to an int.
+Examples and explanations of single pointers are used throughout many programming languages including C. This blog post explains and explores use cases for double pointers in the C programming language. Toward the end we'll look at a `glibc` example that uses a triple pointer.
+
+# Use Cases
+
+The primary use cases I've found are the following:
+* Arrays of strings `char *`. These strings are typically not fixed length. Thus, `char *buf[N]` is a bit misleading since `N` will vary.
+* Functions that allocate memory for the caller. In this case the caller is expected to free the allocated memory after finished.
+
+# Mental Model
+
+What is the difference between a `char **foo` and `char *foo[]`? Let's take an example program:
 
 {{< highlight c >}}
-#include <stdlib.h>
 #include <assert.h>
+#include <stdlib.h>
+#include <string.h>
 
 int
 main(int argc, char *argv[])
 {
-  int x, *px, **ppx;
+  char str1[] = "a string array";
+  char *str2 = "a string pointer";
 
-  // what will happen
-  // &x   = 0x7ffffffee074, x = 42
-  // &px  = 0x7ffffffee068, px  = 0x7ffffffee074, *px  = 42
-  // &ppx = 0x7ffffffee078, ppx = 0x7ffffffee068, *ppx = 0x7ffffffee074, **ppx = 42
-  x = 42;
-  px = &x;
-  ppx = &px;
+  /* this is true*/
+  assert(strcmp(str1, "a string array")  == 0);
 
-  // this will change the value x = 43
-  **ppx = 43;
+  /* this is also true */
+  assert(strcmp(str2, "a string pointer") == 0);
 
-  // will pass
-  assert(x == 43);
+  assert(sizeof(str1) == 15);
+
+  /* difference here in str2 */
+  assert(sizeof(str2) == sizeof(char *));
 
   return EXIT_SUCCESS;
 }
 {{< / highlight >}}
 
-Above we define `x`, `*px`, and `**px`. We set `x=42`, then we point `px` to the address of `x`, and point `ppx` to the address of `px`. The magic happens on the expression `**px = 43` where `*ppx` dereferences to `px` and `**ppx` will dereference `px` to be 42. This expression changes the value of `x` from 42 to 43 by having `ppx` go through `px`. Thanks to gdb for the ability to see the memory addresses, pointer values and values.
+The following differences can be noted:
+* The string comparisons work with `strcmp`.
+* The `sizeof` compile time operator has different results as it's the size of a pointer for a `char *`.
+* Memory for `str1` and `str2` are allocated differently. I don't know enough to write about all the details.
 
-This case is pretty straightforward, however, the use cases I've not see very plentiful. One could image that `ppx` could be changed to point to many different pointers who's memory is already allocated. The syntax of `**ppx` could be used for simplicity where we could change `ppx` and indirectly change the memory that is pointed to. Let's look at the next examples which are more common.
+## Memory
+
+Notice where the pointers are in memory:
+
+{{< highlight c >}}
+(gdb) p str2
+$2 = 0x555555556008 "a string pointer"
+(gdb) p &str1
+$3 = (char (*)[15]) 0x7fffffffdf99
+(gdb) 
+{{< / highlight >}}
+
+It appears to me that `str1` is on the stack. The contents of `str2` is on the heap and the value of `str2` is set in the `main` function.
+
+## Double Pointer Example 1
+
+A great example to understand double pointers is using *environment variables* within a program in C. It looks like the following:
+
+{{< highlight c >}}
+#include <stdlib.h>
+#include <stdio.h>
+
+extern char **environ;
+
+int
+main(int argc, char *argv[])
+{
+  char **ep;
+
+  for(ep = environ; *ep != NULL; ep++)
+  {
+    puts(*ep);
+  }
+
+  return EXIT_SUCCESS;
+}
+{{< / highlight >}}
+
+Let's say we had the following environment variables:
+{{< highlight bash >}}
+$ env
+SHELL=/bin/bash
+HOME=/home/lloyd
+{{< / highlight >}}
+
+Here the `char **environ` is simply the following.
+
+{{< figure src="/assets/svg/c-double-char-pointer.svg" title="double char pointer in c" >}}
+
+The memory looks something like the following. Note, this shows different environment variables `SHELL` and `COLORTERM` that what is above.
+
+{{< highlight c >}}
+(gdb) x/32c *environ
+0x7fffffffe361: 83 'S'  72 'H'  69 'E'  76 'L'  76 'L'  61 '='  47 '/'  98 'b'
+0x7fffffffe369: 105 'i' 110 'n' 47 '/'  98 'b'  97 'a'  115 's' 104 'h' 0 '\000'
+0x7fffffffe371: 67 'C'  79 'O'  76 'L'  79 'O'  82 'R'  84 'T'  69 'E'  82 'R'
+0x7fffffffe379: 77 'M'  61 '='  116 't' 114 'r' 117 'u' 101 'e' 99 'c'  111 'o'
+(gdb) p environ[0]
+$1 = 0x7fffffffe361 "SHELL=/bin/bash"
+(gdb) p environ[1]
+$2 = 0x7fffffffe371 "COLORTERM=truecolor"
+{{< / highlight >}}
 
 ## Double Pointer Example 2
 
 This example is really to help understand Example 3. It skips the functions used in Example 3.
 
+We have the following diagram.
+{{< figure src="/assets/svg/c-double-pointers.svg" title="double pointers in c" >}}
+
+Here is some code to implement what is in the diagram.
 {{< highlight c >}}
 #include <stdlib.h>
 #include <assert.h>
@@ -84,7 +160,7 @@ main(int argc, char *argv[])
 }
 {{< / highlight >}}
 
-In this example we indirectly assign `p` by deferencing the double pointer `pp`. Through the double pointer `pp` we set the value of the single pointer `p`.
+In this example we indirectly assign `p` by de-referencing the double pointer `pp`. Through the double pointer `pp` we set the value of the single pointer `p`.
 
 ## Double Pointer Example 3
 
@@ -196,3 +272,26 @@ allocate(int **p)
 {{< / highlight >}}
 
 We can see from the example above for a function to allocate memory and assign the callers pointer to that memory the double pointer is required. This case is quite common and should be understood for any good C programmer. This example will shed light on what is going on inside many libraries that allocate memory for the caller.
+
+## Triple Pointer Example 4
+
+The *glibc* system call to list files in a directory [scandir()](https://man7.org/linux/man-pages/man3/scandir.3.html) takes as argument a triple pointer for the `namelist` argument.
+
+{{< highlight c >}}
+int scandir(const char *restrict dirp,
+            struct dirent ***restrict namelist,
+            int (*filter)(const struct dirent *),
+            int (*compar)(const struct dirent **,
+                          const struct dirent **));
+{{< / highlight >}}
+
+This is because inside the `scandir` function itself it will allocate a `struct dirent **namelist` for the caller. With this `namelist` it's the same logically as a `struct dirent *namelist[]`, an array of pointers to `struct dirent`. Although, the caller doesn't allocate the memory, the caller is expected to free the `namelist`. 
+
+{{< highlight c >}}
+while (n--) { // the variable n contains the length of namelist
+    free(namelist[n]);
+}
+free(namelist);
+{{< / highlight >}}
+
+There is a more thorough example to [Listing files in a Directory using C](/post/c/list-directory/).

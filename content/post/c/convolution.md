@@ -8,6 +8,8 @@ math: true
 lastmod: "2020-04-21"
 ---
 
+# {{< title >}}
+
 Updated April 21, 2020
 
 In this blog post we'll create a simple 1D convolution in C. We'll show the classic example of convolving two squares to create a triangle. When convolution is performed it's usually between two discrete signals, or time series. In this example we'll use C arrays to represent each signal.

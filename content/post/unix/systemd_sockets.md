@@ -7,6 +7,8 @@ categories:
  - systemd
 ---
 
+# {{< title >}}
+
 This is the third post on how to create a *service* in `systemd`. See the [first post](/post/autotools/systemd-service-daemon-autotools/) to create a autotools project and start/stop a daemon service. Or the [second post](/post/unix/systemd_journal/) to enable logging, notify of state changes and accept reloads. In this post we'll create a Unix Domain Socket so that other processes can send messages to our service through remote procedure calls.
 
 The socket we will use in this post is a Unix Socket with domain `AF_UNIX` of type `SOCK_DGRAM`. This type of socket is well suited for example purposes and is also ideal for remote procedure call applications. It is limited to communication on the same host, not over the internet. Unix Domain sockets are always reliable and are guaranteed to be delivered in order without duplication. Since this example uses a datagram socket we can receive the full message on each reception. Typically, the size of a datagram socket is under 2048 bytes see [socket(7)](https://www.man7.org/linux/man-pages/man7/socket.7.html) and look for the `SO_SNDBUF` option for more details on maximum datagram size.
