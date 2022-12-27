@@ -1,9 +1,12 @@
 ---
-categories: ["c"]
+categories:
+- c
 comments: true
 date: "2020-12-02"
 title: Timestamps in C
 ---
+
+# {{< title >}}
 
 In this post I'll provide some ways to create, convert and print timestamps using C. We'll first create a Unix epoch which corresponds to seconds since January 1st 1970 at 00:00:00 UTC. We will also represent the epoch in milliseconds, as a double, and finally convert to an ISO 8601 Timestamp. We'll conclude with the challenge of using fractional seconds.
 
@@ -26,7 +29,7 @@ tv.tv_nsec;  // a long with nanoseconds
 
 # Epoch using `gettimeofday` from `sys/time.h`
 
-An older method and thus arguablly the most portable. Get the epoch in seconds and microseconds.
+An older method and thus arguably the most portable. Get the epoch in seconds and microseconds.
 
 {{< highlight c >}}
 #include <sys/time.h>
@@ -119,7 +122,7 @@ rfc8601_timespec(struct timespec *tv)
   fractional_seconds = round(fractional_seconds);
   milliseconds = (int) fractional_seconds;
 
-  // print date and time withouth milliseconds
+  // print date and time without milliseconds
   strftime(time_str, sizeof(time_str), "%Y-%m-%dT%H:%M:%S", &tm);
 
   // add on the fractional seconds and Z for the UTC Timezone
