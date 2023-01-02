@@ -83,20 +83,20 @@ rearrange(float data_re[], float data_im[], const unsigned int N)
 {
   unsigned int target = 0;
   for(unsigned int position=0; position<N; position++)
-    {
-      if(target>position) {
-        const float temp_re = data_re[target];
-        const float temp_im = data_im[target];
-        data_re[target] = data_re[position];
-        data_im[target] = data_im[position];
-        data_re[position] = temp_re;
-        data_im[position] = temp_im;
-      }
-      unsigned int mask = N;
-      while(target & (mask >>=1))
-	      target &= ~mask;
-      target |= mask;
+  {
+    if(target>position) {
+      const float temp_re = data_re[target];
+      const float temp_im = data_im[target];
+      data_re[target] = data_re[position];
+      data_im[target] = data_im[position];
+      data_re[position] = temp_re;
+      data_im[position] = temp_im;
     }
+    unsigned int mask = N;
+    while(target & (mask >>=1))
+      target &= ~mask;
+    target |= mask;
+  }
 }
 
 void
