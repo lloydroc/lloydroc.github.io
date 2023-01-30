@@ -1,0 +1,70 @@
+<svg viewBox="0 0 310 305" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .small {
+      dominant-baseline: central;
+      text-anchor: middle;
+      font-size:10px;
+    }
+    .unix {
+      fill: #386cb0;
+    }
+    .ipip {
+      fill: red;
+    }
+    .eth {
+      fill: #beaed4;
+    }
+    .switch {
+      fill: #f0027f;
+    }
+    .arrow {
+      stroke: white;
+      fill: white;
+    }
+  </style>
+
+  <!--
+    an array of {1, 2, 3, 4, 5, 6, 7, 8} will be
+    rearranged to {1, 5, 3, 7, 2, 6, 4, 8}
+  -->
+
+  <defs>
+    <marker id="arrowhead_right" markerWidth="10" markerHeight="10" refX="0" refY="2.5" orient="auto">
+      <polygon class="arrow" points="0,0 5,2.5 0,5 0,0" />
+    </marker>
+  </defs>
+
+  <g transform="translate(15,15)">
+    <g transform="translate(0,0)">
+      <circle cx="0" cy="0" r="10" stroke="black" stroke-width="3" fill="red" />
+      <circle cx="0" cy="25" r="10" stroke="black" stroke-width="3" fill="orange" />
+      <circle cx="0" cy="50" r="10" stroke="black" stroke-width="3" fill="yellow" />
+      <circle cx="0" cy="75" r="10" stroke="black" stroke-width="3" fill="green" />
+      <circle cx="0" cy="100" r="10" stroke="black" stroke-width="3" fill="blue" />
+      <circle cx="0" cy="125" r="10" stroke="black" stroke-width="3" fill="indigo" />
+      <circle cx="0" cy="150" r="10" stroke="black" stroke-width="3" fill="violet" />
+      <circle cx="0" cy="175" r="10" stroke="black" stroke-width="3" fill="white" />
+    </g>
+    <g transform="translate(175,0)">
+      <circle cx="0" cy="0" r="10" stroke="black" stroke-width="3" fill="red" />
+      <circle cx="0" cy="25" r="10" stroke="black" stroke-width="3" fill="blue" />
+      <circle cx="0" cy="50" r="10" stroke="black" stroke-width="3" fill="yellow" />
+      <circle cx="0" cy="75" r="10" stroke="black" stroke-width="3" fill="violet" />
+      <circle cx="0" cy="100" r="10" stroke="black" stroke-width="3" fill="orange" />
+      <circle cx="0" cy="125" r="10" stroke="black" stroke-width="3" fill="indigo" />
+      <circle cx="0" cy="150" r="10" stroke="black" stroke-width="3" fill="green" />
+      <circle cx="0" cy="175" r="10" stroke="black" stroke-width="3" fill="white" />
+    </g>
+    <g transform="translate(12,0)">
+      <line x1="0" y1="0" x2="140" y2="0" style="stroke:rgb(255,255,255);stroke-width:2" marker-end="url(#arrowhead_right)" />
+      <line x1="0" y1="25" x2="140" y2="95" style="stroke:rgb(255,255,255);stroke-width:2" marker-end="url(#arrowhead_right)" />
+      <line x1="0" y1="50" x2="140" y2="50" style="stroke:rgb(255,255,255);stroke-width:2" marker-end="url(#arrowhead_right)" />
+      <line x1="0" y1="75" x2="140" y2="140" style="stroke:rgb(255,255,255);stroke-width:2" marker-end="url(#arrowhead_right)" />
+      <line x1="0" y1="100" x2="140" y2="30" style="stroke:rgb(255,255,255);stroke-width:2" marker-end="url(#arrowhead_right)" />
+      <line x1="0" y1="125" x2="140" y2="125" style="stroke:rgb(255,255,255);stroke-width:2" marker-end="url(#arrowhead_right)" />
+      <line x1="0" y1="150" x2="140" y2="80" style="stroke:rgb(255,255,255);stroke-width:2" marker-end="url(#arrowhead_right)" />
+      <line x1="0" y1="175" x2="140" y2="175" style="stroke:rgb(255,255,255);stroke-width:2" marker-end="url(#arrowhead_right)" />
+    </g>
+  </g>
+
+</svg>

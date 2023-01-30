@@ -5,6 +5,7 @@ tags:
   - signal-processing
 date: "2019-08-08"
 title: Example FFT in C
+math: false
 ---
 
 # {{< title >}}
@@ -13,20 +14,21 @@ In this post we'll provide the simplest possible Fast Fourier Transform (FFT) ex
 
 ## FFT Example Usage
 
-In the example below we'll perform an FFT on a complex (real + imaginary) array of 32 elements. After the FFT has completed it will write over the provided arrays as the FFT is done "in place". Note, we're using floating point here and not fixed width. Thus, if you don't have a math coprocessor it will be very slow.
+In the example below we'll perform an FFT on a complex (real + imaginary) array of 32 elements. After the FFT has completed it will write over the provided arrays as the FFT is done *in place*. Note, we're using floating point here and not fixed width. Thus, if you don't have a math coprocessor it will be very slow.
 
 Here is how you'd compute an FFT on complex data.
 
 {{< highlight c >}}
+// FFT Size
 #define N_FFT 32
 
+// input signals
 double signal_re[N_FFT]; // real signal array
 double signal_im[N_FFT]; // imaginary signal array
 
-/* put actual signal information in your arrays */
-
-// the fft function below be placed in the arrays passed in
-fft(signal_re,signal_im,N_FFT); 
+// the fft function will modify the arrays passed in
+// also known as in-place computation
+fft(signal_re, signal_im, N_FFT); 
 {{< / highlight >}}
 
 See the test cases below that show more usage examples.

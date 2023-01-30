@@ -1,0 +1,128 @@
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .small {
+      dominant-baseline: central;
+      text-anchor: middle;
+      font-size:10px;
+    }
+    .unix {
+      fill: #386cb0;
+    }
+    .ipip {
+      fill: red;
+    }
+    .eth {
+      fill: #beaed4;
+    }
+    .switch {
+      fill: #f0027f;
+    }
+    .arrow {
+      stroke: white;
+      fill: white;
+    }
+  </style>
+
+  <!--
+    an array of {1, 2, 3, 4, 5, 6, 7, 8} will be
+    rearranged to {1, 5, 3, 7, 2, 6, 4, 8}
+  -->
+
+  <defs>
+    <marker id="arrowhead_right" markerWidth="10" markerHeight="10" refX="0" refY="2.5" orient="auto">
+      <polygon class="arrow" points="0,0 5,2.5 0,5 0,0" />
+    </marker>
+  </defs>
+
+  <g transform="translate(20,15)">
+    <g transform="translate(0,0)">
+      <text x="0" y="15" fill="red" class="small">x[0]*h[0]</text>
+      <text x="50" y="15" fill="red" class="small">x[0]*h[1]</text>
+      <text x="100" y="15" fill="red" class="small">x[0]*h[2]</text>
+      <text x="150" y="15" fill="red" class="small">x[0]*h[3]</text>
+      <text x="200" y="15" fill="red" class="small">x[0]*h[4]</text>
+      <text x="250" y="15" fill="red" class="small">x[0]*h[5]</text>
+      <text x="300" y="15" fill="red" class="small">x[0]*h[6]</text>
+      <text x="350" y="15" fill="red" class="small">x[0]*h[7]</text>
+      <text x="400" y="15" fill="red" class="small">x[0]*h[8]</text>
+    </g>
+    <g transform="translate(0,25)">
+      <text x="0" y="15" fill="red" class="small">x[1]*h[0]</text>
+      <text x="50" y="15" fill="red" class="small">x[1]*h[1]</text>
+      <text x="100" y="15" fill="red" class="small">x[1]*h[2]</text>
+      <text x="150" y="15" fill="red" class="small">x[1]*h[3]</text>
+      <text x="200" y="15" fill="red" class="small">x[1]*h[4]</text>
+      <text x="250" y="15" fill="red" class="small">x[1]*h[5]</text>
+      <text x="300" y="15" fill="red" class="small">x[1]*h[6]</text>
+      <text x="350" y="15" fill="red" class="small">x[1]*h[7]</text>
+      <text x="400" y="15" fill="red" class="small">x[1]*h[8]</text>
+    </g>
+    <g transform="translate(0,50)">
+      <text x="0" y="15" fill="red" class="small">x[2]*h[0]</text>
+      <text x="50" y="15" fill="red" class="small">x[2]*h[1]</text>
+      <text x="100" y="15" fill="red" class="small">x[2]*h[2]</text>
+      <text x="150" y="15" fill="red" class="small">x[2]*h[3]</text>
+      <text x="200" y="15" fill="red" class="small">x[2]*h[4]</text>
+      <text x="250" y="15" fill="red" class="small">x[2]*h[5]</text>
+      <text x="300" y="15" fill="red" class="small">x[2]*h[6]</text>
+      <text x="350" y="15" fill="red" class="small">x[2]*h[7]</text>
+      <text x="400" y="15" fill="red" class="small">x[2]*h[8]</text>
+    </g>
+    <g transform="translate(0,75)">
+      <text x="0" y="15" fill="red" class="small">x[3]*h[0]</text>
+      <text x="50" y="15" fill="red" class="small">x[3]*h[1]</text>
+      <text x="100" y="15" fill="red" class="small">x[3]*h[2]</text>
+      <text x="150" y="15" fill="red" class="small">x[3]*h[3]</text>
+      <text x="200" y="15" fill="red" class="small">x[3]*h[4]</text>
+      <text x="250" y="15" fill="red" class="small">x[3]*h[5]</text>
+      <text x="300" y="15" fill="red" class="small">x[3]*h[6]</text>
+      <text x="350" y="15" fill="red" class="small">x[3]*h[7]</text>
+      <text x="400" y="15" fill="red" class="small">x[3]*h[8]</text>
+    </g>
+    <g transform="translate(0,100)">
+      <text x="0" y="15" fill="red" class="small">x[4]*h[0]</text>
+      <text x="50" y="15" fill="red" class="small">x[4]*h[1]</text>
+      <text x="100" y="15" fill="red" class="small">x[4]*h[2]</text>
+      <text x="150" y="15" fill="red" class="small">x[4]*h[3]</text>
+      <text x="200" y="15" fill="red" class="small">x[4]*h[4]</text>
+      <text x="250" y="15" fill="red" class="small">x[4]*h[5]</text>
+      <text x="300" y="15" fill="red" class="small">x[4]*h[6]</text>
+      <text x="350" y="15" fill="red" class="small">x[4]*h[7]</text>
+      <text x="400" y="15" fill="red" class="small">x[4]*h[8]</text>
+    </g>
+    <g transform="translate(0,125)">
+      <text x="0" y="15" fill="red" class="small">x[5]*h[0]</text>
+      <text x="50" y="15" fill="red" class="small">x[5]*h[1]</text>
+      <text x="100" y="15" fill="red" class="small">x[5]*h[2]</text>
+      <text x="150" y="15" fill="red" class="small">x[5]*h[3]</text>
+      <text x="200" y="15" fill="red" class="small">x[5]*h[4]</text>
+      <text x="250" y="15" fill="red" class="small">x[5]*h[5]</text>
+      <text x="300" y="15" fill="red" class="small">x[5]*h[6]</text>
+      <text x="350" y="15" fill="red" class="small">x[5]*h[7]</text>
+      <text x="400" y="15" fill="red" class="small">x[5]*h[8]</text>
+    </g>
+    <g transform="translate(0,150)">
+      <text x="0" y="15" fill="red" class="small">x[6]*h[0]</text>
+      <text x="50" y="15" fill="red" class="small">x[6]*h[1]</text>
+      <text x="100" y="15" fill="red" class="small">x[6]*h[2]</text>
+      <text x="150" y="15" fill="red" class="small">x[6]*h[3]</text>
+      <text x="200" y="15" fill="red" class="small">x[6]*h[4]</text>
+      <text x="250" y="15" fill="red" class="small">x[6]*h[5]</text>
+      <text x="300" y="15" fill="red" class="small">x[6]*h[6]</text>
+      <text x="350" y="15" fill="red" class="small">x[6]*h[7]</text>
+      <text x="400" y="15" fill="red" class="small">x[6]*h[8]</text>
+    </g>
+    <g transform="translate(0,175)">
+      <text x="0" y="15" fill="red" class="small">x[7]*h[0]</text>
+      <text x="50" y="15" fill="red" class="small">x[7]*h[1]</text>
+      <text x="100" y="15" fill="red" class="small">x[7]*h[2]</text>
+      <text x="150" y="15" fill="red" class="small">x[7]*h[3]</text>
+      <text x="200" y="15" fill="red" class="small">x[7]*h[4]</text>
+      <text x="250" y="15" fill="red" class="small">x[7]*h[5]</text>
+      <text x="300" y="15" fill="red" class="small">x[7]*h[6]</text>
+      <text x="350" y="15" fill="red" class="small">x[7]*h[7]</text>
+      <text x="400" y="15" fill="red" class="small">x[7]*h[8]</text>
+    </g>
+  </g>
+
+</svg>
