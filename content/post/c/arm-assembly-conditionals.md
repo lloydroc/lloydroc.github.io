@@ -8,7 +8,7 @@ date: "2020-03-27"
 title: Converting C Conditionals to ARM Assembly
 ---
 
-In this post we can explore how to the `gcc` compiler converts to C to ARM assembly language. We'll specifically look at *conditional logic*. We'll look at examples of `if` statements, `if` statements with `else if` and `else`, then end with a `switch` statement. To convert C to ARM assembly we will use the `-S` flag on GCC. All these examples were done on a Rapsberry Pi running Raspbian.
+In this post we can explore how to the `gcc` compiler converts to C to ARM assembly language. We'll specifically look at *conditional logic*. We'll look at examples of `if` statements, `if` statements with `else if` and `else`, then end with a `switch` statement. To convert C to ARM assembly we will use the `-S` flag on GCC. All these examples were done on a Raspberry Pi running Raspbian.
 
 ## Converting an if statement from C to Assembly
 
@@ -47,7 +47,7 @@ It will have the following pseudo logic in assembly. Hopefully you follow this s
 
 {{< highlight asm >}}
   cmp r2, r3 ; r2 = value of a, r3 = value of b
-  bne BEYONDIF ; the branch is the oppostite of ==
+  bne BEYONDIF ; the branch is the opposite of ==
   mov r3, #4   ; the statements inside the if when true
   str r3, [address of x] ; put 4 into x
 BEYONDIF:
@@ -201,8 +201,8 @@ main:
 .L2:                   ; our else if (a > b)
 	ldr	r2, [fp, #-12] ; load variable a into r2
 	ldr	r3, [fp, #-16] ; load variable b into r3
-	cmp	r2, r3         ; comare a to b
-	ble	.L4            ; if >=, note: oppostite of >
+	cmp	r2, r3         ; compare a to b
+	ble	.L4            ; if >=, note: opposite of >
 	mov	r3, #5         ; load 5 into r3
 	str	r3, [fp, #-8]  ; store 5 into variable x
 	b	.L3            ; jump out of full else block

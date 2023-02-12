@@ -156,7 +156,7 @@ compute(float data_re[], float data_im[], const unsigned int N)
 
 ## Test Cases for the FFT
 
-Here are some test cases for the FFT. Again, the type here is `float` and this will run well on a processor with a math co-processor. If you're using a microcontroller then you'd want to consider type `char` or `int`.
+Here are some test cases for the FFT. Again, the type here is `float` and this will run well on a processor with a math co-processor. If you're using a micro-controller then you'd want to consider type `char` or `int`.
 
 {{< highlight c >}}
 // file main.c
@@ -299,7 +299,7 @@ clean:
 
 # Efficiency Improvements
 
-There is a major effeciency improvement that this code could have assuming the FFT function will be called over and over again. This improvement would be pre-computation of the weights or twiddle factors. We call the `cos` and `sin` functions repeately and compute angles. All of this can be pre-computed so we only need to multiply by our inputs and merely look up the twiddle factors in an array or set of arrays.
+There is a major efficiency improvement that this code could have assuming the FFT function will be called over and over again. This improvement would be pre-computation of the weights or twiddle factors. We call the `cos` and `sin` functions repeatedly and compute angles. All of this can be pre-computed so we only need to multiply by our inputs and merely look up the twiddle factors in an array or set of arrays.
 
 # Github
 

@@ -131,7 +131,7 @@ x_3 & x_7
 \end{pmatrix}
 $$
 
-As you can see there is a logarithmic pattern here. Each time we cut the elementes in each group by half.
+As you can see there is a logarithmic pattern here. Each time we cut the elements in each group by half.
 
 ## Derive Decimation in time for the General Case
 
@@ -162,7 +162,7 @@ $$
 X_k = E_k + W_N^k O_k
 $$
 
-As an excercise to the reader we can also drive the following.
+As an exercise to the reader we can also drive the following.
 $$
 X_{k+\frac{N}{2}} = E_k - W_N^k O_k
 $$
@@ -179,9 +179,9 @@ $$
 Let's stop to look at what we've derived.
 1. The DFT \\( X_k \\) we broke down to an even \\( E_k \\) and odd part \\( O_k \\)
 2. The DFT is symmetric as the \\( X_k \\) and \\( X_{k + \frac{N}{2}} \\) differs by only a minus sign on the odd part \\( O_k \\).
-3. The odd part is multipied by a constant \\( W_N^k \\) that doesn't depend on \\( n \\) or the inputs \\( x_n \\).
+3. The odd part is multiped by a constant \\( W_N^k \\) that doesn't depend on \\( n \\) or the inputs \\( x_n \\).
 
-Now we can keep breaking the even and odd parts futher until we cannot do so anymore. This will leave us with groups of tuples.
+Now we can keep breaking the even and odd parts further until we cannot do so anymore. This will leave us with groups of tuples.
 
 ## Example FFT of size 8
 
@@ -254,9 +254,9 @@ $$
 $$
 
 
-### Around the Unit Circle in halfs
+### Around the Unit Circle in half's
 
-When we have \\( W_2^k \\) we only have 2 values as we walk around the unit circle in halfs. We are hopping between these two values.
+When we have \\( W_2^k \\) we only have 2 values as we walk around the unit circle in half's. We are hopping between these two values.
 
 
 {{< figure src="/assets/svg/unit-circle-halfs.svg" title="Going around the Unit Circle in two hops" >}}
@@ -325,7 +325,7 @@ W_8^k = e^{- \pi i k / 4 } =
 \end{bmatrix}
 $$
 
-This weight takes on 8 values. However, we really only have 3 values when we look at the symmetry of the upper left quandrant and the other 3 quadrants.
+This weight takes on 8 values. However, we really only have 3 values when we look at the symmetry of the upper left quadrant and the other 3 quadrants.
 
 ## Butterfly Diagram
 
