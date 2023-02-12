@@ -12,6 +12,10 @@ math: false
 
 In this post we'll provide the simplest possible Fast Fourier Transform (FFT) example in C. After understanding this example it can be adapted to modify for performance or computer architecture.
 
+# Table of Contents
+
+{{< toc >}}
+
 ## FFT Example Usage
 
 In the example below we'll perform an FFT on a complex (real + imaginary) array of 32 elements. After the FFT has completed it will write over the provided arrays as the FFT is done *in place*. Note, we're using floating point here and not fixed width. Thus, if you don't have a math coprocessor it will be very slow.
@@ -35,7 +39,17 @@ See the test cases below that show more usage examples.
 
 ## C Header of the FFT
 
-To perform an FFT we have two helper functions called `rearrange` and `compute`. The `rearrange` function will rearrange the elements in the array corresponding butterfly stages. The `compute` function does all computation once the signals are put through `rearrange`.
+To perform an FFT we have two helper functions called `rearrange` and `compute`. The `rearrange` function will rearrange the elements in the array corresponding butterfly stages. The `compute` function does all computation once the signals are put through `rearrange`. 
+
+### Rearranging the Input
+
+The `rearrange` function will bit reverse the indices. For example if we have an FFT of size 8 which can be represented in with 3 bits we have. 
+
+{{< figure src="/assets/svg/fft-rearrange.svg" title="FFT rearranging the input values by Bit Reversal" >}}
+
+### C Header to use the FFT
+
+The C Header aims to make performing the FFT as simple as possible.
 
 {{< highlight c >}}
 // file fft.h
@@ -282,6 +296,10 @@ all:
 clean:
 	rm *.o fft
 {{< / highlight >}}
+
+# Efficiency Improvements
+
+There is a major effeciency improvement that this code could have assuming the FFT function will be called over and over again. This improvement would be pre-computation of the weights or twiddle factors. We call the `cos` and `sin` functions repeately and compute angles. All of this can be pre-computed so we only need to multiply by our inputs and merely look up the twiddle factors in an array or set of arrays.
 
 # Github
 

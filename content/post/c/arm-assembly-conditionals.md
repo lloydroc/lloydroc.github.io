@@ -4,7 +4,7 @@ categories:
 tags:
  - assembly
  - arm
-date: "2020-03-27T11:59:58Z"
+date: "2020-03-27"
 title: Converting C Conditionals to ARM Assembly
 ---
 

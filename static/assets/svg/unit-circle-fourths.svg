@@ -1,0 +1,52 @@
+<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .small {
+      dominant-baseline: central;
+      text-anchor: middle;
+      font-size:10px;
+    }
+    .unix {
+      fill: #386cb0;
+    }
+    .ipip {
+      fill: red;
+    }
+    .eth {
+      fill: #beaed4;
+    }
+    .switch {
+      fill: #f0027f;
+    }
+    .arrow {
+      stroke: black;
+      fill: black;
+    }
+    svg {
+      background-color: #ffffff;
+    }
+  </style>
+
+  <!--
+    an array of {1, 2, 3, 4, 5, 6, 7, 8} will be
+    rearranged to {1, 5, 3, 7, 2, 6, 4, 8}
+  -->
+
+  <defs>
+    <marker id="arrowhead_right" markerWidth="10" markerHeight="10" refX="0" refY="2.5" orient="auto">
+      <polygon class="arrow" points="0,0 5,2.5 0,5 0,0" />
+    </marker>
+  </defs>
+
+  <g transform="translate(160,160)">
+    <circle cx="0" cy="0" r="100" stroke="grey" stroke-width="3" fill="white" />
+    <line x1="0" y1="-150" x2="0" y2="150" style="stroke:rgb(0,0,0);stroke-width:2" />
+    <line x1="-150" y1="0" x2="150" y2="0" style="stroke:rgb(0,0,0);stroke-width:2" />
+
+    <circle cx="100" cy="0" r="10" stroke="black" stroke-width="3" fill="red" />
+    <circle cx="-100" cy="0" r="10" stroke="black" stroke-width="3" fill="red" />
+
+    <circle cx="0" cy="-100" r="10" stroke="black" stroke-width="3" fill="blue" />
+    <circle cx="0" cy="100" r="10" stroke="black" stroke-width="3" fill="blue" />
+  </g>
+
+</svg>

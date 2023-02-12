@@ -7,10 +7,10 @@
 Download a copy from of the source from <a href='{{ print $codeurl }}'>here</a>
 
 {{ $full := printf "%s\n%s\n./configure\nmake\nsudo make install" $wget $untar }}
-{{ transform.Highlight $full "bash" }}
+{{ transform.Highlight $full "bash" "" }}
 
 Uninstall:
 
 {{ $uninstall := "sudo make uninstall"}}
-{{ transform.Highlight $uninstall "bash" }}
+{{ transform.Highlight $uninstall "bash" "" }}
 
