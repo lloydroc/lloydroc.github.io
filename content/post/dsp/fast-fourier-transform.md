@@ -1,6 +1,6 @@
 ---
 title: Learn the FFT
-date: "2023-01-27"
+date: "2023-02-12"
 math: true
 categories:
  - dsp
