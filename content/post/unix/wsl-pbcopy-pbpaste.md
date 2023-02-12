@@ -3,7 +3,7 @@ title: pbcopy/pbpaste in WSL
 comments: true
 date: "2019-07-30"
 lastmod: "2020-04-11"
-categores:
+categories:
  - unix
 tags:
  - wsl

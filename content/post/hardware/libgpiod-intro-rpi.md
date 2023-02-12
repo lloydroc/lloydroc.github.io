@@ -4,10 +4,10 @@ categories:
 tags:
  - gpio
 date: "2021-05-02"
-title: "The new GPIO Interface on the Rasberry PI: libgpiod"
+title: "The new GPIO Interface on the Raspberry PI: libgpiod"
 ---
 
-The [GPIO Sysfs Interface](https://www.kernel.org/doc/html/latest/admin-guide/gpio/sysfs.html) is deprecated. The deprecated Sysfs would interact with GPIO using the `/sys/class/gpio` pseudo-filesytem. The Application Binary Interface - ABI - provides a character device based device driver and tools. The ABI is the new way to interact with GPIO on the Rasberry Pi. I really don't like the name ABI, as it's WAY too generic. Rather, I belive the proper name for this project is `libgpiod`.
+The [GPIO Sysfs Interface](https://www.kernel.org/doc/html/latest/admin-guide/gpio/sysfs.html) is deprecated. The deprecated Sysfs would interact with GPIO using the `/sys/class/gpio` pseudo-filesytem. The Application Binary Interface - ABI - provides a character device based device driver and tools. The ABI is the new way to interact with GPIO on the Raspberry Pi. I really don't like the name ABI, as it's WAY too generic of a name. Rather, I believe the proper name for this project is `libgpiod`.
 
 ```
   libgpiod - C library and tools for interacting with the linux GPIO
@@ -31,7 +31,7 @@ Here are the main advantages I see for the new ABI:
 
 ## Deprecation of Sysfs
 
-If you're interacting with `/sys/class/gpio` no new features will be developed. Userspace consumers are now supposed to use the ABI to interact with GPIO.
+If you're interacting with `/sys/class/gpio` no new features will be developed. User-space consumers are now supposed to use the ABI to interact with GPIO.
 
 ## Installation of the `gpiod` tools
 
@@ -168,7 +168,7 @@ Namely, the `/usr/include/gpiod.h` C header file and the `/usr/lib/arm-linux-gnu
 
 With `libgpiod` we have the following nomenclature:
 
-GPIO Chip - A chip that controlls multiple GPIO lines. The Raspberry Pi has `/dev/gpiochip0`.
+GPIO Chip - A chip that controls multiple GPIO lines. The Raspberry Pi has `/dev/gpiochip0`.
 GPIO Line - Each GPIO Chip has multiple GPIO Lines. A line maps to physical GPIO pin.
 
 # Tools packaged in `gpiod`

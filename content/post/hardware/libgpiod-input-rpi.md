@@ -18,13 +18,13 @@ Into our Raspberry Pi we'll use GPIO 4 and configure this pin as an input. We're
 
 ![Switch Input Circuit](/assets/png/switch_input.png)
 
-With some simple math let's just arbirarily set \\( I = 1\mu A \\) so we can solve for the value of \\( R_1 \\).
+With some simple math let's just arbitrarily set \\( I = 1\mu A \\) so we can solve for the value of \\( R_1 \\).
 
 \\( V = IR_1 \\)
 
 \\( R_1 = \frac{V}{I} = \frac{3.3V}{1\mu A} = 3.3M\Omega \\)
 
-For the value of \\( C_1 \\) just chose an arbitary value to debounce the circuit. I'm using a standard \\( 104 \\) capictor with a value of \\( 100 nF \\).
+For the value of \\( C_1 \\) just chose an arbitrary value to de-bounce the circuit. I'm using a standard \\( 104 \\) capacitor with a value of \\( 100 nF \\).
 
 
 # Using the libgpiod tool `gpioget`

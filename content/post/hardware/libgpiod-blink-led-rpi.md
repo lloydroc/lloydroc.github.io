@@ -32,7 +32,7 @@ Solving for \\( R_1 \\) we have:
 
 \\( R_1 = \frac{2.6V}{16mA} = 2600 \Omega \\).
 
-For both values \\( R_1 \\) and \\( R_2 \\) rounding down gives less current and going up risks damaging the LED and Rasberry Pi. Thus, we can use \\( 2.7k\Omega \\) for a standard value. The value of \\( 160 \Omega \\) is already standard.
+For both values \\( R_1 \\) and \\( R_2 \\) rounding down gives less current and going up risks damaging the LED and Raspberry Pi. Thus, we can use \\( 2.7k\Omega \\) for a standard value. The value of \\( 160 \Omega \\) is already standard.
 
 You can easily plug the values for a different LED into the equations above to get the right resistor values.
 

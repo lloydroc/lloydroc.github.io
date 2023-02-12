@@ -31,7 +31,7 @@ Description: Tools for interacting with Linux GPIO character device - binary
  This package contains the gpiod binary tools.
 {{< / highlight >}}
 
-It's detecting the falling edge as well, not consitently however.
+It's detecting the falling edge as well, not consistently however.
 {{< highlight bash >}}
 gpiomon --rising-edge gpiochip0 4
 event:  RISING EDGE offset: 4 timestamp: [     175.179032864]

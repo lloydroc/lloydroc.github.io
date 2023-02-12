@@ -46,7 +46,7 @@ Somewhere in your shell's `$PATH` create a new file called `xsel` with the follo
 #!/bin/bash
 
 # filename: xsel
-# make sure this file has executable privledges
+# make sure this file has executable privileges
 # neovim will paste "xsel -o -b"
 # neovim will copy using "xsel --nodetach -i -b"
 

@@ -23,12 +23,12 @@ To understand daemons you'll need to understand the basics of Unix Processes. Un
 
 Here are some ways I'd recommend creating a daemon. This isn't an exhaustive list.
 
-1. Programatically, mainly using `fork()`.
+1. Programmatically, mainly using `fork()`.
 2. Using a `systemd` service.
 
 ## Creating a daemon programmatically
 
-We have 2 ways to create a daemon programatically.
+We have 2 ways to create a daemon programmatically.
 
 1. Programmatically by calling the [daemon](https://www.man7.org/linux/man-pages/man3/daemon.3.html) function from `unistd.h`. This function creates a BSD "traditional" style daemon without the "*double fork*". More on the *double fork* later.
 2. Using the "double fork". There is no one single library call for this as of this writing.
@@ -127,7 +127,7 @@ terminal for the daemon.*
 
 ## Manually Creating a Daemon in C using a Double Fork
 
-With the limitation of the glibc `daemon()` function we can programatically create a daemon using the *double fork* method.
+With the limitation of the glibc `daemon()` function we can programmatically create a daemon using the *double fork* method.
 
 ## C Code "Double Fork" Daemon Example
 
@@ -148,11 +148,11 @@ Here is a little more details about these 3 steps above for a "Double Fork".
 2. After our first call to fork the parent process will be killed, thus, the child orphaned and the child will be adopted by the `init` process and the `pgid` will be 1. The process group and session will remain the same. The child is no longer the process group leader.
 3. Call `setsid` which will put us in a new session and make our process the process group leader, session leader and give us no terminal.
 
-More in detailed steps can be seey by running `man 7 daemon` in the systemd documentation.
+More in detailed steps can be seen by running `man 7 daemon` in the systemd documentation.
 
 ### Process IDs from a Double Fork
 
-TODO from what happened on the first fork there is no need for another fork? On the first fork we're not the session leader or process gropu leader. I don't know if this is something new in Linux that is out of sync with all the writings on Double Forking. The `daemon` call from glibc does what we don't want but the `fork` call does.
+TODO from what happened on the first fork there is no need for another fork? On the first fork we're not the session leader or process group leader. I don't know if this is something new in Linux that is out of sync with all the writings on Double Forking. The `daemon` call from glibc does what we don't want but the `fork` call does.
 
 From the *double fork* steps above let's take an example. Note I just made up the process IDs.
 
