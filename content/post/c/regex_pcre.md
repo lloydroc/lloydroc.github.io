@@ -20,8 +20,8 @@ If you see the following included in the C source then it's POSIX Regular Expres
 
 We won't discuss POSIX regular expressions in this blog post from here on.
 
-### Perl Compabitible Regular Expressions
-Regular expressions from Perl gained widespread popularity and it's syntax is what you'll normall see in Java, Javascript, Python, Perl and other languages. The library PCRE is written in C and claims to be much more powerful and flexible than POSIX. I actually can't confirm that opinion because I've only learned the popularized Perl regular expression format. I can definitely attest to this format being very powerful and simple.
+### Perl Compatible Regular Expressions
+Regular expressions from Perl gained widespread popularity and it's syntax is what you'll normal see in Java, Javascript, Python, Perl and other languages. The library PCRE is written in C and claims to be much more powerful and flexible than POSIX. I actually can't confirm that opinion because I've only learned the popularized Perl regular expression format. I can definitely attest to this format being very powerful and simple.
 
 ### PCRE and PCRE2
 The [PCRE Library](https://pcre.org/) has 2 versions: `pcre` and `pcre2`. The older `pcre` was released over 20 years ago in 1997 and is at version 8.43 as of this post. Future releases will be for bugfixes only. New features will be released in `pcre2` which was released in 2015 and is now at version 10.34 as of this writing. In this blog post we have an example for both `pcre` and `pcre2`.
@@ -221,5 +221,5 @@ main(int argc, char *argv[])
 }
 {{< / highlight >}}
 
-In this example there is a loop that goes through the subject using the `ovector`. I wanted to use the helper functions `pcre2_substring_copy_bynumber` or `pcre2_substring_get_bynumber`, however, I could not get them to work. For `pcre2_substring_copy_bynumber` it would match both `Lloyd Rochester` and `Lloyd` but then would give me a `PCRE2_ERROR_NOMEMORY` on the third. For `pcre2_substring_get_bynumber` I mainly got segmentations faults. I'm still not sure why these helper functions couldn't be used.
+In this example there is a loop that goes through the subject using the `ovector`. I wanted to use the helper functions `pcre2_substring_copy_bynumber` or `pcre2_substring_get_bynumber`, however, I could not get them to work. For `pcre2_substring_copy_bynumber` it would match both `Lloyd Rochester` and `Lloyd` but then would give me a `PCRE2_ERROR_NOMEMORY` on the third. For `pcre2_substring_get_bynumber` I mainly got segmentation faults. I'm still not sure why these helper functions couldn't be used.
 
