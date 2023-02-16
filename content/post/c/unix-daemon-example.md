@@ -7,7 +7,13 @@ date: "2020-03-05T08:24:36Z"
 lastmod: "2020-12-21"
 ---
 
+# {{< title >}}
+
 In this post we'll look at daemon creation and demonstrate how to programmatically create daemons. We'll go into the SysV recommendation of "double forking" for daemon creation.
+
+# Table of Contents
+
+{{< toc >}}
 
 # What are Daemons?
 
@@ -113,9 +119,9 @@ become_da 3667175 lloydroc    2u   CHR    1,3      0t0   9049 /dev/null
 
 From the `ps` command above we can see the resulting daemon from the `daemon()` function call is the process group and session leader since it's process ID is the same as the process group and session group IDs.
 
-Note, there is a bug filed for `daemon` it reads:
+Note, there is a [bug](https://www.man7.org/linux/man-pages/man3/daemon.3.html) filed for `daemon`:
 
-*The GNU C library implementation of this function was taken from BSD,
+*"The GNU C library implementation of this function was taken from BSD,
 and does not employ the double-fork technique (i.e., fork(2),
 setsid(2), fork(2)) that is necessary to ensure that the resulting
 daemon process is not a session leader.  Instead, the resulting
@@ -123,7 +129,7 @@ daemon is a session leader.  On systems that follow System V
 semantics (e.g., Linux), this means that if the daemon opens a
 terminal that is not already a controlling terminal for another
 session, then that terminal will inadvertently become the controlling
-terminal for the daemon.*
+terminal for the daemon."*
 
 ## Manually Creating a Daemon in C using a Double Fork
 
@@ -133,7 +139,7 @@ With the limitation of the glibc `daemon()` function we can programmatically cre
 
 Before we begin let's start some with some nomenclature. We will be creating a SysV traditional daemon. This is actually not recommended. "*Modern daemons should follow a simpler yet more powerful scheme (here called "new-style" daemons), as implemented by systemd(1).*"
 
-The daemon C code example isn't trivial and there are number of concepts needed to be understood. The first concept used by the example is known as the "double fork". The double fork is the safest way to run a daemon since the resultant daemon has no way to acquire a controlling terminal - tty. Also, by doing a second fork we prevent zombie process and the daemon will run as a true orphan process. The end result is the daemon's parent process will be the `init` process and there is no way for the process to open up a controlling terminal.
+The daemon C code example isn't trivial and there are number of concepts needed to be understood. The first concept used by the example is known as the *"double fork"*. The double fork is the safest way to run a daemon since the resultant daemon has no way to acquire a controlling terminal - tty. Also, by doing a second fork we prevent zombie process and the daemon will run as a true orphan process. The end result is the daemon's parent process will be the `init` process and there is no way for the process to open up a controlling terminal.
 
 ### Double Fork Steps
 

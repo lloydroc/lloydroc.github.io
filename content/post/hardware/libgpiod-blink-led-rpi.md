@@ -4,15 +4,21 @@ categories:
 tags:
  - raspberry-pi
 date: "2021-05-03"
-title: Blinking and LED with libgpiod
+title: Blinking an LED with libgpiod
 math: true
 ---
 
-In the previous post we [introduced](/post/hardware/libgpiod-intro-rpi/) `libgpiod`. In this post we'll use the command line tools to blink and LED. Finally, we'll write some C code to blink the LED using the `libgpiod` library.
+# {{< title >}}
+
+In the previous post we [introduced](/post/hardware/libgpiod-intro-rpi/) `libgpiod`. In this post we'll use the command line tools to blink an LED. Finally, we'll write some C code to blink the LED using the `libgpiod` library.
+
+# Table of Contents
+
+{{< toc >}}
 
 ## LED Driver Circuit
 
-Skip this section if you already have a good circuit to drive an LED. Here is what I used which is a simple NPN Transistor, two resistors and the LED.
+Skip this section if you already have a good circuit to drive an LED. A simple NPN Transistor is a cheap and robust LED drive that only requires two resistors.
 
 ![LED Drive Circuit](/assets/png/led_driver.png)
 

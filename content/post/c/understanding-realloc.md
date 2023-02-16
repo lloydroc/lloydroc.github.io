@@ -8,6 +8,10 @@ draft: false
 
 Let's better understand how memory is allocated, then reallocated on the heap. When we allocate blocks of memory they are stacked on top of the heap with increasing memory addresses. What happens when we reallocate a memory block to make it larger when it's isn't the last item on the heap?
 
+# Table of Contents
+
+{{< toc >}}
+
 # Heap Example
 Let's construe an example using [malloc(3)](https://man7.org/linux/man-pages/man3/malloc.3.html) and [realloc(3p)](https://man7.org/linux/man-pages/man3/realloc.3p.html). Here is how it goes down:
 
