@@ -20,7 +20,7 @@ This post outlines how to control the UART in a Raspberry Pi using the C program
 
 I'll summarize what we need to do:
 * Use `raspi-config` to enable the UART
-* Probably, edit `/boot/config.txt` to set `dtoverlay=disable-bt` on the device overlay to disable the **mini UART** for bluetooth. This mini-UART has limited speeds and settings. For example it cannot check parity.
+* Probably, edit `/boot/config.txt` to set `dtoverlay=disable-bt` on the device overlay to disable the **mini UART** for Bluetooth. This mini-UART has limited speeds and settings. For example it cannot check parity.
 * Find the UART you're going to use. This is typically a soft link `/dev/serial0` which links to `/dev/ttyAMA0`, however, there is usually a second UART on the Raspberry Pi.
 
 ## UARTs are Cool

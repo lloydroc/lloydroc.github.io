@@ -54,7 +54,7 @@ main(int argc, char *argv[])
 }
 {{< / highlight >}}
 
-Running this program yeilds the output of:
+Running this program yields the output of:
 
 ```
 0,0,0,0,1,2,3,4,5,

@@ -9,7 +9,7 @@ date: "2020-03-18T14:02:54Z"
 title: UART Between Raspberry Pi and Arduino
 ---
 
-Using a 2-wire serial connection we can communicate from a Rapsberry Pi (RPi) to an Arduino. For the Rasperry Pi we'll use the built in UART accessed through a `tty`, and the Arduino we'll use the [Serial](https://www.arduino.cc/reference/en/language/functions/communication/serial/) Communication Library.
+Using a 2-wire serial connection we can communicate from a Raspberry Pi (RPi) to an Arduino. For the Raspberry Pi we'll use the built in UART accessed through a `tty`, and the Arduino we'll use the [Serial](https://www.arduino.cc/reference/en/language/functions/communication/serial/) Communication Library.
 
 # What this Example Does?
 
@@ -26,7 +26,7 @@ This example will use a RPi and Arduino to send a fixed message from the RPi to 
 
 # Pre-Requisites
 
-For the pre-requisites in this example a Rasbperry Pi B+ was used with the following version of Raspbian.
+For the pre-requisites in this example a Raspberry Pi B+ was used with the following version of Raspbian.
 
 {{< highlight bash >}}
 pi@raspberrypi:~ $ uname -a
@@ -39,7 +39,7 @@ The Arduino is an Arduino Due with Arduino Genuino 1.18.2.
 Note: There really isn't any reason you cannot use any of the Raspberry Pi and Arduino product line, it's just a matter of mapping the pins, files, functionality and hardware to the product. I'd actually be surprised if it wasn't easy, or even no real changes to use something else.
 
 # Wiring - Do you have a 3.3V to 5V Issue?
-Before you even start the RPi I/O operates at +3.3V and most, not all Arduinos operate at +5V. You will need to use one of the various mechanisms to translate +3.3V to +5V. If you don't you'll damage the pins on the RPi. For this I used an Arduino Due which has +3.3V I/O Pins, and it's easy since you can directly connect to the Raspberry Pi.
+Before you even start the RPi I/O operates at +3.3V and most, not all Arduino's operate at +5V. You will need to use one of the various mechanisms to translate +3.3V to +5V. If you don't you'll damage the pins on the RPi. For this I used an Arduino Due which has +3.3V I/O Pins, and it's easy since you can directly connect to the Raspberry Pi.
 
 Wiring two UARTs together requires connecting Tx and Rx pins from the Raspberry Pi to the Rx and Tx pins on the Arduino. The Tx pin on one, goes to the Rx pin on the other. On my RPi B+ these are the `TXD` and `RXD` pins which map to Pins 8 and 10, which map to BCM 14 an BCM 15. Refer to this excellent [Raspberry Pi Pinout](https://pinout.xyz/#). For the Arduino Due the pins `18(TX)` and `19(RX)` for `Serial1`.
 
@@ -47,7 +47,7 @@ Wiring two UARTs together requires connecting Tx and Rx pins from the Raspberry 
 
 A Universal Asynchronous Receiver/Transmitter (UART) does serial communications. There is also a Universal Synchronous/Asynchronous Receiver/Transmitter (USART). For this example we actually will do synchronous serial communications, although, it could be extended to do asynchronous where the RPi and Arduino could both send and receive asynchronously.
 
-To communicate with a UART in Unix you use a **Terminal**. This is also referred to as a `tty` for *T*ele*TY*pewriter and goes WAY back. To communicate with a tty we do basic file I/O where the file is a Unix Character Device. This device on the RPi happens to be `/dev/ttyAMA0` on the RPi. In order to do file I/O on a terminal we have to configure it properly using the `termios` sturcture. An example will be shown below on how this `termios` structure is setup.
+To communicate with a UART in Unix you use a **Terminal**. This is also referred to as a `tty` for *T*ele*TY*pewriter and goes WAY back. To communicate with a tty we do basic file I/O where the file is a Unix Character Device. This device on the RPi happens to be `/dev/ttyAMA0` on the RPi. In order to do file I/O on a terminal we have to configure it properly using the `termios` structure. An example will be shown below on how this `termios` structure is setup.
 
 There are lot of examples using a `tty` in Unix online. However, I highly recommend reading all of `man termios`. It's a VERY good authoritative reference.
 
@@ -94,7 +94,7 @@ There is a LOT of output here from the `stty` tool. The attributes at the bottom
 
 ### Terminal Cooked mode versus Raw Mode
 
-There are two modes for a Terminal in Linux. Cooked Mode - also known as Canonical Mode, and Raw mode - also known as non-canonical mode. The difference really is Cooked mode will read a line at a time, and Raw mode will read a character at a time. [Here](http://web.archive.org/web/20161224020948/http://www.lafn.org:80/~dave/linux/terminalIO.html) is a great explanation of this. For this example we'll use Raw Mode so we're sending a character (byte) at a time from the Rasberry Pi to the Arduino.
+There are two modes for a Terminal in Linux. Cooked Mode - also known as Canonical Mode, and Raw mode - also known as non-canonical mode. The difference really is Cooked mode will read a line at a time, and Raw mode will read a character at a time. [Here](http://web.archive.org/web/20161224020948/http://www.lafn.org:80/~dave/linux/terminalIO.html) is a great explanation of this. For this example we'll use Raw Mode so we're sending a character (byte) at a time from the Raspberry Pi to the Arduino.
 
 ## C Header to Communicate with the UART
 

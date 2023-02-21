@@ -8,7 +8,7 @@ tags:
 date: "2020-02-27T17:14:45Z"
 ---
 
-In this post we'll create an example client and server that communicate over UDP in C using Unix as the Operating System. UDP is a connectionless, unreliable datagram packet service. The term connectionless means there is no handshake between the client and server before information is exchanged. The term "fire and forget" applies here since the client sends and beforehand has no negotiation with the server. The term unreliable means there is no guarantee of delivery, ordering or duplicate protection. UDP is best for time-sensitive applications where it is preferable to discard packets rather than waiting for delayed ones.
+In this post we'll create an example client and server that communicate over UDP in C using Unix as the Operating System. UDP is a connection-less, unreliable datagram packet service. The term connection-less means there is no handshake between the client and server before information is exchanged. The term "fire and forget" applies here since the client sends and beforehand has no negotiation with the server. The term unreliable means there is no guarantee of delivery, ordering or duplicate protection. UDP is best for time-sensitive applications where it is preferable to discard packets rather than waiting for delayed ones.
 
 The advantages to UDP are two fold. Firstly, the latency to send the packets are reduced since there is no connection time. Secondly, the overhead is reduced when compared to TCP since a packet only has 8 bytes, whereas a TCP header is 20 bytes. UDP is lightweight and lean! Unreliability, depending on the network and amount of traffic can be overrated. In nearly all applications careful consideration should be made to decide TCP over UDP.
 
@@ -26,7 +26,7 @@ The UDP server will need to open a `socket` and assign a socket address with `bi
 
 #### UDP Server Socket, Bind, Network Interfaces and IPv4 versus IPv6
 
-The UDP server socket needs to be bound to a network interface in Unix. In the example we are able to use the `getaddrinfo` to identify a host and service from hints. This will allow us to eliminate any IPv4 and IPv6 dependences. Clients will also have the ability to connect using IPv4 or IPv6 because of how we open the socket and bind. The program will try to create the socket by it's address family, here unspecified for IPv4 or IPv6, it's socket type `SOCK_DGRAM` and protocol.
+The UDP server socket needs to be bound to a network interface in Unix. In the example we are able to use the `getaddrinfo` to identify a host and service from hints. This will allow us to eliminate any IPv4 and IPv6 dependencies. Clients will also have the ability to connect using IPv4 or IPv6 because of how we open the socket and bind. The program will try to create the socket by it's address family, here unspecified for IPv4 or IPv6, it's socket type `SOCK_DGRAM` and protocol.
 
 It's left as a further exercise to find the interface this socket is bound to. Also, depending on the interface that the socket binds to further setup maybe needed for IPv4 and IPv6.
 
