@@ -12,7 +12,8 @@
         "HTML-CSS": { availableFonts: ["TeX"] }
     });
 </script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/mml-chtml.min.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 {{ end }}
 {{ if hugo.IsProduction }}
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125892300-1"></script>
