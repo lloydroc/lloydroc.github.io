@@ -6,9 +6,9 @@ comments: true
 date: "2019-02-24T14:57:00Z"
 ---
 
-Any program these days that does any significant computational load should utilize the availble processor cores. In this post we'll show an example using Java where we schedule [Callables](https://docs.oracle.com/javase/10/docs/api/java/util/concurrent/Callable.html) on all available processor cores. In Java a Callable is task that returns a result and may throw an exception. It is very similar to a [Thread](https://docs.oracle.com/javase/10/docs/api/java/lang/Thread.html), but gives a much easier way to return the result asynchronous computation. I typically don't see many reasons to not use Callables over Threads, since even if you don't want or need to return the result you can still return some sort of status code. This blurb is directly from the Javadoc *The Callable interface is similar to Runnable, in that both are designed for classes whose instances are potentially executed by another thread. A Runnable, however, does not return a result and cannot throw a checked exception.*
+Any program these days that does any significant computational load should utilize the available processor cores. In this post we'll show an example using Java where we schedule [Callables](https://docs.oracle.com/javase/10/docs/api/java/util/concurrent/Callable.html) on all available processor cores. In Java a Callable is task that returns a result and may throw an exception. It is very similar to a [Thread](https://docs.oracle.com/javase/10/docs/api/java/lang/Thread.html), but gives a much easier way to return the result asynchronous computation. I typically don't see many reasons to not use Callables over Threads, since even if you don't want or need to return the result you can still return some sort of status code. This blurb is directly from the Javadoc *The Callable interface is similar to Runnable, in that both are designed for classes whose instances are potentially executed by another thread. A Runnable, however, does not return a result and cannot throw a checked exception.*
 
-To obtain a [Future](https://docs.oracle.com/javase/10/docs/api/java/util/concurrent/Future.html) in Java we need to submit the Callable to an [Executor Service](https://docs.oracle.com/javase/10/docs/api/java/util/concurrent/ExecutorService.html). A Future represents the result of an asynchronous computation. You have a reference to a future, it is working in the background. To block and wait until it is done call the get method. The process is pretty straighforward for divvying up tasks on multiple cores if you use the so called "Boss-Worker" Model. Where you break a computation down into different sub-computations, have workers work on each one, then collect and aggregate the result at the end.
+To obtain a [Future](https://docs.oracle.com/javase/10/docs/api/java/util/concurrent/Future.html) in Java we need to submit the Callable to an [Executor Service](https://docs.oracle.com/javase/10/docs/api/java/util/concurrent/ExecutorService.html). A Future represents the result of an asynchronous computation. You have a reference to a future, it is working in the background. To block and wait until it is done call the get method. The process is pretty straightforward for divvying up tasks on multiple cores if you use the so called "Boss-Worker" Model. Where you break a computation down into different sub-computations, have workers work on each one, then collect and aggregate the result at the end.
 
 I think of it in this way:
 1. Define a unit of computation. This will be implemented in your class that implements the Callable Interface.
@@ -37,7 +37,7 @@ import java.util.concurrent.Future;
 /**
  * Multicore Processor Example in Java to use all available processor cores
  * to average lists of random numbers.
- * Uses the Java 8's Executor service for a Work Stealing Pool to divy the
+ * Uses the Java 8's Executor service for a Work Stealing Pool to divvy the
  * work onto the available processor cores.
  * Example was run on a 8 Core 2.6 GHz Intel i7 with 16GB of 2133 LPDDR3
  * which takes around 14 seconds;
@@ -132,7 +132,7 @@ class Worker implements Callable<Double> {
         Instant now = Instant.now();
         Double avg = 0.0;
 
-        // A bit of a complex functional call that uses mutible reduction to get the average
+        // A bit of a complex functional call that uses mutable reduction to get the average
         WorkerTask collect = workList.stream().collect(WorkerTask::new, WorkerTask::accept, WorkerTask::combine);
 
         // Compute the average
@@ -146,12 +146,12 @@ class Worker implements Callable<Double> {
 
 /**
  * Arguably more complex than it needs to be but this class
- * allows us to use mutible reduction to get the average of
+ * allows us to use mutable reduction to get the average of
  * all the numbers. It is essentially a class that stores a
  * total of all the numbers and a count of them since
  * total/count is the average. With one distinction is that
  * it has a combine method that will allow the
- * classes to be combined together for the mutible reduction.
+ * classes to be combined together for the mutable reduction.
  * The combine won't be called unless the collection of the
  * stream is done in parallel, which it isn't in this example.
  * See the line of workList.stream would need to be replaced
@@ -190,7 +190,7 @@ Time Taken multi-core:  PT8.551061S
 Time Taken single core: PT15.523523S
 ```
 
-The multicore code is around twice as fast as the single core. Why not 8x since we have 8 cores? That's a tougher question. We need to go back and analyze hits the disk, total memory used as well as set-up and tear down time for the executor.
+The multicore code is around twice as fast as the single core. Why not 8x since we have 8 cores? That's a tougher question. We need to go back and analyze hits to the disk drive, total memory used, as well as, set-up and tear down time for the executor.
 
 [Here](https://youtu.be/juahfpQQgIc) is a video where I go through all the code and give a more detailed explanation.
 
