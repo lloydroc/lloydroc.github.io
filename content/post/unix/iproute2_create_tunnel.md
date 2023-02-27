@@ -17,7 +17,7 @@ In this example we have two Unix hosts with IP addresses *10.255.254.96* and *10
 
 ### iproute2 and the dummy kernel module
 
-For this we'll need *iproute2*. As long as your linux distribution is fairly modern you should have *iproute2*. Type `ip` and you should see something like the following.
+For this we'll need *iproute2*. As long as your Linux distribution is fairly modern you should have *iproute2*. Type `ip` and you should see something like the following.
 
 {{< highlight bash >}}
 $ ip
@@ -166,7 +166,7 @@ When we ran the command `ip link add dummy0 type dummy` dummy ip addresses were 
 
 ### Let's do some pinging!
 
-Ok now we need to ping and traceroute to make sure what we have is working:
+OK now we need to ping and traceroute to make sure what we have is working:
 
 #### Ping/Traceroute from Unix Host 1 to Unix Host 2
 {{< highlight bash >}}

@@ -10,11 +10,11 @@ I wanted to use Apache Lucene to search User Names. It's definitely not straight
 
 First of all if you're using Apache Lucene you're my type of person! It's an awesome project, but the documentation and examples are severely lacking.
 
-I recently wanted to index user names as "First Last" and couldn't find the right analyzer to do so. It turns out it's very easy. I should note this is for Lucene version 8.4.0. The problem was that if I index a user's name like "Lloyd Rochester" I was getting issues with the normal analyzer's tokenization of `TextField` and `String`. The problem here is Lucene will not tokenize the `String` field and leave them verbatim as a single Token. When Lucene tokenizes `TextField` the tokens are case sensitive. This applies to the `StandardAnalyzer` and `WhitespaceAnalyzer`. Below we can analyze text like the `WhitespaceAnalyzer` but filter it to lower case. We do this by creating our own `LowerCaseWhitespaceAnalyzer` which extends `Analyizer`.
+I recently wanted to index user names as "First Last" and couldn't find the right analyzer to do so. It turns out it's very easy. I should note this is for Lucene version 8.4.0. The problem was that if I index a user's name like "Lloyd Rochester" I was getting issues with the normal analyzer's tokenization of `TextField` and `String`. The problem here is Lucene will not tokenize the `String` field and leave them verbatim as a single Token. When Lucene tokenizes `TextField` the tokens are case sensitive. This applies to the `StandardAnalyzer` and `WhitespaceAnalyzer`. Below we can analyze text like the `WhitespaceAnalyzer` but filter it to lower case. We do this by creating our own `LowerCaseWhitespaceAnalyzer` which extends `Analyzer`.
 
 Let me provide an example for the problem statement:
 
-Lucene Index contain's this: 3 names separated by commas:
+Lucene Index contains this: 3 names separated by commas:
 
 ```Bob Anderson, Vince Bob, Bobby Brown```
 
