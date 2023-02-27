@@ -6,7 +6,7 @@ tags:
  - wireless
  - ebyte-e32-lora
 date: "2021-07-18"
-title: Ebyte e32 Lora Module - Wiring and Configuring the Rasberry Pi
+title: Ebyte e32 Lora Module - Wiring and Configuring the Raspberry Pi
 ---
 
 This post explains how to wire up the UART and the mode pins. We need 5 connections between the Raspberry Pi and EByte E32, as well as a power and a ground. See this [software installation](/post/hardware/ebyte-e32-lora-getting-started) after the wiring is complete.

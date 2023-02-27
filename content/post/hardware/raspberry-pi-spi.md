@@ -71,7 +71,7 @@ For the overlays we have the following syntax:
 spi{m}-{n}cs
 ```
 
-Where `m` represents the SPI bus or controller, and `n` is the number of `CE` chip-enable pins to use. For examle, if we overlayed `spi1-3cs` after rebooting we'd have:
+Where `m` represents the SPI bus or controller, and `n` is the number of `CE` chip-enable pins to use. For example, if we overlayed `spi1-3cs` after rebooting we'd have:
 
 {{< highlight bash >}}
 $ ls -l /dev/spidev0*
