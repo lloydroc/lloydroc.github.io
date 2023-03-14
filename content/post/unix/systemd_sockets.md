@@ -51,6 +51,8 @@ Before we get into the details of dependencies in `systemd` let's discuss our re
 
 To me this is backwards, but we need to start the socket first and it will pass the file descriptor to the service. I tried many other options to no avail. What I really don't like about this is we have to run `systemctl start foo.socket` and have to HIGHLY resist the urge to type `systemctl start foo` since `systemctl` will assume the `.service`. It's just not intuitive, at least to me.
 
+If you find a way to start the service without having to start the socket first [/about](please send me an email).
+
 Not ideal! Let's continue.
 
 # Dependencies in Systemd
@@ -98,7 +100,7 @@ The example above is called the *configuring service*. Now let's look at these u
 * `Conflicts=` an inverse relationship where starting one, will stop another for example.
 * `Before=,After=` specifies the order and would be used with the other dependency configurations. For example we could have a `Bindsto=` and then a `Before=` where the units would function as a group and we specify the order they start and stop. Note, these settings are independent and orthogonal to `Requires=`, `Wants=`, `Requisite=`, and `BindsTo=`.
 
-These options can be very tricky when you have multiple units defined. Not only do you have to be very careful on which unit you put the dependency in, but the naming is a little misleading as well. Take for example `PartOf=`. The `PartOf=` specifies the starting and topping of a unit? Huh? The name of that setting doesn't line up so well with what it does!
+These options can be very tricky when you have multiple units defined. Not only do you have to be very careful on which unit you put the dependency in, but the naming is a little misleading as well. Take for example `PartOf=`. The `PartOf=` specifies the starting and stopping of a unit? Huh? The name of that setting doesn't line up so well with what it does!
 
 ## Implicit and Default Dependencies
 
@@ -249,7 +251,7 @@ This code will
 * Print out the environment variables. The `NOTIFY_SOCKET` is set because we have `Type=notify` for our service. The `LISTEN_FDS` and `LISTEN_FDS` are set for us to get the socket information. Some of the other variables are self-explanatory, or can be determined from the documentation.
 * From systemd find the file descriptor and name of the socket
 * Receive from the socket and print it out
-* Note I removed some of the examples from the [previous post](/post/unix/systemd_journal/) on journalling. This was the signal handlers for reload and some of the `sd_journal(3)` stuff. This stuff just distracts from the socket example.
+* Note, I removed some of the examples from the [previous post](/post/unix/systemd_journal/) on journaling. This was the signal handlers for reload and some of the `sd_journal(3)` stuff. This stuff just distracts from the socket example anyways.
 
 {{< highlight c >}}
 #include <errno.h>
