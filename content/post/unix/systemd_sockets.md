@@ -51,7 +51,7 @@ Before we get into the details of dependencies in `systemd` let's discuss our re
 
 To me this is backwards, but we need to start the socket first and it will pass the file descriptor to the service. I tried many other options to no avail. What I really don't like about this is we have to run `systemctl start foo.socket` and have to HIGHLY resist the urge to type `systemctl start foo` since `systemctl` will assume the `.service`. It's just not intuitive, at least to me.
 
-If you find a way to start the service without having to start the socket first [/about](please send me an email).
+If you find a way to start the service without having to start the socket first - please send me an [email](/about).
 
 Not ideal! Let's continue.
 

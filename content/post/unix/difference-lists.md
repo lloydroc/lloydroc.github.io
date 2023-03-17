@@ -5,11 +5,26 @@ categories:
  - unix
 ---
 
-Using the [comm(1)](https://man7.org/linux/man-pages/man1/comm.1.html) command in Unix we can see the difference between lists. The `comm` command takes two files as inputs and will output lines unique in `FILE1`, lines unique in `FILE2` and lines common to `FILE1` and `FILE2`. These difference comparisons are synonymous with taking the union between lists, and left or right joins between them. Note, for the `comm` command to work the lists need to be sorted.
+# {{< title >}}
 
-# Example Comparison
+{{< figure src="/assets/png/unix-comm-command.png" title="Unix comm command - Difference between two lists" >}}
 
-Let's construe an example by creating two lists in `a.txt` and `b.txt` and show how the `comm` command can be used to find the differences in the lists.
+Using the [comm(1)](https://man7.org/linux/man-pages/man1/comm.1.html) command in Unix we can output the difference between **sorted** lists. The `comm` command takes two sorted files as inputs and will output lines unique in `FILE1`, lines unique in `FILE2` and lines common to `FILE1` and `FILE2`. The `comm` command requires the files to be sorted.
+
+# Examples
+
+{{< highlight bash >}}
+       comm -12 file1 file2
+              Print only lines present in both file1 and file2.
+
+       comm -3 file1 file2
+              Print lines in file1 not in file2, and vice versa.
+{{< / highlight >}}
+
+
+# Example with Files
+
+Let's see an example by creating two lists in file `a.txt` and file `b.txt`. Then use the `comm` command to output what is only in `a.txt`, in `b.txt` and in both `a.txt` and `b.txt` - the union between them.
 
 Here is an example file named `a.txt` with contents:
 
@@ -70,3 +85,7 @@ e
 {{< / highlight >}}
 
 Note, in the last example above we can mix the 3 options of `123` to get different outputs.
+
+## Additional options
+
+If available the `--check-order` option will fail if the inputs are not correctly ordered.
