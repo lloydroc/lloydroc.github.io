@@ -42,7 +42,7 @@ $$
 
 Also, in matrix form for \\( N=8 \\). Visualizing the matrix helps for understanding.
 
-$$ 
+$$
 \begin{bmatrix}
 X_0 \\\\
 X_1 \\\\
@@ -54,14 +54,14 @@ X_6 \\\\
 X_7
 \end{bmatrix} =
 \begin{bmatrix}
-W_{8}^{0*0} & W_{8}^{0*1} & W_{8}^{0*2} & W_{8}^{0*3} & W_{8}^{0*4} & W_{8}^{0*5} & W_{8}^{0*6} & W_{8}^{0*7} \\\\
-W_{8}^{1*0} & W_{8}^{1*1} & W_{8}^{1*2} & W_{8}^{1*3} & W_{8}^{1*4} & W_{8}^{1*5} & W_{8}^{1*6} & W_{8}^{1*7} \\\\
-W_{8}^{2*0} & W_{8}^{2*1} & W_{8}^{2*2} & W_{8}^{2*3} & W_{8}^{2*4} & W_{8}^{2*5} & W_{8}^{2*6} & W_{8}^{2*7} \\\\
-W_{8}^{3*0} & W_{8}^{3*1} & W_{8}^{3*2} & W_{8}^{3*3} & W_{8}^{3*4} & W_{8}^{3*5} & W_{8}^{3*6} & W_{8}^{3*7} \\\\
-W_{8}^{4*0} & W_{8}^{4*1} & W_{8}^{4*2} & W_{8}^{4*3} & W_{8}^{4*4} & W_{8}^{4*5} & W_{8}^{4*6} & W_{8}^{4*7} \\\\
-W_{8}^{5*0} & W_{8}^{5*1} & W_{8}^{5*2} & W_{8}^{5*3} & W_{8}^{5*4} & W_{8}^{5*5} & W_{8}^{5*6} & W_{8}^{5*7} \\\\
-W_{8}^{6*0} & W_{8}^{6*1} & W_{8}^{6*2} & W_{8}^{6*3} & W_{8}^{6*4} & W_{8}^{6*5} & W_{8}^{6*6} & W_{8}^{6*7} \\\\
-W_{8}^{7*0} & W_{8}^{7*1} & W_{8}^{7*2} & W_{8}^{7*3} & W_{8}^{7*4} & W_{8}^{7*5} & W_{8}^{7*6} & W_{8}^{7*7}
+W_{8}^{0} & W_{8}^{0} & W_{8}^{0} & W_{8}^{0} & W_{8}^{0} & W_{8}^{0} & W_{8}^{0} & W_{8}^{0} \\\\
+W_{8}^{0} & W_{8}^{1} & W_{8}^{2} & W_{8}^{3} & W_{8}^{4} & W_{8}^{5} & W_{8}^{6} & W_{8}^{7} \\\\
+W_{8}^{0} & W_{8}^{2} & W_{8}^{4} & W_{8}^{6} & W_{8}^{0} & W_{8}^{2} & W_{8}^{4} & W_{8}^{6} \\\\
+W_{8}^{0} & W_{8}^{3} & W_{8}^{6} & W_{8}^{1} & W_{8}^{4} & W_{8}^{7} & W_{8}^{2} & W_{8}^{5} \\\\
+W_{8}^{0} & W_{8}^{4} & W_{8}^{0} & W_{8}^{4} & W_{8}^{0} & W_{8}^{4} & W_{8}^{0} & W_{8}^{4} \\\\
+W_{8}^{0} & W_{8}^{5} & W_{8}^{2} & W_{8}^{7} & W_{8}^{4} & W_{8}^{1} & W_{8}^{6} & W_{8}^{3} \\\\
+W_{8}^{0} & W_{8}^{6} & W_{8}^{4} & W_{8}^{2} & W_{8}^{0} & W_{8}^{6} & W_{8}^{4} & W_{8}^{2} \\\\
+W_{8}^{0} & W_{8}^{7} & W_{8}^{6} & W_{8}^{5} & W_{8}^{4} & W_{8}^{3} & W_{8}^{2} & W_{8}^{1}
 \end{bmatrix}
 \begin{bmatrix}
 x_0 \\\\
@@ -75,6 +75,8 @@ x_7
 \end{bmatrix}
 $$
 
+Hopefully, I have all those constants correct! Check out the symmetry when looking down the columns of the \\( W \\) matrix! It's pretty cool.
+
 ### Why do we need to be efficient?
 
 To do this matrix multiply we need \\( 8^2=64 \\) multiplies. In Big O Notation this would be \\( O(N^2) \\). This is because for each \\( X_n \\) we need to multiply 8 times. Realistically, it's \\( 4 \times 8^2 =256 \\) since to multiply complex numbers we need 4 multiplies for the real and imaginary parts.
@@ -83,7 +85,7 @@ The reason we need to be concerned with multiplication is that computer processo
 
 Let's take a realistic example of audio sampled at 48kHz. Let's say we wanted to do an FFT every 21ms where \\( N=1024 \\). We then would have \\( 4 \times 1024^2 = 4,194,304 \\) multiplications every 21ms. The 4 here is for the multiplication of complex numbers. That's not a small number of multiplications, they add up very quickly.
 
-Take for example an ARM processor. We can swag a multiply accumulate instruction of a floating point number takes 3 clock cycles - that's a very commendable number of instructions for a multiply. Let's call this 3 floating point operations or FLOPS. For each second we'd have to do this roughly 48 times ( \\( 48 \times 0.021ms \approx 1s \\) ) and that is \\( 3 \times 48 \times 4,194,304 = 603,979,776 \\) instructions per second just for multiplication. This is roughly 600 Mega FLOPS. For a processor running at 1GHz that is a heavy load just to run a 1024 size DFT in realtime.
+Take for example an ARM processor. We can swag a multiply accumulate instruction of a floating point number takes 3 clock cycles - that's a very commendable number of instructions for a multiply. Let's call this 3 floating point operations or FLOPS. For each second we'd have to do this roughly 48 times ( \\( 48 \times 0.021ms \approx 1s \\) ) and that is \\( 3 \times 48 \times 4,194,304 = 603,979,776 \\) instructions per second just for multiplication. This is roughly 600 Mega FLOPS. For a processor running at 1GHz that is a heavy load just to run a 1024 size DFT in real time.
 
 The FFT can do this computation much more efficiently. Instead of \\( N^2 \\) it will drastically reduce operations to \\( O(N \log_{2} N) \\). For our example of 1024 we would now have \\( 4 \times 1024 \times 10 = 40,960 \\) multiplies for the 21ms. We'd then have a total of \\( 40,960 \times 48 \times 3 = 5,898,240 \\)  multiplies. This is roughly 6 Mega FLOPS which is a factor 10 smaller than what we had above without using the FFT.
 

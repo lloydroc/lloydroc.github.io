@@ -118,7 +118,7 @@ Let's now look at what the symbols \\( 10100 \\) look like now that we have puls
 
 {{< figure src="/assets/svg/psk31/bpsk_transmission_t_rrc.svg" >}}
 
-Look closely at the peaks for each pulse, note how the highest one - not by much is or is not phase shifted. Also, note how the pulses interfer with one another as they are not perfectly symmetric. Can you make out \\( 10100 \\) from this plot? Think how you might build a receiver to detect it!
+Look closely at the peaks for each pulse, note how the highest one - not by much is or is not phase shifted. Also, note how the pulses interfere with one another as they are not perfectly symmetric. Can you make out \\( 10100 \\) from this plot? Think how you might build a receiver to detect it!
 
 # Audio of BPSK Transmission with Pulse Shaping
 

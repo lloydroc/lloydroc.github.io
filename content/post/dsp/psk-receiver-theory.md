@@ -110,17 +110,17 @@ How would we receive this? Let's provide an outline:
 
 1. Convolve what is received with our matched filter. This matched filter is a basis function corresponding to the symbol that relates to transmission of a \\( 0 \\) bit.
 2. When the convolution output has peaks above a threshold, for a long enough amount of time, handwave .. handwave ... we can make guesses. This amount of time needs to be at least \\(3 \\) symbol periods \\( T \\), since it's the shortest possible alphabet sequence.
-3. We do peak finding and correleate each peak to what symbol it's in. The peaks last in \\(T=0.032ms\\) chunks.
+3. We do peak finding and correlate each peak to what symbol it's in. The peaks last in \\(T=0.032ms\\) chunks.
 4. A Phased Locked Look will determine the phase of each peak (both positive and negative).
 5. For each symbol period we can accumulate the amplitude at that time, multiplied by the phase locked loop output at the time. The sign of the multiplicative sum will determine if a \\( 0 \\) or a \\( 1 \\) was transmitted.
 6. From step 5 we will have a bit stream of guesses such as \\( 10100 \\). From here we will take the bit stream and reverse lookup using our alphabet for the text that was sent.
 
-The steps above are definitely not the only way to do receive PSK. The challenge with receiving PSK is phase is so sensitive to time. If guess the phase wrong, you flip a bip. Depending how you do it you can be off for the whole duration or off regionally.
+The steps above are definitely not the only way to do receive PSK. The challenge with receiving PSK is phase is so sensitive to time. If guess the phase wrong, you flip a bit. Depending how you do it you can be off for the whole duration or off regionally.
 
 ## What I left out
 
 1. Choosing the amplitude at which to start recording and guessing is a bit of black magic as far as I know ...
-2. The phase locked loop can be continually adjusted. For a long bit seqeunce setting the phase for the PLL at the first symbol will be susceptible to drift.
+2. The phase locked loop can be continually adjusted. For a long bit sequence setting the phase for the PLL at the first symbol will be susceptible to drift.
 
 ## A Short Rant on PSK Theory Text
 

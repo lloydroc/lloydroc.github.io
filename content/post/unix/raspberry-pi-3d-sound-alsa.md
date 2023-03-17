@@ -65,7 +65,7 @@ card 1: Device [USB Audio Device], device 0: USB Audio [USB Audio]
 
 Looking closely at this we have 2 cards:
 
-* Card 0 has 3 devices. The first card is what is built into the Rasperry Pi and is the default device.
+* Card 0 has 3 devices. The first card is what is built into the Raspberry Pi and is the default device.
 * Card 1 is the 3D Sound device that is found on USB
 
 ## Listing the PCM Devices

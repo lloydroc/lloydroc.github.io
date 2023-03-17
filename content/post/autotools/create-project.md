@@ -16,7 +16,7 @@ This post has a simple bash script to create a basic Hello World autotools proje
 
 After we have created the files above all we need to do is run a `./autogen.sh` and our project will be ready to run the infamous `./configure`, `make` and `make install`.
 
-To create the project we can run our script by adding the project name. For this example let's call the project `autotools_helloworld`. This will create a binary called `autotools_helloworld` withour source in `main.c`. and create an autotools hello world project. Below is an example usage of the script to create the project, generate the autotools scripts, configure, make and run the program.
+To create the project we can run our script by adding the project name. For this example let's call the project `autotools_helloworld`. This will create a binary called `autotools_helloworld` with our source in `main.c`. and create an autotools hello world project. Below is an example usage of the script to create the project, generate the autotools scripts, configure, make and run the program.
 
 {{< highlight bash >}}
 $ atprj autotools_helloworld

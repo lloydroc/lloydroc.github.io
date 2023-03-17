@@ -14,7 +14,7 @@ Convolution is used _mainly_ in two ways:
 
 Note: There are some typos in the frequency labels for some of the sinusoids I need to fix. You can trust the graphs.
 
-# How the examples are organanized
+# How the examples are organized
 
 Each example will be organized in the following way. Let's first take the equation for convolution.
 
@@ -70,11 +70,11 @@ The textbook example of two squares. When they perfectly overlap at k
 
 {{< figure src="/assets/svg/convolution-examples/conv-sin-sin3.svg" title="A Sinusoid and another with double frequency" >}}
 
-# A Root Raised Cosine and Two Impules
+# A Root Raised Cosine and Two Impulses
 
 {{< figure src="/assets/svg/convolution-examples/impulses.svg" title="Two Impulse Functions" >}}
 {{< figure src="/assets/svg/convolution-examples/rrc.svg" title="A Root Raised Cosine" >}}
 
-{{< figure src="/assets/svg/convolution-examples/conv-imp-rrc.svg" title="Two Impules with a Root Raised Cosine" >}}
+{{< figure src="/assets/svg/convolution-examples/conv-imp-rrc.svg" title="Two Impulses with a Root Raised Cosine" >}}
 
 

@@ -11,12 +11,12 @@ Imagine a scenario where you have N threads and can only do something when M of 
 From the Javadoc we see the CyclicBarrier is *A synchronization aid that allows a set of threads to all wait for each other to reach a common barrier point. CyclicBarriers are useful in programs involving a fixed sized party of threads that must occasionally wait for each other. The barrier is called cyclic because it can be re-used after the waiting threads are released.*
 
 Let's take an example:
-1. We have an Alcholic Bar that will only open if 4 drinkers are waiting for shots
+1. We have an Alcoholic Bar that will only open if 4 drinkers are waiting for shots
 2. Once the 4th person that is waiting at the bar arrives we open the bar
 3. We want to print a message when the bar opens
 4. Pay close attention to the 5th and 6th drinker
 
-Let's jump right into the example. Here, we will create a Bar that serves alcohol, we'll create 6 drinkers with names and a shot of their choice. They will wait at the bar until the barrier condition of 4 waiting drinders is met.
+Let's jump right into the example. Here, we will create a Bar that serves alcohol, we'll create 6 drinkers with names and a shot of their choice. They will wait at the bar until the barrier condition of 4 waiting drinkers is met.
 
 The implementation is as follows:
 1. Drinkers are `java.util.concurrent.Callable` that return a Drinker Status.

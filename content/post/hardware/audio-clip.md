@@ -34,7 +34,7 @@ These two thresholds are for:
 
 It's a four step process:
 1) This works only on Unix because we need `alsa`. You must also have a microphone connected. I use a USB microphone.
-2) Using `alsa` we will configure `~/.asoundrc` to use our soundcard. Use `arecord -l` to find out.
+2) Using `alsa` we will configure `~/.asoundrc` to use our sound card. Use `arecord -l` to find out.
 3) Download, untar, compile and install the software below
 4) Capture some audio clips which are written to audio files
 
