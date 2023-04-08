@@ -1,7 +1,9 @@
 ---
 title: "Understanding memory reallocation with realloc"
 date: 2022-08-03
-draft: false
+categories:
+- c
+- unix
 ---
 
 # {{< title >}}
@@ -13,7 +15,7 @@ Let's better understand how memory is allocated, then reallocated on the heap. W
 {{< toc >}}
 
 # Heap Example
-Let's construe an example using [malloc(3)](https://man7.org/linux/man-pages/man3/malloc.3.html) and [realloc(3p)](https://man7.org/linux/man-pages/man3/realloc.3p.html). Here is how it goes down:
+Let's create an example using [malloc(3)](https://man7.org/linux/man-pages/man3/malloc.3.html) and [realloc(3p)](https://man7.org/linux/man-pages/man3/realloc.3p.html) that gives good insight. Here is how our example will play out:
 
 1. Start with an empty heap
 2. Allocate `memblock1` of 64-bytes as the first memory on the heap
@@ -76,7 +78,7 @@ memblock1=0x5868995d7340, memblock2=0x5868995d72f0, memblock1_orig=0x5868995d72a
 memblock3=0x5868995d72a0
 {{< / highlight >}}
 
-Note, that none of the `assert` statements evaluate to false.
+Note, that none of the `assert`statements will evaluate to false.
 
 # Details of `realloc`
 

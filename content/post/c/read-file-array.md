@@ -14,7 +14,7 @@ I think of Alligator teeth when thinking of a jagged array as each tooth is a di
 
 # The Jagged Array
 
-We want to read the file into an array of strings. What structure in C represents this file with the highest efficiency and least amount of memory usage? An array of pointers where each pointer will point to a null-terminated `char *` - or **string** as we will call it. A text file is a highly dynamic data structure because of both the number of lines and the length of each line. Essentially, an efficient way to represent a text file is with a jagged array.
+We want to read the file into an array of strings. What structure in C represents this file with the highest efficiency and least amount of memory usage? An array of pointers where each pointer will point to a null-terminated `char *` - or **string** as it is called in C. A text file is a highly dynamic data structure because of both the number of lines and the length of each line. Essentially, an efficient way to represent a text file is with a jagged array.
 
 Let's say we have the following file:
 
@@ -26,7 +26,7 @@ def
 
 This file is 3 lines long and is 9 bytes total since each line ends with a newline. Thus, we're going to have a jagged array that has 3+1 pointers for each line. The last pointer's value will be null so we can determine the end. The first three pointers will point to strings in memory. Here is an example of how it looks in memory.
 
-| Index | Line | Pointer Value | Comment |
+| Index | Line | Pointer Value | String  |
 |-------|------|---------------|---------|
 | 0     | 1    | 0x1000        | a\n\0   |
 | 1     | 2    | 0x1003        | bc\n\0  |
@@ -72,22 +72,25 @@ Note, the memory addresses are real, whereas, the example above with `0x1000` ad
 
 # The Code
 
-Here is the code to read a file into a jagged array of strings in C. For input, the program takes one command line argument. This argument is the file that to read and print. For output, the program will print the lines to standard out with line numbers and some diagnostic lines.
+Here is the code to read a file into a jagged array of strings in C. For input, the program takes one command line argument. This argument is the file to read and print. For output, the program will print the lines to standard out with line numbers and some diagnostic lines.
 
 Usage is as follows:
 {{< highlight bash >}}
 ./file2strings <file-to-read-and-print>
 {{< / highlight >}}
 
-I'll let the code speak for itself except for a couple of fine points:
+I'll let the code speak for itself except for a couple of fine points
+* Since we do not know the number of lines to begin with: we need to guess our array size and increase size if we guessed low.
 * We only read the file through once for performance.
 * We assume a large number of lines in our file by dividing the total bytes by a factor - *the guess*. This prohibits us from having to [realloc(3)](https://man7.org/linux/man-pages/man3/realloc.3p.html).
 * As our number of lines exceeds the initial guess we increase the length of the jagged array by another size using [realloc(3)](https://man7.org/linux/man-pages/man3/realloc.3p.html)
 * After we read the file to the end we decrease the jagged array size to the exact number of lines. Plus, one line for the ending null. No extra memory is allocated.
 * The lines we read from the file do not have the newline trimmed from the end.
-* We make heavy usage of (getline(3))[https://man7.org/linux/man-pages/man3/getline.3.html]. See the description for the details of memory allocation.
+* We make heavy usage of [getline(3)](https://man7.org/linux/man-pages/man3/getline.3.html). See the description for the details of memory allocation.
 
 As far as [realloc(3)](https://man7.org/linux/man-pages/man3/realloc.3p.html) goes it's typically not expensive at all. It will just expand the heap and return. However, there are cases where re-allocating memory would need to copy the entire contents of the memory to another location. In this case to copy over the contents of a large chuck of memory would be expensive.
+
+See my post on [Understanding memory reallocation with realloc](/post/c/understanding-realloc).
 
 {{< highlight c >}}
 // filename file2strings.c
@@ -98,7 +101,7 @@ As far as [realloc(3)](https://man7.org/linux/man-pages/man3/realloc.3p.html) go
 
 /*
 Our array of interest. This will be an array with pointers to malloc'd char buffers.
-These lines will contain newlines at the end
+These lines will contain newlines at the end.
 */
 char **lines;
 
