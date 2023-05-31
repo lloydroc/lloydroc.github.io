@@ -1,17 +1,17 @@
 ---
 title: Browser UI using sshuttle VPN in WSL
-date: "2023-05-16"
+date: "2023-05-30"
 categories:
 - wsl
 - networking
-draft: true
+- windows
 ---
 
 # {{< title >}}
 
 {{< figure src="/assets/png/browser-remote-server-vpn-sshuttle-windows.png" title="Browser viewing a UI in Windows using sshuttle in WSL as a VPN">}}
 
-In this post we will creating VPN connections using `sshuttle` in WSL for Windows 11. This post will focus on pointing a Browser to a URL in a private network in Windows. The private network - VPN - can be reached from `sshuttle` running in WSL. For this setup we unfortunately need to have a "double networking hop" in that Windows needs to be configured to send traffic to WSL (1) and WSL needs will then use `sshuttle` to (2) forward that traffic to the public network.
+In this post we will create VPN connections using `sshuttle` in WSL for Windows 11. This post will focus on pointing a Browser to a URL in a private network in Windows. The private network - VPN - can be reached from `sshuttle` running in WSL. For this setup we unfortunately need to have a "double networking hop" in that Windows needs to be configured to send traffic to WSL (1) and WSL needs will then use `sshuttle` to (2) forward that traffic to the public network.
 
 # Getting Started
 
@@ -37,12 +37,12 @@ Let's take an example scenario.
 
 Let's dive right into a complex network diagram. We'll then dive into each connection.
 
-{{< figure src="/assets/png/wsl-sshuttle.png" title="sshuttle VPN in WSL">}}
+{{< figure src="/assets/png/wsl-sshuttle.png" title="Network Diagram from Windows 11 through WSL running sshuttle VPN and connecting to a remote host">}}
 
 The diagram above shows a total of 4 networks! Let's explain them:
 1. The WSL Server and Windows 11 share a bridge network. This is called `vEthernet (WSL)` on my machine.
 2. My Windows 11 machine is part of my home LAN network which I have the obscure `10.255.254.0/24` network. Most people would likely have `192.168.1.0/24`.
-3. To simplfy things my home router connects to the internet through the WAN, we're also calling this the **public internet**.
+3. To simplify things my home router connects to the internet through the WAN, we're also calling this the **public internet**.
 4. On the public internet we have our **remote server** that we will `sshuttle` into called [lloydrochester.com](https://lloydrochester.com).
 5. The host [lloydrochester.com](https://lloydrochester.com) connects to the private network `172.22.0.0/24` via the `eth1` network interface that we can use to connect to `someserver.somecompany`.
 
@@ -98,11 +98,11 @@ Here we need to look at the `src` IP address and also take note of the device na
 172.17.253.106 someserver.somecompany
 {{< / highlight >}}
 
-Your WSL instance will undoubtably have a different address and perhaps device name depending on the flavor of linux.
+Your WSL instance will undoubtedly have a different address and perhaps device name depending on the flavor of Linux.
 
 ## Proxy a connection from Windows to WSL
 
-It turns out if Windows wants to make a connection to a WSL instance it needs to be explicitly specified. To do this we need to open a PowerShell terminal with Administrator priviledges and run the following:
+It turns out if Windows wants to make a connection to a WSL instance it needs to be explicitly specified. To do this we need to open a Power Shell terminal with Administrator privileges and run the following:
 
 {{< highlight bash >}}
 netsh interface portproxy add v4tov4 listenport=0-9000 connectaddress=172.17.253.106 connectport=0-9000 listenaddress=172.17.253.106
@@ -131,7 +131,7 @@ In WSL I run:
 sudo nc -kl 80
 {{< / highlight >}}
 
-Now we're listening on port `80` in WSL. So let's test a connection from Windows in PowerShell.
+Now we're listening on port `80` in WSL. So let's test a connection from Windows in Power Shell.
 
 {{< highlight bash >}}
 PS C:\Users\lloyd> Test-NetConnection -ComputerName someserver.somecompany -Port 80
@@ -188,7 +188,7 @@ From here I can open up a browser in Windows and see the following:
 
 # Where to go from here?
 
-The setup required here is far from easy. It has multiple moving parts making it inpractical for most use cases. I hope to post later proposing some better options. Here is what we can do to make these steps easier:
+The setup required here is far from easy. It has multiple moving parts making it impractical for most use cases. I hope to post later proposing some better options. Here is what we can do to make these steps easier:
 
 * Separate the Windows and WSL portions into their own scripts that have all of our commands.
 * You can look at running `dnsmasq` in WSL that will resolve addresses for us in WSL. Note, there is no easy way to do this resolution in Windows. We can point the Windows DNS to our WSL and `netsh interface portproxy` DNS requests to our DSL, but this comes with additional complexity.
