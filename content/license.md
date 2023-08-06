@@ -3,7 +3,7 @@ title: License
 layout: default
 ---
 
-# {{ <title> }}
+# {{< title >}}
 
 The work contained in this blog is licensed under a 
 {{< rawhtml >}}
