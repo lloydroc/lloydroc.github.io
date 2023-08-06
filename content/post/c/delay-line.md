@@ -7,6 +7,8 @@ tags:
 date: "2020-03-23T08:43:05Z"
 ---
 
+# {{ <title> }}
+
 There are many scenarios where a delay line is needed in signal processing. Scenarios ranging from Digital Filters, Convolution, Reverberation, Echo and others. Delay lines have a fixed length of **N** samples. When delay lines take in a new sample they discard the oldest sample. In this post we discuss how delay lines work and implement a delay line in the C programming language.
 
 # A Theoretical Delay Line

@@ -8,6 +8,8 @@ date: "2019-08-19T16:00:21Z"
 title: Implementing FIR Filters in C
 ---
 
+# {{ <title> }}
+
 Implementing FIR filters in C is much easier if we make use of the static variables declared in our functions. In this blog post we will create some simple example FIR filters, and get their impulse response. To understand this post you will have to have the basic theory of FIR filtering down.
 
 ### FIR Filter Implementation

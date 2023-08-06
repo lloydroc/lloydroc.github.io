@@ -5,6 +5,8 @@ comments: true
 date: "2020-01-31T06:23:05Z"
 ---
 
+# {{ <title> }}
+
 I needed an HTML `select` for every Timezone and really couldn't find what I was looking for. Here is an abbreviated version so you know what I'm talking about:
 
 ### Abbreviated HTML Select of Timezones

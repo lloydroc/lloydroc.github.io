@@ -5,6 +5,8 @@ categories:
   - emacs
 ---
 
+# {{ <title> }}
+
 A little cheat sheet for movement in `emacs`. Tried to capture all the ways you can move up, down, left and right in a buffer.
 
 # Moving by Character and Line

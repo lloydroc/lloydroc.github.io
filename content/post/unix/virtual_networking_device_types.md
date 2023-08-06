@@ -6,6 +6,8 @@ categories:
  - networking
 ---
 
+# {{ <title> }}
+
 This blog post attempts to list and describe the majority of Virtual Network Device types in Unix. Networking with Linux is a hot topic especially in the IoT and Datacenter areas. Read on and you'll see a large array of Device Types found in Unix.
 
 ## Background on Network Configuration in Unix

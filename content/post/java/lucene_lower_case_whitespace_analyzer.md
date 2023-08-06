@@ -6,6 +6,8 @@ comments: true
 date: "2020-01-30T10:53:31Z"
 ---
 
+# {{ <title> }}
+
 I wanted to use Apache Lucene to search User Names. It's definitely not straightforward. This post explains how to do it by defining our own custom `Analyzer` and explaining how we form the `Document`, index the user names and query with a `PrefixQuery`.
 
 First of all if you're using Apache Lucene you're my type of person! It's an awesome project, but the documentation and examples are severely lacking.

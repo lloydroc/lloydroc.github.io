@@ -6,6 +6,8 @@ categories:
  - alsa
 ---
 
+# {{ <title> }}
+
 I recently bought the USB 3D Sound Card to play around with some C ALSA Programming on the Raspberry Pi. It worked without a problem and wanted to jot down some notes in this post on it's specifications and how to use it. I didn't have to make any modifications to the Raspberry Pi at all and sound worked right out of the box. I ran this on a Raspberry Pi B+ on Raspian.
 
 To jump right to the chase you can easily play and record audio with the `aplay` and `arecord` commands. You'll need to specify the `plughw:1,0` or `hw:1,0` device. The USB 3D Sound is a 16-Bit, 2 Channel device with rates of 44,100 and 48,000 Hz. It can buffer about 1M of data corresponding to 5.9 seconds.

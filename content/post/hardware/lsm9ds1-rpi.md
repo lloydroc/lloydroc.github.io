@@ -8,6 +8,8 @@ math: true
 title: LSM9DS1 Command Line Tool for Raspberry Pi
 ---
 
+# {{ <title> }}
+
 I recently created a [LSM9DS1 Command Line Tool](https://github.com/lloydroc/rpi_lsm9ds1) for the Raspberry Pi. This tool was used to capture Accelerometer and Gyroscope data. I did an experiment to see what the readings look like, how the sensor behaves and the noise levels. This experiment is far from perfect but gives good insight and understanding.
 
 # Sensor Setup

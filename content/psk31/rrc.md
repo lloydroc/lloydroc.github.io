@@ -9,6 +9,8 @@ date: "2019-02-13"
 lastmod: "2020-04-18"
 ---
 
+# {{ <title> }}
+
 # Root Raised Cosine Filtering
 
 The PSK31 Standard uses [Root Raised Cosine Filters](https://en.wikipedia.org/wiki/Root-raised-cosine_filter) as a matched filter. Our PSK31 signal is convolved by the Root Raised Cosine waveform to mimimize Inter-Symbol Interference. For this project we can easily compute the RRC filter and then convolve it with our output stream. For the computation of the RRC we need a couple of constants specific to the PSK31 standard.

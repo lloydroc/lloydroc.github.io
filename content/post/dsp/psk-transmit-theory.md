@@ -7,6 +7,8 @@ categories:
  - psk
 ---
 
+# {{ <title> }}
+
 In this post we'll get into the theory of Binary Phase Shift Key - BPSK. We'll then get into the implementation of the transmitter, followed by the same for the receiver. The transmitter will have text as input, for output we will produce an audio .wav file and a CSV file for analysis. I created a bunch of graphs which really illustrate some of the theory.
 
 # Transmit Process

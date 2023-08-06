@@ -8,6 +8,8 @@ date: "2020-03-27"
 title: Converting C Conditionals to ARM Assembly
 ---
 
+# {{ <title> }}
+
 In this post we can explore how to the `gcc` compiler converts to C to ARM assembly language. We'll specifically look at *conditional logic*. We'll look at examples of `if` statements, `if` statements with `else if` and `else`, then end with a `switch` statement. To convert C to ARM assembly we will use the `-S` flag on GCC. All these examples were done on a Raspberry Pi running Raspbian.
 
 ## Converting an if statement from C to Assembly

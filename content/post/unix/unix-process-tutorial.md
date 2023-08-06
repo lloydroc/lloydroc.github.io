@@ -5,6 +5,8 @@ categories:
  - unix
 ---
 
+# {{ <title> }}
+
 In this blog post I'll go over a quick tutorial on Unix Processes. We'll start with some theory and then go into some real world examples. It's meant to be quick, to the point, and provide the necessary information to have a good understanding about how Unix Processes are designed.
 
 # SSH'ing into a Unix Machine

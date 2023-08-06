@@ -11,6 +11,8 @@ tags:
 
 {{< figure src="/assets/svg/yank.svg">}}
 
+# {{ <title> }}
+
 Copy (Yank) and Paste doesn't work in [neovim](https://neovim.io/doc/user/provider.html) because it cannot access the System Clipboard on WSL - Windows Subsystem Linux. This simple small hack solves this issue. This hack works without having to install X Windows or any other tools.
 
 **Update [Neovim Official Solution](https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-from-wsl)**. The solution posted in this blog post works, however, at the time there was no official solution. Now see the official solution using the `win32yank` binary. I honestly have not tried the solution posted herein for sometime as I no longer have WSL. There maybe a `neovim` clipboard provider that works and is built in. In the solution provided we create a pair of Unix scripts to act as that provider if you don't have the `win32yank` binary.

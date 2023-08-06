@@ -5,6 +5,8 @@ categories:
  - unix
 ---
 
+# {{ <title> }}
+
 In this blog post we'll have two examples in `bash` that will retry in the following ways:
 
 * Retry a command N times before failing

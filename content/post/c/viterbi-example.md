@@ -8,6 +8,8 @@ math: true
 date: "2020-05-01"
 ---
 
+# {{ <title> }}
+
 Here we go! In this post I'm going to go through how Viterbi Decoders work. There is a lot to cover since we need to touch on Convolutional Coding, State Machines, Trellis Diagrams, Hamming Distances and Trellis Diagrams. I'll illustrate this with the absolute simplest example possible and walk you through every step of the way. I highly recommending taking out a pencil and paper for this.
 
 # What is Viterbi Decoding?

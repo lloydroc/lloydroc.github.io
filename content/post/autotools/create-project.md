@@ -5,6 +5,8 @@ categories:
 date: "2019-06-24T07:26:00Z"
 ---
 
+# {{ <title> }}
+
 This post has a simple bash script to create a basic Hello World autotools project with a single command. The justification for this autotools script is I've not seen a consolidated script that keeps it simple in one place. The script creates a boiler plate autotools hello world project. Here is what it does:
 
 * Creation of `configure.ac` with project name, version, and email
