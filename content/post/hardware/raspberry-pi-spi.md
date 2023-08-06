@@ -7,7 +7,7 @@ date: "2021-04-21"
 title: Raspberry Pi SPI Explained
 ---
 
-# {{ <title> }}
+# {{< title >}}
 
 This post attempts to provide some finer details when using SPI on Raspberry Pi as it pertains to using the Chip Select pins and multiple SPI Interfaces. Note, I will not use `MOSI` and `MISO` to ditch the old master/slave nomenclature and use `SPO` and `SPI` instead.
 

@@ -6,7 +6,7 @@ categories:
  - alsa
 ---
 
-# {{ <title> }}
+# {{< title >}}
 
 I recently bought the USB 3D Sound Card to play around with some C ALSA Programming on the Raspberry Pi. It worked without a problem and wanted to jot down some notes in this post on it's specifications and how to use it. I didn't have to make any modifications to the Raspberry Pi at all and sound worked right out of the box. I ran this on a Raspberry Pi B+ on Raspian.
 

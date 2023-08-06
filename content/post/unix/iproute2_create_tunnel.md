@@ -9,7 +9,7 @@ tags:
  - tunnel
 ---
 
-# {{ <title> }}
+# {{< title >}}
 
 In this post we'll use *iproute2* to create tunnels between two unix hosts. This will be the simplest form of an *IP-in-IP* tunnel.
 

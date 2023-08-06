@@ -9,7 +9,7 @@ date: "2019-02-13"
 lastmod: "2020-04-18"
 ---
 
-# {{ <title> }}
+# {{< title >}}
 
 # PSK31 Convolution Encoding
 Convolutional Codes are often charactarized by three aspects:

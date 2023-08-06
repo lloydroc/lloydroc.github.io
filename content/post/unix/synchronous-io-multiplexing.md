@@ -6,7 +6,7 @@ date: "2020-04-26"
 title: I/O Multiplexing in Unix
 ---
 
-# {{ <title> }}
+# {{< title >}}
 
 In Unix a process performs I/O on a single file descriptor at a time. When we talk about I/O on a file think `read()` and `write()` calls which are blocking. To get around blocking on a I/O call there are a number of ways. You can imagine how blocking on a single I/O call could bring the performance of a program to it's knees. In this post we'll quickly compare non-blocking I/O Models. Namely, `select()`, `poll()`, Signal Driven I/O, and `epoll()`.
 

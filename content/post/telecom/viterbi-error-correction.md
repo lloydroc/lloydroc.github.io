@@ -7,7 +7,7 @@ tags:
   - viterbi
 ---
 
-# {{ <title> }}
+# {{< title >}}
 
 I've built a little PSK31 convolutional [encoder](/psk31/cnvenc/) and [decoder](/psk31/cnvdec/) and originally wanted to make a graph showing the error correction capabilities as a function of encoder output length and number of bit errors into the decoder. Making a long story short; I couldn't devise a good method of creating this graph and stuck to hand making error cases to see the performance of the decoder. Note, the quantization for both the encoder and decoder are hard metrics using the Hamming Distance which doesn't perform as good as soft metrics. First, let's define the convolution encoder input and output.
 

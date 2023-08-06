@@ -7,7 +7,7 @@ categories:
  - psk
 ---
 
-# {{ <title> }}
+# {{< title >}}
 
 In the previous post we discussed [BPSK Transmit Theory](/post/dsp/psk-transmit-theory/). This post will discuss the implementation of it. This implementation will be in the C programming language and it will also be a command line tool.
 

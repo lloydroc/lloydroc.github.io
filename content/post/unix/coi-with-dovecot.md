@@ -8,7 +8,7 @@ tags:
  - coi
 ---
 
-# {{ <title> }}
+# {{< title >}}
 
 I recently discovered [Chat Over IMAP](https://www.coi-dev.org). It looks like a promising technology that has a lot to offer. I'm currently hosting email on my [lloydrochester.com](/) domain with Postfix/Dovecot and in this post I'll modify my Dovecot configuration to work with COIand then try the [Delta Chat](https://delta.chat) application. I had originally planned for an hour or two of work, however, to get COI configured on Dovecot literally less than 5 minutes!
 

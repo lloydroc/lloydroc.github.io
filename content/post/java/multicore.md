@@ -6,7 +6,7 @@ comments: true
 date: "2019-02-24T14:57:00Z"
 ---
 
-# {{ <title> }}
+# {{< title >}}
 
 Any program these days that does any significant computational load should utilize the available processor cores. In this post we'll show an example using Java where we schedule [Callables](https://docs.oracle.com/javase/10/docs/api/java/util/concurrent/Callable.html) on all available processor cores. In Java a Callable is task that returns a result and may throw an exception. It is very similar to a [Thread](https://docs.oracle.com/javase/10/docs/api/java/lang/Thread.html), but gives a much easier way to return the result asynchronous computation. I typically don't see many reasons to not use Callables over Threads, since even if you don't want or need to return the result you can still return some sort of status code. This blurb is directly from the Javadoc *The Callable interface is similar to Runnable, in that both are designed for classes whose instances are potentially executed by another thread. A Runnable, however, does not return a result and cannot throw a checked exception.*
 

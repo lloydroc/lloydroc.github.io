@@ -10,7 +10,7 @@ tags:
  - assembly
 ---
 
-# {{ <title> }}
+# {{< title >}}
 
 Buffer overflows can be detected by inserting a *canary* into a function. These canaries are inserted when a function's stack frame is created. Before a function's return we check for the canary on the stack frame. If the canary isn't found then buffer overflow or *stack smashing* is detected.
 

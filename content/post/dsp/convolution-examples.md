@@ -6,7 +6,7 @@ categories:
  - dsp
 ---
 
-# {{ <title> }}
+# {{< title >}}
 
 Understanding [convolution](/post/c/convolution/) is not complete without some examples to visual the results. These examples are meant to aid in one's ability to visualize the result of a convolution. It's most important to flip one function horizontally and slide it through the other. As this function slides through we multiply and sum to obtain the result of the convolution.
 

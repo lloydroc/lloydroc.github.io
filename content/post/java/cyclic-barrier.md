@@ -6,7 +6,7 @@ comments: true
 date: "2019-02-25T08:00:00Z"
 ---
 
-# {{ <title> }}
+# {{< title >}}
 
 Imagine a scenario where you have N threads and can only do something when M of them are ready. Java already has this built in since 1.5 with the [CyclicBarrier](https://docs.oracle.com/javase/10/docs/api/java/util/concurrent/CyclicBarrier.html#await(long,java.util.concurrent.TimeUnit)).
 

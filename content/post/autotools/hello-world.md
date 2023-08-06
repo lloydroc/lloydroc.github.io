@@ -5,7 +5,7 @@ categories:
 date: "2019-05-30T14:46:00Z"
 ---
 
-# {{ <title> }}
+# {{< title >}}
 
 # Don't Listen to the Autotools Haters
 Being an avid C and Unix Geek, I decided to ignore all the hate out there about GNU Autotools and try it for myself. For those of you that don't know the GNU Autotools suite consists of Autoconf, Automake and Libtool. You'll see some major criticisms out there from people saying it's way too complex, challenging, hard to use as well as all sorts of other criticisms. Let's face it though, build systems are complex. I've used all sorts of them. Communities love to re-invent the wheel and build their own tool but at the end of the day to support everything is a massive endeavor.

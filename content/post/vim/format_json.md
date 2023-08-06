@@ -5,7 +5,7 @@ date: "2020-01-28T08:44:41Z"
 categories: ["vim"]
 ---
 
-# {{ <title> }}
+# {{< title >}}
 
 Have you ever needed to format some gnarly JSON that is unreadable and/or too large to look through? It's super easy to format it with `vim`. We can use the popular `jq` tool - link at the end of this blog post.
 

@@ -11,7 +11,7 @@ tags:
 
 {{< figure src="/assets/svg/yank.svg">}}
 
-# {{ <title> }}
+# {{< title >}}
 
 Copy (Yank) and Paste doesn't work in [neovim](https://neovim.io/doc/user/provider.html) because it cannot access the System Clipboard on WSL - Windows Subsystem Linux. This simple small hack solves this issue. This hack works without having to install X Windows or any other tools.
 

@@ -8,7 +8,7 @@ tags:
 date: "2020-02-27T17:14:45Z"
 ---
 
-# {{ <title> }}
+# {{< title >}}
 
 In this post we'll create an example client and server that communicate over UDP in C using Unix as the Operating System. UDP is a connection-less, unreliable datagram packet service. The term connection-less means there is no handshake between the client and server before information is exchanged. The term "fire and forget" applies here since the client sends and beforehand has no negotiation with the server. The term unreliable means there is no guarantee of delivery, ordering or duplicate protection. UDP is best for time-sensitive applications where it is preferable to discard packets rather than waiting for delayed ones.
 

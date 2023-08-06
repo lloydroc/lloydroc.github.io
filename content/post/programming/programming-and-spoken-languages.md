@@ -5,7 +5,7 @@ date: "2018-09-21T09:14:48Z"
 categories: ["programming"]
 ---
 
-# {{ <title> }}
+# {{< title >}}
 
 What are the similarities and differences between spoken languages and programming languages?
 

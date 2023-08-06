@@ -8,7 +8,7 @@ math: true
 title: A CLI Tool to Recommend Text
 ---
 
-# {{ <title> }}
+# {{< title >}}
 
 Computers are fast at comparing one string to another, however, when we need to find which string is *closest* to other strings things become more challenging. In this post we'll create an command line utility that will recommend a string by comparing it to a list of strings. We'll recommend the string that is the *closest* one to our input string.
 

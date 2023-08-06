@@ -6,7 +6,7 @@ date: "2019-07-06T10:43:41Z"
 title: Adding SQLite to a C Project
 ---
 
-# {{ <title> }}
+# {{< title >}}
 
 Let's add SQLite to your C project. It's easy and straightforward. We'll use the SQLite.org recommended way by adding the so-called "amalgamation" to our C project and compile from source. In the words of [SQLite.org](https://sqlite.org/howtocompile.html) "the use of the amalgamation is recommended for all applications." In this blog post we'll download, compile and use SQLite in our C project.
 

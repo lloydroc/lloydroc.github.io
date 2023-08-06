@@ -8,7 +8,7 @@ date: "2020-09-25"
 title: Disassembly of Recursion in C
 ---
 
-# {{ <title> }}
+# {{< title >}}
 
 Let's disassemble a recursive function in C to ARM assembly. We can use the textbook example of a recursive factorial function. We'll play around with optimization levels and touch on Tail Recursion or Tail Calls at the end of the blog post.
 
