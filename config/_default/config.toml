@@ -9,7 +9,7 @@ theme = 'hugo-bearblog'
 #disqusShortName = "https-lloydrochester-com"
 
 author = "Lloyd Rochester"
-copyright = "Copyright © 2022, Lloyd Rochester."
+copyright = "Copyright © 2023, Lloyd Rochester."
 
 [[menu.main]]
     url = "/about/"
@@ -18,6 +18,10 @@ copyright = "Copyright © 2022, Lloyd Rochester."
 [[menu.main]]
     url = "/nav/"
     name = "Navigate"
+
+[[menu.main]]
+    url = "/license/"
+    name = "License"
 
 [params]
   # The "description" of your website. This is used in the meta data of your generated html.
