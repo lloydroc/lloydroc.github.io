@@ -8,6 +8,8 @@ date: "2020-10-12"
 title: TF Mini Plus Unix Agent for the Raspberry Pi
 ---
 
+# {{< title >}}
+
 In this post we will create a Unix agent for the TF Mini+ LiDAR Range Finder. We'll run the agent on a Raspberry Pi B+ as a daemon. This agent will send out UDP datagrams with each LiDAR Reading. Also, we can use the `tfmini` program as a command line tool to read from the LiDAR and change the configuration. Overall, I've noticed the TF Mini+ is quite accurate and snappy.
 
 # Wiring

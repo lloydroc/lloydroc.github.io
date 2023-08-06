@@ -9,6 +9,8 @@ date: "2020-02-22"
 lastmod: "2020-04-15"
 ---
 
+# {{< title >}}
+
 A simple example that will parse JSON in C using Flex and Bison. Forewarning, while this example works well it's not going to handle every JSON case. I'll highlight the limitations of what cannot be parsed towards the end of the post. It's a perfect example to build upon and extend though.
 
 # FLEX Scanner to Parse JSON

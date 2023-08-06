@@ -9,6 +9,8 @@ tags:
  - wsl
 ---
 
+# {{< title >}}
+
 If you're looking to replicate the pbcopy and pbpaste commands in WSL then you've found the right place! In this post we will make some simple shell scripts to replicate pbcopy and pbpaste in OS X. If you're accustomed to pbcopy/pbpaste in Mac OS X, it's hard to not have the equivalent in WSL. One spoiler alert the commands just are not as fast as they are in OS X.
 
 {{< figure src="/assets/svg/pbcopy-pbpaste.svg" title="pbcopy and pbpaste commands in WSL" >}}

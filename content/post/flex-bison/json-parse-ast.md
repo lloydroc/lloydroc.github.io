@@ -8,6 +8,8 @@ comments: true
 date: "2020-10-25"
 ---
 
+# {{< title >}}
+
 In a previous post we [Parsed JSON using Flex/Bison](/post/flex-bison/json-parse/). This example was very basic. We used a FLEX scanner to tokenize our JSON and created grammar rules in BISON to parse this token stream. This post will take it further and create an Abstract Syntax Tree (AST). The AST is a power data structure typically used in compilers that will store the structure of our JSON. Effectively we will read in the JSON structure a tree-like data structure in C.
 
 # Bison Grammar

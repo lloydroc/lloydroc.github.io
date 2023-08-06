@@ -7,6 +7,8 @@ categories:
  - systemd
 ---
 
+# {{< title >}}
+
 This is the second post on how to create a *service* in `systemd`. In the [first post](/post/autotools/systemd-service-daemon-autotools/) we created an *autotools* project and were able to start, stop and get basic status on the service. In this post we'll build on the *autotools* project to add logging to `syslog` and `journald`. We will also give an example on how we could reload the service with a `systemctl reload foo`. We will also use the [sd_notify(3)](https://www.freedesktop.org/software/systemd/man/sd_notify.html#) API to notify the service manager the status of what the service is doing.
 
 # We Need Logging!

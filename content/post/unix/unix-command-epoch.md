@@ -5,7 +5,13 @@ categories:
  - unix
 ---
 
+# {{< title >}}
+
 This post provides some examples using the Unix [date(1)](https://man7.org/linux/man-pages/man1/date.1.html) command to interact with Epoch Time. We commonly need to print or parse the Epoch.
+
+# Table of Contents
+
+{{< toc >}}
 
 # Print the Epoch
 

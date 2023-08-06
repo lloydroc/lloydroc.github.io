@@ -9,7 +9,7 @@ date: "2020-09-15"
 title: Ebyte e32 LoRa Module - Getting Started
 ---
 
-# Getting Started
+# {{< title >}}
 
 This page documents software for the Ebyte e32 Lora module that runs on the Raspberry Pi which can be found in this [github repo]({{< e32repo >}}).  See below for [software installation](#software-installation).
 

@@ -5,6 +5,8 @@ date: "2019-07-26T22:23:08Z"
 title: A Useful Linked List
 ---
 
+# {{< title >}}}
+
 In this post we will create a useful Linked List in the C Programming Language. This is opposed to all the useless linked lists that I've seen on the internet. They are numerious, typically written by academics that haven't much experience programming. It's not the logic or syntax that is bad, but the API and functions they create that make the usage of the Linked List obtuse and awkward. This implementation of a Linked List in C is something meant to be used over and over again in projects.
 
 ## How to use the Linked List

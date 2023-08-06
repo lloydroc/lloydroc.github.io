@@ -9,6 +9,8 @@ date: "2021-07-23"
 title: Ebyte e32 Lora Module - Client Socket Examples
 ---
 
+# {{< title >}}
+
 This post currently has a example client in Python that sends information through Unix Domain Sockets when the `e32` is running as a service. Adding clients in other programming languages is a hopeful future addition. See [Getting Started](/post/hardware/ebyte-e32-lora/).
 
 # Prerequisites

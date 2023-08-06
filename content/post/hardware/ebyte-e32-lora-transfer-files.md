@@ -9,6 +9,8 @@ date: "2021-06-18"
 title: Ebyte E32 Lora Module - Transfer Files
 ---
 
+# {{< title >}}
+
 This post explains how to transfer files over Lora using the `e32` program. See [getting started](/post/hardware/ebyte-e32-lora-getting-started/) for the background.
 
 # Prerequisites

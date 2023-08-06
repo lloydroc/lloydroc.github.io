@@ -8,6 +8,8 @@ comments: true
 date: "2020-10-27"
 ---
 
+# {{< title >}}
+
 Using Flex/Bison in the last post we [Parsed JSON into an AST](/post/flex-bison/json-parse-ast/). In the first post we setup a [Simple Example to Parse JSON](/post/flex-bison/json-parse/). In this post we will improve our Flex Scanner to tokenize and validate more JSON cases. We will continue to align with the grammar at [json.org](https://www.json.org/). We will add rules and tokens for `DQUOTE` (double-quote), `string`, `HEX`, and `CHARACTERS` not in our previous implementation.
 
 # Some Examples of Valid JSON

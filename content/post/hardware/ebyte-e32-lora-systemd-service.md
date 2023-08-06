@@ -9,6 +9,8 @@ date: "2021-06-18"
 title: Ebyte E32 Lora Module - systemd service
 ---
 
+# {{< title >}}
+
 The `e32` program is intended to be run as a service in the backround with [communication through sockets](/post/hardware/ebyte-e32-lora-sockets). This way you can write software in any langauge and just have to deal with the easy job of reading and writing to a socket. Once the `e32` service is started and running it can be accessed at any time by a client. In this post we'll document the actual systemd service. We have some [client examples](/post/hardware/ebyte-e32-lora-socket-client-examples) demonstrating clients interfacing with the socket.
 
 # Using the Service

@@ -5,6 +5,8 @@ date: "2021-04-12"
 title: Implementing a Timeout for a read in C
 ---
 
+# {{< title >}}
+
 Need to wait a specified amount of time for a read call to return before giving up and continuing on?
 
 In Unix when we `read` from a file we can have a non-blocking read where if the file is not ready the `read` call will pass through. We can also specify a blocking read where the `read` will wait forever. What if we want `read` to wait a specified amount of time not zero or infinity?

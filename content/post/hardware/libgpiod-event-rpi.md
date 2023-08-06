@@ -7,6 +7,8 @@ date: 2021-05-17
 title: Using libgpiod to detect input events
 ---
 
+# {{< title >}}
+
 One of the most fundamental requirements for GPIO is the ability to execute user defined code when an *external event* has happened. This is typically done when a GPIO pin, configured as an input, changes from high-to-low, or low-to-high. In this case we detect on the falling edge or rising edge of this pin change. For example a sensor we communicate through GPIO has data ready. In the micro-controller world this is called as an interrupt where the CPU will change it program counter and handle the interrupt. The interrupt makes sense when we have no Operating System. In the case of Linux and the Raspberry Pi it's not an interrupt but considered an *event* as we likely have in interrupt deep inside the kernel code, however, we're several levels of abstraction past this. Unix has the "Universal File Model" so this input pin is mapped to a file. With Unix we have many multiple ways to know if "events" have happened to this file. Examples of events are that the file is ready for reading, writing, or other events have happened.
 
 The above can be quite abstract, but what we're doing is simple. When a pin on our Raspberry Pi's header transitions from high-to-low or low-to-high we want to know about it so our code can use this logic. Note, we could poll for this transition where we just wait until it changes. If we do it this way we're stuck doing only one thing at a time. Polling for the pin to change state method has many issues that I won't go into.
@@ -17,7 +19,7 @@ I'm going to use the same circuit from [GPIO Input with libgpiod](/post/hardware
 
 # Using gpiomon to detect events
 
-The glorious thing about `libgpiod` is we can use the command line tools before we write any code. When I toggle my switch on and off from the circuit above we can see how the `gpiomon` program behaves.
+The glorious feature about `libgpiod` is we can use the command line tools before we write any code. When I toggle my switch on and off from the circuit above we can see how the `gpiomon` program behaves.
 
 {{< highlight bash >}}
 $ gpiomon gpiochip0 4

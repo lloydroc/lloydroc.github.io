@@ -9,6 +9,8 @@ date: "2021-06-08"
 title: Ebyte e32 - Sockets
 ---
 
+# {{< title >}}
+
 The [e32 program](/post/hardware/ebyte-e32-lora/) can run as a [daemon](/post/c/unix-daemon-example) and listen on [Unix Domain Sockets](/post/c/unix-domain-socket-datagram/) for data to transmit and receive. This post documents the functionality of the sockets the `e32` software is listening on.
 
 # Intention of the Sockets

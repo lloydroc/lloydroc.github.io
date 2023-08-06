@@ -7,6 +7,8 @@ categories:
 date: "2020-06-22"
 ---
 
+# {{< title >}}
+
 This post starts a tutorial series on how to create a `systemd` service in Linux. This first post is likely the hardest part as we create an [autotools](/post/autotools/hello-world/) project with the source code and `systemd` unit files. Having this setup in `autotools` saves significant time installing unit files that `systemd` requires, building our C code, installing, and uninstalling our program. If you can get through this first post the following posts should come easily.
 
 A service is a process that is controlled and supervised by `systemd`.

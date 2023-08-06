@@ -8,6 +8,8 @@ title: GPIO Input with libgpiod
 math: true
 ---
 
+# {{< title >}}
+
 We can use the `libgpiod` library to configure a GPIO line as input and read it's value. We'll create a switch circuit so we can test the value is a logic high or low. More info on `libgpiod` can be found in my [libgpiod intro](/post/hardware/libgpiod-intro-rpi/) for installation and usage.
 
 Here is a previous post to [blink an LED](/post/hardware/libgpiod-blink-led-rpi/) using libgpiod.

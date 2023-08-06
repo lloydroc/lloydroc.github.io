@@ -7,7 +7,9 @@ date: "2021-05-02"
 title: "The new GPIO Interface on the Raspberry PI: libgpiod"
 ---
 
-The [GPIO Sysfs Interface](https://www.kernel.org/doc/html/latest/admin-guide/gpio/sysfs.html) is deprecated. The deprecated Sysfs would interact with GPIO using the `/sys/class/gpio` pseudo-filesytem. The Application Binary Interface - ABI - provides a character device based device driver and tools. The ABI is the new way to interact with GPIO on the Raspberry Pi. I really don't like the name ABI, as it's WAY too generic of a name. Rather, I believe the proper name for this project is `libgpiod`.
+# {{< title >}}
+
+Allegedly, The [GPIO Sysfs Interface](https://www.kernel.org/doc/html/latest/admin-guide/gpio/sysfs.html) is deprecated. The deprecated Sysfs would interact with GPIO using the `/sys/class/gpio` pseudo-filesytem. The Application Binary Interface - ABI - provides a character device based device driver and tools. The ABI is the new way to interact with GPIO on the Raspberry Pi. I really don't like the name ABI, as it's WAY too generic of a name. Rather, I believe the proper name for this project is `libgpiod`.
 
 ```
   libgpiod - C library and tools for interacting with the linux GPIO

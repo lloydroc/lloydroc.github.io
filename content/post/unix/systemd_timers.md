@@ -7,6 +7,8 @@ categories:
  - systemd
 ---
 
+# {{< title >}}
+
 In the fourth post on how to create a service in `systemd` we will create a timer that will run every minute sending messages to our example `foo` service over a socket. We're essentially creating a `cron` job socket client.
 
 Previous posts:
