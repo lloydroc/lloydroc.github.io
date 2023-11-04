@@ -47,9 +47,9 @@ The C project will build a command line tool that also runs as a Unix Systemd Se
 {{< highlight bash >}}
 $ e32 -h
 Usage: e32 [OPTIONS]
-Version 1.10.0
+Version 1.10.2
 
-A command line tool to transmit and receive data from the EByte e32 LORA Module. If this tool is run without options the e32 will transmit what is sent from the keyboard - stdin and will output what is received to stdout. Hit return to send the message. To test a connection between two e32 boards run a e32 -s on both to ensure status information is correct and matching. Once the status is deemed compatible on both e32 modules then run e32 without options on both. On the first type something and hit enter, which will transmit from one e32 to the other and you should see this message show up on second e32.
+A command line tool to transmit and receive data from the EByte e32 LORA Module. If this tool is run without options the e32 will transmit what is sent from the keyboard - stdin and will output what is received to stdout. Hit return to send the message. To test a connection between two e32 boards run a ./e32 -s on both to ensure status information is correct and matching. Once the status is deemed compatible on both e32 modules then run ./e32 without options on both. On the first type something and hit enter, which will transmit from one e32 to the other and you should see this message show up on second e32.
 
 OPTIONS:
 -h --help                Print help
@@ -80,7 +80,9 @@ Once the [wiring](/post/hardware/ebyte-e32-lora-getting-started) is complete we 
 {{< highlight bash >}}
 $ e32 --status
 Version Raw Value:        0xc3450d14
-Frequency:                868 MHz
+Frequency Typ:            868 MHz
+Frequency Min:            862 MHz
+Frequency Max:            893 MHz
 Version:                  13
 Features:                 0x14
 Settings Raw Value:       0xc0010f1a1744
@@ -90,12 +92,12 @@ Parity:                   8N1
 UART Baud Rate:           9600 bps
 Air Data Rate:            2400 bps
 Channel:                  23
-Frequency                 433 MHz
+Frequency                 885 MHz
 Transmission Mode:        Fixed
 IO Drive:                 TXD and AUX push-pull output, RXD pull-up input
 Wireless Wakeup Time:     250 ms
 Forward Error Correction: on
-TX Power:                 30 dBm
+TX Power Attenuation:     0 dBm
 {{< / highlight >}}
 
 ## Transmitting Data from Standard Input
