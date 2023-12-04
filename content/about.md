@@ -17,4 +17,4 @@ The opinions in this blog are my own and don’t represent that of my current, o
 
 # Contact Me
 
-Contact me at `lloyd@lloydrochester.com`. However, don't contact me if you're a student and want me to do your homework!
+Contact me at `lloyd.rochester@gmail.com`. However, don't contact me if you're a student and want me to do your homework!
