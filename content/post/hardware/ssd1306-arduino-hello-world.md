@@ -13,7 +13,7 @@ After looking through numerous libraries and examples to control the SSD1306 wit
 
 # Code
 
-{{< highlight c++ >}}
+{{< highlight c >}}
 /*
 
 Simplest possible program to display text on the SSD1306.
