@@ -13,6 +13,16 @@ After looking through numerous libraries and examples to control the SSD1306 wit
 
 # Code
 
+Used in Arduino IDE.
+
+Code is simple.
+
+1. Hardware Reset
+2. Initialize the SSD1306
+3. Write text on each of the rows
+
+Note, the large `char[]` used for ASCII text.
+
 {{< highlight c >}}
 /*
 
@@ -20,9 +30,7 @@ Simplest possible program to display text on the SSD1306.
 
 */
 
-#include <DueTimer.h>
 #include <SPI.h>
-#include <Wire.h>
 
 #define SCREEN_WIDTH 130 // OLED display width, in pixels
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels
@@ -247,10 +255,10 @@ void setup() {
 }
 
 void loop() { }
+
 {{< / highlight >}}
 
 # Wiring
-
 
 I didn't bother with using the chip selects for SPI as we could control the DC# Input with them. I found it simpler to just have a dedicated output pin.
 
@@ -259,9 +267,9 @@ Note, when a pin has `#` that means it's active low. Thus, logic high will activ
 | SSD1306 | Arduino | Note                               |
 |---------|---------|------------------------------------|
 | GND     | GND     | Ground Pin                         |
-| Vcc     | 5V      | +5V Input                          |
+| VCC     | 5V      | +5V Input                          |
 | SCK     | SPI SCK | SPI Clock                          |
 | SDA     | COPI    | SPI Controller Out / Peripheral In |
-| RES     | GPIO 31 | SSD1306 Reset                      |
+| RES#    | GPIO 31 | SSD1306 Reset                      |
 | DC#     | GPIO 35 | SSD1306 Data (1) or Control (0)    |
 | CS#     | GPIO 33 | SSD1306 Chip Select                |
