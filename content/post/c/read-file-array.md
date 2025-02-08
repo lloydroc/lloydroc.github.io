@@ -1,5 +1,5 @@
 ---
-title: "Read into an File Array using C"
+title: "Read a File into an Array in C"
 date: 2022-08-01
 lastmod: 2025-02-08
 ---
