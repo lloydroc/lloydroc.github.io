@@ -360,11 +360,11 @@ Jun 27 15:58:41 pi2 foo[12019]: Received 5 bytes from /home/pi/foo.client.socket
 Jun 27 15:58:44 pi2 foo[12019]: Received 5 bytes from /home/pi/foo.client.socket: world
 {{< / highlight >}}
 
-Download [foo-1.2](/code/foo-1.3.tar.gz) example. It is the full distribution with all the autotools code. Here is how to get started on it.
+Download [foo-1.4](/code/foo-1.4.tar.gz) example. It is the full distribution with all the autotools code. Here is how to get started on it.
 
 {{< highlight bash >}}
-$ wget http://lloydrochester.com/code/foo-1.3.tar.gz
-$ tar zxf foo-1.3.tar.gz
+$ wget http://lloydrochester.com/code/foo-1.4.tar.gz
+$ tar zxf foo-1.4.tar.gz
 $ cd foo
 $ ./configure
 $ make

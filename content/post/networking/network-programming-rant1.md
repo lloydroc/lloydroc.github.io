@@ -1,7 +1,7 @@
 ---
 title: Network Programming Rant
 date: "2023-06-28"
-categories: 
+categories:
 - networking
 ---
 
@@ -13,7 +13,7 @@ When I mow the lawn I typically try to find a good podcast to listen to. Every o
 
 A summary. In my own words, far from complete.
 
-In the two podcasts I can try to summarize the major points that I picked up on. No offense to the [Programming Throwdown](https://www.programmingthrowdown.com/) as Patrick Wheeler and Jason Gauci admit in the interview they have almost no background on networking which made the interview very choppy and questions coming out of left field. For myself, Coming from a programming background is challenging as mentioned in [this post]({{< relref "/learn-how-internet-works" >}}
+In the two podcasts I can try to summarize the major points that I picked up on. No offense to the [Programming Throwdown](https://www.programmingthrowdown.com/) as Patrick Wheeler and Jason Gauci admit in the interview they have almost no background on networking which made the interview very choppy and questions coming out of left field. Here is a summary of what was discussed.
 
 1. Operating Systems evolved with the *horrible* Sockets API instead of File IO.
 2. IP Addresses don't go far enough into what they *address*
@@ -57,5 +57,3 @@ The (Programming Throwdown Podcast by Patrick Wheeler and Jason Gauci)[https://w
 [Programming Throwdown - Episode 137 - The Origins of the Internet with John Day](https://open.spotify.com/episode/3IiIcJqPdFIEvlhmLgQ7K2?si=xKMiHnFLQPO-rV0JV6upyA)
 
 [Programming Throwdown - Episode 137 - The Origins of the Internet with John Day](https://open.spotify.com/episode/2ykGiXVtTjFRq1tSUY0fhd?si=mcJqlm_WRlahV67iAHmoWg)
-
-
