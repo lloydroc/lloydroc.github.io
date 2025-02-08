@@ -2,8 +2,9 @@
 title: "Read into an File Array using C"
 date: 2022-08-01
 lastmod: 2025-02-08
-draft: false
 ---
+
+# {{< title >}}
 
 In this post we'll explore how to read a file into an array of strings. Doing this in C isn't as trivial as it maybe in other languages because of memory allocation and the dynamic nature of a text file. The file will be read into a jagged array. This program uses [realloc(3)](https://man7.org/linux/man-pages/man3/realloc.3p.html) to make the most efficient use of the heap possible.
 
