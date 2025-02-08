@@ -1,6 +1,7 @@
 ---
 title: "Systemd: A Service and a Socket"
 date: "2020-06-26"
+lastmod: 2025-02-08
 categories:
  - unix
  - c

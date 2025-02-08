@@ -1,6 +1,7 @@
 ---
 title: "Read into an File Array using C"
 date: 2022-08-01
+lastmod: 2025-02-08
 draft: false
 ---
 
