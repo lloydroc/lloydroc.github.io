@@ -47,13 +47,13 @@ main(int argc, char *argv[])
   char *lines[4];
   int line = 1;
 
-  lines[0] = strdup("a\n");
-  lines[1] = strdup("bc\n");
-  lines[2] = strdup("def\n");
+  lines[0] = "a";
+  lines[1] = "bc";
+  lines[2] = "def";
   lines[3] = NULL;
 
-  for(char **str = lines; str != NULL; str++)
-    printf("line %d, address %p, length: %ld, value: %s", line++, str, strlen(*str), *str);
+  for(char **str = lines; *str != NULL; str++)
+    printf("line %d, address %p, length: %ld, value: %s\n", line++, str, strlen(*str), *str);
 
   return 0;
 }

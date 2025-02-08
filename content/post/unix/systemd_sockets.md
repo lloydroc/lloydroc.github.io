@@ -34,7 +34,7 @@ and a [systemd.socket(5)](https://www.freedesktop.org/software/systemd/man/syste
 Description=An Example Systemd Socket
 
 [Socket]
-ListenDatagram=/var/run/foo.socket
+ListenDatagram=/var/foo.socket
 {{< / highlight >}}
 
 We will create a dependency that the service needs to be created AFTER the socket. Why? Because we're going to have `systemd` create the socket. Inside our service we're going to use the [sd_listen_fds(3)](https://www.freedesktop.org/software/systemd/man/sd_listen_fds.html#) function to get the file descriptor that `systemd` created for us. When our service comes to life it will ask `systemd` for it's socket and get back a file descriptor and optionally the name tied to this file descriptor. Hence, the service will depend on the socket.
@@ -44,14 +44,9 @@ We will create a dependency that the service needs to be created AFTER the socke
 Before we get into the details of dependencies in `systemd` let's discuss our requirements for our socket and service.
 
 * We will have a service called `foo.service` and a socket called `foo.socket`
-* When we start one the other will start
-* When we stop one the other will stop
+* When we start the service the socket will start first
 * We will have `systemd` create the socket for us
 * The service will need to know the file descriptor of the socket
-
-To me this is backwards, but we need to start the socket first and it will pass the file descriptor to the service. I tried many other options to no avail. What I really don't like about this is we have to run `systemctl start foo.socket` and have to HIGHLY resist the urge to type `systemctl start foo` since `systemctl` will assume the `.service`. It's just not intuitive, at least to me.
-
-If you find a way to start the service without having to start the socket first - please send me an [email](/about).
 
 Not ideal! Let's continue.
 
@@ -128,7 +123,7 @@ The `foo.socket` is the primary service which requires the `foo.service` starts 
 # foo.service
 [Unit]
 Description=A Example Systemd Service
-PartOf=foo.socket
+Requires=foo.socket
 
 [Service]
 Type=notify
@@ -142,11 +137,14 @@ StandardError=journal
 # foo.socket
 [Unit]
 Description=An Example Systemd Socket
-AssertPathExists=/var/run
+AssertPathExists=/var
 Requires=foo.service
 
 [Socket]
-ListenDatagram=/var/run/foo.socket
+ListenDatagram=/var/foo.socket
+
+[Install]
+WantedBy=sockets.target
 {{< / highlight >}}
 
 We will see how the dependencies work in the section below.
@@ -156,99 +154,61 @@ We will see how the dependencies work in the section below.
 We must start the socket, which will in turn start the service. Let's see how this works:
 
 {{< highlight bash >}}
-$ systemctl start foo.socket
-$ systemctl status foo.socket
-● foo.socket - An Example Systemd Socket
-   Loaded: loaded (/lib/systemd/system/foo.socket; static; vendor preset: enabled)
-   Active: active (running) since Sat 2020-06-27 15:25:32 BST; 2s ago
-   Listen: /var/run/foo.socket (Datagram)
-   CGroup: /system.slice/foo.socket
-
-Jun 27 15:25:32 pi2 systemd[1]: Listening on An Example Systemd Socket.
-$ ls -l /var/run/foo.socket
-srw-rw-rw- 1 root root 0 Jun 27 15:25 /var/run/foo.socket
-$ systemctl status foo
+# systemctl start foo
+# systemctl status foo
 ● foo.service - A Example Systemd Service
-   Loaded: loaded (/lib/systemd/system/foo.service; static; vendor preset: enabled)
-   Active: active (running) since Sat 2020-06-27 15:25:32 BST; 13s ago
- Main PID: 8290 (foo)
-    Tasks: 1 (limit: 2077)
-   Memory: 204.0K
-   CGroup: /system.slice/foo.service
-           └─8290 /usr/local/bin/foo
+     Loaded: loaded (/usr/lib/systemd/system/foo.service; static)
+     Active: active (running) since Sat 2025-02-08 21:48:39 UTC; 4s ago
+ Invocation: 431a3dba8889431d8f9f3ea9e7ac08d0
+TriggeredBy: ● foo.socket
+   Main PID: 3510620 (foo)
+      Tasks: 1 (limit: 1137)
+     Memory: 264K (peak: 1.4M)
+        CPU: 16ms
+     CGroup: /system.slice/foo.service
+             └─3510620 /usr/local/bin/foo
 
-Jun 27 15:25:32 pi2 foo[8290]:  NOTIFY_SOCKET=/run/systemd/notify
-Jun 27 15:25:32 pi2 foo[8290]:  LISTEN_PID=8290
-Jun 27 15:25:32 pi2 foo[8290]:  LISTEN_FDS=1
-Jun 27 15:25:32 pi2 foo[8290]:  LISTEN_FDNAMES=foo.socket
-Jun 27 15:25:32 pi2 foo[8290]:  INVOCATION_ID=4001ab75aff64aa2a6e337635f80db97
-Jun 27 15:25:32 pi2 foo[8290]:  JOURNAL_STREAM=8:284605
-Jun 27 15:25:32 pi2 foo[8290]: foo service started
-Jun 27 15:25:32 pi2 foo[8290]: File Descriptor names are:
-Jun 27 15:25:32 pi2 foo[8290]:  foo.socket
-Jun 27 15:25:32 pi2 systemd[1]: Started A Example Systemd Service.
+Feb 08 21:48:39 lloydrochester.com foo[3510620]:  USER=root
+Feb 08 21:48:39 lloydrochester.com foo[3510620]:  INVOCATION_ID=431a3dba8889431d8f9f3ea9e7ac08d0
+Feb 08 21:48:39 lloydrochester.com foo[3510620]:  JOURNAL_STREAM=9:22890822
+Feb 08 21:48:39 lloydrochester.com foo[3510620]:  SYSTEMD_EXEC_PID=3510620
+Feb 08 21:48:39 lloydrochester.com foo[3510620]:  MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/system.slice/foo.service/memory.pressure
+Feb 08 21:48:39 lloydrochester.com foo[3510620]:  MEMORY_PRESSURE_WRITE=c29tZSAyMDAwMDAgMjAwMDAwMAA=
+Feb 08 21:48:39 lloydrochester.com foo[3510620]: foo service started
+Feb 08 21:48:39 lloydrochester.com foo[3510620]: File Descriptor names are:
+Feb 08 21:48:39 lloydrochester.com foo[3510620]:  foo.socket
+Feb 08 21:48:39 lloydrochester.com systemd[1]: Started A Example Systemd Service.
+# systemctl status foo.socket
+● foo.socket - An Example Systemd Socket
+     Loaded: loaded (/usr/lib/systemd/system/foo.socket; disabled; preset: disabled)
+     Active: active (running) since Sat 2025-02-08 21:48:39 UTC; 9s ago
+ Invocation: a08ad02a7417492fb50d1d17ea78525d
+   Triggers: ● foo.service
+     Listen: /var/foo.socket (Datagram)
+     CGroup: /system.slice/foo.socket
+
+Feb 08 21:48:39 lloydrochester.com systemd[1]: Listening on An Example Systemd Socket.
+#
 {{< / highlight >}}
 
 This will start both the socket and the service. This is because we have `Requires=foo.service` in our `foo.socket`.
 
-When we stop our socket the service will also stop.
+When we stop our service it will warn us the socket - triggering unit - is still active.
 
 {{< highlight bash >}}
-$ systemctl stop foo.socket
-$ systemctl status foo.socket
-● foo.socket - An Example Systemd Socket
-   Loaded: loaded (/lib/systemd/system/foo.socket; static; vendor preset: enabled)
-   Active: inactive (dead)
-   Listen: /var/run/foo.socket (Datagram)
-
-Jun 27 15:25:32 pi2 systemd[1]: Listening on An Example Systemd Socket.
-Jun 27 15:26:51 pi2 systemd[1]: foo.socket: Succeeded.
-Jun 27 15:26:51 pi2 systemd[1]: Closed An Example Systemd Socket.
-$ systemctl status foo
-● foo.service - A Example Systemd Service
-   Loaded: loaded (/lib/systemd/system/foo.service; static; vendor preset: enabled)
-   Active: inactive (dead)
-
-Jun 27 15:25:32 pi2 foo[8290]:  INVOCATION_ID=4001ab75aff64aa2a6e337635f80db97
-Jun 27 15:25:32 pi2 foo[8290]:  JOURNAL_STREAM=8:284605
-Jun 27 15:25:32 pi2 foo[8290]: foo service started
-Jun 27 15:25:32 pi2 foo[8290]: File Descriptor names are:
-Jun 27 15:25:32 pi2 foo[8290]:  foo.socket
-Jun 27 15:25:32 pi2 systemd[1]: Started A Example Systemd Service.
-Jun 27 15:26:51 pi2 systemd[1]: Stopping A Example Systemd Service...
-Jun 27 15:26:51 pi2 systemd[1]: foo.service: Main process exited, code=killed, status=15/TERM
-Jun 27 15:26:51 pi2 systemd[1]: foo.service: Succeeded.
-Jun 27 15:26:51 pi2 systemd[1]: Stopped A Example Systemd Service.
-{{< / highlight >}}
-
-This will also stop the service because of our `PartOf=foo.socket` in the `foo.service` file. Note, the `/var/run/foo.socket` stays around when we stop the socket.
-
-Again, don't start just the service or it will be left hanging without a socket.
-
-{{< highlight bash >}}
-$ systemctl start foo
-Job for foo.service failed because the control process exited with error code.
-See "systemctl status foo.service" and "journalctl -xe" for details.
-$ systemctl status foo
-● foo.service - A Example Systemd Service
-   Loaded: loaded (/lib/systemd/system/foo.service; static; vendor preset: enabled)
-   Active: failed (Result: exit-code) since Sat 2020-06-27 15:28:30 BST; 5s ago
-  Process: 8421 ExecStart=/usr/local/bin/foo (code=exited, status=255/EXCEPTION)
- Main PID: 8421 (code=exited, status=255/EXCEPTION)
-
-Jun 27 15:28:30 pi2 foo[8421]: foo service started
-Jun 27 15:28:30 pi2 foo[8421]: Unable to find any file descriptors
-Jun 27 15:28:30 pi2 foo[8421]: Unable to get file descriptor for socket
-Jun 27 15:28:30 pi2 systemd[1]: foo.service: Main process exited, code=exited, status=255/EXCEPTION
-Jun 27 15:28:30 pi2 systemd[1]: foo.service: Failed with result 'exit-code'.
-Jun 27 15:28:30 pi2 systemd[1]: Failed to start A Example Systemd Service.
+# systemctl stop foo
+Stopping 'foo.service', but its triggering units are still active:
+foo.socket
+# systemctl stop foo.socket
+# systemctl stop foo
+#
 {{< / highlight >}}
 
 # C Code for our Service
 
 This code will
 * Print to journald/syslog
-* Print out the environment variables. The `NOTIFY_SOCKET` is set because we have `Type=notify` for our service. The `LISTEN_FDS` and `LISTEN_FDS` are set for us to get the socket information. Some of the other variables are self-explanatory, or can be determined from the documentation.
+* Print out the environment variables. The `NOTIFY_SOCKET` is set because we have `Type=notify` for our service. The `LISTEN_FDS` and `LISTEN_FDNAMES` are set for us to get the socket information. Some of the other variables are self-explanatory, or can be determined from the documentation.
 * From systemd find the file descriptor and name of the socket
 * Receive from the socket and print it out
 * Note, I removed some of the examples from the [previous post](/post/unix/systemd_journal/) on journaling. This was the signal handlers for reload and some of the `sd_journal(3)` stuff. This stuff just distracts from the socket example anyways.
@@ -400,15 +360,15 @@ Jun 27 15:58:41 pi2 foo[12019]: Received 5 bytes from /home/pi/foo.client.socket
 Jun 27 15:58:44 pi2 foo[12019]: Received 5 bytes from /home/pi/foo.client.socket: world
 {{< / highlight >}}
 
-Download [foo-1.2](/code/foo-1.2.tar.gz) example. It is the full distribution with all the autotools code. Here is how to get started on it.
+Download [foo-1.2](/code/foo-1.3.tar.gz) example. It is the full distribution with all the autotools code. Here is how to get started on it.
 
 {{< highlight bash >}}
-$ wget http://lloydrochester.com/code/foo-1.2.tar.gz
-$ tar zxf foo-1.2.tar.gz
+$ wget http://lloydrochester.com/code/foo-1.3.tar.gz
+$ tar zxf foo-1.3.tar.gz
 $ cd foo
 $ ./configure
 $ make
 $ sudo make install
 $ sudo systemctl daemon-reload
-$ sudo systemctl start foo.socket
+$ sudo systemctl start foo
 {{< / highlight >}}
