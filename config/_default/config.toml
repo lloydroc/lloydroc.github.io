@@ -13,6 +13,8 @@ copyright = "Copyright © 2025, Lloyd Rochester."
 
 [markup]
   [markup.goldmark]
+    [markup.goldmark.renderer]
+       unsafe = true
 
 [[menu.main]]
     url = "/about/"
