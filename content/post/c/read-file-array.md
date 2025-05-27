@@ -20,11 +20,11 @@ We want to read the file into an array of strings. What structure in C represent
 
 Let's say we have the following file:
 
-{{< highlight bash >}}
+```bash
 a
 bc
 def
-{{< / highlight >}}
+```
 
 This file is 3 lines long and is 9 bytes total since each line ends with a newline. Thus, we're going to have a jagged array that has 3+1 pointers for each line. The last pointer's value will be null so we can determine the end. The first three pointers will point to strings in memory. Here is an example of how it looks in memory.
 
