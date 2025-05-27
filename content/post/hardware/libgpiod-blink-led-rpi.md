@@ -148,7 +148,7 @@ cleanup:
 It's easy to build and run:
 
 {{< highlight bash >}}
-$ gcc -o blink blink.o -lgpiod
+$ gcc -o blink blink.c -lgpiod
 $ ./blink
 {{< / highlight >}}
 

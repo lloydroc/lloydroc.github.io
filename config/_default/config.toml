@@ -9,7 +9,10 @@ theme = 'hugo-bearblog'
 #disqusShortName = "https-lloydrochester-com"
 
 author = "Lloyd Rochester"
-copyright = "Copyright © 2023, Lloyd Rochester."
+copyright = "Copyright © 2025, Lloyd Rochester."
+
+[markup]
+  [markup.goldmark]
 
 [[menu.main]]
     url = "/about/"
