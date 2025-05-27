@@ -1,2 +1,3 @@
 baseURL = 'https://lloydrochester.com/'
 enableRobotsTXT = true
+render.unsafe = true
