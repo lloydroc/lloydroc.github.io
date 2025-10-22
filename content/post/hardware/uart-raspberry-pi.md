@@ -5,7 +5,7 @@ draft: false
 categories:
 - hardware
 - unix
-codetar: uartd-1.0.tar.gz
+codetar: uartd-1.1.tar.gz
 ---
 
 # {{< title >}}
@@ -467,7 +467,7 @@ Once installed you can simply do a:
 {{< highlight bash >}}
 $ uartd -h
 Usage: uartd [OPTIONS]
-Version 1.0
+Version 1.1
 
 Program description ....
 OPTIONS:
