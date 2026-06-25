@@ -78,9 +78,9 @@ OPTIONS:
     --firmware-version      Read firmware version
     --measure-mm            Set measurment units to mm
     --measure-cm            Set measurment units to cm
-    --disable-lidar-output  Disbale output of the LiDAR
+    --disable-lidar-output  Disable output of the LiDAR
     --enable-lidar-output   Enable output of the LiDAR
-    --disable-lidar-output  Disbale output of the LiDAR
+    --disable-lidar-output  Disable output of the LiDAR
     --set-update-rate RATE  Set Lidar Frame Rate [1-1000]Hz
 -x, --discard-bad-checksum  Discard LiDAR frames with bad checksums
 -v, --verbose               Verbose Output
