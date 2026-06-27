@@ -1,4 +1,4 @@
-baseURL = 'https://lloydrochester.com/'
+baseURL = 'https://lloydroc.github.io/'
 languageCode = 'en-US'
 title = "Lloyd Rochester's Geek Blog"
 #theme = 'ananke'
