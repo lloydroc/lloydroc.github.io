@@ -51,7 +51,7 @@ A Hello World for Autotools
 ## configure.ac
 Where M4 Macros are placed to expand into our configure script
 ```
-AC_INIT([athw], [1.0], [lloyd@lloydrochester.com])
+AC_INIT([athw], [1.0], [lloyd.rochester@gmail.com])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
 AC_PROG_CC
 AC_CONFIG_HEADERS([config.h])

@@ -120,4 +120,4 @@ For differences from Vim, see :help vim-differences
 $
 ```
 
-Hit me up with comments at lloyd@lloydrochester.com if you have any suggested improvements.
+Hit me up with comments at lloyd.rochester@gmail.com if you have any suggested improvements.

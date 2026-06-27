@@ -77,12 +77,12 @@ Here is the audio.
 
 WARNING! You might want to turn down your speakers and only listen to this once. I'm not responsible for any damage to your hearing or speakers!
 
-{{< rawhtml >}}
+
 <audio controls="controls">
   <source src="/assets/wav/lazydog.wav"/>
 </audio>
 <p></p>
-{{< /rawhtml >}}
+
 
 The change I made here is the cycles per symbol was set to \\( 14 \\) which corresponds to \\( \frac{14}{0.032} = 437.5 Hz \\). The amplitude of our basis functions is \\( 1024 \\). We needed the higher frequency as \\( 125 Hz \\) is too low for some audio systems.
 
@@ -132,11 +132,11 @@ The quick brown fox jumps over the lazy dog. -> 11011010010101100110010011011111
 
 The carrier frequency is \\( 437.5 Hz \\) as before.
 
-{{< rawhtml >}}
+
 <audio controls="controls">
   <source src="/assets/wav/lazydog_rrc.wav"/>
 </audio>
-{{< /rawhtml >}}
+
 
 Hear how smooth and nice it sounds! Now not only can you see how the pulse shaping changes the transmitted signal but hear the difference! One other thing to note, the pulse shaping takes away power-per-symbol. It doesn't sound as loud.
 

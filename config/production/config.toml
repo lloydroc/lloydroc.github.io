@@ -1,3 +1,3 @@
-baseURL = 'https://lloydrochester.com/'
+baseURL = 'https://lloydroc.github.io/'
 enableRobotsTXT = true
 render.unsafe = true

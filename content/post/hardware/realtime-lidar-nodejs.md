@@ -21,12 +21,12 @@ We can see a subject being measured from 70-100 cm away.
 
 Here is a video of me walking back and forth in front of the Lidar. The readings of 20-120 cm are quite accurate. In fact using a yardstick the Lidar Measurements seem accurate to the centimeter or so. The Lidar is reflecting off myself wearing clothing which gives us a swag for what the signal strength is.
 
-{{< rawhtml >}}
+
 <video width=100% controls autoplay>
     <source src="/assets/mov/lidar-realtime.mov" type="video/webm">
     Your browser does not support the video tag.
 </video>
-{{< /rawhtml >}}
+
 
 # Diagram
 

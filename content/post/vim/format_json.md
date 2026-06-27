@@ -34,7 +34,7 @@ Note that we use `%`. We could instead do a visual selection using `'<,'>`, or s
 
 Below is a video in YouTube showing how it's done.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/CCTOZiJrY-A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+You can also watch the video on [YouTube](https://www.youtube.com/watch?v=CCTOZiJrY-A).
 
 ## Links
 

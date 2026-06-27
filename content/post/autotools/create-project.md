@@ -78,7 +78,7 @@ Here is the script which I named `atprj`. This is short for "Autotools Project".
 # filename atprj and add to your $PATH
 #!/bin/bash
 
-EMAIL="lloyd@lloydrochester.com"
+EMAIL="lloyd.rochester@gmail.com"
 VERSION="1.0"
 
 if [ $# -ne 1 ]; then

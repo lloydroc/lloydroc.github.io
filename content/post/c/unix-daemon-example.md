@@ -356,7 +356,7 @@ If you want the source download [become_daemon](/code/become_daemon-1.0.tar.gz).
 When you run the daemon. It's 100% uneventful! Nothing happens. You get the prompt back and the daemon goes on living it's happy life as a daemon process in Unix. Let's run the example and see what happens.
 
 {{< highlight bash >}}
-$ wget "https://lloydrochester.com/code/become_daemon-1.0.tar.gz"
+$ wget {{< absURL "/code/become_daemon-1.0.tar.gz" >}}
 $ tar zxf become_daemon-1.0.tar.gz
 $ cd become_daemon-1.0
 $ ./configure

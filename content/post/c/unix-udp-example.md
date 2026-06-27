@@ -290,7 +290,7 @@ main(int argc, char *argv[])
 
 ## Downloading the example.
 
-If you want to run the example download the <a href="/code/cudp-1.0.tar.gz">cudp</a> example.
+If you want to run the example download the [cudp](/code/cudp-1.0.tar.gz) example.
 
 {{< highlight bash >}}
 $ tar zxf cudp-1.0.tar.gz

@@ -31,7 +31,7 @@ Let's take an example scenario.
 
 1. On my Windows 11 Machine I want load a web page on my browser to `someserver.somecompany` which resolves to the address `172.22.0.10`
 2. The web server `someserver.somecompany` is in a private network `172.22.0.0/24`.
-3. To view the page on `someserver.somecompany` we will `sshuttle` into a remote host using `ssh` named `lloydrochester.com`. The remote host `lloydrochester.com` is inside the `172.22.0.0/24` network and can connect to remote host `someserver.somecompany (172.22.0.10)`.
+3. To view the page on `someserver.somecompany` we will `sshuttle` into a remote host using `ssh` named `lloydroc.github.io`. The remote host `lloydroc.github.io` is inside the `172.22.0.0/24` network and can connect to remote host `someserver.somecompany (172.22.0.10)`.
 
 # Network Diagram
 
@@ -43,24 +43,24 @@ The diagram above shows a total of 4 networks! Let's explain them:
 1. The WSL Server and Windows 11 share a bridge network. This is called `vEthernet (WSL)` on my machine.
 2. My Windows 11 machine is part of my home LAN network which I have the obscure `10.255.254.0/24` network. Most people would likely have `192.168.1.0/24`.
 3. To simplify things my home router connects to the internet through the WAN, we're also calling this the **public internet**.
-4. On the public internet we have our **remote server** that we will `sshuttle` into called [lloydrochester.com](https://lloydrochester.com).
-5. The host [lloydrochester.com](https://lloydrochester.com) connects to the private network `172.22.0.0/24` via the `eth1` network interface that we can use to connect to `someserver.somecompany`.
+4. On the public internet we have our **remote server** that we will `sshuttle` into called [lloydroc.github.io](https://lloydroc.github.io).
+5. The host [lloydroc.github.io](https://lloydroc.github.io) connects to the private network `172.22.0.0/24` via the `eth1` network interface that we can use to connect to `someserver.somecompany`.
 
 # A basic VPN connection using `sshuttle` in WSL
 
 If we want to access `someserver.somecompany` which resolves to `172.22.0.10` in this example we'd do the following `sshuttle` command:
 
 {{< highlight bash >}}
-sshuttle -r lloydrochester.com 172.22.0.0/24
+sshuttle -r lloydroc.github.io 172.22.0.0/24
 {{< / highlight >}}
 
-This is effectively saying we want to reach the `172.22.0.0/24` network via the remote host `lloydrochester.com` over SSH.
+This is effectively saying we want to reach the `172.22.0.0/24` network via the remote host `lloydroc.github.io` over SSH.
 
 Now what about DNS? We need to somehow resolve `someserver.somecompany`:
 
 Here are our options for DNS - some of these relate only inside our WSL instance:
 1. Put an entry into `/etc/hosts` in Windows, and/or WSL if necessary.
-2. Use the `sshuttle` options `--dns` to use the resolver inside `/etc/resolve.conf` in the remote host `lloydrochester.com` or even use the `--to-ns=<server>` option to specify a DNS resolver inside our private network `172.16.0.0/24` to take our queries.
+2. Use the `sshuttle` options `--dns` to use the resolver inside `/etc/resolve.conf` in the remote host `lloydroc.github.io` or even use the `--to-ns=<server>` option to specify a DNS resolver inside our private network `172.16.0.0/24` to take our queries.
 3. Stand up a `dnsmasq` instance on our WSL. More on this option later.
 
 Let's stop here for DNS, for the remaing we'll statically define it without DNS.
@@ -110,7 +110,7 @@ netsh interface portproxy add v4tov4 listenport=0-9000 connectaddress=172.17.253
 
 Please ensure you swap out `172.17.253.106` for the IP address of your WSL instance.
 
-After, you've done this go ahead and run: 
+After, you've done this go ahead and run:
 
 {{< highlight bash >}}
 netsh interface portproxy show all
@@ -157,17 +157,17 @@ socat TCP4-LISTEN:80,reuseaddr,fork TCP4:172.22.0.10:8000
 
 Note, that the proxy listens on port 80 but proxies to the remote server on port 8000.
 
-With this command running when connections come in from Windows on address:port `172.17.253.106:80` - our WSL IP address - they will be proxied to address:port `172.16.1.10:80`. The address `172.16.1.10` is inside the subnet that is being served by our `sshuttle` command above. 
+With this command running when connections come in from Windows on address:port `172.17.253.106:80` - our WSL IP address - they will be proxied to address:port `172.16.1.10:80`. The address `172.16.1.10` is inside the subnet that is being served by our `sshuttle` command above.
 
 # Hosting a Web Page on our Private Network
 
-Since I have a limited setup I will add an additional IP to the remote SSH server (lloydrochester.com) and host a web page off this IP address.
+Since I have a limited setup I will add an additional IP to the remote SSH server (lloydroc.github.io) and host a web page off this IP address.
 
 {{< highlight bash >}}
 sudo ip address add 172.22.0.10/32 dev eth0
 {{< / highlight >}}
 
-Now setup from inside lloydrochester.com to the webpage.
+Now setup from inside lloydroc.github.io to the webpage.
 
 {{< highlight bash >}}
 $ cat index.html

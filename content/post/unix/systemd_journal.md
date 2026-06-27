@@ -239,7 +239,7 @@ We had to link in the *systemd* library.
 We need to check that the `systemd` library is on the system and throw an error if not. Also, we'll check for the `systemd` header files.
 
 {{< highlight text "linenos=table,hl_lines=10-12 14 17" >}}
-AC_INIT([foo], [1.1], [lloyd@lloydrochester.com])
+AC_INIT([foo], [1.1], [lloyd.rochester@gmail.com])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
 AC_CONFIG_SRCDIR([config.h.in])
 AC_CONFIG_HEADERS([config.h])
@@ -301,7 +301,7 @@ foo_SOURCES = main.c
 A new version of [foo-1.1](/code/foo-1.1.tar.gz) was created.
 
 {{< highlight text >}}
-wget http://lloydrochester.com/code/foo-1.1.tar.gz
+wget {{< absURL "/code/foo-1.1.tar.gz" >}}
 tar zxf foo-1.1.tar.gz
 cd foo
 ./configure

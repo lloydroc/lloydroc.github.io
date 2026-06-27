@@ -40,7 +40,7 @@ Now we have a basic project that has source of `main.c`, but we need to add our 
 We first have to modify our configure.ac file so that it checks for Flex and Bison. It's contents looks like this:
 
 ```
-AC_INIT([fba], [1.0], [lloyd@lloydrochester.com])
+AC_INIT([fba], [1.0], [lloyd.rochester@gmail.com])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
 AC_PROG_CC
 AC_PROG_YACC

@@ -283,10 +283,10 @@ print_usage(char *progname)
 
 # Downloading the Example
 
-Download the example [recommend](/code/recommend-1.0.tar.gz). Here is how to run it.
+Download the example [recommend]({{< absURL "/code/recommend-1.0.tar.gz" >}}). Here is how to run it.
 
 {{< highlight bash >}}
-$ wget http://lloydrochester.com/code/recommend-1.0.tar.gz
+$ wget {{< absURL "/code/recommend-1.0.tar.gz" >}}
 $ tar zxf recommend-1.0.tar.gz
 $ cd recommend
 $ ./configure

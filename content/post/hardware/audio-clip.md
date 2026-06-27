@@ -18,7 +18,7 @@ Here is a command line tool to capture audio clips based on two thresholds. Keep
 
 The setup is a microphone attached to a Raspberry Pi. I used multiple microphones to test this, however, the Blue Yeti worked the best for my use case. We require the [ALSA - Advanced Linux Sound Architecture](https://alsa-project.org/wiki/Main_Page).
 
-The motivation for this was three main things: a tool for [BPSK Receiver Implementation](https://lloydrochester.com/post/dsp/psk-receiver-theory/), and home security purposes. The third motivation, with some major polishing up, capturing audio of animals in nature.
+The motivation for this was three main things: a tool for [BPSK Receiver Implementation](https://lloydroc.github.io/post/dsp/psk-receiver-theory/), and home security purposes. The third motivation, with some major polishing up, capturing audio of animals in nature.
 
 In the future I'd like to add a filtering stage so we can only take audio clips based on frequency or other characteristics.
 
@@ -28,7 +28,7 @@ The program is constantly recording and is waiting for the recorded audio level 
 
 These two thresholds are for:
 1. Filtering out sounds that are not loud enough
-2. Capturing sounds that are only a certain length 
+2. Capturing sounds that are only a certain length
 
 # Getting started
 
@@ -82,7 +82,7 @@ This project is the source and not meant to install. That is to say we could the
 
 ```
 apt install libasound2-dev
-wget http://lloydrochester.com/code/aclip-1.0.tar.gz
+wget {{< absURL "/code/aclip-1.0.tar.gz" >}}
 tar xf aclip-1.0.tar.gz
 cd aclip-1.0
 ./configure
@@ -134,7 +134,7 @@ recording ... wrote 8 frames to file ./clip_9.00_2021-04-10-07:31:37.wav
 ^C
 ```
 
-The options for the audio recording "loudness" are `--y-thresh` and for the duration of the sound is `--x-thresh-seconds`. See from the output above the level at `1000` is `0.02%` and is meant to be above the noise floor. 
+The options for the audio recording "loudness" are `--y-thresh` and for the duration of the sound is `--x-thresh-seconds`. See from the output above the level at `1000` is `0.02%` and is meant to be above the noise floor.
 
 # Output File Format
 

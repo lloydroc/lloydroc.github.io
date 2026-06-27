@@ -52,49 +52,49 @@ TYPE := [ bridge | bond | can | dummy | hsr | ifb | ipoib | macvlan | macvtap | 
 I tried as best I could to go over each one and provide some good information. The information isn't supposed to full document how to use the device or it's theory of information but to give a taste of what it does. It's more of a 10,000 foot view of the network device types. I hope to go back to this post to improve it's content.
 
 Here are links to all of them:
-* <a href="#bridge-device">bridge device type</a>
-* <a href="#bond-device">bond device type</a>
-* <a href="#dummy-device">dummy device type</a>
-* <a href="#hsr-device">hsr device type</a>
-* <a href="#ifb-device">ifb device type</a>
-* <a href="#ipoib-device">ipoib device type</a>
-* <a href="#macvlan-device">macvlan device type<a>
-* <a href="#macvtap-device">macvtap device type</a>
-* <a href="#can-device">can device type</a>
-* <a href="#vcan-device">vcan device type</a>
-* <a href="#vxcan-device">vxcan device type</a>
-* <a href="#veth-device">veth device type</a>
-* <a href="#vlan-device">vlan device type</a>
-* <a href="#vxlan-device">vxlan device type</a>
-* <a href="#ipip-device">ipip device type</a>
-* <a href="#sit-device">sit device type</a>
-* <a name='ip6tnl-device'>ip6tnl device type</a>
-* <a name='ip6gre-device'>ip6gre device type</a>
-* <a name='ip6gretap-device'>ip6gretap device type</a>
-* <a href="#gre-device">gre device type</a>
-* <a href="#gretap-device">gretap device type</a>
-* <a href="#erspan-device">erspan device type</a>
-* <a href="#ip6erspan-device">ip6erspan device type</a>
-* <a href="#lowpan-device">lowpan device type</a>
-* <a href="#geneve-device">geneve device type</a>
-* <a href="#vrf-device">vrf device type</a>
-* <a href="#macsec-device">macsec device type</a>
-* <a href="#rmnet-device">rmnet device type</a>
-* <a href="#xfrm-device">xfrm device type</a>
+* [bridge device type](#bridge-device)
+* [bond device type](#bond-device)
+* [dummy device type](#dummy-device)
+* [hsr device type](#hsr-device)
+* [ifb device type](#ifb-device)
+* [ipoib device type](#ipoib-device)
+* [macvlan device type](#macvlan-device)
+* [macvtap device type](#macvtap-device)
+* [can device type](#can-device)
+* [vcan device type](#vcan-device)
+* [vxcan device type](#vxcan-device)
+* [veth device type](#veth-device)
+* [vlan device type](#vlan-device)
+* [vxlan device type](#vxlan-device)
+* [ipip device type](#ipip-device)
+* [sit device type](#sit-device)
+* ip6tnl device type
+* ip6gre device type
+* ip6gretap device type
+* [gre device type](#gre-device)
+* [gretap device type](#gretap-device)
+* [erspan device type](#erspan-device)
+* [ip6erspan device type](#ip6erspan-device)
+* [lowpan device type](#lowpan-device)
+* [geneve device type](#geneve-device)
+* [vrf device type](#vrf-device)
+* [macsec device type](#macsec-device)
+* [rmnet device type](#rmnet-device)
+* [xfrm device type](#xfrm-device)
 
-### <a name="bridge-device">bridge device type</a>
+### bridge device type
 
 The bridge network device joins together multiple segments to create a network. This happens at layer 2 and below on the OSI model. Note, this device is called a bridge and not a switch, there is a difference. We can connect multiple devices into the segments of the bridge and assign the bridge an IP address. For example we can add a network device or interface to the bridge by running the command `ip link set eth0 master bridge_name`. See the `bridge`, and `brctl` commands in Unix to know more.
 
 {{< figure src="/assets/svg/bridge.svg" title="bridge device type" >}}
 
-### <a name="bond-device">bond device type</a>
+### bond device type
 
 Network bonding involves aggregating two or more network interfaces together to become a single "logical" interface. The bond can have different modes such as hot standby for failures or load balancing. This is all in effect to increase capacity or decrease failure on a critical network interface. Here we can see that physical interfaces `eth0` and `eth1` are bonded together by `bond0`.
 
 {{< figure src="/assets/svg/bond.svg" title="bond device type" >}}
 
-### <a name="dummy-device">dummy device type</a>
+### dummy device type
 
 The dummy device type is similar to a loopback interface, but can have nearly any IP address you want to assign to it. When a `dummy` interface is created an IP address and MAC addresses will be created for you. However, the IP address and MAC address can be removed and added to user preference. This advantage the `dummy` device type has is an interface other than the loobpack can be always up without a physical connection. The `dummy` allows definition of an chosen network internal to the Unix host.
 
@@ -113,21 +113,21 @@ $ ip address show dummy0
 
 An example usage of `dummy` device can be show in this example: [Unix Tunnel Example using Dummy Interfaces](/post/unix/iproute2_create_tunnel/).
 
-### <a name="hsr-device">hsr device type</a>
+### hsr device type
 
 High-availability Seamless Redundancy (HSR) is a networking protocol allowing for failover to happen without applications ever knowing. This protocol is defined in [Withdrawn IEC 62439-3](https://webstore.iec.ch/p-preview/info_iec62439-3%7Bed1.0%7Den.pdf). In this device type we can add slave interfaces and a multicast address for supervision. There is not a lot of information on this device type so it's worth researching further if it is truly supported and to what level that support may be.
 
-### <a name="ifb-device">ifb device type</a>
+### ifb device type
 
 [Intermediate Functional Block (IFB)](http://linux-ip.net/gl/tc-filters/tc-filters-node3.html) acts as a QoS concentrator for multiple sources of traffic. Effectively this interface provides a way to handle QoS from multiple sources.
 
-### <a name="ipoib-device">ipoib device type</a>
+### ipoib device type
 
 The ipoib device type is for carring IP over InfiniBand RDMA. Note, here InfiniBand is the underlay network an IP is the overlay. Many of the other network device types have it the other way around where IP is the underlay network. When configured InfiniBand applications can run without knowing that there is an IP overlay network carrying the traffic.
 
 Infiniband is used for high performance computing and is typically used in networking involving Super Computers.
 
-### <a name="macvlan-device">macvlan device type<a>
+### macvlan device type
 
 The macvlan device type is a virtual interface based on a MAC address. There is a lot of documentation from Docker on this subject. Creating a `macvlan` device type results in a virtual interface on the link layer (layer 2). There are multiple modes for the macvlan including private, vepa (Virtual Ethernet Port Aggregator mode), bridge, passthru and source. The macvlan device can match from a list of mac addresses that are specified, so you have the ability to tie a MAC address to the device type. These modes are greatly change the functionality of the device. For example the vepa mode will direct traffic out of the physical interface and through a switch that is assumed to have 'hairpin' or 'reflective relay mode'. Whereas, in the bridge mode traffic won't go out the physical interface and expect to come back.
 
@@ -157,25 +157,25 @@ pi@raspberrypi:~ $
 
 You can see that `macvlan1@eth0` has a different mac address than `eth0`.
 
-See also the <a href="#macvtap-device">macvtap device</a>.
+See also the [macvtap device](#macvtap-device).
 
-### <a name="macvtap-device">macvtap device type</a>
+### macvtap device type
 
 The macvtap is nearly identical to the macvlan with the exception that the macvtap also creates a character device to be used like a tun+tap device. In Unix there are two types of device drivers: character and block. Character devices are meant to deal with bytes on a character level, whereas, block devices deal with them in large chunks. Because we have a character device and Unix has the Universal File Paradigm user space applications can pass data through the macvtap through the character device. The character device created is **/dev/tapX** and through this file user space applications can send ethernet frames to the macvtap device. The tun device is a Layer 3 tunnel between two endpoints, and a tap is a Layer 2 tunnel between two endpoints. To use this VLAN support needs to be compiled in the kernel.
 
-See also <a href="#macvlan-device">macvlan device</a>.
+See also [macvlan device](#macvlan-device).
 
-### <a name="can-device">can device type</a>
+### can device type
 
 A Controller Area Network (CAN) interface is mostly found on automobiles designed for microcontrollers and devices to communicate with one another without a host computer. It is also referred to as CAN bus. A bus is merely a communication system to transfer data. In this interface you can set bitrates, listening only mode and toggle bit error reporting, and sampling.
 
-See also the <a href="#vcan-device">vcan network device type</a>.
+See also the [vcan network device type](#vcan-device).
 
-### <a name="vcan-device">vcan device type</a>
+### vcan device type
 
 Similar to the <a hre="can-device">can device type</a>, the vcan device type will allow for displaying, recording, generating and replaying of CAN traffic. There are projects like [SocketCAN](https://en.wikipedia.org/wiki/SocketCAN) which will model network devices and allow multiple applications to access one CAN device simultaneously. User space utilities are also available for CAN traffic such as [can-utils](https://github.com/linux-can/can-utils).
 
-See also the <a href="#can-device">can network device type</a>.
+See also the [can network device type](#can-device).
 
 
 ### Example adding a Virtual Can Device Type
@@ -185,17 +185,17 @@ $ sudo ip link add dev vcan0 type vcan
 $ sudo ip link set up vcan0
 {{< / highlight >}}
 
-### <a name="vxcan-device">vxcan device type</a>
+### vxcan device type
 
 There isn't much information to be found on the vxcan device type. The vxcan is derived from vcan. It is a Virtual CAN Tunnel for cross namespace communication. It is a combination of the vcan and veth implementation where network interface pairs can communicate together. Effectively, it allows for virtualized container applications to have CAN interfaces.
 
-### <a name="veth-device">veth device type</a>
+### veth device type
 
 The veth network device type is a tunnel between a pair of network devices. When a veth device type is created, it needs a pair of endpoints for example `p1-name`, and `p2-name`. Packets transmitted on each device from the pair will immediately be received on the other device and vice-versa. If one device in the pair is down, then the link state of the pair is down.
 
 The veth device pairs are very popular in virtualized applications, such as Docker. For example Docker will create one device from the pair in a common network namespace, and the other pair into a separate network namespace. A network namespace provides the isolation of system resources associated with networking. Examples of these resources are IPv4 and IPv6 protocol stacks, routing tables, firewall rules, port numbers, and process directories.
 
-### <a name="vlan-device">vlan device type</a>
+### vlan device type
 
 The vlan device type allows for support ethernet frames with 802.1Q or 802.1AD (QinQ) VLAN tags. The GARP VLAN Registration Protocol also named GVRP (nearly deprecated) and MVRP Multiple VLAN Registration Protocol are also supported. The GVRP and MVRP protocols distribute VLAN information through a vast switched network and I'll leave it there. To understand this device type it's important to understand the so called [One-armed Router](https://en.wikipedia.org/wiki/One-armed_router) also known as a ROAS or Router on a Stick. Essentially, this device type allows the physical ethernet port to segregate different VLANs on a trunk port and make routing decisions if desired.
 
@@ -220,7 +220,7 @@ $ ip link set dev eth0.200 up
 
 If a Linux box were to be configured with the above it would allow hosts on the **192.168.100.0/24** network to access the **192.168.200.0/24** network by tying VLAN 100 and 200 over a trunk port.
 
-### <a name="vxlan-device">vxlan device type</a>
+### vxlan device type
 
 The vxlan device implements the Virtual Extensible LAN specified by IETF Informational submission <a href="https://tools.ietf.org/html/rfc7348">rfc7348</a>. The VXLAN Framework addresses the need for overlay networks within Virtualized Datacenters with multiple tenants. There are 3 major areas discussed in the VXLAN problem statement: Limitations Imposed by Spanning Tree and VLAN Ranges, Multi-Tenancy Environments, and Inadequate Table Sizes at ToR Switch. When reading about VXLAN, usually, the limitation of 4094 VLANs will be a major topic. Asserting that the size of 4094 is insufficient for today's multi-tenancy environments.
 
@@ -228,9 +228,9 @@ How VXLAN addresses the 3 problem areas mentioned above is by providing an overl
 
 In VXLAN instead of having a VLAN ID a VNI is used, which stands for VXLAN Network Identifier. In the vxlan device a VNI, physical endpoint for tunnel communication, group for multicast information, remote address for unicast traffic, a local address for the source packet, and a number of other flags are used.
 
-### <a name="ipip-device">ipip device type</a>
+### ipip device type
 
-The ipip device type creates a virtual tunnel encapsulating IPv4 over IPv4. Effectively, we can put the contents of an IP packet (source, destination, headers, payload) inside the payload of another IPv4 packet. Tunnels are commonly used to connect disjoint networks. Tunneling is also how IPSec works by encapsulating an encrypted packet inside an IPv4 packet. The ipip device type is the simplest form of tunneling. It has limitations, such as, mostly being supported by Linux and not other systems, not allowing for multicast and IPv6 traffic. See the <a href="#sit-device">sit device type</a> for IPv6. The outer IPv4 packet here has typically 20 bytes without options, requiring the inner encapsulated to only have 1480 bytes left.
+The ipip device type creates a virtual tunnel encapsulating IPv4 over IPv4. Effectively, we can put the contents of an IP packet (source, destination, headers, payload) inside the payload of another IPv4 packet. Tunnels are commonly used to connect disjoint networks. Tunneling is also how IPSec works by encapsulating an encrypted packet inside an IPv4 packet. The ipip device type is the simplest form of tunneling. It has limitations, such as, mostly being supported by Linux and not other systems, not allowing for multicast and IPv6 traffic. See the [sit device type](#sit-device) for IPv6. The outer IPv4 packet here has typically 20 bytes without options, requiring the inner encapsulated to only have 1480 bytes left.
 
 The ipip device type can be further extended to the what it encapsulates as well as the mode in which it should run. For a secondary encapsulation UDP-over-IPv4, IPv4-over-IPv4, IPv6-over-IPv4, and MPLS-over-IPv4. For the UDP-over-IPv4 we can have Foo-Over-UDP and gue or Generic UDP Encapsulation. There are many options for the ipip device type, however, it's usage is to encapsulate a secondary encapsulation over an IP packet.
 
@@ -238,23 +238,23 @@ The ipip device type can be further extended to the what it encapsulates as well
 
 {{< figure src="/assets/svg/ipip_encapsulation.svg" title="IPIP Encapsulation" >}}
 
-See <a href="#sit-device">sit device type</a>.
+See [sit device type](#sit-device).
 
-### <a name="sit-device">sit device type</a>
+### sit device type
 
-The Simple Internet Transition - sit - device type's main purpose is to encapsulate IPv6 in IPv4 packets. As noted in the name, "transition" allows for joining isolated IPv6 networks because the networks that join them are not yet IPv6 capable. This interface, however, has been adapted to support many different encapsulation types documented in the <a href="#ipip-device">ipip device type<a/>.
+The Simple Internet Transition - sit - device type's main purpose is to encapsulate IPv6 in IPv4 packets. As noted in the name, "transition" allows for joining isolated IPv6 networks because the networks that join them are not yet IPv6 capable. This interface, however, has been adapted to support many different encapsulation types documented in the [ipip device type](#ipip-device).
 
 {{< figure src="/assets/svg/sit.svg" title="sit device type" >}}
 
 {% include svg/ipip6_encapsulation.svg %}
 
-See <a href="#ipip-device">ipip device type</a>.
+See [ipip device type](#ipip-device).
 
-### <a name='ip6tnl-device'>ip6tnl device type</a>
+### ip6tnl device type
 
-The ip6tnl is a IPv4/IPv6 tunnel over IPv6. This is the opposite of the 6to4 and 6rd where instead of putting an IPv6 packet inside an IPv4 packet we have the opposite. From what I can tell this has been deprecated, usage of the <a href="#ip6gre-device">ip6gre</a> and <a href="#ip6gretap-device">ip6gretap</a> device types should be used instead.
+The ip6tnl is a IPv4/IPv6 tunnel over IPv6. This is the opposite of the 6to4 and 6rd where instead of putting an IPv6 packet inside an IPv4 packet we have the opposite. From what I can tell this has been deprecated, usage of the [ip6gre](#ip6gre-device) and [ip6gretap](#ip6gretap-device) device types should be used instead.
 
-### <a name='ip6gre-device'>ip6gre device type</a>
+### ip6gre device type
 
 The ip6gre is an IPv6 tunneling protocol that performs Generic Routing Encapsulation - GRE. IPv4 or IPv6 packets to into the ip6gre tunnel and out come IPv6 packets with those same packets encapsulated inside them. This tunnel is very flexible in what it can encapsulate. There are the normal arguments of the tunnel for the remote and local addresses. Configuration of the ip6gre tunnel also allows for sequencing of packets, keys for GRE, checksum calculations, hop limits, encapsulation limits, flow labels, traffic classes, restrictions on the remote tunnel address.
 
@@ -264,51 +264,51 @@ Here is a simple diagram showing how the encapsulation works for an ip6gre tunne
 
 {% include svg/ipv6_encapsulation.svg %}
 
-### <a name='ip6gretap-device'>ip6gretap device type</a>
+### ip6gretap device type
 
-The ip6gretap device is the same as the <a href="#ip6gre-device">ip6gre</a> device but provides a TAP interface for L2 Traffic. A TAP interface is a character device where user space applications can read and write to it through a `/dev/tapX` file. When user space programs write to the TAP it will be as if the packet is on the interface. When reading user space applications will see what the interface has received.
+The ip6gretap device is the same as the [ip6gre](#ip6gre-device) device but provides a TAP interface for L2 Traffic. A TAP interface is a character device where user space applications can read and write to it through a `/dev/tapX` file. When user space programs write to the TAP it will be as if the packet is on the interface. When reading user space applications will see what the interface has received.
 
-### <a name="gre-device">gre device type</a>
+### gre device type
 
-The gre device provides Generic Routing Encapsulation for IPv4 packets. The motivation was that so many standards exist to encasulate one protocol over another protocol. GRE is a tunneling protocol since it allows for packets to be put inside the body of an IPv4 payload. What differs from the gre device type and the <a href="#ipip-device">ipip</a> device type is what can be encapsulated. There is a standard GRE packet header that takes 4 octets, with additional optional components. Being that the encapsulation is "generic" there are many options for what is encapsulated as the 2 octets are allocated for the protocol. The gre device type is best used for any type of tunnelling. Examples are IPv4 Tunneling, IPv6, PPTP, Multicast and IPv6. See <a href="https://tools.ietf.org/html/rfc2784">rfc2784</a> for more information.
+The gre device provides Generic Routing Encapsulation for IPv4 packets. The motivation was that so many standards exist to encasulate one protocol over another protocol. GRE is a tunneling protocol since it allows for packets to be put inside the body of an IPv4 payload. What differs from the gre device type and the [ipip](#ipip-device) device type is what can be encapsulated. There is a standard GRE packet header that takes 4 octets, with additional optional components. Being that the encapsulation is "generic" there are many options for what is encapsulated as the 2 octets are allocated for the protocol. The gre device type is best used for any type of tunnelling. Examples are IPv4 Tunneling, IPv6, PPTP, Multicast and IPv6. See <a href="https://tools.ietf.org/html/rfc2784">rfc2784</a> for more information.
 
 {{< figure src="/assets/svg/gre_encapsulation.svg" title="gre device type" >}}
 
 In GRE, the nomenclature is delivery packet for the outer IPv4 packet.
 
-### <a name="gretap-device">gretap device type</a>
+### gretap device type
 
-The gretap device is the same as the <a href="#gre-device">gre</a> with the addition of a Layer 2 TAP that allows user space programs to read and write Layer 2 traffic from a Linux kernel character device.
+The gretap device is the same as the [gre](#gre-device) with the addition of a Layer 2 TAP that allows user space programs to read and write Layer 2 traffic from a Linux kernel character device.
 
-### <a name="erspan-device">erspan device type</a>
+### erspan device type
 
-The erspan device will encapsulate remote Switched Port Analyzer (SPAN) over Generic Routing Encapsulation (GRE) and IPv4. SPAN is also called port mirroring or port monitoring. A switch has a large density of ports. Each port receives traffic isolated to it's MAC address. With the SPAN protocol a switch's port can be configured to send all traffic out a special port where it can be analyzed. This is where mirroring comes into play. What the switch sends out each and every port is mirrored to the SPAN port. Furthermore, this traffic is GRE encapsulated. See the <a href="#gre-device">gre</a> device for more information.
+The erspan device will encapsulate remote Switched Port Analyzer (SPAN) over Generic Routing Encapsulation (GRE) and IPv4. SPAN is also called port mirroring or port monitoring. A switch has a large density of ports. Each port receives traffic isolated to it's MAC address. With the SPAN protocol a switch's port can be configured to send all traffic out a special port where it can be analyzed. This is where mirroring comes into play. What the switch sends out each and every port is mirrored to the SPAN port. Furthermore, this traffic is GRE encapsulated. See the [gre](#gre-device) device for more information.
 
-### <a name="ip6erspan-device">ip6erspan device type</a>
+### ip6erspan device type
 
 The ip6erspan is similar to the <a href"#erspan-device">erspan</a> but instead of sending IPv4 packets it is sending IPv6.
 
-### <a name="lowpan-device">lowpan device type</a>
+### lowpan device type
 
 The lowpan device allows for IPv6 packet delivery in Low Power Wireless Personal Area Networks (6LoWPAN). These low power networks are part of the IEEE 802.15.4 Specification. The IEEE standardized Bluetooth as IEEE 802.15.1, but not longer maintains the standard. Currently, the IEEE 802.15.4 Technical standard is complied by ZigBee, ISA100.11.a, WirelessHART, MiWi, 6LoWPAN, Thread and SNAP.
 
-### <a name="geneve-device">geneve device type</a>
+### geneve device type
 
 The geneve device provides GEneric NEtwork Virtualizatoin Encapsulation. The GENEVE Protocol defined in <a href="https://www.ietf.org/id/draft-ietf-nvo3-geneve-14.txt">Internet Draft from RFC</a> attemps to address the introduction to new protocols that range from VLAN, MPLS, VXLAN, NVGRE and why new encapsulation formats are needed when a general protocol could be formed? For example, VXLAN provides 24-bit Identifiers stating that the 12-bit Identifiers are not sufficient. Once the 24-bits in VXLAN are used for more than just tagging information and packed with metadata, 24-bit can be exhausted quickly, which could then render the protocol out of date. Thus, GENEVE attempts to define a future proof tunneling protocols by providing a framework rather than being prescriptive. From the IETF, this protocol is set to expire in March 15th, 2020. As of this writing and it will be interesting to see if this protocol takes widespread adoption.
 
-### <a name="vrf-device">vrf device type</a>
+### vrf device type
 
 The vrf device provides a Virtual Routing Function which provides a separate routing table. A vrf is a L3 entity. The `iproute2` framework supports multiple routing tables which are typically found in the `/etc/iproute2/rt_tables` or `/etc/iproute2/rt_tables.d` directories. Devices can be "enslaved" to a vrf device. A vrf device can have a routing table associated to it. The vrf allows for multiple instances of a routing table to co-exist. One use case for this is in Internet Service Providers, where each customer or tenant has it's own VRF.
 
-### <a name="macsec-device">macsec device type</a>
+### macsec device type
 
 The macsec device confirms to the IEEE 802.1AE MAC Security standard. This standard extends the Ethernet Frame with additional fields consisting of a *Security Tag* and *Message Authentication Code (ICV)*.  The MACSec standard was created to address attacks on L2 protocols by identifying and exluding unauthorized LAN connections. It is similar to IPSec and TLS, but on the L2 Link Layer. This protocol involves distribution of keys by means of a Key Server.
 
-### <a name="rmnet-device">rmnet device type</a>
+### rmnet device type
 
 The rmnet device allows for a Qualcomm RMNET. RmNet is a proprietary USB virtual Ethernet framework developed by Qualcomm for its mobile phone platforms. When creating this device type the MUX ID is provided.
 
-### <a name="xfrm-device">xfrm device type</a>
+### xfrm device type
 
 The xfrm is a device that utilizes the IP framework for transforming packets and their payloads. One the most notable examples are IPSec, and IPv6 Header Compression. More options <a href="http://man7.org/linux/man-pages/man8/ip-xfrm.8.html">here</a> be found here on the man7.org website.
 

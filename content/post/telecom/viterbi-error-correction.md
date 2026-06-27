@@ -22,14 +22,14 @@ If the mapping from the input to the output is confusing see [PSK31 Encoder](/ps
 
 Since a PSK31 encoder has `[n,k,K] = [1,2,5]` where `n` bits in, `k` is the bits out, and `K` is the memory depth we only take in 0's or 1's and get out 0,1,2, or 3. We will use this to create some errors to the output of the convolutional encoder and see if our decoder can find the input of our 0's and 1's.
 
-Here are a couple of test cases from the error correction that it is able to do. The bit errors that were created are show in <span style="color:red">red</span>. Note, despite the errors at the decoder input the Viterbi Decoder was able to correct them all.
+Here are a couple of test cases from the error correction that it is able to do. The bit errors that were created are show in **red**. Note, despite the errors at the decoder input the Viterbi Decoder was able to correct them all.
 
 | Convolutional Decoder Input | Bits Decoded by Decoder | Description          |
 |------------------------------------|-------------------------|----------------------|
 |03210010111311022130|01011100101000100000|Zero Errors - reference case|
-|032<span style="color:red">0</span>0010111311022130|01011100101000100000|Single Bit error |
-|032<span style="color:red">0</span>00101<span style="color:red">0</span>1311022130|01011100101000100000|2 non-adjacent Errors|
-|03<span style="color:red">3</span>10<span style="color:red">1</span>101<span style="color:red">0</span>1311022130|01011100101000100000| 3 non-adjacent errors |
-|03<span style="color:red">3</span>1<span style="color:red">1</span>01<span style="color:red">0</span>1<span style="color:red">3</span>131<span style="color:red">0</span>02<span style="color:red">3</span>120|01011100101000100000| 6 non-adjacent |
+|032**0**0010111311022130|01011100101000100000|Single Bit error |
+|032**0**00101**0**1311022130|01011100101000100000|2 non-adjacent Errors|
+|03**3**10**1**101**0**1311022130|01011100101000100000| 3 non-adjacent errors |
+|03**3**1**1**01**0**1**3**131**0**02**3**120|01011100101000100000| 6 non-adjacent |
 
 So far I'm pretty impressed on the number of bit errors that the Viterbi Decoder can correct. However, when the decoder cannot correct errors it gets pretty bad quickly. I'll have to have another post on how to deal with a long stream of bad bits.

@@ -249,10 +249,10 @@ This delay line has type `int` which may not be suitable for your application. I
 
 # Downloading and Running the Code
 
-Download the [delayline-1.0.tar.gz](/code/delayline-1.0.tar.gz) code and run the following commands. Note, use of the `CFLAGS` with the `-g` flag so that the `assert` statements can run.
+Download the [delayline-1.0.tar.gz]({{< absURL "/code/delayline-1.0.tar.gz" >}}) code and run the following commands. Note, use of the `CFLAGS` with the `-g` flag so that the `assert` statements can run.
 
 {{< highlight bash >}}
-$ wget http://lloydrochester.com/code/delayline-1.0.tar.gz
+$ wget {{< absURL "/code/delayline-1.0.tar.gz" >}}
 $ tar zxf delayline-1.0.tar.gz
 $ cd delayline-1.0
 $ ./configure

@@ -52,7 +52,7 @@ $ exit # logout for groups to take effect
 Here are the steps to install the agent. The software comes packaged as an `autotools` project. Enter this on a terminal on the Raspberry Pi as the `pi` user.
 
 {{< highlight bash >}}
-$ wget http://lloydrochester.com/code/tf_mini_plus_rpi-1.1.tar.gz
+$ wget {{< absURL "/code/tf_mini_plus_rpi-1.1.tar.gz" >}}
 $ tar zxf tf_mini_plus_rpi-1.1.tar.gz
 $ cd tf_mini_plus_rpi-1.1
 $ ./configure
@@ -128,11 +128,11 @@ Distance: 04 Strength: 1736 Good Frames: 00000286 Bad Frames: 00000000
 
 When we run `tfmini --poll` it will poll the LiDAR and output distance and strength to the command line. It looks like this:
 
-{{< rawhtml >}}
+
 <video width="320" height="240" controls>
   <source src="/assets/mp4/tf_mini_realtime.mp4" type="video/mp4"/>
 </video>
-{{< /rawhtml >}}
+
 
 # Running the Agent as a Unix Daemon
 

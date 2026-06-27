@@ -194,7 +194,7 @@ Another function is defined called `scandirat()`. This function accepts one more
 
 ## Running the Example
 
-If you want to try this example download <a href="/code/cdirlist-1.0.tar.gz">cdirlist-1.0.tar.gz</a> and run the following:
+If you want to try this example download [cdirlist-1.0.tar.gz](/code/cdirlist-1.0.tar.gz) and run the following:
 
 {{< highlight bash >}}
 $ tar zxf cdirlist-1.0.tar.gz

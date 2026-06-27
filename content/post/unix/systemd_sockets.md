@@ -169,16 +169,16 @@ TriggeredBy: ● foo.socket
      CGroup: /system.slice/foo.service
              └─3510620 /usr/local/bin/foo
 
-Feb 08 21:48:39 lloydrochester.com foo[3510620]:  USER=root
-Feb 08 21:48:39 lloydrochester.com foo[3510620]:  INVOCATION_ID=431a3dba8889431d8f9f3ea9e7ac08d0
-Feb 08 21:48:39 lloydrochester.com foo[3510620]:  JOURNAL_STREAM=9:22890822
-Feb 08 21:48:39 lloydrochester.com foo[3510620]:  SYSTEMD_EXEC_PID=3510620
-Feb 08 21:48:39 lloydrochester.com foo[3510620]:  MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/system.slice/foo.service/memory.pressure
-Feb 08 21:48:39 lloydrochester.com foo[3510620]:  MEMORY_PRESSURE_WRITE=c29tZSAyMDAwMDAgMjAwMDAwMAA=
-Feb 08 21:48:39 lloydrochester.com foo[3510620]: foo service started
-Feb 08 21:48:39 lloydrochester.com foo[3510620]: File Descriptor names are:
-Feb 08 21:48:39 lloydrochester.com foo[3510620]:  foo.socket
-Feb 08 21:48:39 lloydrochester.com systemd[1]: Started A Example Systemd Service.
+Feb 08 21:48:39 lloydroc.github.io foo[3510620]:  USER=root
+Feb 08 21:48:39 lloydroc.github.io foo[3510620]:  INVOCATION_ID=431a3dba8889431d8f9f3ea9e7ac08d0
+Feb 08 21:48:39 lloydroc.github.io foo[3510620]:  JOURNAL_STREAM=9:22890822
+Feb 08 21:48:39 lloydroc.github.io foo[3510620]:  SYSTEMD_EXEC_PID=3510620
+Feb 08 21:48:39 lloydroc.github.io foo[3510620]:  MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/system.slice/foo.service/memory.pressure
+Feb 08 21:48:39 lloydroc.github.io foo[3510620]:  MEMORY_PRESSURE_WRITE=c29tZSAyMDAwMDAgMjAwMDAwMAA=
+Feb 08 21:48:39 lloydroc.github.io foo[3510620]: foo service started
+Feb 08 21:48:39 lloydroc.github.io foo[3510620]: File Descriptor names are:
+Feb 08 21:48:39 lloydroc.github.io foo[3510620]:  foo.socket
+Feb 08 21:48:39 lloydroc.github.io systemd[1]: Started A Example Systemd Service.
 # systemctl status foo.socket
 ● foo.socket - An Example Systemd Socket
      Loaded: loaded (/usr/lib/systemd/system/foo.socket; disabled; preset: disabled)
@@ -188,7 +188,7 @@ Feb 08 21:48:39 lloydrochester.com systemd[1]: Started A Example Systemd Service
      Listen: /var/foo.socket (Datagram)
      CGroup: /system.slice/foo.socket
 
-Feb 08 21:48:39 lloydrochester.com systemd[1]: Listening on An Example Systemd Socket.
+Feb 08 21:48:39 lloydroc.github.io systemd[1]: Listening on An Example Systemd Socket.
 #
 {{< / highlight >}}
 
@@ -361,10 +361,10 @@ Jun 27 15:58:41 pi2 foo[12019]: Received 5 bytes from /home/pi/foo.client.socket
 Jun 27 15:58:44 pi2 foo[12019]: Received 5 bytes from /home/pi/foo.client.socket: world
 {{< / highlight >}}
 
-Download [foo-1.4](/code/foo-1.4.tar.gz) example. It is the full distribution with all the autotools code. Here is how to get started on it.
+Download [foo-1.4]({{< absURL "/code/foo-1.4.tar.gz" >}}) example. It is the full distribution with all the autotools code. Here is how to get started on it.
 
 {{< highlight bash >}}
-$ wget http://lloydrochester.com/code/foo-1.4.tar.gz
+$ wget {{< absURL "/code/foo-1.4.tar.gz" >}}
 $ tar zxf foo-1.4.tar.gz
 $ cd foo
 $ ./configure

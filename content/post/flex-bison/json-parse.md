@@ -72,7 +72,7 @@ member: STRING COLON value { // put c code here: $1 will be the JSON member, and
       ;
 {{< / highlight >}}
 
-For this grammar I consulted <a href="https://www.json.org">json.org</a>. On the main page the JSON grammar is provided. The form of this grammar is specified in <a href="https://www.crockford.com/mckeeman.html">McKeeman Form</a>. The McKeeman Form is clean and concise. However, the grammar we define in Bison is not exactly what as specified, but follows the major cases. One, difference is how whitespace is handled. Getting into converting a McKeeman Grammar to a grammar in Bison is more than I wanted to cover in this post.
+For this grammar I consulted [json.org](https://www.json.org). On the main page the JSON grammar is provided. The form of this grammar is specified in [McKeeman Form](https://www.crockford.com/mckeeman.html). The McKeeman Form is clean and concise. However, the grammar we define in Bison is not exactly what as specified, but follows the major cases. One, difference is how whitespace is handled. Getting into converting a McKeeman Grammar to a grammar in Bison is more than I wanted to cover in this post.
 
 Let's look at the Bison Parser Code.
 

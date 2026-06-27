@@ -21,10 +21,10 @@ This allows Javascript requests (Axios, PouchDB, XMLHttpRequest ...) to access C
 Let's take a simple example for an NGINX configuration with CouchDB as a reverse proxy:
 
 ```
-# filename: /etc/nginx/sites-available/lloydrochester.com
+# filename: /etc/nginx/sites-available/lloydroc.github.io
 # Redirect http to https
 server {
-    server_name lloydrochester.com;
+    server_name lloydroc.github.io;
     listen 80;
     listen [::]:80;
     return 301 https://$server_name$request_uri;
@@ -33,12 +33,12 @@ server {
 server {
     listen 443 ssl http2;
 
-    root /var/www/lloydrochester.com;
+    root /var/www/lloydroc.github.io;
 
     index index.html;
     gzip_types text/plain application/javascript application/x-javascript text/javascript text/xml text/css application/json;
 
-    server_name lloydrochester.com;
+    server_name lloydroc.github.io;
 
     location ~* .(jpg|jpeg|png|gif|ico|css|js)$ {
        expires 10d;
@@ -59,20 +59,20 @@ server {
     }
 
 
-    ssl_certificate /etc/letsencrypt/live/lloydrochester.com/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/lloydrochester.com/privkey.pem; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/lloydroc.github.io/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/lloydroc.github.io/privkey.pem; # managed by Certbot
 }
 ```
 
-This works great but as a reverse proxy but I will say I've had problems in the past with Fauxton working as it needs to server off a root URL. In this case you can setup a subdomain as say `couch.lloydrochester.com`. Note this needs a new A record in the DNS but will also serve Fauxton without any `rewrite` directive.
+This works great but as a reverse proxy but I will say I've had problems in the past with Fauxton working as it needs to server off a root URL. In this case you can setup a subdomain as say `couch.lloydroc.github.io`. Note this needs a new A record in the DNS but will also serve Fauxton without any `rewrite` directive.
 
-Another nginx configuration file that serves CouchDB under the couch.lloydrochester.com subdomain.
+Another nginx configuration file that serves CouchDB under the couch.lloydroc.github.io subdomain.
 
 ```
-# filename: /etc/nginx/sites-available/couch.lloydrochester.com
+# filename: /etc/nginx/sites-available/couch.lloydroc.github.io
 # redirect http to https
 server {
-    server_name couch.lloydrochester.com;
+    server_name couch.lloydroc.github.io;
     listen 80;
     listen [::]:80;
     return 301 https://$server_name$request_uri;
@@ -83,10 +83,10 @@ server {
 
     gzip_types text/plain application/javascript application/x-javascript text/javascript text/xml text/css application/json;
 
-    server_name couch.lloydrochester.com;
+    server_name couch.lloydroc.github.io;
 
-    ssl_certificate /etc/letsencrypt/live/couch.lloydrochester.com/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/couch.lloydrochester.com/privkey.pem; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/couch.lloydroc.github.io/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/couch.lloydroc.github.io/privkey.pem; # managed by Certbot
 
     location ~* .(jpg|jpeg|png|gif|ico|css|js)$ {
        expires 10d;

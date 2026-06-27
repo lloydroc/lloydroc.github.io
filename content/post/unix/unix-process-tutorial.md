@@ -14,9 +14,9 @@ In this blog post I'll go over a quick tutorial on Unix Processes. We'll start w
 Let's start with a common scenario. This scenario is to simply `ssh` into another Unix machine. From a Unix process perspective what happens?
 
 {{< highlight bash >}}
-$ ssh lloydrochester.com
+$ ssh lloydroc.github.io
 Last login: Sun Nov 29 16:15:19 2020 from 174.27.249.252
-lloydrochester.com$ who
+lloydroc.github.io$ who
 lloydroc pts/0        2020-11-29 17:17 (174.27.249.252)
 {{< / highlight >}}
 

@@ -10,7 +10,7 @@ tags:
 
 # {{< title >}}
 
-I recently discovered [Chat Over IMAP](https://www.coi-dev.org). It looks like a promising technology that has a lot to offer. I'm currently hosting email on my [lloydrochester.com](/) domain with Postfix/Dovecot and in this post I'll modify my Dovecot configuration to work with COIand then try the [Delta Chat](https://delta.chat) application. I had originally planned for an hour or two of work, however, to get COI configured on Dovecot literally less than 5 minutes!
+I recently discovered [Chat Over IMAP](https://www.coi-dev.org). It looks like a promising technology that has a lot to offer. I'm currently hosting email on my [lloydroc.github.io](/) domain with Postfix/Dovecot and in this post I'll modify my Dovecot configuration to work with COIand then try the [Delta Chat](https://delta.chat) application. I had originally planned for an hour or two of work, however, to get COI configured on Dovecot literally less than 5 minutes!
 
 TL;DR In this post I'll create a COI Compliant Email Server and use it with the [Delta Chat](https://delta.chat) application.
 
@@ -22,7 +22,7 @@ I have Postfix and Dovecot running on my Linode Server that hosts this very site
 
 * MTA is Postfix
 * MUA is Dovecot
-* SMTPS/IMAP/POP3 and I have SSL certs for imap.lloydrochester.com, smtp.lloydrochester.com and mail.lloydrochester.com
+* SMTPS/IMAP/POP3 and I have SSL certs for imap.lloydroc.github.io, smtp.lloydroc.github.io and mail.lloydroc.github.io
 * DKIM is Enabled with OpenDKIM
 * Postfix is setup to have `virtual_aliases`, `virtual_domains`. I originally had these alias served by MySQL, but now host them directly through the `hash` database that is provided by Postfix since it's more simple and less work than MySQL for my small use case.
 * Postfix delivers mail over LMTP via Unix Domain Socket to Dovecot. Dovecot has a static `userdb` and I'm using `sqlite` for the `passdb`. Again, this choice was made for simplicity on a small scale.
@@ -83,7 +83,7 @@ auth_verbose = yes
 verbose_ssl = yes
 auth_debug = yes
 mail_debug = yes
-postmaster_address=lloyd at lloydrochester.com
+postmaster_address=lloyd at lloydroc.github.io
 !include conf.d/*.conf
 {{< / highlight >}}
 
@@ -119,15 +119,15 @@ I just typed "Hello" and waited in suspense.
 
 # Chat Message on Dovecot
 
-My Dovecot configuration puts mail into the folder `/var/mail/vhosts/lloydrochester.com/lloyd/` for the user `lloyd@lloydrochester.com`. We can see a folder was created. There are 3 chat messages in the `.DeltaChat/cur` folder. Note, after the picture above with the "Hello" message I sent some from another COI messenger app to it.
+My Dovecot configuration puts mail into the folder `/var/mail/vhosts/lloydroc.github.io/lloyd/` for the user `lloyd.rochester@gmail.com`. We can see a folder was created. There are 3 chat messages in the `.DeltaChat/cur` folder. Note, after the picture above with the "Hello" message I sent some from another COI messenger app to it.
 
 {{< highlight bash >}}
 $ tree .DeltaChat/
 .DeltaChat/
 ├── cur
-│   ├── 1605904324.M526664P2772750.lloydrochester.com,S=3088,W=3158:2,S
-│   ├── 1605904919.M721464P2772874.lloydrochester.com,S=3075,W=3144:2,S
-│   └── 1605904949.M343848P2772874.lloydrochester.com,S=3067,W=3136:2,S
+│   ├── 1605904324.M526664P2772750.lloydroc.github.io,S=3088,W=3158:2,S
+│   ├── 1605904919.M721464P2772874.lloydroc.github.io,S=3075,W=3144:2,S
+│   └── 1605904949.M343848P2772874.lloydroc.github.io,S=3067,W=3136:2,S
 ├── dovecot.index.cache
 ├── dovecot.index.log
 ├── dovecot-uidlist
@@ -143,18 +143,18 @@ $ tree .DeltaChat/
 Let's look at the content of a COI Message. Note, the content is all encrypted. This encryption is happening by Delta Chat.
 
 {{< highlight bash >}}
-$ cat .DeltaChat/cur/1605904949.M343848P2772874.lloydrochester.com,S=3067,W=3136:2,S
-Return-Path: <lloyd@lloydrochester.com>
-Delivered-To: lloyd@lloydrochester.com
-Received: from smtp.lloydrochester.com
-	by lloydrochester.com with LMTP
+$ cat .DeltaChat/cur/1605904949.M343848P2772874.lloydroc.github.io,S=3067,W=3136:2,S
+Return-Path: <lloyd.rochester@gmail.com>
+Delivered-To: lloyd.rochester@gmail.com
+Received: from smtp.lloydroc.github.io
+	by lloydroc.github.io with LMTP
 	id +LpqFDUquF+KTyoAvZbG3w
-	(envelope-from <lloyd@lloydrochester.com>)
-	for <lloyd@lloydrochester.com>; Fri, 20 Nov 2020 20:42:29 +0000
+	(envelope-from <lloyd.rochester@gmail.com>)
+	for <lloyd.rochester@gmail.com>; Fri, 20 Nov 2020 20:42:29 +0000
 Received: from localhost (174-29-249-252.hlrn.qwest.net [174.29.249.252])
-	by smtp.lloydrochester.com (Postfix) with UTF8SMTPSA id 4005DF0A0B
-	for <lloyd@lloydrochester.com>; Fri, 20 Nov 2020 20:42:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=lloydrochester.com;
+	by smtp.lloydroc.github.io (Postfix) with UTF8SMTPSA id 4005DF0A0B
+	for <lloyd.rochester@gmail.com>; Fri, 20 Nov 2020 20:42:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=lloydroc.github.io;
 	s=default; t=1605904949;
 	bh=IGwd6M/fTlId6E4aeOCaM4V1HIvYSOjYrunVhFXOcZc=;
 	h=Date:To:From:Subject;
@@ -167,7 +167,7 @@ DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=lloydrochester.com;
 Date: Fri, 20 Nov 2020 20:42:28 +0000
 X-Mailer: Delta Chat Core 1.28.0/Android
 Chat-Version: 1.0
-Autocrypt: addr=lloyd@lloydrochester.com; prefer-encrypt=mutual;
+Autocrypt: addr=lloyd.rochester@gmail.com; prefer-encrypt=mutual;
 	keydata=xjMEX7gqBxYJKwYBBAHaRw8BAQdAP/Yoxk3z1njxbd8UoBGeEj/67JdpHfNlC8RipJCicm
 	fNGjxsbG95ZEBsbG95ZHJvY2hlc3Rlci5jb20+wosEEBYIADMCGQEFAl+4KgcCGwMECwkIBwYVCAkK
 	CwIDFgIBFiEETYWnDA6T3i86tV4kYkPyN8OmE0cACgkQYkPyN8OmE0ekNAD/R1VnRPWqr2BLvvoP+K
@@ -175,9 +175,9 @@ Autocrypt: addr=lloyd@lloydrochester.com; prefer-encrypt=mutual;
 	BxIKKwYBBAGXVQEFAQEHQN+upAW1TK31+/aMkpOWZPOrnLeng9Wm3MWNwQsZDnVqAwEIB8J4BBgWCA
 	AgBQJfuCoHAhsMFiEETYWnDA6T3i86tV4kYkPyN8OmE0cACgkQYkPyN8OmE0dg/AEAhpFCjvPK4hAC
 	Z4eJkQmECkDPVvfln6pLxahaSiiIxqQA+wYWoGKg2FJzxS1yZmoYEIg9kug24wUPC+Fid2B+ncoI
-Message-ID: <chat$LLpikKHw-3O.YBLKmPcQ-xL@lloydrochester.com>
-To: <lloyd@lloydrochester.com>
-From: =?utf-8?q??= <lloyd@lloydrochester.com>
+Message-ID: <chat$LLpikKHw-3O.YBLKmPcQ-xL@lloydroc.github.io>
+To: <lloyd.rochester@gmail.com>
+From: =?utf-8?q??= <lloyd.rochester@gmail.com>
 Subject: ...
 Content-Type: multipart/encrypted; protocol="application/pgp-encrypted";
 	boundary="iQZ34QxJGUFu3AKB7J7Q0BgQcuDc1r"
