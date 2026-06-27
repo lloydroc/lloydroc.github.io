@@ -13,7 +13,7 @@ aliases:
 Let's add SQLite to your C project. It's easy and straightforward. We'll use the SQLite.org recommended way by adding the so-called "amalgamation" to our C project and compile from source. In the words of [SQLite.org](https://sqlite.org/howtocompile.html) "the use of the amalgamation is recommended for all applications." In this blog post we'll download, compile and use SQLite in our C project.
 
 ## Step 1 - Download the SQLite Amalgamation
-In Step 1 we'll download the amalgamation and look at the contents of the files. This is done by doing to the [SQLite downloads](https://sqlite.org/downloads.html) and downloading the zip file in the "C Source Code as an amalgamation" section. Let's download the zip file and see what is inside it:
+In Step 1 we'll download the amalgamation and look at the contents of the files. This is done by doing to the [SQLite downloads](https://www.sqlite.org/download.html) and downloading the zip file in the "C Source Code as an amalgamation" section. Let's download the zip file and see what is inside it:
 
 {{< highlight shell >}}
 
