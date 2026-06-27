@@ -131,7 +131,7 @@ int main(int argc, char *argv[])
 
   return 0;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## The Linked List API
 
@@ -185,7 +185,7 @@ int list_remove_index(struct List *list, int index);
 size_t list_size(struct List* list);
 
 #endif
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Linked List Implementation
 
@@ -509,4 +509,4 @@ size_t list_size(struct List *list)
 {
   return list->size;
 }
-{{< / highlight >}}
+{{< /highlight >}}

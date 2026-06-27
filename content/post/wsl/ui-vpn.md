@@ -52,7 +52,7 @@ If we want to access `someserver.somecompany` which resolves to `172.22.0.10` in
 
 {{< highlight bash >}}
 sshuttle -r lloydroc.github.io 172.22.0.0/24
-{{< / highlight >}}
+{{< /highlight >}}
 
 This is effectively saying we want to reach the `172.22.0.0/24` network via the remote host `lloydroc.github.io` over SSH.
 
@@ -81,7 +81,7 @@ For Windows 11 to resolve `someserver.somecompany` it's easiest to use the Windo
 
 {{< highlight bash >}}
 <our WSL IP address> someserver.somecompany
-{{< / highlight >}}
+{{< /highlight >}}
 
 We'll use the trick of pointing `someserver.somecompany` to our WSL instance. To know the entry to add to the Windows host file simply run the following.
 
@@ -90,13 +90,13 @@ lloydroc@nifty:~$ ip route get 8.8.8.8
 8.8.8.8 via 172.17.240.1 dev eth0 src 172.17.253.106 uid 1000
     cache
 lloydroc@nifty:~$
-{{< / highlight >}}
+{{< /highlight >}}
 
 Here we need to look at the `src` IP address and also take note of the device name `eth0`. Thus, I'd add the following line to `C:\Windows\System32\drivers\etc\hosts`:
 
 {{< highlight bash >}}
 172.17.253.106 someserver.somecompany
-{{< / highlight >}}
+{{< /highlight >}}
 
 Your WSL instance will undoubtedly have a different address and perhaps device name depending on the flavor of Linux.
 
@@ -106,7 +106,7 @@ It turns out if Windows wants to make a connection to a WSL instance it needs to
 
 {{< highlight bash >}}
 netsh interface portproxy add v4tov4 listenport=0-9000 connectaddress=172.17.253.106 connectport=0-9000 listenaddress=172.17.253.106
-{{< / highlight >}}
+{{< /highlight >}}
 
 Please ensure you swap out `172.17.253.106` for the IP address of your WSL instance.
 
@@ -114,13 +114,13 @@ After, you've done this go ahead and run:
 
 {{< highlight bash >}}
 netsh interface portproxy show all
-{{< / highlight >}}
+{{< /highlight >}}
 
 and if you need to remove the proxy run:
 
 {{< highlight bash >}}
 netsh interface portproxy reset
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Testing a connection from Windows into WSL
 
@@ -129,7 +129,7 @@ This is when I like to test a connection from Windows to `someserver.somecompany
 In WSL I run:
 {{< highlight bash >}}
 sudo nc -kl 80
-{{< / highlight >}}
+{{< /highlight >}}
 
 Now we're listening on port `80` in WSL. So let's test a connection from Windows in Power Shell.
 
@@ -143,7 +143,7 @@ RemotePort       : 80
 InterfaceAlias   : vEthernet (WSL)
 SourceAddress    : 172.17.240.1
 TcpTestSucceeded : True
-{{< / highlight >}}
+{{< /highlight >}}
 
 The `TcpTestSucceeded : True` proves this is working.
 
@@ -153,7 +153,7 @@ From the configuration above we have connections coming in from `someserver.some
 
 {{< highlight bash >}}
 socat TCP4-LISTEN:80,reuseaddr,fork TCP4:172.22.0.10:8000
-{{< / highlight >}}
+{{< /highlight >}}
 
 Note, that the proxy listens on port 80 but proxies to the remote server on port 8000.
 
@@ -165,7 +165,7 @@ Since I have a limited setup I will add an additional IP to the remote SSH serve
 
 {{< highlight bash >}}
 sudo ip address add 172.22.0.10/32 dev eth0
-{{< / highlight >}}
+{{< /highlight >}}
 
 Now setup from inside lloydroc.github.io to the webpage.
 
@@ -180,7 +180,7 @@ $ cat index.html
 </html>
 $ sudo python3 -m http.server --bind 172.22.0.10
 Serving HTTP on 172.22.0.10 port 8000 (http://172.22.0.10:8000/) ...
-{{< / highlight >}}
+{{< /highlight >}}
 
 From here I can open up a browser in Windows and see the following:
 

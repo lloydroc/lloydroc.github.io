@@ -37,7 +37,7 @@ $ groups
 pi adm tty dialout cdrom sudo audio video plugdev games users input netdev gpio i2c spi
 $ ls -l /dev/ttyAMA0
 crw-rw---- 1 root dialout 204, 64 Oct  7 17:31 /dev/ttyAMA0
-{{< / highlight >}}
+{{< /highlight >}}
 
 Note, the Unix user running the program will need to be in the `dialout` and `tty` groups. Being added to these groups won't take effect until you log back out and into the session again.
 
@@ -45,7 +45,7 @@ Note, the Unix user running the program will need to be in the `dialout` and `tt
 $ sudo usermod -a -G dialout pi
 $ sudo usermod -a -G tty pi
 $ exit # logout for groups to take effect
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Installing the Agent
 
@@ -57,13 +57,13 @@ $ tar zxf tf_mini_plus_rpi-1.1.tar.gz
 $ cd tf_mini_plus_rpi-1.1
 $ ./configure
 $ make
-{{< / highlight >}}
+{{< /highlight >}}
 
 Once built we can install it on the system.
 
 {{< highlight bash >}}
 $ sudo make install # sudo make uninstall will remove it
-{{< / highlight >}}
+{{< /highlight >}}
 
 Now run the `tfmini` program.
 
@@ -89,19 +89,19 @@ OPTIONS:
 -d, --daemon                Run as a Daemon
 
 Version: 1.1
-{{< / highlight >}}
+{{< /highlight >}}
 
 If you choose to not install the `tfmini` program system wide just run the binary from the `src` folder like so:
 
 {{< highlight bash >}}
 $ ./src/tfmini -h
-{{< / highlight >}}
+{{< /highlight >}}
 
 You could then add the binary to your path:
 
 {{< highlight bash >}}
 export PATH=$PATH:$HOME/tf_mini_plus_rpi/src
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Source Code in Github
 
@@ -124,7 +124,7 @@ $ tfmini --poll
 LiDAR output enabled
 Distance: 04 Strength: 1736 Good Frames: 00000286 Bad Frames: 00000000
 ^C
-{{< / highlight >}}
+{{< /highlight >}}
 
 When we run `tfmini --poll` it will poll the LiDAR and output distance and strength to the command line. It looks like this:
 
@@ -164,7 +164,7 @@ make[2]: Nothing to be done for 'install-exec-am'.
  /usr/bin/install -c -m 644 README '/usr/local/share/doc/tf_mini_plus_rpi'
 make[2]: Leaving directory '/home/pi/tf_mini_plus_rpi'
 make[1]: Leaving directory '/home/pi/tf_mini_plus_rpi'u
-{{< / highlight >}}
+{{< /highlight >}}
 
 From there we need to reload the systemd manager configuration and start the service.
 
@@ -188,7 +188,7 @@ Oct 18 15:31:59 pi2 tf_mini[26231]: LiDAR output disabled
 Oct 18 15:31:59 pi2 tf_mini[26231]: Measurement unit set to centimeters
 Oct 18 15:31:59 pi2 systemd[1]: Started TF Mini Service sending LiDAR Frames over UDP.
 Oct 18 15:31:59 pi2 tf_mini[26233]: LiDAR output enabled
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Verifying the Agent Works using Netcat
 
@@ -199,7 +199,7 @@ $ nc -v -l -u 127.0.0.1 2210
 Listening on [localhost] (family 2, port 2210)
 Connection from localhost 34970 received!
 YY{P	�YYsP	�YYqP	�YYtP	�YYuP	�YYrP	�YYsP	�YYqP	�YYwP	�YYuP	�YYyP	�YYxP	�YYyP	�YYtP	�YYtP	�YYvP	�YYwP	�YYvP	�YYyP	�YYxP	�YYpP	�YYuP	�YYwP	�YYxP	�YYuP	�YYvP	�YYpP	�YYzP	�YYyP	�YYuP	�YYwP	�YYwP	�YYrP	�YYtP	�YYpP	�YYtP	�YYqP	�YYvP	�YYsP	�YYxP	�YYuP	�YYqP	�YYpP	�YYuP	�YYxP	�YYsP	�YYwP	�YYuP	�YYpP	�YYpP	�YYxP	�YYuP	�YYsP	�YYqP	�YYxP	�YYwP	�YYsP	�YYtP	�YYoP	�YYyP	�YYtP	�YYrP	�YYsP	�YYuP	�YYvP	�YYqP	�YYuP	�YYsP	�YYyP	�YYrP	�YYwP	�YYrP	�YYvP	�YYwP	�YYoP	�YYrP 	�YYtP	�YYrP	�YYqP	�YYvP	�YYpP	�YYuP	�YYsP	�YYxP	�YYzP	�YYwP	�YYrP	�YYuP	�YYvP	�YYwP	�YYvP  	�YYwP	�YYrP	�YYuP	�YYvP	�YYsP	�YYuP	�YYqP	�YY}P	�YYuP	�YYxP	�YYwP	�YYyP	�YYlP	�YYqP	�YYqP	�YYmP	�YYsP	�YYwP	�YYuP	�^C
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Example Reading LiDAR Frames with Python
 
@@ -251,7 +251,7 @@ while 1:
 
     print str(distance) + ' ' + str(strength)
 t.close()
-{{< / highlight >}}
+{{< /highlight >}}
 
 When we run this example we'll see the distance and strength printed to standard output.
 
@@ -264,7 +264,7 @@ Socket created
 4 1623
 4 1618
 3 1627
-{{< / highlight >}}
+{{< /highlight >}}
 
 # CPU Usage
 
@@ -280,7 +280,7 @@ MiB Swap:    100.0 total,     97.0 free,      3.0 used.    735.8 avail Mem
   PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
 27826 root      20   0    1868     84      0 S   1.3   0.0   0:00.49 tfmini
 27863 pi        20   0   10296   2984   2476 R   1.0   0.3   0:00.23 top
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Changing the UDP Port and other settings
 
@@ -298,7 +298,7 @@ StandardError=journal
 
 [Install]
 WantedBy=multi-user.target
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Known Issues
 
@@ -308,6 +308,6 @@ I typically will run:
 
 {{< highlight bash >}}
 $ tfmini --disable-lidar-output
-{{< / highlight >}}
+{{< /highlight >}}
 
 This will allow for sending some commands until the `--poll` or `--socket-udp` options are used. If there ends up being a lot of usage of this I'll go ahead and make sure this cannot happen.

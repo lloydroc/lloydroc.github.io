@@ -41,7 +41,7 @@ cd {{< e32ver >}}
 make
 sudo make install
 e32 --help # this should show the help of the tool that was installed
-{{< / highlight >}}
+{{< /highlight >}}
 
 
 ## Usage
@@ -75,7 +75,7 @@ OPTIONS:
 -x --sock-unix-data FILE Send and receive data from a Unix Domain Socket
 -c --sock-unix-ctrl FILE Change and Read settings from a Unix Domain Socket
 -d --daemon              Run as a Daemon
-{{< / highlight >}}
+{{< /highlight >}}
 
 ### Getting Status
 
@@ -102,7 +102,7 @@ IO Drive:                 TXD and AUX push-pull output, RXD pull-up input
 Wireless Wakeup Time:     250 ms
 Forward Error Correction: on
 TX Power Attenuation:     0 dBm
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Transmitting Data from Standard Input
 
@@ -113,7 +113,7 @@ $ e32
 waiting for input from terminal
 I am typing, when I hit enter this line will be transmitted over the air
 ^C
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Changing e32 settings
 

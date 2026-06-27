@@ -30,7 +30,7 @@ command was not successful after 3 tries
 $ echo $?
 1
 $
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Success Output
 
@@ -42,7 +42,7 @@ success!
 $ echo $?
 0
 $
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Bash Script
 
@@ -69,7 +69,7 @@ do
 done
 
 echo success!
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Retry a Command for X Minutes
 
@@ -88,7 +88,7 @@ command was not successful after 1 minute
 $ echo $?
 1
 $
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Success Output
 {{< highlight bash >}}
@@ -97,7 +97,7 @@ success!
 $ echo $?
 0
 $
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Bash Script
 
@@ -124,4 +124,4 @@ do
 done
 
 echo success!
-{{< / highlight >}}
+{{< /highlight >}}

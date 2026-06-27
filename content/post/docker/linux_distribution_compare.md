@@ -44,7 +44,7 @@ services:
     container_name: debian
     image: debian:latest
     command: tail -f /dev/null
-{{< / highlight >}}
+{{< /highlight >}}
 
 ### Run the Docker Containers from each Linux Distribution
 To run all of our services in the `docker-compose.yaml` simply put them `up`.
@@ -67,7 +67,7 @@ a48c8db17d96        archlinux:latest     "tail -f /dev/null"   8 seconds ago    
 406b88520418        busybox:latest       "tail -f /dev/null"   8 seconds ago       Up 6 seconds                            busybox
 6fd8d03b2cbd        debian:latest        "tail -f /dev/null"   8 seconds ago       Up 6 seconds                            debian
 9f79d7599965        qoomon/docker-host   "/entrypoint.sh"      6 months ago        Up 5 weeks                              dockerhost
-{{< / highlight >}}
+{{< /highlight >}}
 
 ### Run commands for each distribution
 Now that we have many different operating systems up let's run some commands so we can compare. We can take a simple example and look at how the networking interfaces are set up. Note in some of the containers we need to run commands to update the respositories. E.g. `docker-compose exec ubuntu apt update` and `docker-compose exec ubuntu apt install iproute2`.
@@ -89,7 +89,7 @@ $ docker-compose exec centos ip address show
     link/ether 02:42:ac:17:00:04 brd ff:ff:ff:ff:ff:ff link-netnsid 0
     inet 172.23.0.4/16 brd 172.23.255.255 scope global eth0
        valid_lft forever preferred_lft forever
-{{< / highlight >}}
+{{< /highlight >}}
 
 ##### Ubuntu
 {{< highlight bash >}}
@@ -106,7 +106,7 @@ $ docker-compose exec ubuntu ip address show
     link/ether 02:42:ac:17:00:07 brd ff:ff:ff:ff:ff:ff link-netnsid 0
     inet 172.23.0.7/16 brd 172.23.255.255 scope global eth0
        valid_lft forever preferred_lft forever
-{{< / highlight >}}
+{{< /highlight >}}
 
 #### Example to compare Kernel versions
 
@@ -118,7 +118,7 @@ ubuntu: 4.9.184-linuxkit
 archlinux: 4.9.184-linuxkit
 busybox: 4.9.184-linuxkit
 debian: 4.9.184-linuxkit
-{{< / highlight >}}
+{{< /highlight >}}
 
 I was surprised to see them all the same!
 

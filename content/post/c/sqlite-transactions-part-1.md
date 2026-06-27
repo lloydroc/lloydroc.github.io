@@ -70,7 +70,7 @@ bird
                                                $
 s1> .exit
 $
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Explanation of the two transaction example
 

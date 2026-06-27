@@ -68,7 +68,7 @@ main(int argc, char *argv[])
 
   return 0;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 Running this program on my Linode machine with an Arch Linux operating system will print the following.
 
@@ -76,7 +76,7 @@ Running this program on my Linode machine with an Arch Linux operating system wi
 $ ./realloc
 memblock1=0x5868995d7340, memblock2=0x5868995d72f0, memblock1_orig=0x5868995d72a0
 memblock3=0x5868995d72a0
-{{< / highlight >}}
+{{< /highlight >}}
 
 Note, that none of the `assert`statements will evaluate to false.
 

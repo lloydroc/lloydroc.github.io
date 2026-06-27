@@ -27,7 +27,7 @@ $ ip link show
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000
     link/ether f2:3c:92:b7:e9:8b brd ff:ff:ff:ff:ff:ff
-{{< / highlight >}}
+{{< /highlight >}}
 
 We can see the common network devices on a Unix hosts being `eth0` and `lo`. Now, let's look at virtual network devices, which are the rest of this blog post. This virtual device types typically ride "on top" of the physical devices.
 
@@ -109,7 +109,7 @@ $ ip address show dummy0
        valid_lft forever preferred_lft forever
     inet6 fe80::b7f1:6d17:c523:6a03/64 scope link
        valid_lft forever preferred_lft forever
-{{< / highlight >}}
+{{< /highlight >}}
 
 An example usage of `dummy` device can be show in this example: [Unix Tunnel Example using Dummy Interfaces](/post/unix/iproute2_create_tunnel/).
 
@@ -153,7 +153,7 @@ pi@raspberrypi:~ $ ip link
 3: macvlan1@eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP mode DEFAULT group default qlen 1000
     link/ether 4e:42:9a:58:53:7e brd ff:ff:ff:ff:ff:ff
 pi@raspberrypi:~ $
-{{< / highlight >}}
+{{< /highlight >}}
 
 You can see that `macvlan1@eth0` has a different mac address than `eth0`.
 
@@ -183,7 +183,7 @@ See also the [can network device type](#can-device).
 $ sudo modprobe vcan
 $ sudo ip link add dev vcan0 type vcan
 $ sudo ip link set up vcan0
-{{< / highlight >}}
+{{< /highlight >}}
 
 ### vxcan device type
 
@@ -216,7 +216,7 @@ $ ip addr add 192.168.100.1/24 brd 192.168.100.255 dev eth0.100
 $ ip addr add 192.168.200.1/24 brd 192.168.200.255 dev eth0.200
 $ ip link set dev eth0.100 up
 $ ip link set dev eth0.200 up
-{{< / highlight >}}
+{{< /highlight >}}
 
 If a Linux box were to be configured with the above it would allow hosts on the **192.168.100.0/24** network to access the **192.168.200.0/24** network by tying VLAN 100 and 200 over a trunk port.
 

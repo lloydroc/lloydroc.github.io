@@ -54,7 +54,7 @@ elements: element
 element: value
        ;
 
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Notes about this Grammar
 
@@ -100,7 +100,7 @@ struct member_type
   char *name;
   struct value_type *value;
 };
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Bison Declarations
 
@@ -132,7 +132,7 @@ We don't define *members* or *elements* in our AST, we instead use a [Linked Lis
 %type <memb> member
 %type <membs> members
 %type <elems> elements
-{{< / highlight >}}
+{{< /highlight >}}
 
 
 
@@ -226,7 +226,7 @@ element: value {
 
 %%
 body
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Implementation of the AST Functions
 
@@ -355,7 +355,7 @@ new_object_member(struct List *members, struct member_type *member)
 {
   return list_add_last(members, member);
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Traversing the AST
 
@@ -376,14 +376,14 @@ Take the following formatted file as input to our parser.
       "height": 42.1
     }
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 We can parse it and print it out. It's not pretty printed and the numeric types won't round out as exactly as passed in. However, it works.
 
 {{< highlight bash >}}
 $ ./parse_json test/test6.json
 {"people":{"first":"bob","last":"stevens","children":["sue","anne"],"wallet":null,"legs":true,"hair":false,"age":23,"height":42.099998}}
-{{< / highlight >}}
+{{< /highlight >}}
 
 To recursively print the AST we have the following. The recursion happens only when we have an *object* or *array* type.
 {{< highlight c >}}
@@ -472,7 +472,7 @@ json_print_recursive(struct value_type *value)
   }
   return;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Downloading and Usage
 
@@ -486,7 +486,7 @@ $ cd parse_json
 $ ./configure
 $ make
 $ ./src/parse_json some_file.json
-{{< / highlight >}}
+{{< /highlight >}}
 
 The files are all inside the `src` folder:
 * scanner.l the Flex Scanner

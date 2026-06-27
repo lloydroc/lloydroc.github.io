@@ -18,19 +18,19 @@ Here are some examples that the previous Flex scanner does not support; but the 
 
 {{< highlight json >}}
 { "some hex": "\uBEEF" }
-{{< / highlight >}}
+{{< /highlight >}}
 
 {{< highlight json >}}
 {"":""}
-{{< / highlight >}}
+{{< /highlight >}}
 
 {{< highlight json >}}
 {"\b": "\\", "\"quoted\"": "thing"}
-{{< / highlight >}}
+{{< /highlight >}}
 
 {{< highlight json >}}
 {"x": -0}
-{{< / highlight >}}
+{{< /highlight >}}
 
 The largest improvements are to support hex in the form of `\uXXXX` and support additional characters between the quotes. These additional characters are the escape characters in JSON of `" \ / b f n r t ` which are all escaped with `\`. See the grammar at [json.org](https://www.json.org) for another reference.
 
@@ -40,7 +40,7 @@ Previously, our scanner would include the quotes as part of a `STRING` token. Fo
 
 {{< highlight bash >}}
 \"[^"]*\" { yylval.string = strdup(yytext); return STRING; }
-{{< / highlight >}}
+{{< /highlight >}}
 
 This isn't aligned to the following grammar:
 
@@ -51,7 +51,7 @@ characters: ""
           | characters character
 
 j
-{{< / highlight >}}
+{{< /highlight >}}
 
 Now, we can tokenize the quotes and the characters between the quotes seperately. We can put our scanner into a state called `QUOTED` and then we'll read the characters until we hit another double quote. Once we reach and end quote we'll go back to the `INITIAL` state. All the characters between the quotes will be returned in a token called `CHARACTERS`. This tokenization will look like `DQUOTE CHARACTERS DQUOTE` where the `CHARACTERS` are a `char *`. See the following where we have a regex just for a single quote, which starts a Flex state, then tokenizes the characters then the state ends with another single quote.
 
@@ -60,7 +60,7 @@ Now, we can tokenize the quotes and the characters between the quotes seperately
 <QUOTED>\" { BEGIN INITIAL; return DQUOTE; }
 <QUOTED>\\u[a-fA-F0-9]{4} { yylval.characters = strdup(yytext); return HEX; }
 <QUOTED>([\x20-\x7e]{-}[\"\\]|\\[\\"\/bfnrt])+ { yylval.characters = strdup(yytext); return CHARACTERS; }
-{{< / highlight >}}
+{{< /highlight >}}
 
 Remember that Flex will tokenize the longest regex match which is the concept of precedence here.
 
@@ -110,7 +110,7 @@ EXP ([Ee][-+]?[0-9]+)
 }
 
 %%
-{{< / highlight >}}
+{{< /highlight >}}
 
 While writing this post I realized that a valid JSON number is `-0` which is strange, but accepted.
 
@@ -267,7 +267,7 @@ yyerror(const char *s)
 {
   fprintf(stderr,"error: %s on line %d\n", s, yylineno);
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Downloading and Usage
 
@@ -281,7 +281,7 @@ $ cd parse_json
 $ ./configure
 $ make
 $ ./src/parse_json some_file.json
-{{< / highlight >}}
+{{< /highlight >}}
 
 The files are all inside the `src` folder. See the following files that were changed in this post.
 * scanner.l the Flex Scanner

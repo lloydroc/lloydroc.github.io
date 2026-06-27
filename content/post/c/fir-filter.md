@@ -35,7 +35,7 @@ int example_delay_line4(int xn)
 
   return xv[4];
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 What this function does is hold 5 samples in the `xv` array. We don't exactly need to store the 5th sample, but do since it makes it easier later on for loops. The element `xv[0]` will be the latest sample and `xv[4]` will be the oldest sample. In discrete mathematics this is referred to as `x[n]` and `x[n-4]`. Since we initialized `xv` as static, the variables will be saved for us on each function call.
 
@@ -56,7 +56,7 @@ main(int argc, char *argv[])
 
   return 0;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 Running this program yields the output of:
 
@@ -106,7 +106,7 @@ int example_fir_filter(int xn)
 
   return yn;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 ### Getting the FIR Filter Impulse Response
 
@@ -128,7 +128,7 @@ main(int argc, char *argv[])
 
   return 0;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 Here we define our impulse function as `imp[]`. We shift over the impulse function by one time sample and we put it through our filter. As you can see our filter coefficients are the result of our output.
 

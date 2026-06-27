@@ -41,7 +41,7 @@ server {
     }
 }
 
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Debugging CORS
 

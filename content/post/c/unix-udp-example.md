@@ -49,7 +49,7 @@ Once we run the server we don't see any output other than knowing it is running 
 {{< highlight bash >}}
 $ ./udpserver
 
-{{< / highlight >}}
+{{< /highlight >}}
 
 ### Running the UDP Client
 
@@ -59,7 +59,7 @@ When the client is run, it will connect to the server and send 3 `char` with val
 $ ./udpclient
 sendto(3) 1 2 16
 recvfrom(3) 1 2 16
-{{< / highlight >}}
+{{< /highlight >}}
 
 Output of UDP client showing it sent 3 octets and their values.
 
@@ -74,7 +74,7 @@ recvfrom(3) 1 2 16
 sendto(3) 1 2 16
 ^C
 $
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## UDP Server C Example
 
@@ -198,7 +198,7 @@ main(int argc, char *argv[])
     printf("sendto(%ld) %d %d %d\n", buffrx, buffer[0], buffer[1], buffer[2]);
   }
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## UDP Client C Example
 
@@ -285,7 +285,7 @@ main(int argc, char *argv[])
   close(sockfd);
   exit(EXIT_SUCCESS);
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 
 ## Downloading the example.
@@ -300,5 +300,5 @@ $ make
 $ cd src
 $ ./udpserver
 $ ./udpclient # will have to run from another terminal
-{{< / highlight >}}
+{{< /highlight >}}
 

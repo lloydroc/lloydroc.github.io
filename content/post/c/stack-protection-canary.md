@@ -43,7 +43,7 @@ main(int argc, char *argv[])
 
   return x;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 Here we can see the `stack_smasher` function will write one integer past the allocated size of the array `x` on the stack causing a buffer overflow. As you'll see this doesn't actually cause any harm. Later, we'll observe this overflow being detected by stack protection.
 
@@ -54,13 +54,13 @@ Let's compile this code without stack protection. Both lines are equivalent, wit
 {{< highlight bash >}}
 $ gcc -O0 -o stack_smash stack_smash.c
 $ gcc -O0 -fno-stack-protector -o stack_smash stack_smash.c
-{{< / highlight >}}
+{{< /highlight >}}
 
 Now let's run this code and see what it does.
 
 {{< highlight bash >}}
 $ ./stack_smash # it runs fine!
-{{< / highlight >}}
+{{< /highlight >}}
 
 # ARM Assembly of our Stack Smasher Program
 
@@ -91,7 +91,7 @@ Dump of assembler code for function stack_smasher:
    0x00010414 <+68>:	bx	lr
 End of assembler dump.
 (gdb)
-{{< / highlight >}}
+{{< /highlight >}}
 
 We can see on highlighted line that the `str r3, [r11, #-4]` writes onto the frame pointer exactly since `r11=fp`.
 
@@ -112,7 +112,7 @@ We can now recompile our function with stack protection.
 
 {{< highlight bash >}}
 $ gcc -O0 -fstack-protector-all -o stack_smash stack_smash.c
-{{< / highlight >}}
+{{< /highlight >}}
 
 Now let's run it and see what happens.
 
@@ -120,7 +120,7 @@ Now let's run it and see what happens.
 $ ./stack_smash
 *** stack smashing detected ***: <unknown> terminated
 [1]    2464 abort      ./stack_smash
-{{< / highlight >}}
+{{< /highlight >}}
 
 Here we see that it was detected. Let's look at the assembly that was created.
 
@@ -155,7 +155,7 @@ Dump of assembler code for function stack_smasher:
    0x000104d0 <+92>:	pop	{r11, pc}
    0x000104d4 <+96>:	andeq	r0, r2, r8, lsl #30
 End of assembler dump.
-{{< / highlight >}}
+{{< /highlight >}}
 
 The lines highlighted show the canary inserted on the stack frame and checked that the same value is on the stack frame before the function exists. If the values different we'll branch to the `__stack_chk_fail` in the Procedure Linkage Table.
 
@@ -176,7 +176,7 @@ The value of the canary needs to be carefully considered as you could easily gue
 {{< highlight asm >}}
 ldr	r3, [pc, #76]
 ldr	r3, [r3]
-{{< / highlight >}}
+{{< /highlight >}}
 
 Where the address `[pc #76]` contains `andeq r0, r2, r8, lsl #30`. It seems as this will pick an address in the `.text` section of the program for the value.
 

@@ -18,7 +18,7 @@ $ ssh lloydroc.github.io
 Last login: Sun Nov 29 16:15:19 2020 from 174.27.249.252
 lloydroc.github.io$ who
 lloydroc pts/0        2020-11-29 17:17 (174.27.249.252)
-{{< / highlight >}}
+{{< /highlight >}}
 
 * A successful login will start a *session* which all processes will be a part of.
 * The shell will establish a *controlling terminal*. The user can provide input through STDIN to processes for commands.
@@ -61,7 +61,7 @@ The `$$` in a shell is the process ID of the current shell. Let's first examine 
 $  ps -p $$ -o "pid ppid pgid sid command"
     PID    PPID    PGID     SID COMMAND
 2948273 2948272 2948273 2948273 -zsh
-{{< / highlight >}}
+{{< /highlight >}}
 
 From this we can see that the shell `zsh` has PID=SID=PGID. Thus, this shell is the session leader and is the process group leader. As for the parent process of the shell:
 
@@ -69,7 +69,7 @@ From this we can see that the shell `zsh` has PID=SID=PGID. Thus, this shell is 
 $ ps -p 2948272 -o "pid ppid pgid sid command"
     PID    PPID    PGID     SID COMMAND
 2948272 2948270 2948270 2948270 sshd: lloydroc@pts/0
-{{< / highlight >}}
+{{< /highlight >}}
 
 Now let's run a process in the background with the `&` operator.
 
@@ -79,7 +79,7 @@ $ sleep 30 &
 $ ps -p 2948815 -o "pid ppid pgid sid command"
     PID    PPID    PGID     SID COMMAND
 2948815 2948273 2948815 2948273 sleep 30
-{{< / highlight >}}
+{{< /highlight >}}
 
 Notice the `sleep` command has the PPID of the `shell`. Also, notice it is running in a different PGID and it is the leader of this process group because the PID=PGID.
 
@@ -89,7 +89,7 @@ Let's look at everything under the shell process:
 $ pstree 2948273
 zsh─┬─pstree
     └─sleep
-{{< / highlight >}}
+{{< /highlight >}}
 
 We have only two processes running under the shell: the `pstree` itself and the `sleep` command.
 
@@ -108,7 +108,7 @@ $ ps -p 2465659 -o "pid ppid pgid sid user command tty"
 2465659 2465658 2465658 2465658 http     nginx: worker process       ?
 $ pstree -p 2465658
 nginx(2465658)───nginx(2465659)
-{{< / highlight >}}
+{{< /highlight >}}
 
 We can see that the two processes have no `tty` as they are daemons. The worker is in the same process group and session as the master. The master is the session and process group leader. The worker process is a child of the master process.
 
@@ -137,7 +137,7 @@ $ ps -p 2947817 -o "pid ppid pgid sid user command"
 $ ps -p 2948209 -o "pid ppid pgid sid user command"
     PID    PPID    PGID     SID USER     COMMAND
 2948209 2706371 2706371 2706371 postfix  pickup -l -t unix -u
-{{< / highlight >}}
+{{< /highlight >}}
 
 We can see the master `postfix` process is running under the root user. The other child processes are running as different users in the same process group. These processes are in the same session.
 
@@ -162,6 +162,6 @@ $ ps -p 2949633 -o "pid ppid pgid sid user command"
 $ ps -p 2949634 -o "pid ppid pgid sid user command"
     PID    PPID    PGID     SID USER     COMMAND
 2949634 2948273 2949631 2948273 lloydroc uniq
-{{< / highlight >}}
+{{< /highlight >}}
 
 We have 4 commands split between `|`. We can see that each process is in the same PGID and SID. The first command is the leader of the process group.

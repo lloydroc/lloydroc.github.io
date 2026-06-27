@@ -32,7 +32,7 @@ $ ls -l /usr/local/bin/e32tx
 -rwxr-xr-x 1 root root 785 Jul  8 09:32 /usr/local/bin/e32tx
 $ which e32tx
 /usr/local/bin/e32tx
-{{< / highlight >}}
+{{< /highlight >}}
 
 ### Transmit Data
 
@@ -44,7 +44,7 @@ registering socket /home/pi/e32.tx.data to /run/e32.data
 client registered
 sending 11 b'hello world'
 success! received 1 byte from socket /run/e32.data
-{{< / highlight >}}
+{{< /highlight >}}
 
 ### Transmit through Socket Python Script
 
@@ -109,7 +109,7 @@ if len(msg) == 1 and msg[0] == 0:
 else:
     print("failed to send data. len:", len(msg))
     sys.exit(1)
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Python Client to receive data over the Socket
 
@@ -126,7 +126,7 @@ registering socket /run/e32.data
 client registered
 received from /run/e32.data 13 bytes with b'hello world!\n'
 ^C
-{{< / highlight >}}
+{{< /highlight >}}
 
 
 ### Receive through Socket Python Script
@@ -202,4 +202,4 @@ while True:
     # receive from the e32
     (msg, address) = csock.recvfrom(59)
     print("received from", address, len(msg),"bytes with", msg)
-{{< / highlight >}}
+{{< /highlight >}}

@@ -49,7 +49,7 @@ main(int argc, char *argv[])
 
   return EXIT_SUCCESS;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 The following differences can be noted:
 * The string comparisons work with `strcmp`.
@@ -66,7 +66,7 @@ $2 = 0x555555556008 "a string pointer"
 (gdb) p &str1
 $3 = (char (*)[15]) 0x7fffffffdf99
 (gdb) 
-{{< / highlight >}}
+{{< /highlight >}}
 
 It appears to me that `str1` is on the stack. The contents of `str2` is on the heap and the value of `str2` is set in the `main` function.
 
@@ -92,14 +92,14 @@ main(int argc, char *argv[])
 
   return EXIT_SUCCESS;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 Let's say we had the following environment variables:
 {{< highlight bash >}}
 $ env
 SHELL=/bin/bash
 HOME=/home/lloyd
-{{< / highlight >}}
+{{< /highlight >}}
 
 Here the `char **environ` is simply the following.
 
@@ -117,7 +117,7 @@ The memory looks something like the following. Note, this shows different enviro
 $1 = 0x7fffffffe361 "SHELL=/bin/bash"
 (gdb) p environ[1]
 $2 = 0x7fffffffe371 "COLORTERM=truecolor"
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Double Pointer Example 2
 
@@ -160,7 +160,7 @@ main(int argc, char *argv[])
 
   return EXIT_SUCCESS;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 In this example we indirectly assign `p` by de-referencing the double pointer `pp`. Through the double pointer `pp` we set the value of the single pointer `p`.
 
@@ -271,7 +271,7 @@ allocate(int **p)
   }
   return 0;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 We can see from the example above for a function to allocate memory and assign the callers pointer to that memory the double pointer is required. This case is quite common and should be understood for any good C programmer. This example will shed light on what is going on inside many libraries that allocate memory for the caller.
 
@@ -285,7 +285,7 @@ int scandir(const char *restrict dirp,
             int (*filter)(const struct dirent *),
             int (*compar)(const struct dirent **,
                           const struct dirent **));
-{{< / highlight >}}
+{{< /highlight >}}
 
 This is because inside the `scandir` function itself it will allocate a `struct dirent **namelist` for the caller. With this `namelist` it's the same logically as a `struct dirent *namelist[]`, an array of pointers to `struct dirent`. Although, the caller doesn't allocate the memory, the caller is expected to free the `namelist`. 
 
@@ -294,6 +294,6 @@ while (n--) { // the variable n contains the length of namelist
     free(namelist[n]);
 }
 free(namelist);
-{{< / highlight >}}
+{{< /highlight >}}
 
 There is a more thorough example to [Listing files in a Directory using C](/post/c/list-directory/).

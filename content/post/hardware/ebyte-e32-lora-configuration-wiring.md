@@ -42,7 +42,7 @@ Typically, a soft link will be created `/dev/serial0` to the actual UART port:
 {{< highlight bash >}}
 $ ls -l /dev/serial0
 lrwxrwxrwx 1 root root 10 Dec  1 13:49 /dev/serial0 -> /dev/ttyAMA0
-{{< / highlight >}}
+{{< /highlight >}}
 
 Please note, that depending on the Raspberry Pi version it may not be `/dev/ttyAMA0` but maybe `/dev/ttyS0` or something else. The `e32` program will default to usign `/dev/serial0` unless specified otherwise.
 
@@ -64,7 +64,7 @@ stop = ^S; susp = ^Z; rprnt = ^R; werase = ^W; lnext = ^V; discard = ^O; min = 0
 -opost -olcuc -ocrnl onlcr -onocr -onlret -ofill -ofdel nl0 cr0 tab0 bs0 vt0 ff0
 -isig -icanon -iexten -echo echoe echok -echonl -noflsh -xcase -tostop -echoprt echoctl echoke -flusho -extproc
 $
-{{< / highlight >}}
+{{< /highlight >}}
 
 Note, in the `stty` command we are looking primarily for `rows 0; columns 0; line = 0;`. The command line tool `e32` will modify the terminal for it's needs. If you don't have the baud rate at 9600 or all the other options don't worry the `e32` command line tool will configure the terminal correctly and in `raw` mode.
 

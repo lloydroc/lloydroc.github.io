@@ -19,7 +19,7 @@ Using the [comm(1)](https://man7.org/linux/man-pages/man1/comm.1.html) command i
 
        comm -3 file1 file2
               Print lines in file1 not in file2, and vice versa.
-{{< / highlight >}}
+{{< /highlight >}}
 
 
 # Example with Files
@@ -35,7 +35,7 @@ b
 c
 d
 e
-{{< / highlight >}}
+{{< /highlight >}}
 
 Another file named `b.txt` with contents:
 
@@ -47,7 +47,7 @@ d
 e
 f
 g
-{{< / highlight >}}
+{{< /highlight >}}
 
 Using the `comm` command we can see the differences between the list in various ways:
 
@@ -82,7 +82,7 @@ a
 c
 d
 e
-{{< / highlight >}}
+{{< /highlight >}}
 
 Note, in the last example above we can mix the 3 options of `123` to get different outputs.
 

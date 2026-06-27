@@ -42,7 +42,7 @@ Now for the implementation of the server.
 
 #define BUF_SIZE 10
 #define SV_SOCK_PATH "serv_sock"
-{{< / highlight >}}
+{{< /highlight >}}
 
 Now for the implementation of the server.
 
@@ -114,7 +114,7 @@ main(int argc, char *argv[])
   }
   exit(EXIT_SUCCESS);
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Python Client
 
@@ -147,7 +147,7 @@ csock.close()
 
 if os.path.exists(csock_file):
   os.remove(csock_file)
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Running the C and Python
 
@@ -160,7 +160,7 @@ address: serv_sock received: HELLO
 server received 5 bytes from ./client_sock_py
 address: serv_sock received: WORLD
 $
-{{< / highlight >}}
+{{< /highlight >}}
 
 In the snippet above we run the server as a background process. We then run the Python script to send two datagrams of `hello` and `world` and see the server convert those to upper case and send them back as `HELLO` and `WORLD`.
 
@@ -179,7 +179,7 @@ While creating the Python script, a C script was also developed for testing. For
 
 #define BUF_SIZE 10
 #define SV_SOCK_PATH "serv_sock"}
-{{< / highlight >}}
+{{< /highlight >}}
 
 The corresponding C implementation:
 {{< highlight c >}}
@@ -248,4 +248,4 @@ main(int argc, char *argv[])
 
   exit(EXIT_SUCCESS);
 }
-{{< / highlight >}}
+{{< /highlight >}}

@@ -96,7 +96,7 @@ three(int a, int b)
   c = a+b;
   return c;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Description of the Stack of Frames
 
@@ -187,7 +187,7 @@ Dump of assembler code for function three:
    0x000104b0 <+52>:	bx	lr          ; lr=0x10468
 End of assembler dump.
 (gdb)
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## The Stack Frame in the Real World
 

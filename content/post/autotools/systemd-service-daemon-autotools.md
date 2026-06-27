@@ -27,7 +27,7 @@ $ sudo make install
  /bin/mkdir -p '/lib/systemd/system'
  /usr/bin/install -c -m 644 foo.service '/lib/systemd/system'
 ...
-{{< / highlight >}}
+{{< /highlight >}}
 
 This example we will create the simplest possible service so we can do what is above. The service can be started and stopped by `systemd`. We can also check some rudimentary status.
 
@@ -48,12 +48,12 @@ I try to stick to the source of truth which are the man pages. Staring with `sys
 {{< highlight bash >}}
 $ man 1 systemd
 $ man systemd # same thing as the default is section 1
-{{< / highlight >}}
+{{< /highlight >}}
 
 From there you'll see references to `systemd.service(5)` which we read with:
 {{< highlight bash >}}
 $ man 5 systemd.service
-{{< / highlight >}}
+{{< /highlight >}}
 
 Finally, the `daemon(7)` will be useful. As well as, `systemd.unit(5)` and `systemd.syntax(5)`.
 
@@ -79,7 +79,7 @@ main(int argc, char *argv[])
   }
   return 0;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 Yep, super easy. All we do is loop forever, printing a statement and sleeping for 10 seconds. When we run this program it will become a process. We'll use `systemd` to control this process.
 
@@ -94,7 +94,7 @@ Wants=
 
 [Service]
 ExecStart=/usr/local/bin/foo
-{{< / highlight >}}
+{{< /highlight >}}
 
 See that line 6 is the binary that we will compile `main.c` into.
 
@@ -103,7 +103,7 @@ As you will see later we install this service to `/lib/systemd/system` as it is 
 {{< highlight bash >}}
 # pkg-config --variable=systemdsystemunitdir systemd
 /lib/systemd/system
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Service Type
 
@@ -149,7 +149,7 @@ Jun 23 04:47:37 pi2 systemd[1]: Started A Example Systemd Service.
 # ps 30808
   PID TTY      STAT   TIME COMMAND
 #
-{{< / highlight >}}
+{{< /highlight >}}
 
 Here we list the service file. Note that for `.service` files in `systemd` we don't have to always type the extension. Thus, both `systemctl start foo.service` and `systemctl start foo` are the same. This doesn't apply to other types of units like `.socket`.
 
@@ -178,7 +178,7 @@ cd foo
 make
 sudo make install
 sudo systemctl start foo
-{{< / highlight >}}
+{{< /highlight >}}
 
 The magic happens on line 6 where we install. This will install `foo` to `/usr/local/bin` and it will also put our `foo.service` in the recommended location of `/lib/systemd/system`.
 
@@ -192,7 +192,7 @@ We can remove everything we've done now easily by doing the following. Note, you
 
 {{< highlight bash >}}
 # sudo make uninstall
-{{< / highlight >}}
+{{< /highlight >}}
 
 This uninstall target will remove `/usr/local/bin/foo` and `/lib/systemd/system/foo.service`. After uninstalled, the files will remain in the directory where the source is built. These files can just be removed with `rm` command and your system will be fully restored.
 
@@ -215,7 +215,7 @@ Here is a quick directory structure of our project:
 ./src/Makefile.am
 ./src/main.c
 #
-{{< / highlight >}}
+{{< /highlight >}}
 
 The `daemon(7)` man page outlines how to add `systemd` to an `autotools` project. These same instructions are followed here. With exception to a slight bug and some reading in between the lines.
 
@@ -229,7 +229,7 @@ AM_DISTCHECK_CONFIGURE_FLAGS = \
 
 SUBDIRS = src systemd
 dist_doc_DATA = README
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Autoconf configure.ac
 
@@ -265,7 +265,7 @@ AC_CONFIG_FILES([Makefile
                  systemd/Makefile])
 
 AC_OUTPUT
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Automake src/Makefile.am
 
@@ -275,7 +275,7 @@ As easy as it can be. We simply have one binary with a single source file. Our b
 # src/Makefile.am
 bin_PROGRAMS = foo
 foo_SOURCES = main.c
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Automake systemd/Makefile.am
 
@@ -286,7 +286,7 @@ Here we create a `systemd/` directory and add a `Makefile.am`. Notice we prepend
 if HAVE_SYSTEMD
 dist_systemdsystemunit_DATA = foo.service
 endif
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Developing on the Autotools project
 
@@ -298,4 +298,4 @@ To develop the `autotools` project once modifications are made I generally do th
 # make
 # make distcheck
 # sudo make install
-{{< / highlight >}}
+{{< /highlight >}}

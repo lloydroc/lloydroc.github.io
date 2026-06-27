@@ -19,7 +19,7 @@ Starting with a simple example. Say you have a list of strings:
 
 {{< highlight json >}}
 ["create", "read", "update", "delete"]
-{{< / highlight >}}
+{{< /highlight >}}
 
 Can we write an algorithm to find out which string is *closest* to the misspelled string `"craete"`? It's easy to see `craete` is *closest* to `create`, but how can we make a computer tell us this? Our program will **recommend** the first entry `create` because it has the highest correlation metric. How will we do this? We will cross-correlate the string `"create"` with each string in our list and take the string with the highest cross-correlation metric. This correlation function is very similar to [convolution](/post/c/convolution/). Convolution multiplies numbers, we will instead compare the number of character matches. The correlation metric is very similar to the distance metrics of Hamming and Levenshtein. Meaning the *Hamming Distance* would be how many characters are the same, and the *Levenshtein Distance* how many edits needed make each string equal.
 
@@ -99,7 +99,7 @@ i = 10
 create
 ------
      0 = 0 matches
-{{< / highlight >}}
+{{< /highlight >}}
 
 From this operation we get a resulting cross-corelation function \\( y[n] \\). The values of \\( y[n] \\) fall directly out of the figure above:
 
@@ -129,7 +129,7 @@ create
 $ recommend abc def fs ab aacd def xabcx
 xabcx
 $
-{{< / highlight >}}
+{{< /highlight >}}
 
 In the first example the command line tool finds that `craete` is most like `create`. In the second example it finds that `abc` is most like `xabcx` in the list.
 
@@ -178,7 +178,7 @@ int*
 correlate(char h[], char x[], int h_len, int x_len, int* y_len, int* y_max);
 
 #endif
-{{< / highlight >}}
+{{< /highlight >}}
 
 # C Implementation of Text Correlation for Recommending
 
@@ -214,7 +214,7 @@ correlate(char h[], char x[], int h_len, int x_len, int* y_len, int* y_max)
   *y_max = m;
   return y;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 # C function to run the Text Correlation and Recommend
 
@@ -279,7 +279,7 @@ print_usage(char *progname)
 {
   printf("usage: %s test words\n", progname);
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Downloading the Example
 
@@ -296,7 +296,7 @@ $ sudo make install # if you want to install it locally
 $ ./src/recommend craete create read update delete
 create
 $
-{{< / highlight >}}
+{{< /highlight >}}
 
 # How we can Improve the Algorithm?
 

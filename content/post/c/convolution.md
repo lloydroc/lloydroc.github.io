@@ -94,7 +94,7 @@ Let's define a header file with some helpers to get the min and max of two numbe
  The length of h and x must be specified as inputs.
 */
 float* convolve(float h[], float x[], int lenH, int lenX, int* lenY);
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## C File for 1D Convolution
 
@@ -124,7 +124,7 @@ float* convolve(float h[], float x[], int lenH, int lenX, int* lenY)
   }
   return y;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Using the Convolution
 
@@ -135,7 +135,7 @@ Let's first run it and see the result. Here we are convolving two arrays with le
 $ ./src/convolve
 1 2 3 4 5 4 3 2 1
 $
-{{< / highlight >}}
+{{< /highlight >}}
 
 {{< highlight c >}}
 #include <stdio.h>
@@ -154,7 +154,7 @@ int main(int argc, char *argv[])
   free(y);
   return 0;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 Note the formating of the floats for ease of use.
 
@@ -168,7 +168,7 @@ $ make
 $ ./src/convolve
 1 2 3 4 5 4 3 2 1
 $
-{{< / highlight >}}
+{{< /highlight >}}
 
 The files you will care about are `src/convolve.h`, `src/convolve.c` and `src/main.c`.
 

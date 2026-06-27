@@ -36,12 +36,12 @@ We can check GPIO Input Line 4 using the `gpioget` tool:
 {{< highlight bash >}}
 $ gpioget gpiochip0 4 # with the switch off
 0
-{{< / highlight >}}
+{{< /highlight >}}
 
 {{< highlight bash >}}
 $ gpioget gpiochip0 4 # with the switch on
 1
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Using C Code
 
@@ -112,7 +112,7 @@ cleanup:
   return EXIT_SUCCESS;
 }
 
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Building and Running
 
@@ -121,4 +121,4 @@ You can build and run with:
 {{< highlight bash >}}
 $ gcc -l gpiod -o input input.c
 $ ./input
-{{< / highlight >}}
+{{< /highlight >}}

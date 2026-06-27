@@ -20,7 +20,7 @@ Using the Unix `date` command we can print the Epoch. We need to use the `%s` fo
 {{< highlight bash >}}
 $ date +%s
 1644156059
-{{< / highlight >}}
+{{< /highlight >}}
 
 The `%s` format is *seconds since the Epoch (1970-01-01 00:00 UTC)*. The Epoch is always in the UTC or *Zulu*  time zone.
 
@@ -37,7 +37,7 @@ $ date +%F --date='@1644156059' # also format to a new time
 2022-02-06
 $ TZ='America/Denver' date --date='@1644156059' # timezone conversion
 Sun Feb  6 07:00:59 AM MST 2022
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Parse the Epoch in Mac OS X
 
@@ -50,7 +50,7 @@ $ date -r 1644156059 # for local time
 Sun Feb  6 07:00:59 MST 2022
 date -r 1644156059 +%F # without default format
 2022-02-06
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Print the current time in UTC
 
@@ -59,7 +59,7 @@ With the `-u` or `--utc` option we can print the date in UTC.
 {{< highlight bash >}}
 $ date -u
 Sun Feb  6 02:13:01 PM UTC 2022
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Print the Epoch with Bash
 
@@ -68,4 +68,4 @@ If you have `bash` version 5 or higher the environment variable `EPOCHSECONDS` c
 {{< highlight bash >}}
 $ echo $EPOCHSECONDS
 1644156059
-{{< / highlight >}}
+{{< /highlight >}}

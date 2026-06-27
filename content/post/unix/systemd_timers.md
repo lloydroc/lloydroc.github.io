@@ -35,7 +35,7 @@ About as simple as we could make it. We'll send datagrams over a Unix Domain soc
 {{< highlight bash >}}
 #!/bin/sh
 echo hello | netcat -w 1 -u -U /var/run/foo.socket
-{{< / highlight >}}
+{{< /highlight >}}
 
 We have the timeout of 1 second since `nc` won't end. The `-u` and `-U` options are for datagrams and Unix Domain Sockets.
 
@@ -50,7 +50,7 @@ Description=A Example Systemd Service Client to send Datagrams over a Unix Domai
 [Service]
 Type=oneshot
 ExecStart=foocl hello
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Systemd Timer to Call the Oneshot Service
 
@@ -62,7 +62,7 @@ Description=A Example Systemd Service Client Timer
 
 [Timer]
 OnCalendar=*-*-* *:*:00
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Running the example
 
@@ -76,7 +76,7 @@ $ systemctl start fooclient.timer
   Trigger: Tue 2020-06-30 16:13:00 BST; 37s left
 
 Jun 30 15:51:32 pi2 systemd[1]: Started A Example Systemd Service Client Timer
-{{< / highlight >}}
+{{< /highlight >}}
 
 Great our timer is working and in the `waiting` state. Now if we tail `/var/log/syslog` or if we looked at the journal we would see what's happening. Below are a number of runs of the timer/service.
 
@@ -105,7 +105,7 @@ Jun 30 16:14:11 pi2 systemd[1]: Starting A Example Systemd Service Client...
 Jun 30 16:14:11 pi2 foo[8019]: Received 6 bytes from /tmp/nc.XXXXhsOp0C: hello
 Jun 30 16:14:12 pi2 systemd[1]: fooclient.service: Succeeded.
 Jun 30 16:14:12 pi2 systemd[1]: Started A Example Systemd Service Client.
-{{< / highlight >}}
+{{< /highlight >}}
 
 # The Autotools Additions
 
@@ -124,7 +124,7 @@ Contents of `systemd/Makefile.am`:
 if HAVE_SYSTEMD
 dist_systemdsystemunit_DATA = foo.service foo.socket fooclient.service fooclient.timer
 endif
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Script src/foocl
 
@@ -133,7 +133,7 @@ The simple script to netcat:
 {{< highlight lang >}}
 #!/bin/sh
 echo hello | netcat -w 1 -u -U /var/run/foo.socket
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Changes to src/Makefile.am
 
@@ -144,7 +144,7 @@ AM_LDFLAGS=-lsystemd
 bin_PROGRAMS = foo
 foo_SOURCES = main.c
 dist_bin_SCRIPTS = foocl
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Installing
 
@@ -180,7 +180,7 @@ make[2]: Nothing to be done for 'install-exec-am'.
  /usr/bin/install -c -m 644 README '/usr/local/share/doc/foo'
 make[2]: Leaving directory '/home/pi/foo'
 make[1]: Leaving directory '/home/pi/foo'
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Downloading
 
@@ -196,4 +196,4 @@ $ sudo make install
 $ sudo systemctl daemon-reload
 $ sudo systemctl start foo.socket
 $ sudo systemctl start fooclient.timer
-{{< / highlight >}}
+{{< /highlight >}}

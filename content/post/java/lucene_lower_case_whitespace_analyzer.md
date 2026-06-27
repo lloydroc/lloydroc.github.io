@@ -53,7 +53,7 @@ analyzer.close();
 indexWriter.commit();
 indexWriter.close();
 directory.close();
-{{< / highlight >}}
+{{< /highlight >}}
 
 We can now `Query` the index with a `PrefixQuery`:
 {{< highlight java >}}
@@ -61,7 +61,7 @@ String query = "b";
 Query q = null;
 Term term = new Term("name", query);
 q = new PrefixQuery(term)
-{{< / highlight >}}
+{{< /highlight >}}
 
 This query will return Bob Anderson, Vince Bob, and Bobby Brown as we desire.
 
@@ -89,7 +89,7 @@ public class LowerCaseWhitespaceAnalyzer extends Analyzer {
     }
 
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 Happy Searching!
 

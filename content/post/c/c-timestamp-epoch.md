@@ -29,7 +29,7 @@ if(clock_gettime(CLOCK_REALTIME, &tv))
 
 tv.tv_sec;   // a long int with seconds
 tv.tv_nsec;  // a long with nanoseconds
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Epoch using `gettimeofday` from `sys/time.h`
 
@@ -42,7 +42,7 @@ struct timeval ts;
 gettimeofday(&ts, NULL); // return value can be ignored
 ts.tv_sec; // seconds
 ts.tv_usec // microseconds
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Converting the Epoch to a `double`
 
@@ -58,7 +58,7 @@ epoch_double(struct timespec *tv)
 
   return atof(time_str);
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 Calling looks like:
 {{< highlight c >}}
@@ -69,7 +69,7 @@ if(clock_gettime(CLOCK_REALTIME, &tv))
 
 // prints 1607095578.328412294
 printf("%.9f\n", epoch_double(&tv));
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Converting the Epoch to Milliseconds
 
@@ -85,7 +85,7 @@ epoch_millis(struct timespec *tv)
 
   return (long int) epoch;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 This call looks like:
 {{< highlight c >}}
@@ -96,7 +96,7 @@ if(clock_gettime(CLOCK_REALTIME, &tv))
 
 // prints 1607089375345 for 1607089375 seconds and 344958300 nanoseconds
 printf("%ld\n", epoch_millis(&tv));
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Time in ISO 8601 Format
 
@@ -134,7 +134,7 @@ rfc8601_timespec(struct timespec *tv)
 
   return rfc8601;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 To call this function do the following:
 {{< highlight c >}}
@@ -149,7 +149,7 @@ rfc8601 = rfc8601_timespec(&tv);
 // prints 2020-12-04T14:20:22.257Z
 printf("%s\n", rfc8601);
 free(rfc8601);
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Fractional Seconds - The Problem
 
@@ -171,7 +171,7 @@ struct tm {
     int tm_yday;       /* day in the year */
     int tm_isdst;      /* daylight saving time */
 };
-{{< / highlight >}}
+{{< /highlight >}}
 
 What is missing?? I don't see any fractional seconds here!
 
@@ -183,7 +183,7 @@ struct timespec {
     time_t   tv_sec;  /* seconds */
     long     tv_nsec; /* nanoseconds */
 };
-{{< / highlight >}}
+{{< /highlight >}}
 
 Or for the `sys/time.h` we have a `timeval`.
 {{< highlight c >}}
@@ -191,7 +191,7 @@ struct timeval {
    time_t      tv_sec;  /* seconds */
    suseconds_t tv_usec; /* microseconds */
 };
-{{< / highlight >}}
+{{< /highlight >}}
 
 Both of these give fractional seconds, however, the broken down time in `struct tm` leaves us hanging.
 
@@ -211,6 +211,6 @@ print_clock_res(struct timespec *tv)
   else
     printf("low resolution accuracy\n");
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 In this case the value of `tv->tv_nsec` was set to `1` and `tv->tv_sec` was set to `0`. There are also ways to link with a high resolution time **hrt** using `-lrt` which I don't have. Ideally, we would know if the accuracy is in milliseconds, microseconds, nanoseconds ....

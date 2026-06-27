@@ -49,7 +49,7 @@ $ tree /etc/dovecot
 └── dovecot-sql.conf.ext
 
 1 directory, 9 files
-{{< / highlight >}}
+{{< /highlight >}}
 
 The main file here is `20-coi.conf` where the content comes straight out of the [Dovecot Configuration](https://doc.dovecot.org/configuration_manual/coi/). Here are the contents:
 
@@ -69,7 +69,7 @@ protocol lmtp {
 
 mail_attribute_dict = file:%h/dovecot-attributes
 imap_capability = +IDLE WEBPUSH
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Dovecot Main Configuration
 
@@ -85,7 +85,7 @@ auth_debug = yes
 mail_debug = yes
 postmaster_address=lloyd at lloydroc.github.io
 !include conf.d/*.conf
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Delta Chat Application
 
@@ -136,7 +136,7 @@ $ tree .DeltaChat/
 └── tmp
 
 3 directories, 7 files
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## COI Message Content
 
@@ -212,7 +212,7 @@ ZfiVXbdlx4c+0Xhv
 
 
 --iQZ34QxJGUFu3AKB7J7Q0BgQcuDc1r--
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Final Thoughts
 

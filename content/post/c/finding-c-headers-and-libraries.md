@@ -42,7 +42,7 @@ valgrind           Valgrind - A dynamic binary instrumentation framework
 libmnl             libmnl - Minimalistic Netlink communication library
 iso-codes          iso-codes - ISO country, language, script and currency codes and translations
 shared-mime-info   shared-mime-info - Freedesktop common MIME database
-{{< / highlight >}}
+{{< /highlight >}}
 
 # First a Note about Installed Libraries
 
@@ -64,27 +64,27 @@ libxml2-dev/stable 2.9.4+dfsg1-7+deb10u1 armhf
 libxml2-doc/stable 2.9.4+dfsg1-7+deb10u1 all
   Documentation for the GNOME XML library
 ....
-{{< / highlight >}}
+{{< /highlight >}}
 
 From this we can see that only `libxml2` is installed but other packages are available. Using `pkg-config` do we have C flags and shared libraries?
 
 {{< highlight bash >}}
 $ pkg-config --list-all | grep xml
 $
-{{< / highlight >}}
+{{< /highlight >}}
 
 It's not there, `pkg-config` doesn't show `libxml2` as a package? We need to install the `dev` libraries typically for this.
 
 {{< highlight bash >}}
 $ sudo apt install libxml2-dev libxml2-doc
-{{< / highlight >}}
+{{< /highlight >}}
 
 Once the development package is installed we can see the package is present.
 
 {{< highlight bash >}}
 $ pkg-config --list-all | grep xml
 libxml-2.0         libXML - libXML library version2.
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Listing 
 
@@ -93,7 +93,7 @@ Ok now that `libxml-2.0` is installed let's list C flags and shared libraries we
 {{< highlight bash >}}
 $ pkg-config --cflags --libs libxml-2.0
 -I/usr/include/libxml2 -lxml2
-{{< / highlight >}}
+{{< /highlight >}}
 
 If we look now at the `/usr/include/libxml2` directory we can see all the header files we have available to use.
 
@@ -103,13 +103,13 @@ What if we want to create a program that uses `curl`. Let's sum this up, note yo
 
 {{< highlight bash >}}
 $ apt install libcurl4-doc libcurl4-openssl-dev
-{{< / highlight >}}
+{{< /highlight >}}
 
 Now we can see:
 {{< highlight bash >}}
 $ pkg-config --cflags --libs libcurl
 -I/usr/include/arm-linux-gnueabihf -lcurl
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Closing
 
@@ -121,7 +121,7 @@ $ apt search libxml
 libxml2/stable,now 2.9.4+dfsg1-7+deb10u1 armhf [installed,automatic]
   GNOME XML library
 ...
-{{< / highlight >}}
+{{< /highlight >}}
 
 When `pkg-config` doesn't show it listed then how is this package used? Let's look deeper into it?
 
@@ -131,7 +131,7 @@ $ apt search libxml
 libxml2/stable,now 2.9.4+dfsg1-7+deb10u1 armhf [installed,automatic]
   GNOME XML library
 ...
-{{< / highlight >}}
+{{< /highlight >}}
 
 {{< highlight bash >}}
 $ dpkg -l | grep libxml2                                                                                                                        1 ↵
@@ -158,6 +158,6 @@ dpkg -L libxml2:armhf
 /usr/share/lintian/overrides/libxml2
 /usr/lib/arm-linux-gnueabihf/libxml2.so.2
 /usr/share/doc/libxml2/NEWS.gz
-{{< / highlight >}}
+{{< /highlight >}}
 
 From here we can see a shared library `libxml2.so.2.9.4` which other programs could dynamically link in. They'd have a challenge though if they needed to be locally built on the machine. Thus, this library is for pre-compiled programs that alreday know how to link this shared library in. 

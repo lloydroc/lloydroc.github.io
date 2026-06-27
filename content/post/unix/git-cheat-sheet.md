@@ -10,13 +10,13 @@ categories:
 
 {{< highlight bash >}}
 git diff --name-only master..feature
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Showing Files only
 
 {{< highlight bash >}}
 git diff --name-only master..feature
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Number of commits
 

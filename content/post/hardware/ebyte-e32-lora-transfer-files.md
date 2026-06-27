@@ -30,7 +30,7 @@ From one Raspberry Pi with the `e32` installed. We need to be receiving before w
 receiver$ e32 -s # make sure this is good
 receiver$ e32 --out-file f
 waiting for input from terminal
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Sending a file
 
@@ -44,11 +44,11 @@ transmitter$ e32 --in-file f
 waiting for input from terminal
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxyy
 transmitter$
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Viewing the Contents
 
 {{< highlight bash >}}
 receiver$ cat f
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxyy
-{{< / highlight >}}
+{{< /highlight >}}

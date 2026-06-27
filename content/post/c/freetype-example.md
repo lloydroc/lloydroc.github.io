@@ -15,7 +15,7 @@ cd freetype-2.11.1
 ./configure
 make
 sudo make install
-{{< / highlight >}}
+{{< /highlight >}}
 
 {{< highlight bash >}}
 $ pkg-config --list-all | grep freetype
@@ -24,13 +24,13 @@ $ pkg-config --cflags freetype2
 -I/usr/local/include/freetype2 -I/usr/include/libpng16
 $ pkg-config --libs freetype2
 -L/usr/local/lib -lfreetype
-{{< / highlight >}}
+{{< /highlight >}}
 
 {{< highlight bash >}}
 $ wget https://freetype.org/freetype2/docs/tutorial/example1.c
 $ cc -I/usr/local/include/freetype2 -lfreetype -lm example1.c
 $ ./a.out
-{{< / highlight >}}
+{{< /highlight >}}
 
 
 {{< highlight bash >}}
@@ -78,7 +78,7 @@ $ fc-list
 /usr/share/fonts/type1/gsfonts/p052024l.pfb: URW Palladio L:style=Bold Italic
 /usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf: DejaVu Serif:style=Book
 /usr/share/fonts/type1/gsfonts/n019003l.pfb: Nimbus Sans L:style=Regular
-{{< / highlight >}}
+{{< /highlight >}}
 
 
 ```

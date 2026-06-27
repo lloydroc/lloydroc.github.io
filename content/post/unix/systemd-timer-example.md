@@ -38,7 +38,7 @@ $ sudo systemctl start example.timer # let systemd run the timer
 $ sudo systemctl status example.timer # see when the timer will activate
 $ sudo systemctl status example # see the status of the service and exit code of the script
 $ ls -l /tmp/example # we see file timestamp update every 3 minutes
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Example
 
@@ -86,7 +86,7 @@ touch /tmp/example
 EOF
 
 chmod 755 $PROGRAM
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Running the Example
 
@@ -102,7 +102,7 @@ $ systemctl status example.timer
    Loaded: loaded (/lib/systemd/system/example.timer; disabled; vendor preset: enabled)
    Active: inactive (dead)
   Trigger: n/a
-{{< / highlight >}}
+{{< /highlight >}}
 
 Let's start the timer and see the state change from inactive to active.
 
@@ -115,7 +115,7 @@ $ sudo systemctl status example.timer
   Trigger: Sat 2022-07-09 12:12:00 MDT; 1min 57s left
 
 Jul 09 12:09:58 penguin systemd[1]: Started A timer that runs our example service.
-{{< / highlight >}}
+{{< /highlight >}}
 
 We can also list all active timers. This command allows us to see when the next activation time is as well as the last time it was activated successfully. It is useful if there are many timers to view in the system.
 
@@ -127,7 +127,7 @@ Sat 2022-07-09 11:36:00 MDT  18s left    Sat 2022-07-09 11:33:22 MDT  2min 18s a
 
 6 timers listed.
 Pass --all to see loaded but inactive timers, too.
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Listing the Service
 
@@ -140,7 +140,7 @@ $ systemctl status example
    Active: inactive (dead) since Sat 2022-07-09 11:36:22 MDT; 20s ago
   Process: 3367 ExecStart=/usr/local/bin/example (code=exited, status=0/SUCCESS)
  Main PID: 3367 (code=exited, status=0/SUCCESS)
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Confirming the timer is working
 
@@ -158,14 +158,14 @@ Normalized form: *-*-* *:00/3:00
     Next elapse: Sat 2022-07-09 11:30:00 MDT
        (in UTC): Sat 2022-07-09 17:30:00 UTC
        From now: 30s left
-{{< / highlight >}}
+{{< /highlight >}}
 
 The `systemd-analyze` command will ensure our `OnCalendar` value is correct.
 
 {{< highlight bash >}}
 $ systemd-analyze calendar '*-* zz*:00/3:00'
 Failed to parse calendar specification '*-* zz*:00/3:00': Invalid argument
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Advantages to systemd timers over cron
 

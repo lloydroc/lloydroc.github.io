@@ -24,7 +24,7 @@ To play sound is simple. This is also known as *playback*. Simply run:
 
 {{< highlight bash >}}
 $ aplay --device=plughw:1,0 yourfile
-{{< / highlight >}}
+{{< /highlight >}}
 
 There are many options - see them all by typing `aplay -h`.
 
@@ -34,7 +34,7 @@ To record sound is simple:
 
 {{< highlight bash >}}
 $ arecord --device=plughw:1,0 yourfile
-{{< / highlight >}}
+{{< /highlight >}}
 
 There are many options - see them all by typing `arecord -h`.
 
@@ -63,7 +63,7 @@ card 0: ALSA [bcm2835 ALSA], device 2: bcm2835 IEC958/HDMI1 [bcm2835 IEC958/HDMI
 card 1: Device [USB Audio Device], device 0: USB Audio [USB Audio]
   Subdevices: 1/1
   Subdevice #0: subdevice #0
-{{< / highlight >}}
+{{< /highlight >}}
 
 Looking closely at this we have 2 cards:
 
@@ -162,7 +162,7 @@ hw:CARD=Device,DEV=0
 plughw:CARD=Device,DEV=0
     USB Audio Device, USB Audio
     Hardware device with all software conversions
-{{< / highlight >}}
+{{< /highlight >}}
 
 We can see that the 3D USB card is found on many device names. ALSA has both `hw` devices which interact directly with the hardware and `plughw` devices which are plugins that have another software layer on them to do things like the Surround Sound Specification.
 
@@ -175,7 +175,7 @@ hw:CARD=Device,DEV=0
 plughw:CARD=Device,DEV=0
     USB Audio Device, USB Audio
     Hardware device with all software conversions
-{{< / highlight >}}
+{{< /highlight >}}
 
 Which says *Direct hardware device without any conversions* for the `hw` and *Hardware device with all software conversions* for the `plughw`.
 
@@ -205,7 +205,7 @@ BUFFER_BYTES: [360 1048576]
 TICK_TIME: ALL
 --------------------
 aplay: set_params:1345: Channels count non available
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## ALSA Mixer
 
@@ -213,7 +213,7 @@ You can check out the ALSA Mixer and increase volume and do different things.
 
 {{< highlight bash >}}
 $ alsamixer -c 1
-{{< / highlight >}}
+{{< /highlight >}}
 
 ![alsamixer - USB 3D Sound](/assets/png/alsamixer_3d_sound.png)
 
@@ -233,6 +233,6 @@ ctl.!default {
   type hw
   card 1
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 Now you don't need to specify the device when running the `aplay` or `arecord` commands.

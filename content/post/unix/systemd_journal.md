@@ -35,7 +35,7 @@ main(int argc, char *argv[])
   }
   return 0;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 # We can't proceed unless we have these header files!
 
@@ -44,14 +44,14 @@ We're going to use `libsystemd`. To do this you're going to need to make sure th
 {{< highlight bash >}}
 $ pkg-config --cflags --libs libsystemd
 -lsystemd
-{{< / highlight >}}
+{{< /highlight >}}
 
 With this library we can add the linker flag `-lsystemd` and the following C headers:
 
 {{< highlight c >}}
 #include <systemd/sd-daemon.h>
 #include <systemd/sd-journal.h>
-{{< / highlight >}}
+{{< /highlight >}}
 
 These files would typically be found in `/usr/include/systemd`. This was done on a Raspberry Pi running *Rasbian 10 (buster)*. In order install the library I had to do an `apt install libsystemd-dev`. On another machine with Arch Linux the directories already exist. This is system dependent.
 
@@ -132,7 +132,7 @@ main(int argc, char *argv[])
   }
   return 0;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 The service is now notifying with state transistions, catching signals for reload and printing to *journald*. Note, the way we catch `SIGHUP` isn't ideal. I'll talk about this in the next section.
 
@@ -153,7 +153,7 @@ ExecStart=/usr/local/bin/foo
 ExecReload=/bin/kill -HUP $MAINPID
 StandardOutput=journal
 StandardError=journal
-{{< / highlight >}}
+{{< /highlight >}}
 
 By having `Type=notify` we tell `systemd` we are following the `sd_notify(3)` API. See how the reload looks below.
 
@@ -184,7 +184,7 @@ Jun 25 16:47:07 pi2 foo[15166]: Hello World!
 Jun 25 16:47:07 pi2 foo[15166]: This will only be seen when run by systemd, never on the terminal
 Jun 25 16:47:17 pi2 foo[15166]: Hello World!
 Jun 25 16:47:27 pi2 foo[15166]: Hello World!
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Testing the Reload
 
@@ -218,7 +218,7 @@ $ sudo systemctl status foo # reload is complete
            └─29092 /usr/local/bin/foo
 
 Jun 26 23:18:54 pi2 systemd[1]: Reloaded A Example Systemd Service.
-{{< / highlight >}}
+{{< /highlight >}}
 
 One note on the *reload* we send a `SIGHUP`. This isn't recommended. Here is the text from [systemctl.service(5)](https://www.freedesktop.org/software/systemd/man/systemd.service.html#).
 
@@ -228,7 +228,7 @@ is usually not a good choice, because this is an asynchronous operation and henc
 suitable to order reloads of multiple services against each other. It is strongly
 recommended to set ExecReload= to a command that not only triggers a configuration reload
 of the daemon, but also synchronously waits for it to complete.
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Changes to Autotools
 
@@ -283,7 +283,7 @@ AC_CONFIG_FILES([Makefile
                  systemd/Makefile])
 
 AC_OUTPUT
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## src/Makefile.am
 
@@ -294,7 +294,7 @@ We need to link in the `systemd` library.
 AM_LDFLAGS=-lsystemd
 bin_PROGRAMS = foo
 foo_SOURCES = main.c
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Downloading and Using
 
@@ -308,4 +308,4 @@ cd foo
 make
 sudo make install
 sudo systemctl start foo
-{{< / highlight >}}
+{{< /highlight >}}

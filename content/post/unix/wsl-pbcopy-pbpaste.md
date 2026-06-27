@@ -24,7 +24,7 @@ The `PATH` environment variable can be confusing, but it's very simple. The vari
 {{< highlight bash >}}
 $ mkdir ~/bin
 $ export PATH=$HOME/bin:$PATH
-{{< / highlight >}}
+{{< /highlight >}}
 
 This simple blurb will create a directory in your home called `bin` and it will add `$HOME/bin` directory to your `PATH`. The syntax of `~` and `$HOME` are equivalent. We will be placing the pbcopy and pbpaste scripts we create in this `bin` directory.
 
@@ -37,7 +37,7 @@ Open up WSL then open your favorite editor and create a file named `~/bin/pbcopy
 # the pbcopy script
 tee <&0 | clip.exe
 exit 0
-{{< / highlight >}}
+{{< /highlight >}}
 
 Then we need to do a `chmod u+x ~/bin/pbcopy` so this script is an executable. This command simply just let's the user, you in this case, execute it. We're good to go, let's now create the pbpaste script.
 
@@ -50,7 +50,7 @@ Same deal as above. Open up WSL then in your favorite editor put the contents be
 # the pbpaste script
 powershell.exe Get-Clipboard | sed 's/\r$//' | sed -z '$ s/\n$//'
 exit 0
-{{< / highlight >}}
+{{< /highlight >}}
 
 Now let's make the script executable by doing a `chmod u+x ~/bin/pbpaste`.
 
@@ -60,7 +60,7 @@ Now lets test `pbcopy` and `pbpaste` to make sure they work. Add the `$HOME/bin`
 
 {{< highlight bash >}}
 export PATH=$HOME/bin:$PATH
-{{< / highlight >}}
+{{< /highlight >}}
 
 Now open up a browser and copy something. Hell, copy from this blog post. Then go into that WSL window and type pbpaste then enter. You should see what you copied into your window pasted into the terminal.
 

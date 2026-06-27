@@ -29,7 +29,7 @@ Description: Tools for interacting with Linux GPIO character device - binary
  open-source and open-drain GPIOs).
  .
  This package contains the gpiod binary tools.
-{{< / highlight >}}
+{{< /highlight >}}
 
 It's detecting the falling edge as well, not consistently however.
 {{< highlight bash >}}
@@ -48,7 +48,7 @@ event:  RISING EDGE offset: 4 timestamp: [     196.663584298]
 event:  RISING EDGE offset: 4 timestamp: [     197.795192515]
 event:  RISING EDGE offset: 4 timestamp: [     200.263065808]
 event:  RISING EDGE offset: 4 timestamp: [     207.102455412]
-{{< / highlight >}}
+{{< /highlight >}}
 
 This seems to work fine
 {{< highlight bash >}}
@@ -76,7 +76,7 @@ event:  RISING EDGE offset: 4 timestamp: [     510.969533288]
 event: FALLING EDGE offset: 4 timestamp: [     511.471186220]
 event:  RISING EDGE offset: 4 timestamp: [     511.974681551]
 event: FALLING EDGE offset: 4 timestamp: [     512.445158908]
-{{< / highlight >}}
+{{< /highlight >}}
 
 
 
@@ -112,4 +112,4 @@ Building dependency tree
 Reading state information... Done
 Package 'gpiod' is not installed, so not removed
 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
-{{< / highlight >}}
+{{< /highlight >}}

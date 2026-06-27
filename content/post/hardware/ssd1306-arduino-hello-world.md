@@ -256,7 +256,7 @@ void setup() {
 
 void loop() { }
 
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Wiring
 

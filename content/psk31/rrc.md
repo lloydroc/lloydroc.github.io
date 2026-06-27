@@ -24,7 +24,7 @@ beta: we will use 0.5 as a damping factor
 T: We will use half of the symbol duration so 0.032/2=0.016
 SAMPLE_RATE: 48000.0
 ts: In our case we will use the audio standard of 1/48kHz
-{{< / highlight >}}
+{{< /highlight >}}
 
 With these constants above we can compute a Root Raised Cosine filter with the following code. Note, the `sinc` function is needed to create the Root Raised Cosine Filter.
 
@@ -33,7 +33,7 @@ The creation of the array will look as follows:
 {{< highlight c >}}
 int lenRC = 0; // will be 9217 for this case
 float *rrc = RootRaisedCosineFilter(0.5,0.032/2,1.0/SAMPLE_RATE,&lenRC);
-{{< / highlight >}}
+{{< /highlight >}}
 
 Now, let's see inside this function to find out how the Root Raised Cosine Filter `rrc[]` is computed.
 
@@ -79,4 +79,4 @@ float* RootRaisedCosineFilter(float beta, float T, float ts, unsigned long* lenR
   for(int i=0;i<N;i++) rc[i] /= max;
   return rc;
 }
-{{< / highlight >}}
+{{< /highlight >}}

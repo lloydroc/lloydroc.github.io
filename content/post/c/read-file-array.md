@@ -59,7 +59,7 @@ main(int argc, char *argv[])
 
   return 0;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 Running this code will produce:
 
@@ -68,7 +68,7 @@ $ ./jagged
 line 1, address 0x7ffe00f50bb0, length: 2, value: a
 line 2, address 0x7ffe00f50bb8, length: 3, value: bc
 line 3, address 0x7ffe00f50bc0, length: 4, value: def
-{{< / highlight >}}
+{{< /highlight >}}
 
 Note, the memory addresses are real, whereas, the example above with `0x1000` addresses is made-up. From this example we see that malloc will align to 8-byte boundaries. Note `0xc0-0xb8=8`.
 
@@ -79,7 +79,7 @@ Here is the code to read a file into a jagged array of strings in C. For input, 
 Usage is as follows:
 {{< highlight bash >}}
 ./file2strings <file-to-read-and-print>
-{{< / highlight >}}
+{{< /highlight >}}
 
 I'll let the code speak for itself except for a couple of fine points
 * Since we do not know the number of lines to begin with: we need to guess our array size and increase size if we guessed low.
@@ -232,7 +232,7 @@ main(int argc, char *argv[])
 
     return 0;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Example Makefile
 
@@ -244,4 +244,4 @@ file2strings: file2strings.c
 
 clean:
         rm file2strings
-{{< / highlight >}}
+{{< /highlight >}}

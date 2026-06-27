@@ -21,14 +21,14 @@ If you take the normal installation steps it's already setup.
 $ ./configure
 $ make
 $ sudo make install
-{{< / highlight >}}
+{{< /highlight >}}
 
 From here you just need to:
 {{< highlight bash >}}
 $ systemctl daemon-reload
 $ systemctl start e32
 $ systemctl status e32
-{{< / highlight >}}
+{{< /highlight >}}
 
 Now, you should see the following sockets. These come from the `ExecStart` line in the `e32.service` file shown below.
 {{< highlight bash >}}
@@ -40,7 +40,7 @@ Now, you should see the following sockets. These come from the `ExecStart` line 
 srw-rw---- 1 root dialout 0 Jul 23 15:07 /run/e32.data
 # ls -l /run/e32.control
 srw-rw---- 1 root dialout 0 Jul 23 15:08 /run/e32.control
-{{< / highlight >}}
+{{< /highlight >}}
 
 Note, the permissions of these sockets. The `e32` process and the client needs ability to read and write to and from these sockets.
 
@@ -65,7 +65,7 @@ StandardError=journal
 
 [Install]
 WantedBy=multi-user.target
-{{< / highlight >}}
+{{< /highlight >}}
 
 When we do a `sudo make install` the services are already installed for us.
 {{< highlight bash >}}
@@ -75,7 +75,7 @@ $ sudo make install
  /usr/bin/install -c -m 644 e32.service e32tx.timer e32tx.service '/lib/systemd/system'
 ...
 $
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Service status
 
@@ -97,14 +97,14 @@ $ systemctl status e32
    CGroup: /system.slice/e32.service
            └─19146 /usr/local/bin/e32 -v --daemon --sock-unix-data /run/e32.data --sock-unix-ctrl /
 
-{{< / highlight >}}
+{{< /highlight >}}
 
 We can also view the journal:
 {{< highlight bash >}}
 # journalctl -u e32
 -- Logs begin at Mon 2021-07-12 16:23:49 MDT, end at Sun 2021-07-18 07:19:40 MDT
 Jul 15 17:27:47 raspberrypi systemd[1]: Starting ebyte e32 systemd service...
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Transfer Files using the Socket
 

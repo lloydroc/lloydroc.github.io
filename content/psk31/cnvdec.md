@@ -86,7 +86,7 @@ unsigned int next_state_arr[32][2] =
   {28,29}, // state 30
   {30,31}, // state 31
 };
-{{< / highlight >}}
+{{< /highlight >}}
 
 If we are in state `4` and we shift a `0` into the state machine the next state will be `8`. If we shift in a `1` the next state will be a `9`. The values of `8` and `9` represent `ns0` and `ns1` respectively. This is because the `4` is multiplied by `2` - or shifted left - to produce `8`, then we add `0` or `1` to form `8` or `9`.
 
@@ -95,7 +95,7 @@ In some respect this table is a bit redundant as the following equations simply 
 {{< highlight c >}}
 ns0 = (cs*2)%32;
 ns1 = (cs*2+1)%32;
-{{< / highlight >}}
+{{< /highlight >}}
 
 #### Output State Array
 
@@ -136,7 +136,7 @@ unsigned int output_state_arr[32][2] =
   {2,1}, // state 30
   {2,1}  // state 31
 };
-{{< / highlight >}}
+{{< /highlight >}}
 
 For example if we are in state `23` if we shifted a `0` into the state machine the output would be a `3` and if we shifted in a `1` the output would be `0`.
 
@@ -146,7 +146,7 @@ This array effectively represents the trellis. We compute it as we go along for 
 
 {{< highlight c >}}
 unsigned int acc_metric[32][INPUT_LENGTH];
-{{< / highlight >}}
+{{< /highlight >}}
 
 #### Add-Compare-Set Array
 
@@ -155,7 +155,7 @@ This is a temporary array is used for each time sample to find the lowest metric
 
 {{< highlight c >}}
 unsigned int acs[32];
-{{< / highlight >}}
+{{< /highlight >}}
 
 #### Traceback Array
 
@@ -163,7 +163,7 @@ In the `traceback` array we will store the state with the lowest metric after we
 
 {{< highlight c >}}
 unsigned int traceback[INPUT_LENGTH];
-{{< / highlight >}}
+{{< /highlight >}}
 
 #### State Transition Array
 
@@ -205,7 +205,7 @@ unsigned int state_trans[32][32] =
   {3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,0,1,3,3}, // state 31
   {3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,0,1}, // state 32
 };
-{{< / highlight >}}
+{{< /highlight >}}
 
 #### Decoded Array
 
@@ -213,7 +213,7 @@ The entire purpose of the PSK31 decoder is to populate this array. It is the bes
 
 {{< highlight c >}}
 unsigned int decoded[INPUT_LENGTH];
-{{< / highlight >}}
+{{< /highlight >}}
 
 #### Hamming Distance
 
@@ -237,7 +237,7 @@ unsigned int hamming_distance(unsigned int a, unsigned int b)
   distance += (a2 ^ b2) >>  1;
   return distance;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 Take for example `a=0,b=0`, then the Hamming Distance `d=0`. On the other side if `a=0b11=3` and `b=0b00=0` then we have `d=0b10=2`. We can also have `a=0b01=1` and `b=0b10=2` giving `d=0b11=3` since both bits are different.
 
@@ -306,13 +306,13 @@ for(int t=0;t<INPUT_LENGTH;t++)
     }
   }
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 Before we get into the more code for this PSK31 Viterbi Decoder let's look at the output of the `acc_metric` array in a form that is easy to understand. This table is generated from an input of the following output states:
 
 {{< highlight c >}}
 unsigned int input[INPUT_LENGTH] = {0,3,2,1,0,0,1,0,1,1,1,3,1,1,0,2,2,1,3,0};
-{{< / highlight >}}
+{{< /highlight >}}
 
 It is important to note that this received sequence has no bit errors. Thus, the accumulated branch metric at the end will be zero.
 
@@ -353,7 +353,7 @@ t=     0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18
 29     9   9  11  11   6   6   6   2   4   5   6   4   5   4   5   6   6   4   3   7
 30     9  10  10  11   7   5   7   3   5   5   5   4   6   6   5   5   3   6   5   6
 31     9  10  12   9   7   5   5   3   3   3   3   4   4   4   5   7   5   4   5   6
-{{< / highlight >}}
+{{< /highlight >}}
 
 This width of this table are time samples, we have 20 time samples, this is because we have an input of length 20. The depth of this table is each of the 32 states. Effectively, this is a Trellis diagram but the numbers inside represent the branch metrics as it transitions. Feast your eye on the 0 metrics that are in each column. It is also important to note that at `t=0` we have an arbitrary value of 9 since we know we must start in the 0 state. If we are in state 0 then we can only go to state 0 or state 3.
 
@@ -362,7 +362,7 @@ Let's look more closely at the `t=0` column. Our lookup arrays previously define
 {{< highlight c >}}
 output_state_arr[0] = {0,3}
 next_state_arr[0] = {0,1}
-{{< / highlight >}}
+{{< /highlight >}}
 
 This means when we start at state 0, if a 0 was input to the state machine the output would be a 0 and the next state would be 0. However, if we start at state 0 and a 1 was input to the state machine then 3 would be output and the next state would be 1. The distance is respecively 0 and 2 since we're comparing our first input symbol of 0.
 
@@ -375,7 +375,7 @@ traceback:
 t=     0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19
 ------------------------------------------------------------------------------------
        0   1   2   5  11  23  14  28  25  18   5  10  20   8  17   2   4   8  16   0
-{{< / highlight >}}
+{{< /highlight >}}
 
 The path above through states 0,1,2,5,11 ... is the branch where the accumulated metric is 0. This is because at `t=19, state=0` we arrive at 0. We've computed all the branch metrics and taken the state with the lowest one at each time sample.
 
@@ -399,7 +399,7 @@ for(int t=len-2;t>=0;t--)
     traceback[t] = min_state;
   }
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 ### Step 3 - Decoding the bits that corresponeded to the states from Step 2
 
@@ -410,7 +410,7 @@ decoded:
 t=     0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18
 --------------------------------------------------------------------------------
        1   0   1   1   1   0   0   1   0   1   0   0   0   1   0   0   0   0   0
-{{< / highlight >}}
+{{< /highlight >}}
 
 These are the exact bits we put into our PSK31 Convolutional Coder and we know know that our decoding worked. Let's look at how we can go from the `traceback` array to the `decoded` array.
 
@@ -421,7 +421,7 @@ for(int t=1;t<len-1;t++)
 {
   decoded[t] = state_trans[traceback[t-1]][traceback[t]];
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Where to go from here?
 

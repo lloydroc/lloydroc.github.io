@@ -36,7 +36,7 @@ main(int argc, char *argv[])
 
   return x;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Pseudo Logic of if statement in assembly
 
@@ -45,7 +45,7 @@ When we have following conditional logic in C:
 {{< highlight c >}}
 if ( a == b )
   x = 4;
-{{< / highlight >}}
+{{< /highlight >}}
 
 It will have the following pseudo logic in assembly. Hopefully you follow this strange mix of assembly and logic I created on the fly.
 
@@ -55,7 +55,7 @@ It will have the following pseudo logic in assembly. Hopefully you follow this s
   mov r3, #4   ; the statements inside the if when true
   str r3, [address of x] ; put 4 into x
 BEYONDIF:
-{{< / highlight >}}
+{{< /highlight >}}
 
 The `BEYONDIF` label represents code outside the `if` statement and allows us to jump out when the if condition doesn't hold.
 
@@ -97,7 +97,7 @@ main:
 	.size	main, .-main
 	.ident	"GCC: (Raspbian 8.3.0-6+rpi1) 8.3.0"
 	.section	.note.GNU-stack,"",%progbits
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Converting an if statement with if-else and else from C to Assembly
 
@@ -133,7 +133,7 @@ main(int argc, char *argv[])
 
   return x;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Pseudo Logic of if statement in assembly
 
@@ -148,7 +148,7 @@ else if (a < b)
   x = 6;
 else
   x = 7;
-{{< / highlight >}}
+{{< /highlight >}}
 
 It will have the following pseudo logic in assembly.
 
@@ -171,7 +171,7 @@ ALTB: ; if (a < b)
 ELSE: ; else statement
   str 7, [address of x]d
 GETOUT:
-{{< / highlight >}}
+{{< /highlight >}}
 
 The `GETOUT` label represents code outside the `if` statement, after the `else`.
 
@@ -228,7 +228,7 @@ main:
 	@ sp needed
 	ldr	fp, [sp], #4
 	bx	lr
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Converting a switch statement in C to assembly
 
@@ -257,7 +257,7 @@ main(int argc, char *argv[])
 
   return y;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Pseudo Code of the switch statement in Assembly
 
@@ -274,7 +274,7 @@ switch(x)
   default:
     y = 13;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 This is the equivalent to this in C:
 
@@ -285,7 +285,7 @@ if ( x == 1)
   y = 11;
 else
   y = 13;
-{{< / highlight >}}
+{{< /highlight >}}
 
 From here our "pseudo-assembly" would be:
 
@@ -304,7 +304,7 @@ CASE2:
 DEFAULT:
   str 11, [address of y]
 OUTSIDECASE:
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Assembly Language of a C switch statement
 
@@ -347,4 +347,4 @@ main:
 	@ sp needed
 	ldr	fp, [sp], #4
 	bx	lr
-{{< / highlight >}}
+{{< /highlight >}}

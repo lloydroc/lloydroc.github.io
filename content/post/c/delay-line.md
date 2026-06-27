@@ -115,7 +115,7 @@ main(int argc, char *argv[])
 
   return 0;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 
 # C Header for a Delay Line
@@ -186,7 +186,7 @@ int
 dl_get(struct delay_line *dl, int t_offset);
 
 #endif
-{{< / highlight >}}
+{{< /highlight >}}
 
 # C Implementation of a Delay Line
 
@@ -241,7 +241,7 @@ int dl_get(struct delay_line *dl, int t_offset)
   sample = *(ptr);
   return sample;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Where to go from here?
 
@@ -258,7 +258,7 @@ $ cd delayline-1.0
 $ ./configure
 $ CFLAGS="-g -O3" make
 $ ./src/delayline
-{{< / highlight >}}
+{{< /highlight >}}
 
 
 

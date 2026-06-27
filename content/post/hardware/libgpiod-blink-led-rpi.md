@@ -48,18 +48,18 @@ We can turn the LED on using the `gpioset` command:
 
 {{< highlight bash >}}
 $ gpioset gpiochip0 21=1
-{{< / highlight >}}
+{{< /highlight >}}
 
 and turn it off again with:
 
 {{< highlight bash >}}
 $ gpioset gpiochip0 21=0
-{{< / highlight >}}
+{{< /highlight >}}
 
 or we can turn it on for a duration:
 {{< highlight bash >}}
 $ gpioset --mode=time --mode=time --sec=3 gpiochip0 21=1
-{{< / highlight >}}
+{{< /highlight >}}
 
 # C Code to Blink the LED
 
@@ -141,7 +141,7 @@ cleanup:
 
   return EXIT_SUCCESS;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Building and Running
 
@@ -150,6 +150,6 @@ It's easy to build and run:
 {{< highlight bash >}}
 $ gcc -o blink blink.c -lgpiod
 $ ./blink
-{{< / highlight >}}
+{{< /highlight >}}
 
 You should see an LED blink for 3 seconds.

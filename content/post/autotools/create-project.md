@@ -70,7 +70,7 @@ make[1]: Leaving directory '/home/lloydroc/autotools_helloworld'
 $ ./src/autotools_helloworld
 hello world
 $
-{{< / highlight >}}
+{{< /highlight >}}
 
 Here is the script which I named `atprj`. This is short for "Autotools Project".
 
@@ -193,4 +193,4 @@ config.h
 tags
 EOF
 
-{{< / highlight >}}
+{{< /highlight >}}

@@ -81,7 +81,7 @@ Assuming even parity, if we transmit data of `00001` and upon reception get a bi
 {{< highlight bash >}}
 10000111 # UART transmits 00001 with even parity bit to be 1
 10000011 # a receiving UART an erroneous frame with one flipped bit
-{{< / highlight >}}
+{{< /highlight >}}
 
 We know there is a bit error in the received data frame because the sum of 1s and the parity bit isn't even, the sum is 1.
 
@@ -101,7 +101,7 @@ Reception from a UART with Parity Enabled and Marked:
 100     # ascii  100=d=0b01100100 needs even parity=1
 255     #          255=0b11111111 needs even parity=0
 10      # ascii   10=\n=0b00001010 needs even parity=0
-{{< / highlight >}}
+{{< /highlight >}}
 
 What we will read back from the UART:
 {{< highlight bash >}}
@@ -117,7 +117,7 @@ What we will read back from the UART:
 255  # mark for 10=\n
 0    # mark for 10=\n
 10   # 10=\n marked invalid
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Code to Configure the UART
 
@@ -226,7 +226,7 @@ uart_get_speed(int requested_speed)
   return speed;
 }
 
-{{< / highlight >}}
+{{< /highlight >}}
 
 ### Configure the UART
 
@@ -315,7 +315,7 @@ uart_setup(char *filename, speed_t baud, bool parity, bool twostop)
 
   return UART;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 ### Reading bytes from the UART into a Buffer
 
@@ -344,7 +344,7 @@ uart_read(int fd_uart, char buffer[], size_t buf_len, bool verbose)
 
   return rbytes;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 ### Writing Bytes to the UART
 
@@ -389,7 +389,7 @@ uart_write(int fd_uart, bool verbose)
 
   return rbytes;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 ### Asynchronously Reading and Writing from the UART
 
@@ -441,7 +441,7 @@ uart_poll(int fd_uart, bool verbose)
 
   return 0;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Verifying the UART Configuration
 
@@ -456,7 +456,7 @@ parenb -parodd -cmspar cs8 hupcl -cstopb cread clocal -crtscts
 -ignbrk -brkint -ignpar parmrk inpck -istrip -inlcr -igncr -icrnl -ixon -ixoff -iuclc -ixany -imaxbel -iutf8
 -opost -olcuc -ocrnl onlcr -onocr -onlret -ofill -ofdel nl0 cr0 tab0 bs0 vt0 ff0
 -isig -icanon -iexten -echo echoe echok -echonl -noflsh -xcase -tostop -echoprt echoctl echoke -flusho -extproc
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Code
 
@@ -478,7 +478,7 @@ OPTIONS:
         -p --parity              Enable even parity
         -2 --twostop             Enable two stop bits
         -f --tty-filename        Filename for the tty. Default is /dev/serial0
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Test setup Wiring
 
@@ -498,7 +498,7 @@ Use the `-2` flag to enable two stop bits.
 
 {{< highlight bash >}}
 $ uartd -s 2000000 -2
-{{< / highlight >}}
+{{< /highlight >}}
 
 ### Raspberry Pi 2 Configuration
 
@@ -506,7 +506,7 @@ Use the `-p` flag to enable parity.
 
 {{< highlight bash >}}
 $ uartd -s 2000000 -p
-{{< / highlight >}}
+{{< /highlight >}}
 
 Now we can type into the 1st Raspberry Pi and see the errors on the 2nd Raspberry Pi.
 

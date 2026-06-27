@@ -29,7 +29,7 @@ $ ./bpsk31tx --wavfile psk31.wav "hello world"
 hello world -> 1010110011001101100110110011100100110101100111001010100110110010110100
 $ ls -l psk31.wav
 -rw-r--r-- 1 lloydroc lloydroc 4500044 Jan 24 14:38 psk31.wav
-{{< / highlight >}}
+{{< /highlight >}}
 
 # What the Implementation Doesn't Do
 
@@ -61,7 +61,7 @@ Debugging Options:
 --debug-carrier-float-csv FILE   Write the Carriers for Each Symbol to CSV
 --debug-carrier-integer-csv FILE Write the Carriers quantized to Integers to CSV
 --debug-matched-float-csv FILE   Write the matched filter to CSV
-{{< / highlight >}}
+{{< /highlight >}}
 
 # The Overall Implementation Process
 
@@ -122,7 +122,7 @@ struct PSK
   ssize_t transmission_num_samples;
   ssize_t transmission_num_bytes;
 };
-{{< / highlight >}}
+{{< /highlight >}}
 
 We will make function calls to operate on the `struct PSK` and use it to take our input text, encode it, and phase key it. To initialize this structure we have a function called `bpsk31_init` in the `bpsk31.h` and `bpsk31.c` files.
 
@@ -153,7 +153,7 @@ struct options {
     enum MATCHED_FILTER matched_filter;
     int error;
 };
-{{< / highlight >}}
+{{< /highlight >}}
 
 We keep a pointer to these options in the `struct PSK`. Note, that BPSK31 is just a usage of the options.
 
@@ -294,7 +294,7 @@ const char ALPHABET[128][11] = {
   "1011010111", // ~
   "1110110101" // DEL
 };
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Encoding Text from the Alphabet
 
@@ -347,7 +347,7 @@ bpsk31_encode_text(struct PSK *bpsk31, char *text)
 
   return 0;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 # BPSK Symbol Creation
 
@@ -416,7 +416,7 @@ bpsk31_make_transmission(struct PSK *bpsk31)
 
   return 0;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Source
 

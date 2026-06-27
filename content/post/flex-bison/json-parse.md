@@ -25,7 +25,7 @@ If we had the following JSON:
 {
   "number": 1.0
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 Our FLEX scanner would have the following token stream `LCURLY`, `STRING number`, `COLON`, `DECIMAL 1.0`, `RBRAC`. Let's look at the source for the FLEX scanner.
 
@@ -59,7 +59,7 @@ EXP ([Ee][-+]?[0-9]+)
 [1-9]+\.?[0-9]*{EXP}? { ECHO; yylval.decimal = atof(yytext); return DECIMAL; }
 
 %%
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Bison Parser for JSON
 
@@ -70,7 +70,7 @@ For example the rule:
 {{< highlight text >}}
 member: STRING COLON value { // put c code here: $1 will be the JSON member, and $3 the value }
       ;
-{{< / highlight >}}
+{{< /highlight >}}
 
 For this grammar I consulted [json.org](https://www.json.org). On the main page the JSON grammar is provided. The form of this grammar is specified in [McKeeman Form](https://www.crockford.com/mckeeman.html). The McKeeman Form is clean and concise. However, the grammar we define in Bison is not exactly what as specified, but follows the major cases. One, difference is how whitespace is handled. Getting into converting a McKeeman Grammar to a grammar in Bison is more than I wanted to cover in this post.
 
@@ -147,7 +147,7 @@ yyerror(const char *s)
 {
   fprintf(stderr,"error: %s on line %d\n", s, yylineno);
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## C Example function to Parse JSON
 
@@ -176,7 +176,7 @@ main(int argc, char *argv[])
   }
   return yyparse();
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Usage and Downloading
 
@@ -189,7 +189,7 @@ $ ./configure
 $ make
 $ ./src/parse_json some_file.json
 $ ./src/parse_json <enter in text or paste in, harder this way though>
-{{< / highlight >}}
+{{< /highlight >}}
 
 Note: Debugging is turned on so you'll see the parser state as it pushes and pops tokens on the stack. If you want turn it off then I guess you'll have to message me and I'll need to make another tarball. I used flex 2.6.4 and bison version 3.5 for this. Although, I'd be surprised if it doesn't work for much older versions, including the older lex and yacc.
 
@@ -208,7 +208,7 @@ Here is what I used to test. It's easy to run make a file called `test1.json`, t
 
 {{< highlight bash >}}
 $ ./src/parse_json test1.json
-{{< / highlight >}}
+{{< /highlight >}}
 
 ### Here are some use cases to test the program with
 
@@ -218,7 +218,7 @@ Let's start out simple.
 
 {{< highlight json >}}
 { }
-{{< / highlight >}}
+{{< /highlight >}}
 
 #### An Array of 2 Integers
 
@@ -226,7 +226,7 @@ Handling of an Array
 
 {{< highlight json >}}
 [1,1]
-{{< / highlight >}}
+{{< /highlight >}}
 
 #### Handling Arrays with different Types
 
@@ -234,7 +234,7 @@ An array with both integers and decimals, and also exponents. One of the element
 
 {{< highlight json >}}
 [2,2,2,2,2e3, 2.0, 1e-9, [1,2,3,4.0]]
-{{< / highlight >}}
+{{< /highlight >}}
 
 #### Handling a Member
 
@@ -242,7 +242,7 @@ A simple string and value.
 
 {{< highlight json >}}
 { "hello" : "world" }
-{{< / highlight >}}
+{{< /highlight >}}
 
 #### A more complex case
 
@@ -260,7 +260,7 @@ Do some nesting with members and values of arrays. Throw, a boolean type of `fal
       "hair": false
     }
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 ##### Even more complex
 
@@ -292,4 +292,4 @@ Handle a bit more complex.
     }
   }
 }
-{{< / highlight >}}
+{{< /highlight >}}

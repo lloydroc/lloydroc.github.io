@@ -33,7 +33,7 @@ From the block diagram shown we can see 2 output bits `g0` and `g1`. These are 1
 {{< highlight c >}}
 int g0 = (x4+x2+x1+x0)%2;
 int g1 = (x4+x3+x0)%2;
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Convolutional Encoder Output
 
@@ -182,7 +182,7 @@ int g1(int x4, int x3, int x2, int x1, int x0)
   int g1 = (x4+x3+x0)%2;
   return g1;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 A simple `Makefile` to build this project is as follows. Running a `make` followed by a `./psk31_enc.o` encode the 1-bit input in the example and output the 2-bit encoding using the PSK31 generator functions.
 
@@ -194,4 +194,4 @@ all: psk31_enc.o
 
 clean:
 	rm *.o
-{{< / highlight >}}
+{{< /highlight >}}

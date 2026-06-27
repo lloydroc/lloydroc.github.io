@@ -160,7 +160,7 @@ class DrinkerStatus {
         return name + " is " + status;
     }
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 The output of this example is as follows:
 ```

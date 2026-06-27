@@ -36,7 +36,7 @@ file /bin/ls ready to read ... this is where we'd call fread(file)
 read 1 bytes from /bin/ls
 $ ./poll_timeout /dev/ttys000 # we will timeout after 3 seconds here
 poll timed out
-{{< / highlight >}}
+{{< /highlight >}}
 
 The `/dev/ttys000` file is a Pseudo-Terminal I found using the `who` command.
 
@@ -96,7 +96,7 @@ main(int argc, char *argv[])
   fclose(file);
   return 0;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Using `select` to implement a timeout on a `read` {#select_example}
 
@@ -112,7 +112,7 @@ file /bin/ls ready to read ... this is where we'd call fread(file)
 read 1 bytes from /bin/ls
 $ ./select_timeout /dev/ttys000 # we will timeout here after 3 seconds
 poll timed out on file /dev/ttys000 (3)
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## C implementation of a `read` timeout using `select`
 
@@ -174,7 +174,7 @@ main(int argc, char *argv[])
   fclose(file);
   return 0;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Implementing a `timeout` when reading from a Terminal  {#terminal_example}
 
@@ -198,7 +198,7 @@ MIN == 0, TIME > 0 (read with timeout)
 $ ./tty_timeout /dev/ttyAMA0 # do not expect bytes from this terminal
 opening terminal /dev/ttyAMA0
 timed out
-{{< / highlight >}}
+{{< /highlight >}}
 
 When we read from a terminal we can also implement a timeout. For example this would be used when reading from a UART on a Raspberry Pi.
 
@@ -309,7 +309,7 @@ main(int argc, char *argv[])
     
   return 0;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Which example to use {#example_usage}
 

@@ -31,7 +31,7 @@ From here you will see the following two devices created:
 $ ls -l /dev/spidev0*
 crw-rw---- 1 root spi 153, 0 Apr 19 08:32 /dev/spidev0.0
 crw-rw---- 1 root spi 153, 1 Apr 19 08:32 /dev/spidev0.1
-{{< / highlight >}}
+{{< /highlight >}}
 
 We have a single SPI interface which can be accessed 2 ways? What's the difference between `spidev0.0` and `spidev0.1`? It's in the Chip Enable pins, also called, Chip Select. Read on!
 
@@ -82,7 +82,7 @@ $ ls -l /dev/spidev0*
 crw-rw---- 1 root spi 153, 0 Apr 20 21:17 /dev/spidev1.0
 crw-rw---- 1 root spi 153, 1 Apr 20 21:17 /dev/spidev1.1
 crw-rw---- 1 root spi 153, 2 Apr 20 21:17 /dev/spidev1.2
-{{< / highlight >}}
+{{< /highlight >}}
 
 It makes sense to specify the number of pins needed for chip enables as you may only have one device and need the pins for other purposes.
 
@@ -104,7 +104,7 @@ Step 3 looks like the code below. See how we combine the file descriptor that re
 
 {{< highlight c >}}
 ioctl(fd0, SPI_IOC_MESSAGE(1), &spi_ioc_transfer);
-{{< / highlight >}}
+{{< /highlight >}}
 
 There are many combinations possible when using file descriptors and `spi_ioc_transfer` structures depending on the use case. Above, we used a simple 1-to-1 mapping.
 
@@ -127,7 +127,7 @@ transfer.cs_change = cs_low;            // before xfer will go high but will rem
 transfer.tx_nbits = 0;                  // no. bits for writing (default 0)
 transfer.rx_nbits = 0;                  // no. bits for reading (default 0)
 transfer.pad = 0;                       // interbyte delay - check version
-{{< / highlight >}}
+{{< /highlight >}}
 
 The `transfer.cs_change` field confused me at first. If we leave this at `0` or `false` you'd get what you'd expect and the SPI Controller will drive CS low only when a transfer is in place. If we set to `1` or `true` the SPI controller will just leave CS low for the most part and not change it. I use the words "most part" here as it will toggle for some time before the transfer even happens, but after it will be kept low. This is in the oscilloscope pictures below.
 

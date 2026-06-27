@@ -17,12 +17,12 @@ Let's start with the actual database schema:
 {{< highlight sql >}}
 --schema.sql
 CREATE TABLE IF NOT EXISTS people(name,state);
-{{< / highlight >}}
+{{< /highlight >}}
 
 We can create a database with:
 {{< highlight bash >}}
 $ sqlite3 people.db < schema.sql
-{{< / highlight >}}
+{{< /highlight >}}
 
 Create a quick seed script to populate our table:
 {{< highlight sql >}}
@@ -34,12 +34,12 @@ INSERT INTO people(name,state) VALUES ('Sally','TX');
 INSERT INTO people(name,state) VALUES ('Steve','CO');
 INSERT INTO people(name,state) VALUES ('Gretchen','FL');
 INSERT INTO people(name,state) VALUES ('Mark','VT');
-{{< / highlight >}}
+{{< /highlight >}}
 
 Then go ahead and seed the database:
 {{< highlight bash >}}
 $ sqlite3 people.db < seed.sql
-{{< / highlight >}}
+{{< /highlight >}}
 
 A example written in C is below. It takes the following steps:
 ```
@@ -122,7 +122,7 @@ main(int argv, char **argc)
 
   return 0;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 Before we build the c source we need to talk about getting including SQLite into the system. I take the recommended approach of downloading the source and compiling it onto my system. This is the recommended approach on the website. Once all said and done we will have two files `sqlite3.c` and `sqlite3.h`.
 
@@ -133,7 +133,7 @@ main: main.c sqlite3.o
 %.o: %.c
 	$(CC) -c $< -o $@
 
-{{< / highlight >}}
+{{< /highlight >}}
 
 Building and running the example:
 {{< highlight bash >}}
@@ -142,7 +142,7 @@ cc -c sqlite3.c -o sqlite3.o
 cc     main.c sqlite3.o   -o main
 $ ./main people.db CO
 name: Steve state: CO
-{{< / highlight >}}
+{{< /highlight >}}
 
 That's it! Nice and easy. To extend this would be easy. Make more complex queries are parameterize them as you like with ?1, ?2 or even use named parameters. See the SQLite Docs. When binding be sure to use the correct binding type: text, int, blob ... Then be sure when extracting the columns choose the right type and index.
 

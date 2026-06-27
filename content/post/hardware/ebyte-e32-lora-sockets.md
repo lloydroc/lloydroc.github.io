@@ -23,7 +23,7 @@ We have two sockets to use:
 
 {{< highlight bash >}}
 $ e32 --sock-unix-data /run/e32.data --sock-unix-control /run/e32.control
-{{< / highlight >}}
+{{< /highlight >}}
 
 This will tell the `e32` to create two Unix Domain sockets. One socket for data creates the file `/run/e32.data` and one for control creates the file `/run/e32.control`. The data socket is for transmitting and receiving data over LoRa. The control socket is to configure the `e32`.
 
@@ -42,7 +42,7 @@ if len(bytes) == 1 && bytes[0] == 0:
   print('success')
 else:
   print('failed')
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## The Control Socket
 

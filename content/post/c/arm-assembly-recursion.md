@@ -34,7 +34,7 @@ main(int argc, char *argv[])
     factorial(3);
     return 0;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 
 ## Disassembly
@@ -64,7 +64,7 @@ factorial:
 	mov	r0, r3
 	sub	sp, fp, #4
 	pop	{fp, pc}
-{{< / highlight >}}
+{{< /highlight >}}
 
 The argument passed into `factorial` named `n` is stored in the register `r0`, the assembly also loads register `r3` with the same value for a comparison. In the C code we evaluate `if(n>=1)`, whereas, the ARM assembly inverts this logic and tests `if(n<=0)` on line 8. Thus, if `n<=0` we will jump to label `.L1` load the value `1` into `r0` and return.
 
@@ -72,7 +72,7 @@ For the math portion of the factorial in C we have:
 
 {{< highlight c >}}
 n*factorial(n-1)
-{{< / highlight >}}
+{{< /highlight >}}
 
 This math portion will get converted to the following assembly. Note `r3` contains the C variable `n`:
 
@@ -83,7 +83,7 @@ This math portion will get converted to the following assembly. Note `r3` contai
 	mov	r2, r0            ; move result of factorial into r2
 	ldr	r3, [fp, #-8]     ; r3 will also contain n that was passed in
 	mul	r3, r3, r2        ; multiply n by factorial(n-1)
-{{< / highlight >}}
+{{< /highlight >}}
 
 The order of operations are `n-1`, then `factorial(n-1)`, and lastly the multiplication `*`.
 
@@ -95,7 +95,7 @@ In our original disassembly I left out some annotations. Here are those annotati
 factorial:
 > @ args = 0, pretend = 0, frame = 8
 > @ frame_needed = 1, uses_anonymous_args = 0
-{{< / highlight >}}
+{{< /highlight >}}
 
 Take note of the `@ frame_needed = 1` requires many additional instructions. If we re-compile with `-O3` we'll see the frame is not needed. Also, the code is indeed optimized.
 
@@ -112,7 +112,7 @@ factorial:
 	subs	r3, r3, #1                 ; r3 <= n = n -1
 	bne	.L3                            ; goto .L3 when n != 0
 	bx	lr
-{{< / highlight >}}
+{{< /highlight >}}
 
 You can keep following along the ARM instructions and corresponding comments. Each time the function call will multiply `n*(n-1)` and store the result in `r0`. This will be done until `r3` is 0. This code doesn't use a stack frame and is essentially a [Tail Call](https://en.wikipedia.org/wiki/Tail_call) or Tail Recursion.
 
@@ -128,7 +128,7 @@ factorial_tail(int n, int acc) {
     else
         return factorial_tail(n-1, acc*n);
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 Where we can call this function with `long r = factorial_tail(n, 1)`.
 
@@ -148,7 +148,7 @@ factorial_tail:
 .L12:
 	mov	r0, r1
 	bx	lr
-{{< / highlight >}}
+{{< /highlight >}}
 
 Indeed the stack frame code is removed, however, it's not much more optimized than our `factorial(int n)` function. They both have 7 instructions.
 

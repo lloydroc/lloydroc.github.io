@@ -80,14 +80,14 @@ main(int argc, char* argv[])
 
   return 0;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 We have a 60 second sleep built in to analyze the daemon before it exits. Here is how we run the daemon.
 
 {{< highlight bash >}}
 $ gcc become_daemon.c -o become_daemon
 $ ./become_daemon
-{{< / highlight >}}
+{{< /highlight >}}
 
 ### Analysis of the Daemon
 
@@ -117,7 +117,7 @@ become_da 3667175 lloydroc  mem    REG    8,0   207944   3607 /usr/lib/ld-2.32.s
 become_da 3667175 lloydroc    0u   CHR    1,3      0t0   9049 /dev/null
 become_da 3667175 lloydroc    1u   CHR    1,3      0t0   9049 /dev/null
 become_da 3667175 lloydroc    2u   CHR    1,3      0t0   9049 /dev/null
-{{< / highlight >}}
+{{< /highlight >}}
 
 From the `ps` command above we can see the resulting daemon from the `daemon()` function call is the process group and session leader since it's process ID is the same as the process group and session group IDs.
 
@@ -275,7 +275,7 @@ become_daemon(int flags)
 
   return 0;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 ### C Code to use the Daemon Example
 
@@ -320,7 +320,7 @@ main(int argc, char *argv[])
 
   return EXIT_SUCCESS;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Header file for Daemon Example
 
@@ -347,7 +347,7 @@ We will allow our `become_daemon()` function to take some flags for some various
 int become_daemon(int flags);
 
 #endif
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Running the example
 
@@ -363,7 +363,7 @@ $ ./configure
 $ make
 $ ./src/become_daemon
 $ # yep, that's it!
-{{< / highlight >}}
+{{< /highlight >}}
 
 ### Analyzing the Daemon Process
 
@@ -377,7 +377,7 @@ The following `ps` command, with arguments, lists out the process id, parent pro
 $ ps xao pid,ppid,pgid,sid,comm
     PID    PPID    PGID     SID COMMAND
  587961       1  587959  587959 become_daemon
-{{< / highlight >}}
+{{< /highlight >}}
 
 We can also see the parent of our daemon is indeed the `/sbin/init` process.
 
@@ -385,7 +385,7 @@ We can also see the parent of our daemon is indeed the `/sbin/init` process.
 $ ps 1
     PID TTY      STAT   TIME COMMAND
       1 ?        Ss     1:16 /sbin/init
-{{< / highlight >}}
+{{< /highlight >}}
 
 Let's verify our daemon has no tty.
 
@@ -393,7 +393,7 @@ Let's verify our daemon has no tty.
 $ ps 587961
     PID TTY      STAT   TIME COMMAND
  587961 ?        S      0:00 ./become_daemon
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Known Issues
 

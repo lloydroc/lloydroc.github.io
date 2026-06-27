@@ -44,7 +44,7 @@ struct timeval
     time_t tv_sec; /* Seconds since the epoch */
     suseconds_t tv_usec; /* Micro seconds */
 };
-{{< / highlight >}}
+{{< /highlight >}}
 
 ### Epoch with the Timespec Structure
 
@@ -56,7 +56,7 @@ struct timespec
     time_t tv_sec; /* Seconds since the epoch */
     long int tv_nsec; /* Nano seconds */
 };
-{{< / highlight >}}
+{{< /highlight >}}
 
 The `timespec` is the same as the `timeval` but instead of microseconds has nanoseconds.
 
@@ -81,7 +81,7 @@ struct tm
   long int tm_gmtoff;   /* Seconds east of UTC.  */
   const char *tm_zone;  /* Timezone abbreviation.  */
 };
-{{< / highlight >}}
+{{< /highlight >}}
 
 Note, that broken down time has seconds as the smallest unit. We don't see microseconds or nanoseconds as members in the structure.
 

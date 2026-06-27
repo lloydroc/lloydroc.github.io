@@ -38,7 +38,7 @@ where  OBJECT := { link | address | addrlabel | route | rule | neigh | ntable |
                     -l[oops] { maximum-addr-flush-attempts } | -br[ief] |
                     -o[neline] | -t[imestamp] | -ts[hort] | -b[atch] [filename] |
                     -rc[vbuf] [size] | -n[etns] name | -a[ll] | -c[olor]}
-{{< / highlight >}}
+{{< /highlight >}}
 
 Check out *iproute2*, it is the new way of doing things. The *net-tools* are being phased out. The *net-tools* that are `ifconfig`, `route`, `arp`, `netstat`, `iptunnel`, `nameif`, and `ipmaddr` are all old school and replaced by *iproute2*.
 
@@ -51,7 +51,7 @@ $ uname -r
 4.19.93+
 $ lsmod | grep dummy
 dummy                  16384  0
-{{< / highlight >}}
+{{< /highlight >}}
 
 The `grep` found it. That's good. Now if you don't have it see the following section.
 
@@ -63,7 +63,7 @@ $ sudo su
 $ find /lib/modules/`uname -r` -name dummy.ko
 /lib/modules/4.19.93+/kernel/drivers/net/dummy.ko
 $ sudo insmod /lib/modules/`uname -r`/kernel/drivers/net/dummy.ko
-{{< / highlight >}}
+{{< /highlight >}}
 
 ### The Network Before Tunnels
 
@@ -74,7 +74,7 @@ Here is a picture of the network before the tunnels are added. It's really simpl
 $ ip route show
 default via 10.255.254.2 dev eth0 proto dhcp src 10.255.254.96 metric 202
 10.255.254.0/24 dev eth0 proto dhcp scope link src 10.255.254.96 metric 202
-{{< / highlight >}}
+{{< /highlight >}}
 
 ### Creating a Tunnel on the First Host
 
@@ -121,7 +121,7 @@ default via 10.255.254.2 dev eth0 proto dhcp src 10.255.254.196 metric 202
 169.254.0.0/16 dev dummy0 scope link src 169.254.119.140 metric 203
 192.168.2.0/24 dev dummy0 proto kernel scope link src 192.168.2.111
 192.168.2.222 dev eth0 scope link
-{{< / highlight >}}
+{{< /highlight >}}
 
 Above, you can see for some reason the tunnels have `UNKNOWN` state. I am not sure why. Also, note that the `dummy0` interface has 2 addresses. Yes, interfaces can have multiple addresses. We just don't use the random address it gives us. It's also important to know the type of tunnel is `ipip` which is the most simple form. Later, I hope to get into the more modern and flexible types of tunnels for various use cases. It's also important to see the mtu is 1480 rather than 1500 as the *IP-in-IP* protocol takes off 20 bits.
 
@@ -162,7 +162,7 @@ default via 10.255.254.2 dev eth0 proto dhcp src 10.255.254.96 metric 202
 169.254.0.0/16 dev dummy0 scope link src 169.254.221.67 metric 203
 192.168.2.0/24 dev dummy0 proto kernel scope link src 192.168.2.222
 192.168.2.111 dev eth0 scope link
-{{< / highlight >}}
+{{< /highlight >}}
 
 ### Note on the Dummy Interfaces
 Firstly, note that the `dummy` network device in Unix "A dummy device drops all packets sent to it.". So this shouldn't be used for anything useful. It is truly for example purposes.
@@ -184,7 +184,7 @@ PING 192.168.2.222 (192.168.2.222) from 192.168.2.111 : 56(84) bytes of data.
 $ traceroute 192.168.2.222
 traceroute to 192.168.2.222 (192.168.2.222), 30 hops max, 60 byte packets
  1  192.168.2.222 (192.168.2.222)  0.917 ms  0.731 ms  0.728 ms
-{{< / highlight >}}
+{{< /highlight >}}
 
 I'll spare you from the opposite side of the tunnel, but it's the same.
 
@@ -200,7 +200,7 @@ $ ip neigh show
 10.255.254.96 dev eth0 lladdr b8:27:eb:2a:1a:b1 STALE
 192.168.2.222 dev eth0 lladdr b8:27:eb:2a:1a:b1 REACHABLE
 $
-{{< / highlight >}}
+{{< /highlight >}}
 
 #### Neighbors on Host 2
 {{< highlight bash >}}
@@ -210,7 +210,7 @@ $ ip neigh show
 10.255.254.196 dev eth0 lladdr b8:27:eb:e1:f0:c0 STALE
 10.255.254.2 dev eth0 lladdr 2c:4d:54:b0:14:30 STALE
 $
-{{< / highlight >}}
+{{< /highlight >}}
 
 Note, the address *10.255.254.91* is the host that I'm ssh'd in from.
 

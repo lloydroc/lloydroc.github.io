@@ -74,7 +74,7 @@ $SENDMAIL "$@" <in.$$ || {
 }
 
 exit $?
-{{< / highlight >}}
+{{< /highlight >}}
 
 From here I created a script called `c` which is in the same directory which also needs to be `rwx` by only the `filter` user. The `c` script is the script that processes the email. The name `c` can be replaces with any program you would like. To get started we can simply just save the email to a file in the `/tmp` directory.
 
@@ -85,7 +85,7 @@ From here I created a script called `c` which is in the same directory which als
 # we will just create a temp file with
 # the content of the mail
 cat $1 > /tmp/mail
-{{< / highlight >}}
+{{< /highlight >}}
 
 Now every time any mail comes in, and I really mean any mail. All mails. That raw mail will be in the `/tmp/mail` file since it comes through the `filter` script then through the `c` script. This of course is constantly being overwritten for every mail that comes in, but you get the point.
 

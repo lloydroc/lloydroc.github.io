@@ -46,7 +46,7 @@ NAME: .git RECORD LENGTH: 24 TYPE: directory
 NAME: .. RECORD LENGTH: 24 TYPE: directory
 NAME: . RECORD LENGTH: 24 TYPE: directory
 $
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## The scandir function
 
@@ -56,7 +56,7 @@ To list files in a directory we will use the `scandir` function from `dirent.h`.
 int scandir(const char *dirp, struct dirent ***namelist,
             int (*filter)(const struct dirent *),
             int (*compar)(const struct dirent **, const struct dirent **));
-{{< / highlight >}}
+{{< /highlight >}}
 
 The `dirp` is the directory to list. The `namelist` will be populated from all the files in the directory. The `filter` function is optional but will filter out files from `namelist` based on user specified criteria. The `compar` function will control how the file listing is done. The glibc library provides `alphasort` and `versionsort` for this. Again, see `man 3 scandir` for all the details.
 
@@ -150,7 +150,7 @@ main(int argc, char *argv[])
 
   exit(EXIT_SUCCESS);
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 ### The dirent structure
 
@@ -163,7 +163,7 @@ struct dirent
   unsigned char d_type; /* the type of the file, more on this later */
   char d_name[256]; /* the name of the file */
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 See the `/usr/include/bits/dirent.h` for the full definition as it can change slightly.
 
@@ -182,7 +182,7 @@ enum
   DT_SOCK = 12,   /* unix domain socket */
   DT_WHT = 14     /* whiteout file in FreeBSD (exotic) */
 };
-{{< / highlight >}}
+{{< /highlight >}}
 
 ### Notes on the example
 
@@ -202,7 +202,7 @@ $ cd cdirlist-1.0
 $ ./configure
 $ make
 $ ./src/cdirlist .
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Where to go from here?
 

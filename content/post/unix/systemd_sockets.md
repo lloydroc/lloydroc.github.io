@@ -25,7 +25,7 @@ Description=A Example Systemd Service
 
 [Service]
 ExecStart=/usr/local/bin/foo
-{{< / highlight >}}
+{{< /highlight >}}
 
 and a [systemd.socket(5)](https://www.freedesktop.org/software/systemd/man/systemd.socket.html#)
 
@@ -36,7 +36,7 @@ Description=An Example Systemd Socket
 
 [Socket]
 ListenDatagram=/var/foo.socket
-{{< / highlight >}}
+{{< /highlight >}}
 
 We will create a dependency that the service needs to be created AFTER the socket. Why? Because we're going to have `systemd` create the socket. Inside our service we're going to use the [sd_listen_fds(3)](https://www.freedesktop.org/software/systemd/man/sd_listen_fds.html#) function to get the file descriptor that `systemd` created for us. When our service comes to life it will ask `systemd` for it's socket and get back a file descriptor and optionally the name tied to this file descriptor. Hence, the service will depend on the socket.
 
@@ -84,7 +84,7 @@ PartOf=
 Conflicts=
 Before=
 After=
-{{< / highlight >}}
+{{< /highlight >}}
 
 The example above is called the *configuring service*. Now let's look at these unit options in regards to dependencies.
 
@@ -132,7 +132,7 @@ ExecStart=/usr/local/bin/foo
 ExecReload=/bin/kill -HUP $MAINPID
 StandardOutput=journal
 StandardError=journal
-{{< / highlight >}}
+{{< /highlight >}}
 
 {{< highlight text >}}
 # foo.socket
@@ -146,7 +146,7 @@ ListenDatagram=/var/foo.socket
 
 [Install]
 WantedBy=sockets.target
-{{< / highlight >}}
+{{< /highlight >}}
 
 We will see how the dependencies work in the section below.
 
@@ -190,7 +190,7 @@ Feb 08 21:48:39 lloydroc.github.io systemd[1]: Started A Example Systemd Service
 
 Feb 08 21:48:39 lloydroc.github.io systemd[1]: Listening on An Example Systemd Socket.
 #
-{{< / highlight >}}
+{{< /highlight >}}
 
 This will start both the socket and the service. This is because we have `Requires=foo.service` in our `foo.socket`.
 
@@ -203,7 +203,7 @@ foo.socket
 # systemctl stop foo.socket
 # systemctl stop foo
 #
-{{< / highlight >}}
+{{< /highlight >}}
 
 # C Code for our Service
 
@@ -315,7 +315,7 @@ main(int argc, char *argv[])
 
   return 0;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Running the Example
 
@@ -344,7 +344,7 @@ csock.close()
 
 if os.path.exists(csock_file):
   os.remove(csock_file)
-{{< / highlight >}}
+{{< /highlight >}}
 
 With our service started and looking at the syslog:
 
@@ -353,13 +353,13 @@ $ foocl hello
 sending hello
 $ foocl world
 sending world
-{{< / highlight >}}
+{{< /highlight >}}
 
 We can see:
 {{< highlight text >}}
 Jun 27 15:58:41 pi2 foo[12019]: Received 5 bytes from /home/pi/foo.client.socket: hello
 Jun 27 15:58:44 pi2 foo[12019]: Received 5 bytes from /home/pi/foo.client.socket: world
-{{< / highlight >}}
+{{< /highlight >}}
 
 Download [foo-1.4]({{ absURL "/code/foo-1.4.tar.gz" }}) example. It is the full distribution with all the autotools code. Here is how to get started on it.
 
@@ -372,4 +372,4 @@ $ make
 $ sudo make install
 $ sudo systemctl daemon-reload
 $ sudo systemctl start foo
-{{< / highlight >}}
+{{< /highlight >}}

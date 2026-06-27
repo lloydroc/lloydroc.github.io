@@ -29,7 +29,7 @@ Archive:  sqlite-amalgamation-3280000.zip
 ---------                     -------
   8985837                     5 files
 $
-{{< / highlight >}}
+{{< /highlight >}}
 
 We can see the amalgamation contains 4 files:
 * sqlite3.c - recommended to ONLY use this file.
@@ -45,7 +45,7 @@ To compile the amalgamation you need to link in `-lpthread` and `-ldl`. Here is 
 
 {{< highlight shell >}}
 gcc -lpthread -ldl -o sqlite3.o -c sqlite3.c
-{{< / highlight >}}
+{{< /highlight >}}
 
 After compilation - which does take a while - the `sqlite3.o` object file is built and can be linked in to your C project. FYI, the `sqlite3.c` file is 222,876 lines as of this writing.
 
@@ -55,7 +55,7 @@ Compiling in some options into your project is in some cases an easier way to go
 
 {{< highlight shell >}}
 gcc -DSQLITE_DEFAULT_FOREIGN_KEYS=1 -lpthread -ldl -o sqlite3.o -c sqlite3.c
-{{< / highlight >}}
+{{< /highlight >}}
 
 #### SQLITE_DEFAULT_FOREIGN_KEYS
 The option `SQLITE_DEFAULT_FOREIGN_KEYS` should be considered. It is set to 0 by default which allows deleting table rows that have a foreign key reference to them from another table. The default value of this option specifies foreign keys constraints are not enforced. The default of 0 can be good for development and testing but when the application is running, it's probably best you do check for foreign key constraints. The implication to leaving the default at compilation time is at runtime you have to issue the `PRAGMA` statement after connecting to the SQLite database.

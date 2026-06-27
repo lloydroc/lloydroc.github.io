@@ -65,7 +65,7 @@ $ tfmini --set-update-rate 5 --socket-udp 10.255.254.181:8081 -p
 update rate to 5Hz success
 LiDAR output enabled
 Distance: 28 Strength: 2740 Good Frames: 00000025 Bad Frames: 00000000
-{{< / highlight >}}
+{{< /highlight >}}
 
 This gives good update information. The IP address of `10.255.254.193` is the address of my NodeJS server that is listening on port `8081` for UDP datagrams.
 
@@ -125,7 +125,7 @@ srv.on('error', function (err) {
 });
 
 srv.bind(8081);
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Where to go from here?
 

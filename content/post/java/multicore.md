@@ -184,7 +184,7 @@ class WorkerTask {
     }
 }
 
-{{< / highlight >}}
+{{< /highlight >}}
 
 The output of this program is as follows:
 

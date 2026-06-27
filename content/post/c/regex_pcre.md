@@ -18,7 +18,7 @@ In this blog post we will construe some simple examples of regular expressions i
 If you see the following included in the C source then it's POSIX Regular Expressions. POSIX Regular expressions have lost the popularity battle and you won't see them used much.
 {{< highlight c >}}
 #include <regex.c>
-{{< / highlight >}}
+{{< /highlight >}}
 
 We won't discuss POSIX regular expressions in this blog post from here on.
 
@@ -34,24 +34,24 @@ You can obviously install the `pcre` library from source. However, let's go the 
 #### Yum - CentOS
 {{< highlight bash >}}
 yum install pcre pcre-devel
-{{< / highlight >}}
+{{< /highlight >}}
 
 #### Apt - Ubuntu
 {{< highlight bash >}}
 apt-get install libpcre3 libpcre3-dev
-{{< / highlight >}}
+{{< /highlight >}}
 
 #### Pacman - ArchLinux
 {{< highlight bash >}}
 pacman -Su pcre pcre2
-{{< / highlight >}}
+{{< /highlight >}}
 
 ### A Useful, Simple Example
 Before we get into the code let's create a good example with capture groups. A regex that matches a first and last name has some good value. Here we can have one group the first name and one group the last name.
 #### Example Regex for a Person's First and Last Name
 {{< highlight c >}}
 ^([A-Z][a-z]+) ([A-Z][a-z]+)$
-{{< / highlight >}}
+{{< /highlight >}}
 
 Here we have two "capture groups", the group is what is between the `()`. By having groups we can capture and use different parts of what is matched in the regex. Inside each `()` we have a representation of a very simple name. It has `[]` which is a character class that matches capital _A_ through _Z_, then we have another capture class _[a-z]+_ which matches _a_ through _z_ one or more times. To be explicit _A_ through _Z_ is A,B,C,D,E ... all the way to Z. Again, this regex is very simple and I'm sorry if I offended you by it not matching your name. For example _Jon McCarthy_ would not match since in the last name we have 2 capital letters. The `^` and `$` match the beginning and end of a line respectively.
 
@@ -70,7 +70,7 @@ data> John McCarthy
 No match
 data>
 $
-{{< / highlight >}}
+{{< /highlight >}}
 
 Now, we can see for the subject _Lloyd Rochester_ we got 3 matches? Huh, why not 2? The reason is if the regex matched at all we'll get 1 match, and the other 2 are for the groups. Sorry but _John McCarthy_ didn't match.
 
@@ -79,7 +79,7 @@ Let's make 2 examples that are used like so:
 {{< highlight bash >}}
 $ ./pcre_ex "^([A-Z][a-z]+) ([A-Z][a-z]+)$" "Lloyd Rochester"
 $ ./pcre_ex2 "^([A-Z][a-z]+) ([A-Z][a-z]+)$" "Lloyd Rochester"
-{{< / highlight >}}
+{{< /highlight >}}
 
 We will create 2 programs called `pcre_ex` and `pcre_ex2` which use their corresponding libraries. We will pass in 2 arguments to these libraries. The first argument will be our regular expression and the second argument will be our subject. The "subject" is the thing we will match against.
 
@@ -146,7 +146,7 @@ main(int argc, char *argv[])
 
   return rc;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 ### Simple PCRE2 Sample Program
 
@@ -221,7 +221,7 @@ main(int argc, char *argv[])
 
   return 0;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 In this example there is a loop that goes through the subject using the `ovector`. I wanted to use the helper functions `pcre2_substring_copy_bynumber` or `pcre2_substring_get_bynumber`, however, I could not get them to work. For `pcre2_substring_copy_bynumber` it would match both `Lloyd Rochester` and `Lloyd` but then would give me a `PCRE2_ERROR_NOMEMORY` on the third. For `pcre2_substring_get_bynumber` I mainly got segmentation faults. I'm still not sure why these helper functions couldn't be used.
 

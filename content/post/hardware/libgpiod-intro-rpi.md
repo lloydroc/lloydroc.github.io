@@ -41,7 +41,7 @@ At this point on Raspbian 10 Buster with a 5.10 Kernel both `libgpiod` and `gpio
 
 {{< highlight bash >}}
 $ sudo apt install gpiod
-{{< / highlight >}}
+{{< /highlight >}}
 
 We can look more into what is installed:
 
@@ -69,7 +69,7 @@ Description: Tools for interacting with Linux GPIO character device - binary
  open-source and open-drain GPIOs).
  .
  This package contains the gpiod binary tools.
-{{< / highlight >}}
+{{< /highlight >}}
 
 The library `libgpiod2` has the following:
 {{< highlight bash >}}
@@ -98,7 +98,7 @@ Description: C library for interacting with Linux GPIO device - shared libraries
  open-source and open-drain GPIOs).
  .
  This package contains the required shared libraries.
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Installation of the `gpio` Libraries
 
@@ -106,7 +106,7 @@ If we want to install the libraries for development we need to do the following.
 
 {{< highlight bash >}}
 $ sudo apt install libgpiod-dev
-{{< / highlight >}}
+{{< /highlight >}}
 
 Here is the info on `libgpiod-dev`:
 
@@ -136,7 +136,7 @@ Description: C library for interacting with Linux GPIO device - static libraries
  .
  This package contains the required static libraries, headers, and C++ bindings.
 
-{{< / highlight >}}
+{{< /highlight >}}
 
 The development package installs the C libraries and header files for us to use.
 
@@ -162,7 +162,7 @@ dpkg-query -L libgpiod-dev
 /usr/share/doc/libgpiod-dev/copyright
 /usr/lib/arm-linux-gnueabihf/libgpiod.so
 /usr/lib/arm-linux-gnueabihf/libgpiodcxx.so
-{{< / highlight >}}
+{{< /highlight >}}
 
 Namely, the `/usr/include/gpiod.h` C header file and the `/usr/lib/arm-linux-gnueabihf/libgpiod.so` Shared Library.
 
@@ -191,7 +191,7 @@ Print information about all lines of the specified GPIO chip(s) (or all gpiochip
 Options:
   -h, --help:		display this message and exit
   -v, --version:	display the version and exit
-{{< / highlight >}}
+{{< /highlight >}}
 
 
 ## The `gpiodetect` tool
@@ -204,7 +204,7 @@ List all GPIO chips, print their labels and number of GPIO lines.
 Options:
   -h, --help:		display this message and exit
   -v, --version:	display the version and exit
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## The `gpiofind` tool
 
@@ -216,7 +216,7 @@ Find a GPIO line by name. The output of this command can be used as input for gp
 Options:
   -h, --help:		display this message and exit
   -v, --version:	display the version and exit
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## The `gpiomon` tool
 
@@ -240,7 +240,7 @@ Format specifiers:
   %e:  event type (0 - falling edge, 1 rising edge)
   %s:  seconds part of the event timestamp
   %n:  nanoseconds part of the event timestamp
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## The `gpioset` and `gpioget` tools
 
@@ -264,7 +264,7 @@ Modes:
   wait:		set values and wait for user to press ENTER
   time:		set values and sleep for a specified amount of time
   signal:	set values and wait for SIGINT or SIGTERM
-{{< / highlight >}}
+{{< /highlight >}}
 
 {{< highlight bash >}}
 $ gpioget --help
@@ -275,7 +275,7 @@ Options:
   -h, --help:		display this message and exit
   -v, --version:	display the version and exit
   -l, --active-low:	set the line active state to low
-{{< / highlight >}}
+{{< /highlight >}}
 
 
 # Mapping GPIO to Physical Pins
@@ -354,7 +354,7 @@ gpiochip1 - 8 lines:
 	line   5:   "CAM_GPIO"       unused  output  active-high
 	line   6:  "SD_PWR_ON" "sd_vcc_reg"  output  active-high [used]
 	line   7:    "SD_OC_N"       unused   input  active-high
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Examples using the `gpiod` tools
 

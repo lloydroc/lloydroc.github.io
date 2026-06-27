@@ -30,7 +30,7 @@ event: FALLING EDGE offset: 4 timestamp: [    6075.472309646]
 event:  RISING EDGE offset: 4 timestamp: [    6076.245828241]
 event: FALLING EDGE offset: 4 timestamp: [    6076.953254051]
 event:  RISING EDGE offset: 4 timestamp: [    6078.277888971]
-{{< / highlight >}}
+{{< /highlight >}}
 
 # C Code to Monitor Events
 
@@ -127,4 +127,4 @@ cleanup:
 
   return EXIT_SUCCESS;
 }
-{{< / highlight >}}
+{{< /highlight >}}

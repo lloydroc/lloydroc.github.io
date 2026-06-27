@@ -34,7 +34,7 @@ For the pre-requisites in this example a Raspberry Pi B+ was used with the follo
 pi@raspberrypi:~ $ uname -a
 Linux raspberrypi 4.19.93+ #1290 Fri Jan 10 16:34:37 GMT 2020 armv6l GNU/Linux
 pi@raspberrypi:~ $
-{{< / highlight >}}
+{{< /highlight >}}
 
 The Arduino is an Arduino Due with Arduino Genuino 1.18.2.
 
@@ -63,7 +63,7 @@ You can easily see the attributes or a terminal device. First let's get the perm
 pi@raspberrypi:~ $ ls -l /dev/ttyAMA0
 crw--w---- 1 root tty 204, 64 Feb  3 22:12 /dev/ttyAMA0
 pi@raspberrypi:~ $y
-{{< / highlight >}}
+{{< /highlight >}}
 
 We don't want to be `root` to do everything. let's add ourself to the `tty` group and change the permissions of the character device to have group read privileges.
 
@@ -71,7 +71,7 @@ We don't want to be `root` to do everything. let's add ourself to the `tty` grou
 pi@raspberrypi:~ $ sudo usermod -a -G tty pi
 pi@raspberrypi:~ $ sudo chmod g+r /dev/ttyAMA0
 pi@raspberrypi:~ $ exit
-{{< / highlight >}}
+{{< /highlight >}}
 
 We have to `exit` and log back in for the group privileges to be applied.
 
@@ -90,7 +90,7 @@ opost -olcuc -ocrnl onlcr -onocr -onlret -ofill -ofdel nl0 cr0 tab0 bs0 vt0 ff0
 -isig -icanon -iexten -echo -echoe -echok -echonl -noflsh -xcase -tostop -echoprt
 -echoctl -echoke -flusho -extproc
 pi@raspberrypi:~ $
-{{< / highlight >}}
+{{< /highlight >}}
 
 There is a LOT of output here from the `stty` tool. The attributes at the bottom that start with a `-` means they are not enabled. For example ICANON - canonical mode - is disabled because we see `-icanon`. The attribute `cs8` is enabled. We can see that the baud rate is `115200`. All of this is documented. It can be seen by doing a `man termios`. To search for attributes using upper case. E.g. `ICANON` not `icanon` as displayed by `stty`.
 
@@ -113,7 +113,7 @@ A C Header to communicate with the UART for the Raspberry Pi. It's simple, we'll
 #define UART0 "/dev/ttyAMA0"
 
 int uart_open();
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## C Implementation to set up the UART
 
@@ -174,7 +174,7 @@ uart_open()
   FILE = tty_open(UART0);
   return FILE;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Running the UART Example
 
@@ -233,7 +233,7 @@ main(int argc, char *argv[])
   close(UART);
   return EXIT_SUCCESS;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 After this code is run it will set-up our terminal with a bunch of new attributes. We can see them with the `stty` command. This is different than what we see at the start of this post with the default attributes.
 
@@ -247,7 +247,7 @@ susp = <undef>; rprnt = <undef>; werase = <undef>; lnext = <undef>; discard = <u
 -opost -olcuc -ocrnl -onlcr -onocr -onlret -ofill -ofdel nl0 cr0 tab0 bs0 vt0 ff0
 -isig -icanon -iexten -echo -echoe -echok -echonl -noflsh -xcase -tostop -echoprt -echoctl -echoke -flusho -extproc
 pi@raspberrypi:~ $
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Downloading the Example
 
@@ -261,7 +261,7 @@ $ make
 $ uart 1
 hello world
 $
-{{< / highlight >}}
+{{< /highlight >}}
 
 Here `hello world` was sent out the UART of the Raspberry Pi to the Arduino and from the Arduino back to the Raspberry Pi and printed to the terminal.
 
@@ -304,7 +304,7 @@ void loop() {
   // Echo it back out the UART
   Serial1.write(c);
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Where to go from Here?
 

@@ -27,7 +27,7 @@ A smaller HTML select with timezones which maybe a good starting point in the US
   <option value="America/Detroit">America/Detroit GMT-5:00</option>
   <option value="America/New_York">America/New_York GMT-5:00</option>
 </select>
-{{< / highlight >}}
+{{< /highlight >}}
 
 ### Abbreviated HTML Select of Timezones in Action
 <select id="timezone" name="timezone" class="custom-select">
@@ -49,14 +49,14 @@ I will now belabor the point of how going with the `tz database` value is the wa
 ### Setting the Timezone in Javascript
 {{< highlight javascript >}}
 new Date().toLocaleString("en-US", {timeZone: "America/New_York"})
-{{< / highlight >}}
+{{< /highlight >}}
 
 ### Setting the Timezone in Java
 Here we use `ZonedDateTime` which is highly recommended.
 {{< highlight javascript >}}
 Long now = Instant.now().toEpochMilli();
 ZonedDateTime zdt = toZonedDateTime(ts.toInstant(), "America/New_York");
-{{< / highlight >}}
+{{< /highlight >}}
 
 ### Setting the Timezone in Python
 {{< highlight python >}}
@@ -68,7 +68,7 @@ ZonedDateTime zdt = toZonedDateTime(ts.toInstant(), "America/New_York");
 >>> time.strftime('%X %x %Z')
 '08:39:29 01/31/20 EST'
 >>>
-{{< / highlight >}}
+{{< /highlight >}}
 
 ### Setting the Timezone in GoLang
 {{< highlight go >}}
@@ -78,7 +78,7 @@ if err != nil {
 }
 
 t := time.Now().In(loc)
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Setting the Timezone in Perl
 {{< highlight perl >}}
@@ -89,7 +89,7 @@ tzset;
 
 my $now = localtime;
 print "It is now   $now\n";
-{{< / highlight >}}
+{{< /highlight >}}
 
 ### Setting the Timezone in Unix
 {{< highlight bash >}}
@@ -97,7 +97,7 @@ $ tzselect
 ....
 Therefore TZ='America/New_York' will be used.
 $
-{{< / highlight >}}
+{{< /highlight >}}
 
 Ok you get the point by now using the `tz database` for the `value` of the `option` in the HTML `select` is the way to go. Now here is some Java to generate an HTML select with all the timezones.
 
@@ -135,7 +135,7 @@ public class JavaScriptTimeZoneSelect {
   }
 
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 When this Java code is run it will output the full list. Note, this list is meant to be pruned and/or guessed in some way. Presenting this full list to a user would be overwhelming.
 
@@ -1406,5 +1406,5 @@ Behold the full, overwhelming, crazy, way-to-long list of timezones in a single 
   <option value="SST">SST GMT+11:00</option>
   <option value="VST">VST GMT+7:00</option>
 </select>
-{{< / highlight >}}
+{{< /highlight >}}
 

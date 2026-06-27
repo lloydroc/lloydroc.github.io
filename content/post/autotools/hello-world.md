@@ -84,7 +84,7 @@ main(int argc, char* argv[])
   puts("hello world!");
   return EXIT_SUCCESS;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Initializing the Autotools Hello World Project
 Now that we've gotten the boiler plate up and running let's see what this new autotools system can do. From the GNU Hello World referenced above it tells us to run the following:

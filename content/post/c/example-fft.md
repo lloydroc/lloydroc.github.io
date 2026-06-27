@@ -35,7 +35,7 @@ double signal_im[N_FFT]; // imaginary signal array
 // the fft function will modify the arrays passed in
 // also known as in-place computation
 fft(signal_re, signal_im, N_FFT); 
-{{< / highlight >}}
+{{< /highlight >}}
 
 See the test cases below that show more usage examples.
 
@@ -78,7 +78,7 @@ void
 compute(float data_re[],float data_im[],const int N);
 
 #endif
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## C Implementation of the FFT
 
@@ -154,7 +154,7 @@ compute(float data_re[], float data_im[], const unsigned int N)
     }
   }
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 ## Test Cases for the FFT
 
@@ -282,7 +282,7 @@ void print_arr(const float data[], const unsigned int N)
     printf("%.3f, ", data[i]);
   printf("%.3f}\n", data[N-1]);
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Example Makefile
 
@@ -297,7 +297,7 @@ all:
 
 clean:
 	rm *.o fft
-{{< / highlight >}}
+{{< /highlight >}}
 
 # Efficiency Improvements
 

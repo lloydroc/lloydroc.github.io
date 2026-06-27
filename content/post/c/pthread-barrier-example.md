@@ -109,7 +109,7 @@ void* man_dinner(void *data)
 
   return NULL;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 When this program is run the following output was captured. These are pthreads so we cannot guarantee execution order can be different each time the program is run.
 
@@ -130,7 +130,7 @@ woman 0 - unlocked mutex
 thread 0 joined
 thread 1 joined
 thread 2 joined
-{{< / highlight >}}
+{{< /highlight >}}
 
 From the output above we can see the the 2 men pthreads will obtain the food mutex and then wait on the condition variable. The delay happens and then the woman comes in and locks food mutex right away. The woman thread then broadcasts out to all the men pthreads waiting on the food mutex and they get to eat. Pay some close attention to the mutex and how they are locked and unlocked.
 

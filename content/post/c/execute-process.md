@@ -95,7 +95,7 @@ waiting on pid
 
 normal exit
 child exited with code 0
-{{< / highlight >}}
+{{< /highlight >}}
 
 ### Source Code 
 
@@ -309,7 +309,7 @@ main(int argc, char *argv[])
 
   return EXIT_SUCCESS;
 }
-{{< / highlight >}}
+{{< /highlight >}}
 
 
 ## Unix System Call References
