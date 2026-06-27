@@ -7,6 +7,10 @@ tags:
  - ebyte-e32-lora
 date: "2020-09-15"
 title: Ebyte e32 LoRa Module - Getting Started
+aliases:
+  - /post/hardware/ebyte-e32-lora/
+  - /post/hardware/e32-sx1276-lora/
+  - /post/hardware/ebyte-e32-lora/#installation
 ---
 
 # {{< title >}}
@@ -25,6 +29,7 @@ Wire up the Ebyte e32 Lora Module to the Raspberry Pi first. Then check out the 
 * [Client Example using Sockets](/post/hardware/ebyte-e32-lora-socket-client-examples/)
 * [Transfer Files](/post/hardware/ebyte-e32-lora-transfer-files/)
 
+<a id="installation"></a>
 # Software Installation
 
 Before you install the `e32` program be sure to have completed the [Wiring and Pi Configuration](/post/hardware/ebyte-e32-lora-configuration-wiring/). These instructions are to be run on your Raspberry Pi. Download [e32]({{< e32get >}}). See instructions below.

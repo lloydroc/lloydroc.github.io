@@ -3,6 +3,8 @@ categories:
  - c
 date: "2020-02-01T13:29:10Z"
 title: Regular Expressions in C
+aliases:
+  - /c/regex/pcre/2020/02/01/c_regex_pcre.html
 ---
 
 In this blog post we will construe some simple examples of regular expressions in C, also known as a `regex`. We will use the popular libraries PCRE and PCRE2. If you don't know what a regex is or have never used them, then you can close this tab right now! Learning regular expressions in in C is probably the wrong way to go. Start with something more easy like Python, Perl, or anything else because doing them in C is difficult. If you know regular expressions from other languages, learning them in C will strengthen your understanding of the concept. This example is meant to be easy to understand, simple and useful.

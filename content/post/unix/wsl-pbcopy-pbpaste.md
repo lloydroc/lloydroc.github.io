@@ -7,6 +7,8 @@ categories:
  - unix
 tags:
  - wsl
+aliases:
+  - /wsl/windows/linux/pbcopy/pbpaste/2019/07/30/wsl-pbcopy-pbpaste.html
 ---
 
 # {{< title >}}

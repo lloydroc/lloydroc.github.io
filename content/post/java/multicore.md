@@ -4,6 +4,8 @@ categories: ["java"]
 tags: ["concurrent", "thread"]
 comments: true
 date: "2019-02-24T14:57:00Z"
+aliases:
+  - /java/multicore/concurrency/2019/02/24/java-multicore.html
 ---
 
 # {{< title >}}

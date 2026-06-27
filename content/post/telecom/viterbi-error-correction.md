@@ -5,6 +5,8 @@ categories:
   - telecommunication
 tags:
   - viterbi
+aliases:
+  - /viterbi/error/correction/2018/10/06/viterbi-error-correction.html
 ---
 
 # {{< title >}}

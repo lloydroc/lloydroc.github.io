@@ -4,6 +4,8 @@ categories:
   - autotools
   - flex/bison
 date: "2019-06-25T11:15:00Z"
+aliases:
+  - /c/autotools/flex-bison/2019/06/25/create-flex-bison-autotools-project.html
 ---
 
 Let's create a basic Flex/Bison Project with Autotools. The GNU Documentation for Automake specifies [Flex/Bison Support](https://www.gnu.org/software/automake/manual/html_node/Yacc-and-Lex.html). We will take it a step further and provide a complete example with a Flex Scanner and Bison parser.

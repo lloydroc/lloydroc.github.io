@@ -5,6 +5,8 @@ tags:
  - raspberry-pi
 date: "2021-04-21"
 title: Raspberry Pi SPI Explained
+aliases:
+  - /post/hardware/rasperry-pi-spi/
 ---
 
 # {{< title >}}

@@ -4,6 +4,8 @@ categories: ["java"]
 tags: ["lucene"]
 comments: true
 date: "2020-01-30T10:53:31Z"
+aliases:
+  - /java/lucene/user/search/2020/01/30/java_lucene_lower_case_whitespace_analyzer.html
 ---
 
 # {{< title >}}

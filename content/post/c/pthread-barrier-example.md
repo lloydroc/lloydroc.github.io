@@ -6,6 +6,8 @@ tags:
   - concurrent
 date: "2019-08-12T14:30:06Z"
 title: pthread barrier example
+aliases:
+  - /c/pthread/barrier/2019/08/12/pthread-barrier-example.html
 ---
 
 A Barrier in computing is a synchronization method where a group of threads cannot proceed until a condition allows the blocked threads to proceed. In this post we will construct an example of a Barrier that relates to men and women at the dinner table using pthreads. We will men waiting to get their food, but the men will be blocked until the woman has eaten, thus, trigger the start state of the Barrier. Ladies First!

@@ -4,6 +4,8 @@ tags: ["sockets", "python"]
 comments: true
 date: "2019-06-18T06:45:00Z"
 title: Passing Datagrams Between Python and C
+aliases:
+  - /c/python/unix/socket/2019/06/18/unix-domain-socket-datagram.html
 ---
 
 Let's discuss how to pass data from a C program to a Python Script and vice-versa. This subject involves IPC - Inter-Process Communications. In this blog post we'll discuss the more exotic IPC mechanism of the **Unix domain datagram socket**. Specifically, this is domain `AF_UNIX` and type `SOCK_DGRAM` type of socket. Before you consider this method let's address some of it's benefits and limitations of using Unix Domain Sockets for Interprocess Communications:

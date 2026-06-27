@@ -6,6 +6,8 @@ categories:
 tags:
   - viterbi
   - psk
+aliases:
+  - /psk31/opensource/2018/09/16/psk31.html
 ---
 
 # {{< title >}}

@@ -4,6 +4,8 @@ comments: true
 date: "2019-07-05T07:40:01Z"
 categories: ["networking"]
 tags: ["cors", "reverse proxy"]
+aliases:
+  - /nginx/cors/proxy/2019/07/05/nginx-cors-proxy.html
 ---
 
 Some services don't support [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS), but we can use NGINX to make CORS supported with this simple hack! To enable CORS on any service we need to have NGINX configured as a [Reverse Proxy](/post/networking/couchdb-nginx-proxy/) and have NGINX add a successful pre-flight response to the CORS pre-flight request. Read on to get this simple example to work.

@@ -3,6 +3,9 @@ title: Number of Programming Languages
 comments: true
 date: "2018-09-21T09:14:48Z"
 categories: ["programming"]
+aliases:
+  - /programming/languages/2018/09/21/programming-and-spoken-languages.html
+  - /programming/languages/2018/09/21/programming-and-spoken-langauges.html
 ---
 
 # {{< title >}}

@@ -3,6 +3,8 @@ title: Unix Command Line Tool Timeline
 date: "2020-03-25"
 categories:
   - unix
+aliases:
+  - /unix/2020/03/25/command-line-tool-timeline.html
 ---
 
 THIS PAGE IS UNDER CONSTRUCTION. After changing blogging engines it no longer works.

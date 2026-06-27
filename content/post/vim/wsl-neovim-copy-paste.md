@@ -7,6 +7,8 @@ categories:
  - vim
 tags:
  - wsl
+aliases:
+  - /neovim/wsl/copy-paste/2019/06/25/wsl-neovim-copy-paste.html
 ---
 
 {{< figure src="/assets/svg/yank.svg">}}

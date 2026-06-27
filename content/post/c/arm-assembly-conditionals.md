@@ -6,6 +6,8 @@ tags:
  - arm
 date: "2020-03-27"
 title: Converting C Conditionals to ARM Assembly
+aliases:
+  - /c/arm/assembly/conditionals/2020/03/27/c-arm-assembly-conditionals.html
 ---
 
 # {{< title >}}

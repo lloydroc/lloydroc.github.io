@@ -4,6 +4,8 @@ comments: true
 date: "2018-10-10T03:10:00Z"
 categories: ["networking"]
 tags: ["nginx", "couchdb", "reverse proxy"]
+aliases:
+  - /nginx/couchdb/proxy/2018/10/10/couchdb-nginx-proxy.html
 ---
 
 Using NGINX as a front-end server to forward to multiple back-end services works great by configuring NGINX as a reverse proxy. The reverse proxy configuration will have NGINX serve HTTP/HTTPS URLs and forward them to them to network addresses such as a database listening on HTTP at a specific port, API servers, static websites, etc. Basically we can turn NGINX into an HTTP router. NGINX is also a great front man for back-end services such as HTTPS and HTTP/2. For instance if you had a Database, API Server and static site you could have an SSL certificate just for NGINX and they would all be behind HTTPS and the reverse proxy would convert the HTTPS and send HTTP. That's a post for another time however.

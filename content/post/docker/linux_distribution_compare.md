@@ -4,6 +4,8 @@ categories: ["virtualization"]
 tags: ["docker"]
 comments: true
 date: "2020-02-03T07:12:23Z"
+aliases:
+  - /docker/os/multiple/distributions/2020/02/03/docker_linux_distribution_compare.html
 ---
 
 I have the situation where I need to compare packages, settings, configurations across multiple Linux distributions. Docker is a great tool to pull images from all of the linux distributions to compare and contrast nearly anything you can think of. In this post we'll create a simple docker compose file and run containers from the centos, alpine, ubuntu, archlinux, busybox and debian images.

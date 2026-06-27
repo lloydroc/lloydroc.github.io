@@ -6,6 +6,8 @@ tags:
 date: "2019-08-08"
 title: Example FFT in C
 math: false
+aliases:
+  - /fft/c/2019/08/08/example-fft-c.html
 ---
 
 # {{< title >}}

@@ -7,6 +7,8 @@ tags:
  - raspberry-pi
 date: "2020-03-18T14:02:54Z"
 title: UART Between Raspberry Pi and Arduino
+aliases:
+  - /c/uart/rpi/arduino/2020/03/18/c-uart-rpi-and-arduino.html
 ---
 
 Using a 2-wire serial connection we can communicate from a Raspberry Pi (RPi) to an Arduino. For the Raspberry Pi we'll use the built in UART accessed through a `tty`, and the Arduino we'll use the [Serial](https://www.arduino.cc/reference/en/language/functions/communication/serial/) Communication Library.

@@ -5,6 +5,8 @@ categories:
 tags:
  - signal-processing
 date: "2020-03-23T08:43:05Z"
+aliases:
+  - /c/dsp/delay/2020/03/23/delay-line.html
 ---
 
 # {{< title >}}

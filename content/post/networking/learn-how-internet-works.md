@@ -4,6 +4,8 @@ date: "2019-07-26T07:28:41Z"
 lastmod: "2023-07-05"
 categories:
 - networking
+aliases:
+  - /how/internet/works/2019/07/26/how-the-internet-works.html
 ---
 
 # {{< title >}}

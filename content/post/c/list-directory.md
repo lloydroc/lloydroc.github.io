@@ -4,6 +4,8 @@ categories:
 date: "2020-02-24T17:40:14Z"
 title: Listing files in a Directory using C
 lastmod: "2020-04-13"
+aliases:
+  - /c/directory/listing/2020/02/24/c-list-directory.html
 ---
 
 # {{< title >}}

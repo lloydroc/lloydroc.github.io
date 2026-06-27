@@ -4,6 +4,8 @@ categories: ["c", "database"]
 tags: ["sqlite"]
 comments: true
 date: "2019-02-02T16:45:00Z"
+aliases:
+  - /c/sqlite/2019/02/02/sqlite3-c-api.html
 ---
 
 When getting started on the SQLite C API they recommend 2 basic ways: `sqlite3_exec()` and `sqlite3_get_table()` both are convenience wrappers around the core API Calls. They give good examples for the `sqlite3_exec()` call, and the `sqlite3_get_table()` is deprecated in the documentation. Using `sqlite3_exec()` employs a callback function which gives the advantage of speed and low memory usage - due to being able to process each row at a time. It however, does not allow for knowing when all the rows are returned, as well as, being synchronous.

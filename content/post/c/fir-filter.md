@@ -6,6 +6,8 @@ tags:
   - signal-processing
 date: "2019-08-19T16:00:21Z"
 title: Implementing FIR Filters in C
+aliases:
+  - /c/dsp/fir/2019/08/19/fir-filter-c.html
 ---
 
 # {{< title >}}

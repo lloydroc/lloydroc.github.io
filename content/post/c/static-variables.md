@@ -3,6 +3,8 @@ categories: ["c"]
 comments: true
 date: "2019-08-22T18:32:31Z"
 title: Why static declarations are confusing in C
+aliases:
+  - /c/static/2019/08/22/static-variables-c.html
 ---
 
 The `static` variable in C is unnecessarily confusing because it is used for both the memory management model and for linkage. Since these two concerns are mutually exclusive another keyword would have really cleared things up in the linkage case.

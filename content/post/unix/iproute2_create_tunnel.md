@@ -7,6 +7,8 @@ categories:
 tags:
  - iproute2
  - tunnel
+aliases:
+  - /networking/linux/tunnel/iproute2/2020/02/04/linux_networking_iproute2_create_tunnel.html
 ---
 
 # {{< title >}}

@@ -7,6 +7,8 @@ tags:
 comments: true
 date: "2020-02-22"
 lastmod: "2020-04-15"
+aliases:
+  - /c/flex/bison/json/2020/02/22/flex-bison-json-parse.html
 ---
 
 # {{< title >}}

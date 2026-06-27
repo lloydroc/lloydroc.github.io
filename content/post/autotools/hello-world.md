@@ -3,6 +3,8 @@ title: Autotools Hello World
 categories:
  - autotools
 date: "2019-05-30T14:46:00Z"
+aliases:
+  - /autoconf/automake/libtool/autotools/make/2019/05/30/autotools-hello-world.html
 ---
 
 # {{< title >}}

@@ -4,6 +4,8 @@ tags: ["sqlite"]
 comments: true
 date: "2019-07-06T10:43:41Z"
 title: Adding SQLite to a C Project
+aliases:
+  - /sqlite/c/project/2019/07/06/add-sqlite-c-project.html
 ---
 
 # {{< title >}}

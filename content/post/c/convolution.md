@@ -6,6 +6,8 @@ comments: true
 date: "2018-10-17T06:10:00Z"
 math: true
 lastmod: "2020-04-21"
+aliases:
+  - /c/convolution/dsp/2018/10/17/c-convolution.html
 ---
 
 # {{< title >}}

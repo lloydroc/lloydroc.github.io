@@ -3,6 +3,8 @@ title: C Double Pointers
 categories:
  - c
 date: "2019-06-17T16:45:00Z"
+aliases:
+  - /c/pointers/2019/06/17/double-pointer.html
 ---
 
 # {{< title >}}

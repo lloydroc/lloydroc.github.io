@@ -3,6 +3,8 @@ title: VIM formatting JSON
 comments: true
 date: "2020-01-28T08:44:41Z"
 categories: ["vim"]
+aliases:
+  - /vim/json/2020/01/28/vim_format_json.html
 ---
 
 # {{< title >}}

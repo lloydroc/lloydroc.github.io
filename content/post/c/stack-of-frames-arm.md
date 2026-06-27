@@ -8,6 +8,8 @@ categories:
 tags:
  - arm
  - assembly
+aliases:
+  - /c/arm/2020/04/03/c-arm-stack-frame.html
 ---
 
 Function calls in the C programming language make heavy use of the stack, also called the call stack. When functions are called they create the so-called stack of frames. Each function call creates a frame, and these frames are allocated on the stack. This stack frame is used to allocate memory for local variables and intermediate values. The stack frame also contains the previous frame pointer and program counter's value to execute from once the frame is popped off the stack. We will disassemble C function calls to understand the stack of frames in ARM assembly.

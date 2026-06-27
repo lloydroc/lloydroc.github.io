@@ -5,6 +5,8 @@ categories:
  - unix
 tags:
  - postfix
+aliases:
+  - /postfix/mysql/dovecot/script/2019/04/27/process-mail-script-postfix.html
 ---
 
 Updated Feb 7, 2020

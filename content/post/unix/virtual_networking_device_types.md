@@ -4,6 +4,8 @@ date: "2020-02-07"
 categories:
  - unix
  - networking
+aliases:
+  - /unix/networking/devices/2020/02/07/unix_virtual_networking_device_types.html
 ---
 
 # {{< title >}}

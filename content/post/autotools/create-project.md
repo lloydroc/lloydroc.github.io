@@ -3,6 +3,8 @@ title: Autotools Project Creation Template
 categories:
  - autotools
 date: "2019-06-24T07:26:00Z"
+aliases:
+  - /c/autotools/automake/make/2019/06/23/create-autotools-project.html
 ---
 
 # {{< title >}}

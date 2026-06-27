@@ -6,6 +6,8 @@ categories:
 tags:
  - sockets
 date: "2020-02-27T17:14:45Z"
+aliases:
+  - /c/unix/udp/2020/02/27/unix-c-udp-example.html
 ---
 
 # {{< title >}}

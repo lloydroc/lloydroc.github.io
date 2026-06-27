@@ -6,6 +6,8 @@ tags:
 comments: true
 date: "2019-07-09T06:43:41Z"
 title: SQLite Transactions Part 1
+aliases:
+  - /sqlite/transactions/commit/part1/2019/07/09/sqlite-transactions-part-1.html
 ---
 
 In the world of software these days it is expected that applications do multiple things at once. With that said it's pretty typical that multiple processes or threads have read and write access to a database. In this post we will go over transactions in SQLite which prohibits changes made to the database unless they are inside a transaction.

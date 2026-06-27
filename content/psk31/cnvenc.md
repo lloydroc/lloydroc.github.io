@@ -7,6 +7,8 @@ tags:
   - convolution
 date: "2019-02-13"
 lastmod: "2020-04-18"
+aliases:
+  - /psk31/cnvenc.html
 ---
 
 # {{< title >}}

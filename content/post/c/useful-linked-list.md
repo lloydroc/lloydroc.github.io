@@ -3,6 +3,8 @@ categories: ["c"]
 comments: true
 date: "2019-07-26T22:23:08Z"
 title: A Useful Linked List
+aliases:
+  - /c/linked/list/2019/07/26/useful-linked-list.html
 ---
 
 # {{< title >}}}

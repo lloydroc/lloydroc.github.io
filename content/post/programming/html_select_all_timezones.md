@@ -3,6 +3,8 @@ title: HTML Select List for All Timezones
 categories: ["programming"]
 comments: true
 date: "2020-01-31T06:23:05Z"
+aliases:
+  - /html/timezones/2020/01/31/html_select_all_timezones.html
 ---
 
 # {{< title >}}

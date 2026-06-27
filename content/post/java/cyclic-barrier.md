@@ -4,6 +4,8 @@ categories: ["java"]
 tags: ["concurrent", "thread"]
 comments: true
 date: "2019-02-25T08:00:00Z"
+aliases:
+  - /java/synchronization/threads/2019/02/25/java-cyclic-barrier.html
 ---
 
 # {{< title >}}

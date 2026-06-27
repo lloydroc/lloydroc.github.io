@@ -5,6 +5,8 @@ categories:
  - unix
 date: "2020-03-05T08:24:36Z"
 lastmod: "2020-12-21"
+aliases:
+  - /c/daemon/unix/2020/03/05/c-unix-daemon-example.html
 ---
 
 # {{< title >}}
