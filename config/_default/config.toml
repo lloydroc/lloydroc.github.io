@@ -1,5 +1,5 @@
 baseURL = 'https://lloydroc.github.io/'
-languageCode = 'en-US'
+locale = 'en-US'
 title = "Lloyd Rochester's Geek Blog"
 #theme = 'ananke'
 theme = 'hugo-bearblog'
