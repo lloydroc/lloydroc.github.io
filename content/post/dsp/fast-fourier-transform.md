@@ -20,11 +20,11 @@ Above is the so-called Butterfly Diagram which we will arrive at. Refer to the [
 
 ## DFT Definition
 
-The FFT algorithm makes computation of the Discrete Fourier Transform (DFT) more efficient. Much more efficient depending on the size of the input array the computation is being performed on. 
+The FFT algorithm makes computation of the Discrete Fourier Transform (DFT) more efficient. Much more efficient depending on the size of the input array the computation is being performed on.
 
 Here is the how we'll define the DFT.
 
-$$ 
+$$
 X_k = \sum_ {n=0}^ {N-1}x_n e^{-2 \pi i k n / N} = \sum_ {n=0}^ {N-1}x_n W_{N}^{kn}
 $$
 
@@ -36,7 +36,7 @@ The input to the DFT is an array of complex valued numbers. Each element \\( x_n
 
 In my opinion the best to way to understand the FFT is using an example of size 8 or where \\( N = 8 \\). The reason for this is for smaller N we don't have enough stages, and for larger N the math becomes untamely. Stand by as we walk through a concrete example.
 
-$$ 
+$$
 X_k = \sum_ {n=0}^ {8-1}x_n W_{8}^{kn}
 $$
 
@@ -139,12 +139,12 @@ As you can see there is a logarithmic pattern here. Each time we cut the element
 
 Let's now take the DFT function and break it down into two DFTs by even and odd numbered indices:
 
-$$ 
+$$
 \sum_ {n=0}^ {N-1}x_n e^{-2 \pi i k n / N}
 = \sum_ {m=0}^ {N/2-1}x_{2m} e^{-2 \pi i k (2m) / N} + \sum_ {m=0}^ {N/2-1}x_{2m+1} e^{-2 \pi i k (2m+1) / N}
 $$
 
-$$ 
+$$
 \sum_ {n=0}^ {N-1}x_n e^{-2 \pi i k n / N}
 = \sum_ {m=0}^ {N/2-1}x_{2m} e^{-2 \pi i k (2m) / N} + e^{-2 \pi i k / N} \sum_ {m=0}^ {N/2-1}x_{2m+1} e^{-2 \pi i k (2m) / N}
 $$
@@ -198,7 +198,7 @@ $$
 \begin{split}
 X_k & = \sum_ {n=0}^ {8-1}x_n W_{8}^{kn} \\\\
     & = \sum_ {m=0}^ {4-1}x_{2m} W_{4}^{km} + W_{8}^{k} \sum_ {m=0}^ {4-1}x_{2m+1} W_{4}^{km} \\\\
-    & = ( \sum_ {p=0}^ {2-1}x_{2p} W_{2}^{kp} + W_{4}^{k} \sum_ {p=0}^ {2-1}x_{2p+1} W_{2}^{kp}) + W_{8}^{k}( \sum_ {p=0}^{2-1}x_{2p} W_{2}^{kp} + W_4^k \sum_{p=0}^{2-1}x_{2p+1} W_{2}^{kp})  \\\\
+    & = ( \sum_ {p=0}^ {2-1}x_{4p} W_{2}^{kp} + W_{4}^{k} \sum_ {p=0}^ {2-1}x_{4p+1} W_{2}^{kp}) + W_{8}^{k}( \sum_ {p=0}^{2-1}x_{4p} W_{2}^{kp} + W_4^k \sum_{p=0}^{2-1}x_{4p+1} W_{2}^{kp})  \\\\
     & = (x_0+x_4 W_2^k) + W_4^k (x_2+x_6 W_2^k) + W_8^k ( (x_1+x_5 W_2^k) + W_4^k (x_3+x_7 W_2^k))
 \end{split}
 \end{equation}
@@ -221,7 +221,7 @@ $$
 
 As we'll see later the weights \\( W_2^k \\) only take on 2 values, leaving 8 values to store.
 
-### Stage 2: Two parts of Four 
+### Stage 2: Two parts of Four
 
 $$
 \begin{align}
@@ -240,7 +240,7 @@ $$
 \end{align}
 $$
 
-For our third stage we only have one equation, however \\( W_8^k \\) can take on 8 values and thus we have 8 values to store. 
+For our third stage we only have one equation, however \\( W_8^k \\) can take on 8 values and thus we have 8 values to store.
 
 ## Exploit the Symmetry of the Weights
 
@@ -265,7 +265,7 @@ When we have \\( W_2^k \\) we only have 2 values as we walk around the unit circ
 
 Let's break this down into 8 values as we have for our example.
 
-$$ W_2^k = e^{- \pi i k } = (-1)^k = 
+$$ W_2^k = e^{- \pi i k } = (-1)^k =
 \begin{bmatrix}
     1 \\\\
     -1 \\\\
@@ -335,7 +335,7 @@ Let's take our fully broken down equation:
 
 $$
 X_k
-= (x_0+x_4 W_2^k) + W_4^k (x_2+x_6 W_2^k) + W_8^k ( (x_1+x_5 W_2^k) + W_4^k (x_3+x_7 W_2^k)) 
+= (x_0+x_4 W_2^k) + W_4^k (x_2+x_6 W_2^k) + W_8^k ( (x_1+x_5 W_2^k) + W_4^k (x_3+x_7 W_2^k))
 $$
 
 Let's take some example values of the result from bins of the FFT, \\( X_0, X_1, X_4 \\).
@@ -345,7 +345,7 @@ $$
 X_0 &= (x_0+x_4) + (x_2+x_6) + (x_1+x_5) + (x_3+x_7) \\\\
 X_1 &= (x_0 - x_4) -i (x_2 - x_6) + \frac{1}{\sqrt{2}}(1-i) ( (x_1 -x_5) - i (x_3 - x_7)) \\\\
 X_4 &= (x_0 + x_4) + (x_2 + x_6) - ( (x_1 +x_5) + (x_3 + x_7))
-\end{align} 
+\end{align}
 $$
 
 Note, the symmetry of \\( X_0 \\) and \\( X_4 \\).
