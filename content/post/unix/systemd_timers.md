@@ -184,10 +184,10 @@ make[1]: Leaving directory '/home/pi/foo'
 
 # Downloading
 
-Please download [foo-1.3.tar.gz]({{< absURL "/code/foo-1.3.tar.gz" >}}) with the following usage.
+Please download [foo-1.3.tar.gz]({{ absURL "/code/foo-1.3.tar.gz" }}) with the following usage.
 
 {{< highlight bash >}}
-$ wget {{< absURL "/code/foo-1.3.tar.gz" >}}
+$ wget {{ absURL "/code/foo-1.3.tar.gz" }}
 $ tar zxf foo-1.3.tar.gz
 $ cd foo
 $ ./configure

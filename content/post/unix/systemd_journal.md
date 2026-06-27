@@ -301,7 +301,7 @@ foo_SOURCES = main.c
 A new version of [foo-1.1](/code/foo-1.1.tar.gz) was created.
 
 {{< highlight text >}}
-wget {{< absURL "/code/foo-1.1.tar.gz" >}}
+wget {{ absURL "/code/foo-1.1.tar.gz" }}
 tar zxf foo-1.1.tar.gz
 cd foo
 ./configure

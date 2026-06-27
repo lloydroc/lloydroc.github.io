@@ -52,7 +52,7 @@ $ exit # logout for groups to take effect
 Here are the steps to install the agent. The software comes packaged as an `autotools` project. Enter this on a terminal on the Raspberry Pi as the `pi` user.
 
 {{< highlight bash >}}
-$ wget {{< absURL "/code/tf_mini_plus_rpi-1.1.tar.gz" >}}
+$ wget {{ absURL "/code/tf_mini_plus_rpi-1.1.tar.gz" }}
 $ tar zxf tf_mini_plus_rpi-1.1.tar.gz
 $ cd tf_mini_plus_rpi-1.1
 $ ./configure

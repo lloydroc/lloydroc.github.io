@@ -82,7 +82,7 @@ This project is the source and not meant to install. That is to say we could the
 
 ```
 apt install libasound2-dev
-wget {{< absURL "/code/aclip-1.0.tar.gz" >}}
+wget {{ absURL "/code/aclip-1.0.tar.gz" }}
 tar xf aclip-1.0.tar.gz
 cd aclip-1.0
 ./configure

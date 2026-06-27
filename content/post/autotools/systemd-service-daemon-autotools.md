@@ -171,7 +171,7 @@ Notice that we just created a *New-Style Daemon*. This isn't SysV compatible, bu
 In the sections below I'll go through creation of an autotools project that contains `systemd` unit files and will install them. Before I get into the `autoconf`, and `automake` files let's see how the project can be used. It's distributed as a tarball. Please go ahead and download it to follow along.
 
 {{< highlight bash "linenos=table">}}
-wget {{< absURL "/code/foo-1.0.tar.gz" >}}
+wget {{ absURL "/code/foo-1.0.tar.gz" }}
 tar zxf foo-1.0.tar.gz
 cd foo
 ./configure
