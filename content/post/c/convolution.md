@@ -1,7 +1,7 @@
 ---
 title: Simple Convolution in C
 categories: ["c"]
-tags: ["convolution", "signal processing"]
+tags: ["convolution", "signal processing", "animation"]
 comments: true
 date: "2018-10-17T06:10:00Z"
 math: true

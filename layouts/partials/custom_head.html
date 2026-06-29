@@ -29,32 +29,54 @@
 <style>
   :root {
     color-scheme: dark;
-    background-color: #0e1220;
-    color: #e8eef7;
+    --bg: #08111f;
+    --surface: #0f172a;
+    --surface-2: #121c2e;
+    --text: #f3f6fb;
+    --muted: #9db0c4;
+    --border: #243244;
+    --accent: #7dd3fc;
+    --accent-strong: #38bdf8;
+    --link: #7dd3fc;
+    --link-hover: #a7f3d0;
   }
 
   html, body {
-    background: #0e1220 !important;
-    color: #e8eef7 !important;
+    background: var(--bg) !important;
+    color: var(--text) !important;
+  }
+
+  body {
+    line-height: 1.65;
   }
 
   a, a:visited {
-    color: #7bb7ff !important;
+    color: var(--link) !important;
   }
 
-  body, p, li, dt, dd, blockquote, figcaption, table, th, td {
-    color: #e8eef7 !important;
+  a:hover, a:focus {
+    color: var(--link-hover) !important;
+  }
+
+  body, p, li, dt, dd, figcaption, table, th, td {
+    color: var(--text) !important;
   }
 
   blockquote {
-    background: rgba(255,255,255,0.03) !important;
-    border-left: 0.35rem solid rgba(255,255,255,0.15) !important;
+    background: rgba(125, 211, 252, 0.08) !important;
+    border-left: 0.35rem solid rgba(125, 211, 252, 0.4) !important;
+    color: var(--muted) !important;
   }
 
   pre, code, .highlight, .chroma, .highlight pre, .chroma pre, code[class*="language-"], pre[class*="language-"] {
-    background: #111827 !important;
-    color: #e8eef7 !important;
-    border-color: #2d3748 !important;
+    background: var(--surface-2) !important;
+    color: var(--text) !important;
+    border: 1px solid var(--border) !important;
+  }
+
+  ::selection {
+    background: rgba(125, 211, 252, 0.35) !important;
+    color: #ffffff !important;
   }
 
   img, svg, video {
