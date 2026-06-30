@@ -1,10 +1,11 @@
-<svg viewBox="0 0 382 202" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg viewBox="0 0 382 202" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="color: var(--text, #f3f6fb);">
 <desc>A Mealy State Machine from a Simple Convolutional Code</desc>
 <style>
+  text { fill: currentColor; font-family: sans-serif; }
 .state {
-  stroke: black;
+  stroke: currentColor;
   stroke-width: 1;
-  fill: white;
+  fill: rgba(255, 255, 255, 0.12);
 }
 .state-text {
   font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
@@ -19,29 +20,29 @@
   font-size: 12px;
 }
 .state-line {
-  stroke: black;
+  stroke: currentColor;
   stroke-width: 1;
   fill: none;
 }
 </style>
   <defs>
     <marker id="arrowhead_down" markerWidth="10" markerHeight="10" refX="5" refY="0" orient="0">
-      <polygon points="0,0 10,0 5,10 0,0" />
+      <polygon points="0,0 10,0 5,10 0,0" fill="#f3f6fb" stroke="#f3f6fb" stroke-width="0.5" />
     </marker>
     <marker id="arrowhead_00" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="32">
-      <polygon points="0,10 10,10 5,0 0,10"/>
+      <polygon points="0,10 10,10 5,0 0,10" fill="#f3f6fb" stroke="#f3f6fb" stroke-width="0.5"/>
     </marker>
     <marker id="arrowhead_11" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="-30">
-      <polygon points="0,10 10,10 5,0 0,10"/>
+      <polygon points="0,10 10,10 5,0 0,10" fill="#f3f6fb" stroke="#f3f6fb" stroke-width="0.5"/>
     </marker>
     <marker id="arrowhead_up" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="0">
-      <polygon points="0,10 10,10 5,0 0,10"/>
+      <polygon points="0,10 10,10 5,0 0,10" fill="#f3f6fb" stroke="#f3f6fb" stroke-width="0.5"/>
     </marker>
     <marker id="arrowhead_right" markerWidth="10" markerHeight="10" refX="0" refY="5">
-      <polygon points="0,0 10,5 0,10 0,0" />
+      <polygon points="0,0 10,5 0,10 0,0" fill="#f3f6fb" stroke="#f3f6fb" stroke-width="0.5" />
     </marker>
     <marker id="arrowhead_left" markerWidth="10" markerHeight="10" refX="10" refY="5">
-      <polygon points="0,5 10,0 10,10 0,5" />
+      <polygon points="0,5 10,0 10,10 0,5" fill="#f3f6fb" stroke="#f3f6fb" stroke-width="0.5" />
     </marker>
   </defs>
 

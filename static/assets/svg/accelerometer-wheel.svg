@@ -1,10 +1,11 @@
-<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="color: var(--text, #f3f6fb);">
 <desc>An Accelerometer and Gyrometer on a Wheel</desc>
 <style>
+  text { fill: currentColor; font-family: sans-serif; }
 .wheel {
-  stroke: black;
+  stroke: currentColor;
   stroke-width: 3px;
-  fill: white;
+  fill: rgba(255, 255, 255, 0.12);
 }
 .axis-text {
   font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;

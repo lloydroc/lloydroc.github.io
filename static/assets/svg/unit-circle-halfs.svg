@@ -1,5 +1,6 @@
-<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" style="color: var(--text, #f3f6fb);">
   <style>
+  text { fill: currentColor; font-family: sans-serif; }
     .small {
       dominant-baseline: central;
       text-anchor: middle;
@@ -18,7 +19,7 @@
       fill: #f0027f;
     }
     .arrow {
-      stroke: black;
+      stroke: currentColor;
       fill: black;
     }
     svg {
@@ -39,8 +40,8 @@
 
   <g transform="translate(160,160)">
     <circle cx="0" cy="0" r="100" stroke="grey" stroke-width="3" fill="white" />
-    <line x1="0" y1="-150" x2="0" y2="150" style="stroke:rgb(0,0,0);stroke-width:2" />
-    <line x1="-150" y1="0" x2="150" y2="0" style="stroke:rgb(0,0,0);stroke-width:2" />
+    <line x1="0" y1="-150" x2="0" y2="150" style="stroke:currentColor;stroke-width:2" />
+    <line x1="-150" y1="0" x2="150" y2="0" style="stroke:currentColor;stroke-width:2" />
 
     <circle cx="100" cy="0" r="10" stroke="black" stroke-width="3" fill="red" />
     <circle cx="-100" cy="0" r="10" stroke="black" stroke-width="3" fill="red" />

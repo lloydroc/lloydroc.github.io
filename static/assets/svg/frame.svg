@@ -1,6 +1,7 @@
-<svg viewBox="0 0 320 120" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 320 120" xmlns="http://www.w3.org/2000/svg" style="color: var(--text, #f3f6fb);">
 <desc>C Code Converted disassembled to ARM Assembled live in action showing the stack frame</desc>
 <style>
+  text { fill: currentColor; font-family: sans-serif; }
 .ccode {
   font-family: serif;
   font-size: 8px;
@@ -31,11 +32,11 @@
   font-weight: bold;
 }
 .headerline {
-  stroke: black
+  stroke: currentColor
 }
 .stackframe {
-  fill: white;
-  stroke: black;
+  fill: rgba(255, 255, 255, 0.12);
+  stroke: currentColor;
   stroke-width: 1;
 }
 </style>

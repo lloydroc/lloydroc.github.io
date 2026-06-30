@@ -1,12 +1,13 @@
-<svg viewBox="0 0 318 35" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg viewBox="0 0 318 35" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="color: #f3f6fb;">
 <desc>C Code Converted disassembled to ARM Assembled live in action showing the stack frame</desc>
 <style>
 .exact {
+  fill: currentColor;
   font-family: Courier, serif;
   font-size: 8px;
 }
 .matchline {
-  stroke: grey;
+  stroke: currentColor;
   stroke-width: 0.5;
 }
 </style>

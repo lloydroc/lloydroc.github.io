@@ -1,11 +1,16 @@
-<svg viewBox="0 0 320 90" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg viewBox="0 0 320 90" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="color: var(--text, #f3f6fb);">
 <desc>A Trellis Diagram for a Viterbi Decoder</desc>
 <style>
+  text { fill: #f3f6fb; font-family: sans-serif; }
+  marker polygon, marker path {
+    fill: #f3f6fb;
+    stroke: #f3f6fb;
+  }
 .time {
   font-size:10px;
 }
 .t0 {
-  stroke: black;
+  stroke: #f3f6fb;
   fill: blue;
   fill-opacity: 50%;
 }
@@ -16,22 +21,22 @@
   stroke-width: 1px;
 }
 .dlrect {
-  stroke: black;
+  stroke: #f3f6fb;
   stroke-width: 1px;
-  fill: white;
+  fill: rgba(255, 255, 255, 0.12);
 }
 
 </style>
   <defs>
     <marker id="arrowhead_right" markerWidth="5" markerHeight="5" refX="0" refY="2.5" orient="auto">
-      <polygon points="0,0 5,2.5 0,5 0,0" />
+      <polygon points="0,0 5,2.5 0,5 0,0" fill="#f3f6fb" stroke="#f3f6fb" stroke-width="0.5" />
     </marker>
   </defs>
 
   <g transform="translate(10,20)">
     <g transform="translate(0,0)">
-      <line x1="15" x2="15" y1="0" y2="-10" stroke="black" />
-      <line x1="15" x2="75" y1="-10" y2="-10" stroke="black" marker-end="url(#arrowhead_right)"/>
+      <line x1="15" x2="15" y1="0" y2="-10" stroke="#f3f6fb" />
+      <line x1="15" x2="75" y1="-10" y2="-10" stroke="#f3f6fb" marker-end="url(#arrowhead_right)"/>
       <rect class="dlrect" width="30" height="30"/>
       <text x="10" y="17" class="time">
        <tspan>
@@ -47,8 +52,8 @@
       </text>
     </g>
     <g transform="translate(30,0)">
-      <line x1="15" x2="15" y1="30" y2="40" stroke="black" />
-      <line x1="15" x2="45" y1="40" y2="40" stroke="black" marker-end="url(#arrowhead_right)"/>
+      <line x1="15" x2="15" y1="30" y2="40" stroke="#f3f6fb" />
+      <line x1="15" x2="45" y1="40" y2="40" stroke="#f3f6fb" marker-end="url(#arrowhead_right)"/>
       <rect class="dlrect" width="30" height="30"/>
       <text x="10" y="17" class="time">
        <tspan>

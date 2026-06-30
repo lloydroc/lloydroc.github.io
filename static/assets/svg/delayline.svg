@@ -1,10 +1,11 @@
-<svg viewBox="0 0 320 140" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 320 140" xmlns="http://www.w3.org/2000/svg" style="color: var(--text, #f3f6fb);">
   <style>
+  text { fill: currentColor; font-family: sans-serif; }
     .time {
       font-size:10px;
     }
     .t0 {
-      stroke: black;
+      stroke: currentColor;
       fill: blue;
       fill-opacity: 50%;
     }
@@ -15,9 +16,9 @@
       stroke-width: 1px;
     }
     .dlrect {
-      stroke: black;
+      stroke: currentColor;
       stroke-width: 1px;
-      fill: white;
+      fill: rgba(255, 255, 255, 0.12);
     }
   </style>
 

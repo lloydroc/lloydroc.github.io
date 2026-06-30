@@ -1,13 +1,14 @@
-<svg viewBox="0 0 160 120" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg viewBox="0 0 160 120" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="color: var(--text, #f3f6fb);">
 <desc>A Trellis Diagram for a Viterbi Decoder</desc>
 <style>
+  text { fill: currentColor; font-family: sans-serif; }
 .atrans {
   stroke: grey;
   stroke-width: 1;
   fill: black;
 }
 .ptrans {
-  stroke: black;
+  stroke: currentColor;
   stroke-width: 1;
   border-style: dotted;
   fill: black;

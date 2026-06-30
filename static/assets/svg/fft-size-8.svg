@@ -1,4 +1,4 @@
-<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" style="color: var(--text, #f3f6fb);">
   <style>
     .small {
       dominant-baseline: central;
@@ -19,7 +19,7 @@
     }
     .arrow {
       stroke: white;
-      fill: white;
+      fill: rgba(255, 255, 255, 0.12);
     }
   </style>
 

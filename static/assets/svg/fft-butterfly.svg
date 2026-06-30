@@ -1,5 +1,6 @@
-<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" style="color: var(--text, #f3f6fb);">
   <style>
+  text { fill: currentColor; font-family: sans-serif; }
     .small {
       dominant-baseline: central;
       text-anchor: middle;
@@ -18,7 +19,7 @@
       fill: #f0027f;
     }
     .arrow {
-      stroke: black;
+      stroke: currentColor;
       fill: black;
     }
     svg {
@@ -88,24 +89,24 @@
       <circle cx="0" cy="175" r="3" stroke="black" stroke-width="3" fill="white" />
     </g>
     <g transform="translate(47,0)">
-      <line x1="1" y1="0"   x2="99" y2="0"   style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="1" y1="25"  x2="99" y2="25"  style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="1" y1="50"  x2="99" y2="50"  style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="1" y1="75"  x2="99" y2="75"  style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="1" y1="100" x2="99" y2="100" style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="1" y1="125" x2="99" y2="125" style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="1" y1="150" x2="99" y2="150" style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="1" y1="175" x2="99" y2="175" style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
+      <line x1="1" y1="0"   x2="99" y2="0"   style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="1" y1="25"  x2="99" y2="25"  style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="1" y1="50"  x2="99" y2="50"  style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="1" y1="75"  x2="99" y2="75"  style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="1" y1="100" x2="99" y2="100" style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="1" y1="125" x2="99" y2="125" style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="1" y1="150" x2="99" y2="150" style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="1" y1="175" x2="99" y2="175" style="stroke:currentColor;stroke-width:2" marker-end="" />
     </g>
     <g transform="translate(47,0)">
-      <line x1="1" y1="25"  x2="99" y2="0"   style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="1" y1="0"   x2="99" y2="25"  style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="1" y1="75"  x2="99" y2="50"  style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="1" y1="50"  x2="99" y2="75"  style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="1" y1="125" x2="99" y2="100" style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="1" y1="100" x2="99" y2="125" style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="1" y1="175" x2="99" y2="150" style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="1" y1="150" x2="99" y2="175" style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
+      <line x1="1" y1="25"  x2="99" y2="0"   style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="1" y1="0"   x2="99" y2="25"  style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="1" y1="75"  x2="99" y2="50"  style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="1" y1="50"  x2="99" y2="75"  style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="1" y1="125" x2="99" y2="100" style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="1" y1="100" x2="99" y2="125" style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="1" y1="175" x2="99" y2="150" style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="1" y1="150" x2="99" y2="175" style="stroke:currentColor;stroke-width:2" marker-end="" />
     </g>
 
     <!-- stage 2 -->
@@ -120,24 +121,24 @@
       <circle cx="0" cy="175" r="3" stroke="black" stroke-width="3" fill="white" />
     </g>
     <g transform="translate(147,0)">
-      <line x1="5" y1="0"   x2="99" y2="0"   style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="5" y1="25"  x2="99" y2="25"  style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="5" y1="50"  x2="99" y2="50"  style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="5" y1="75"  x2="99" y2="75"  style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="5" y1="100" x2="99" y2="100" style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="5" y1="125" x2="99" y2="125" style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="5" y1="150" x2="99" y2="150" style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="5" y1="175" x2="99" y2="175" style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
+      <line x1="5" y1="0"   x2="99" y2="0"   style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="5" y1="25"  x2="99" y2="25"  style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="5" y1="50"  x2="99" y2="50"  style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="5" y1="75"  x2="99" y2="75"  style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="5" y1="100" x2="99" y2="100" style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="5" y1="125" x2="99" y2="125" style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="5" y1="150" x2="99" y2="150" style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="5" y1="175" x2="99" y2="175" style="stroke:currentColor;stroke-width:2" marker-end="" />
     </g>
     <g transform="translate(147,0)">
-      <line x1="5" y1="0"   x2="99" y2="50"  style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="5" y1="25"  x2="99" y2="75"  style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="5" y1="50"  x2="99" y2="0"   style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="5" y1="75"  x2="99" y2="25"  style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="5" y1="100" x2="99" y2="150" style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="5" y1="125" x2="99" y2="175" style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="5" y1="150" x2="99" y2="100" style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="5" y1="175" x2="99" y2="125" style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
+      <line x1="5" y1="0"   x2="99" y2="50"  style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="5" y1="25"  x2="99" y2="75"  style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="5" y1="50"  x2="99" y2="0"   style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="5" y1="75"  x2="99" y2="25"  style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="5" y1="100" x2="99" y2="150" style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="5" y1="125" x2="99" y2="175" style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="5" y1="150" x2="99" y2="100" style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="5" y1="175" x2="99" y2="125" style="stroke:currentColor;stroke-width:2" marker-end="" />
     </g>
 
     <!-- stage 3 -->
@@ -152,24 +153,24 @@
       <circle cx="0" cy="175" r="3" stroke="black" stroke-width="3" fill="white" />
     </g>
     <g transform="translate(247,0)">
-      <line x1="5" y1="0"   x2="90" y2="0"   style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="5" y1="25"  x2="90" y2="25"  style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="5" y1="50"  x2="90" y2="50"  style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="5" y1="75"  x2="90" y2="75"  style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="5" y1="100" x2="90" y2="100" style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="5" y1="125" x2="90" y2="125" style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="5" y1="150" x2="90" y2="150" style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="5" y1="175" x2="90" y2="175" style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
+      <line x1="5" y1="0"   x2="90" y2="0"   style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="5" y1="25"  x2="90" y2="25"  style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="5" y1="50"  x2="90" y2="50"  style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="5" y1="75"  x2="90" y2="75"  style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="5" y1="100" x2="90" y2="100" style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="5" y1="125" x2="90" y2="125" style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="5" y1="150" x2="90" y2="150" style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="5" y1="175" x2="90" y2="175" style="stroke:currentColor;stroke-width:2" marker-end="" />
     </g>
     <g transform="translate(247,0)">
-      <line x1="5" y1="0"   x2="90" y2="100" style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="5" y1="25"  x2="90" y2="125" style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="5" y1="50"  x2="90" y2="150" style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="5" y1="75"  x2="90" y2="175" style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="5" y1="100" x2="90" y2="0"   style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="5" y1="125" x2="90" y2="25"  style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="5" y1="150" x2="90" y2="50"  style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
-      <line x1="5" y1="175" x2="90" y2="75"  style="stroke:rgb(0,0,0);stroke-width:2" marker-end="" />
+      <line x1="5" y1="0"   x2="90" y2="100" style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="5" y1="25"  x2="90" y2="125" style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="5" y1="50"  x2="90" y2="150" style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="5" y1="75"  x2="90" y2="175" style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="5" y1="100" x2="90" y2="0"   style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="5" y1="125" x2="90" y2="25"  style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="5" y1="150" x2="90" y2="50"  style="stroke:currentColor;stroke-width:2" marker-end="" />
+      <line x1="5" y1="175" x2="90" y2="75"  style="stroke:currentColor;stroke-width:2" marker-end="" />
     </g>
   </g>
 

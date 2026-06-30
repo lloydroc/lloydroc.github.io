@@ -1,5 +1,6 @@
-<svg viewBox="0 0 290 210" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 290 210" xmlns="http://www.w3.org/2000/svg" style="color: var(--text, #f3f6fb);">
   <style>
+  text { fill: currentColor; font-family: sans-serif; }
     .small {
       dominant-baseline: central;
       text-anchor: middle;
@@ -18,7 +19,7 @@
       fill: #f0027f;
     }
     .arrow {
-      stroke: black;
+      stroke: currentColor;
       fill: black;
     }
     svg {
@@ -79,14 +80,14 @@
       <circle cx="0" cy="175" r="10" stroke="black" stroke-width="3" fill="white" />
     </g>
     <g transform="translate(57,0)">
-      <line x1="0" y1="0" x2="140" y2="0" style="stroke:rgb(0,0,0);stroke-width:2" marker-end="url(#arrowhead_right)" />
-      <line x1="0" y1="25" x2="140" y2="95" style="stroke:rgb(0,0,0);stroke-width:2" marker-end="url(#arrowhead_right)" />
-      <line x1="0" y1="50" x2="140" y2="50" style="stroke:rgb(0,0,0);stroke-width:2" marker-end="url(#arrowhead_right)" />
-      <line x1="0" y1="75" x2="140" y2="140" style="stroke:rgb(0,0,0);stroke-width:2" marker-end="url(#arrowhead_right)" />
-      <line x1="0" y1="100" x2="140" y2="30" style="stroke:rgb(0,0,0);stroke-width:2" marker-end="url(#arrowhead_right)" />
-      <line x1="0" y1="125" x2="140" y2="125" style="stroke:rgb(0,0,0);stroke-width:2" marker-end="url(#arrowhead_right)" />
-      <line x1="0" y1="150" x2="140" y2="80" style="stroke:rgb(0,0,0);stroke-width:2" marker-end="url(#arrowhead_right)" />
-      <line x1="0" y1="175" x2="140" y2="175" style="stroke:rgb(0,0,0);stroke-width:2" marker-end="url(#arrowhead_right)" />
+      <line x1="0" y1="0" x2="140" y2="0" style="stroke:currentColor;stroke-width:2" marker-end="url(#arrowhead_right)" />
+      <line x1="0" y1="25" x2="140" y2="95" style="stroke:currentColor;stroke-width:2" marker-end="url(#arrowhead_right)" />
+      <line x1="0" y1="50" x2="140" y2="50" style="stroke:currentColor;stroke-width:2" marker-end="url(#arrowhead_right)" />
+      <line x1="0" y1="75" x2="140" y2="140" style="stroke:currentColor;stroke-width:2" marker-end="url(#arrowhead_right)" />
+      <line x1="0" y1="100" x2="140" y2="30" style="stroke:currentColor;stroke-width:2" marker-end="url(#arrowhead_right)" />
+      <line x1="0" y1="125" x2="140" y2="125" style="stroke:currentColor;stroke-width:2" marker-end="url(#arrowhead_right)" />
+      <line x1="0" y1="150" x2="140" y2="80" style="stroke:currentColor;stroke-width:2" marker-end="url(#arrowhead_right)" />
+      <line x1="0" y1="175" x2="140" y2="175" style="stroke:currentColor;stroke-width:2" marker-end="url(#arrowhead_right)" />
     </g>
   </g>
 

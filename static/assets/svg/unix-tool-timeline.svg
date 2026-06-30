@@ -1,6 +1,7 @@
-<svg width="640" height="10000" viewBox="0 0 640 10000" xmlns="http://www.w3.org/2000/svg">
+<svg width="640" height="10000" viewBox="0 0 640 10000" xmlns="http://www.w3.org/2000/svg" style="color: var(--text, #f3f6fb);">
 <desc>Unix Command Line Tool Timeline</desc>
   <style>
+  text { fill: currentColor; font-family: sans-serif; }
     .timemonthtick {
       stroke-width: 1px;
       fill: grey;
@@ -27,7 +28,7 @@
     }
     .timeline {
       stroke-width: 1px;
-      stroke: black;
+      stroke: currentColor;
     }
     .timetick {
       stroke-width: 1px;

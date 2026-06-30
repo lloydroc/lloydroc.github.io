@@ -1,4 +1,4 @@
-<svg viewBox="0 0 320 500" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 320 500" xmlns="http://www.w3.org/2000/svg" style="color: var(--text, #f3f6fb);">
 <desc>
 Animation of heap allocation in c.
 1. All invisible
@@ -8,6 +8,7 @@ Animation of heap allocation in c.
 5. Allocation memblock3 of 64 bytes placing it where memblock1 was in step 1
 </desc>
 <style>
+  text { fill: currentColor; font-family: sans-serif; }
 .text {
   font-family: serif;
   font-size: 12px;
@@ -17,13 +18,13 @@ Animation of heap allocation in c.
   stroke-width: 0;
 }
 .stackframe {
-  fill: white;
-  stroke: black;
+  fill: rgba(255, 255, 255, 0.12);
+  stroke: currentColor;
   stroke-width: 1;
 }
 .memory {
-  fill: white;
-  stroke: black;
+  fill: rgba(255, 255, 255, 0.12);
+  stroke: currentColor;
   stroke-width: 2;
 }
 </style>

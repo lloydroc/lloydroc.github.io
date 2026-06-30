@@ -1,5 +1,6 @@
-<svg viewBox="0 0 320 100" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 320 100" xmlns="http://www.w3.org/2000/svg" style="color: var(--text, #f3f6fb);">
   <style>
+  text { fill: currentColor; font-family: sans-serif; }
     .text {
       font-size: 12px;
     }
@@ -7,22 +8,22 @@
       dominant-baseline: central;
       text-anchor: middle;
       font-size: 10px;
-      fill: white;
+      fill: rgba(255, 255, 255, 0.12);
     }
     .server {
       fill: red;
-      stroke: black;
+      stroke: currentColor;
     }
     .client {
       fill: blue;
-      stroke: black;
+      stroke: currentColor;
     }
     .spi {
-      fill: white;
-      stroke: black;
+      fill: rgba(255, 255, 255, 0.12);
+      stroke: currentColor;
     }
     line {
-    stroke: black;
+    stroke: currentColor;
     stroke-width: 2;
     }
    

@@ -1,5 +1,6 @@
-  <svg viewBox="0 0 320 360" xmlns="http://www.w3.org/2000/svg">
+  <svg viewBox="0 0 320 360" xmlns="http://www.w3.org/2000/svg" style="color: var(--text, #f3f6fb);">
   <style>
+  text { fill: currentColor; font-family: sans-serif; }
     .small {
       dominant-baseline: central;
       text-anchor: middle;
@@ -9,19 +10,19 @@
       dominant-baseline: central;
       text-anchor: middle;
       font-size: 10px;
-      fill: white;
+      fill: rgba(255, 255, 255, 0.12);
     }
     .server {
       fill: red;
-      stroke: black;
+      stroke: currentColor;
     }
     .client {
       fill: blue;
-      stroke: black;
+      stroke: currentColor;
     }
     .trans {
-      fill: white;
-      stroke: black;
+      fill: rgba(255, 255, 255, 0.12);
+      stroke: currentColor;
     }
   </style>
 
